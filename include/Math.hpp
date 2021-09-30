@@ -9,19 +9,16 @@ class Math
 {
 public:
 	template <typename T>
-	concept floating_point = std::is_floating_point_v<T>;
-
-	template <typename T>
-	requires floating_point<T>
 	static T radians(T degrees)
 	{
+		static_assert(std::is_floating_point<T>::value);
 		return degrees * pi / 180;
 	}
 
 	template <typename T>
-	requires floating_point<T>
 	static T degrees(T radians)
 	{
+		static_assert(std::is_floating_point<T>::value);
 		return radians * 180 / pi;
 	}
 

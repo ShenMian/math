@@ -31,3 +31,12 @@
 *.out
 *.app
 /.vs
+
+[Bb]uild/
+[Bb]in/
+
+# Visual Studio
+*.sln
+*.vcxproj
+*.filters
+*.user
