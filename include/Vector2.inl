@@ -107,3 +107,34 @@ inline Vector2T<T>& Vector2T<T>::operator/=(const T& rhs)
     y /= rhs;
     return *this;
 }
+
+template <typename T>
+Vector2T<T> Vector2T<T>::operator+(const Vector2T<T>& rhs) const
+{
+    return {x + rhs.x, y + rhs.y};
+}
+
+template <typename T>
+Vector2T<T> Vector2T<T>::operator-(const Vector2T<T>& rhs) const
+{
+    return {x - rhs.x, y - rhs.y};
+}
+
+template <typename T>
+Vector2T<T> Vector2T<T>::operator*(const T& rhs) const
+{
+    return {x * rhs, y * rhs};
+}
+
+template <typename T>
+Vector2T<T> Vector2T<T>::operator/(const T& rhs) const
+{
+    assert(rhs);
+    return {x / rhs, y / rhs};
+}
+
+template <typename T>
+Vector2T<T> Vector2T<T>::operator-() const
+{
+    return {-x, -y};
+}
