@@ -8,19 +8,25 @@
 class Math
 {
 public:
-	template <typename T>
-	static T radians(T degrees)
+    static double radians(double degrees)
 	{
-		static_assert(std::is_floating_point<T>::value);
 		return degrees * pi / 180;
 	}
 
-	template <typename T>
-	static T degrees(T radians)
+	static double degrees(double radians)
 	{
-		static_assert(std::is_floating_point<T>::value);
 		return radians * 180 / pi;
 	}
 
-	static const double pi = 3.14159265358979323846;
+    static double radians(float degrees)
+    {
+        return degrees * pi / 180;
+    }
+
+    static double degrees(float radians)
+    {
+        return radians * 180 / pi;
+    }
+
+	inline static constexpr double pi = 3.14159265358979323846;
 };

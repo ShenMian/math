@@ -1,7 +1,7 @@
 // Copyright 2021 SMS
 // License(Apache-2.0)
 
-#include "Vector2.hpp"
+#include "vector2.hpp"
 #include <cassert>
 #include <cmath>
 #include <concepts>
@@ -44,6 +44,46 @@ inline Vector2T<T> Vector2T<T>::normalized() const
 {
     Vector2T v(*this);
     return v.normalize();
+}
+
+template <typename T>
+inline T Vector2T<T>::dot(const Vector2T& rhs) const
+{
+    return x * rhs.x + y * rhs.y;
+}
+
+template <typename T>
+inline T Vector2T<T>::cross(const Vector2T& rhs) const
+{
+    return x * rhs.y - y * rhs.x;
+}
+
+template <typename T>
+inline T Vector2T<T>::angle() const
+{
+    return std::atan2(y, x);
+}
+
+template <typename T>
+inline void Vector2T<T>::rotate(const Vector2T<T>& point, float angle)
+{
+    const auto sinAngle = std::sin(angle);
+    const auto cosAngle = std::cos(angle);
+
+    if(point == Vector2T::zero)
+    {
+        const auto tempX = x * cosAngle - y * sinAngle;
+        y                = y * cosAngle + x * sinAngle;
+        x                = tempX;
+    }
+    else
+    {
+        const auto tempX = x - point.x;
+        const auto tempY = y - point.y;
+
+        x = tempX * cosAngle - tempY * sinAngle + point.x;
+        y = tempY * cosAngle + tempX * sinAngle + point.y;
+    }
 }
 
 template <typename T>

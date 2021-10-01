@@ -5,7 +5,7 @@
 
 #include <cstddef>
 
-template <typename T = float>
+template <typename T>
 class Vector2T
 {
 public:
@@ -56,14 +56,29 @@ public:
 	 *
 	 * @param v 要点乘的向量.
 	 */
-	T dot(const Vector2T& v) const;
+	T dot(const Vector2T& rhs) const;
 
     /**
 	 * @brief 计算向量叉积.
 	 *
 	 * @param v 要叉乘的向量.
 	 */
-	T cross(const Vector2T& v) const;
+    T cross(const Vector2T& rhs) const;
+
+    /**
+	 * @brief 获取角度.
+	 *
+	 * @return 角度, 弧度制. 范围: [2π, -2π)
+	 */
+    T angle() const;
+
+    /**
+	 * @brief 围绕指定点旋转指定弧度.
+	 *
+	 * @param point 点.
+	 * @param angle 旋转角度, 弧度制.
+	 */
+    void rotate(const Vector2T& point, float angle);
 
     T&       operator[](size_t index);
     const T& operator[](size_t index) const;
@@ -82,11 +97,21 @@ public:
 
 	static const size_t components = 2;
 
+    static const Vector2T unit;   // (1, 1)
+    static const Vector2T unit_x; // (1, 0)
+    static const Vector2T unit_y; // (0, 1)
+    static const Vector2T zero;   // (0, 0)
+
+    static const Vector2T up;    // (0, 1)
+    static const Vector2T down;  // (0, -1)
+    static const Vector2T right; // (1, 0)
+    static const Vector2T left;  // (-1, 0)
+
 private:
 	T x, y;
 };
 
-#include "Vector2.inl"
+#include "vector2.inl"
 
 using Vector2f = Vector2T<float>;
 using Vector2d = Vector2T<double>;
