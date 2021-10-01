@@ -43,7 +43,8 @@ template <typename T>
 inline Vector2T<T> Vector2T<T>::normalized() const
 {
     Vector2T v(*this);
-    return v.normalize();
+    v.normalize();
+    return v;
 }
 
 template <typename T>
@@ -67,23 +68,35 @@ inline T Vector2T<T>::angle() const
 template <typename T>
 inline void Vector2T<T>::rotate(const Vector2T<T>& point, float angle)
 {
-    const auto sinAngle = std::sin(angle);
-    const auto cosAngle = std::cos(angle);
+    const auto sin = std::sin(angle);
+    const auto cos = std::cos(angle);
 
     if(point == Vector2T::zero)
     {
-        const auto tempX = x * cosAngle - y * sinAngle;
-        y                = y * cosAngle + x * sinAngle;
-        x                = tempX;
+        const auto tmpX = x * cos - y * sin;
+        y               = y * cos + x * sin;
+        x               = tmpX;
     }
     else
     {
         const auto tempX = x - point.x;
         const auto tempY = y - point.y;
 
-        x = tempX * cosAngle - tempY * sinAngle + point.x;
-        y = tempY * cosAngle + tempX * sinAngle + point.y;
+        x = tempX * cos - tempY * sin + point.x;
+        y = tempY * cos + tempX * sin + point.y;
     }
+}
+
+template <typename T>
+inline void* Vector2T<T>::data()
+{
+    return &x;
+}
+
+template <typename T>
+inline const void* Vector2T<T>::data() const
+{
+    return &x;
 }
 
 template <typename T>
@@ -113,7 +126,7 @@ inline bool Vector2T<T>::operator==(const Vector2T<T>& rhs) const
 template <typename T>
 inline bool Vector2T<T>::operator==(const Vector2T<T>& rhs) const
 {
-    if constexpr (std::floating_point<T>)
+    if constexpr(std::floating_point<T>)
         return (std::abs(x - rhs.x) < std::numeric_limits<T>::epsilon()) &&
                (std::abs(y - rhs.y) < std::numeric_limits<T>::epsilon());
     else

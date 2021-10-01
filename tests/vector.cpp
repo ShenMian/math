@@ -29,6 +29,9 @@ TEST(Vector2, normalize)
 
 TEST(Vector2, dot)
 {
+    EXPECT_FLOAT_EQ(Vector2(3, 4).normalized().dot(Vector2(3, 4).normalized()), 1.f);
+    EXPECT_FLOAT_EQ(Vector2(3, 4).normalized().dot(Vector2(4, -3).normalized()), 0.f);
+    EXPECT_FLOAT_EQ(Vector2(3, 4).normalized().dot(Vector2(-3, -4).normalized()), -1.f);
 }
 
 TEST(Vector2, cross)
@@ -37,9 +40,16 @@ TEST(Vector2, cross)
 
 TEST(Vector2, angle)
 {
-    EXPECT_FLOAT_EQ(Math::degrees(Vector2(1, 1).angle()), 45.f);
+    EXPECT_FLOAT_EQ((float)Math::degrees(Vector2(1, 1).angle()), 45.f);
     // EXPECT_FLOAT_EQ(Math::degrees(Vector2(1, 2).angle()), 60.f);
     // EXPECT_EQ(Math::degrees(Vector2(2, 1).angle()), 30);
+}
+
+TEST(Vector2, rotate)
+{
+    // Vector2 v(1, 1);
+    // v.rotate(Vector2(0, 0), Math::radians(45.f));
+    // EXPECT_FLOAT_EQ(Math::degrees(v.angle()), 90.f);
 }
 
 TEST(Vector2, equal)

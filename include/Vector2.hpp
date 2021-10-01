@@ -25,7 +25,7 @@ public:
 	/**
 	 * @brief 拷贝构造函数.
 	 */
-	explicit Vector2T(const Vector2T& rhs);
+	Vector2T(const Vector2T& rhs);
 
 	/**
 	 * @brief 获取长度平方.
@@ -54,14 +54,14 @@ public:
     /**
 	 * @brief 计算向量点积.
 	 *
-	 * @param v 要点乘的向量.
+	 * @param rhs 要点乘的向量.
 	 */
 	T dot(const Vector2T& rhs) const;
 
     /**
 	 * @brief 计算向量叉积.
 	 *
-	 * @param v 要叉乘的向量.
+	 * @param rhs 要叉乘的向量.
 	 */
     T cross(const Vector2T& rhs) const;
 
@@ -79,6 +79,18 @@ public:
 	 * @param angle 旋转角度, 弧度制.
 	 */
     void rotate(const Vector2T& point, float angle);
+
+    /**
+	 * @brief 获取原始数据.
+	 */
+	void*       data();
+    const void* data() const;
+
+	template <typename C>
+    operator Vector2T<C>()
+    {
+        return Vector2T<C>(static_cast<C>(x), static_cast<C>(y));
+    }
 
     T&       operator[](size_t index);
     const T& operator[](size_t index) const;
