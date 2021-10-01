@@ -53,6 +53,13 @@ inline T& Vector2T<T>::operator[](size_t index)
     return *(&x + index);
 }
 
+template <typename T>
+inline const T& Vector2T<T>::operator[](size_t index) const
+{
+    assert(index < components);
+    return *(&x + index);
+}
+
 /*
 template <typename T>
 requires std::floating_point<T>
@@ -66,13 +73,11 @@ inline bool Vector2T<T>::operator==(const Vector2T<T>& rhs) const
 template <typename T>
 inline bool Vector2T<T>::operator==(const Vector2T<T>& rhs) const
 {
-    return x == rhs.x && y == rhs.y;
-}
-
-template <typename T>
-inline bool Vector2T<T>::operator!=(const Vector2T<T>& rhs) const
-{
-    return !(*this == rhs);
+    if constexpr (std::floating_point<T>)
+        return (std::abs(x - rhs.x) < std::numeric_limits<T>::epsilon()) &&
+               (std::abs(y - rhs.y) < std::numeric_limits<T>::epsilon());
+    else
+        return x == rhs.x && y == rhs.y;
 }
 
 template <typename T>

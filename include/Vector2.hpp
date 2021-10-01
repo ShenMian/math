@@ -51,26 +51,34 @@ public:
 	 */
 	Vector2T normalized() const;
 
+    /**
+	 * @brief 计算向量点积.
+	 *
+	 * @param v 要点乘的向量.
+	 */
 	T dot(const Vector2T& v) const;
 
+    /**
+	 * @brief 计算向量叉积.
+	 *
+	 * @param v 要叉乘的向量.
+	 */
 	T cross(const Vector2T& v) const;
 
-	T& operator[](size_t index);
+    T&       operator[](size_t index);
+    const T& operator[](size_t index) const;
 
-    bool operator==(const Vector2T&) const;
-    bool operator!=(const Vector2T&) const;
-
+    bool      operator==(const Vector2T&) const;
+    bool      operator!=(const Vector2T&) const;
     Vector2T& operator+=(const Vector2T&);
     Vector2T& operator-=(const Vector2T&);
     Vector2T& operator*=(const T&);
     Vector2T& operator/=(const T&);
-
-    Vector2T operator+(const Vector2T&) const;
-    Vector2T operator-(const Vector2T&) const;
-    Vector2T operator*(const T&) const;
-    Vector2T operator/(const T&) const;
-
-    Vector2T operator-() const;
+    Vector2T  operator+(const Vector2T&) const;
+    Vector2T  operator-(const Vector2T&) const;
+    Vector2T  operator*(const T&) const;
+    Vector2T  operator/(const T&) const;
+    Vector2T  operator-() const;
 
 	static const size_t components = 2;
 
@@ -82,5 +90,5 @@ private:
 
 using Vector2f = Vector2T<float>;
 using Vector2d = Vector2T<double>;
-using Vector2i = Vector2T<std::int32_t>;
+using Vector2i = Vector2T<int32_t>;
 using Vector2  = Vector2f;
