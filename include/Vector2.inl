@@ -7,6 +7,12 @@
 #include <concepts>
 
 template <typename T>
+inline Vector2T<T>::Vector2T(const T& scalar)
+    : x(scalar), y(scalar)
+{
+}
+
+template <typename T>
 Vector2T<T>::Vector2T(const T& x, const T& y)
     : x(x), y(y)
 {

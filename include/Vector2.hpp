@@ -9,54 +9,56 @@ template <typename T>
 class Vector2T
 {
 public:
-	/**
+    /**
 	 * @brief 默认构造函数.
 	 */
-	Vector2T() = default;
+    Vector2T() = default;
 
-	/**
+    explicit Vector2T(const T& scalar);
+
+    /**
 	 * @brief 构造函数.
 	 *
 	 * @param x x 分量.
 	 * @param y y 分量.
 	 */
-	explicit Vector2T(const T& x, const T& y);
+    explicit Vector2T(const T& x, const T& y);
 
-	/**
+    /**
 	 * @brief 拷贝构造函数.
 	 */
-	Vector2T(const Vector2T& rhs);
+    Vector2T(const Vector2T& rhs);
 
-	/**
+    /**
 	 * @brief 获取长度平方.
 	 *
 	 * @see size
 	 */
-	T sizeSquared() const;
+    T sizeSquared() const;
 
-	/**
+    /**
 	 * @brief 获取长度.
 	 *
 	 * @see sizeSquared
 	 */
-	T size() const;
+    T size() const;
 
-	/**
+    /**
 	 * @brief 标准化成单位向量.
 	 */
-	Vector2T& normalize();
+    Vector2T& normalize();
 
-	/**
+    /**
 	 * @brief 获取标准化单位向量.
 	 */
-	Vector2T normalized() const;
+    Vector2T normalized() const;
 
     /**
 	 * @brief 计算向量点积.
 	 *
 	 * @param rhs 要点乘的向量.
 	 */
-	T dot(const Vector2T& rhs) const;
+    T dot(const Vector2T& rhs) const;
 
     /**
 	 * @brief 计算向量叉积.
@@ -83,10 +85,10 @@ public:
     /**
 	 * @brief 获取原始数据.
 	 */
-	void*       data();
+    void*       data();
     const void* data() const;
 
-	template <typename C>
+    template <typename C>
     operator Vector2T<C>()
     {
         return Vector2T<C>(static_cast<C>(x), static_cast<C>(y));
@@ -107,7 +109,7 @@ public:
     Vector2T  operator/(const T&) const;
     Vector2T  operator-() const;
 
-	static const size_t components = 2;
+    static const size_t components = 2;
 
     static const Vector2T unit;   // (1, 1)
     static const Vector2T unit_x; // (1, 0)
@@ -120,7 +122,8 @@ public:
     static const Vector2T left;  // (-1, 0)
 
 private:
-	T x, y;
+    T x = T();
+    T y = T();
 };
 
 #include "vector2.inl"
