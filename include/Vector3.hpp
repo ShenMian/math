@@ -86,6 +86,24 @@ public:
     T cross(const Vector3T& rhs) const;
 
     /**
+	 * @brief 获取两点之间的距离.
+	 *
+	 * @param point 另一个点.
+     * 
+	 * @see distanceSquared
+	 */
+    T distance(const Vector3T& point) const;
+
+    /**
+	 * @brief 获取两点之间的距离的平方.
+	 *
+	 * @param point 另一个点.
+     * 
+	 * @see distance
+	 */
+    T distanceSquared(const Vector3T& point) const;
+
+    /**
 	 * @brief 获取原始数据.
 	 */
     void*       data();

@@ -48,9 +48,7 @@ inline Vector2T<T>& Vector2T<T>::normalize()
 template <typename T>
 inline Vector2T<T> Vector2T<T>::normalized() const
 {
-    Vector2T v(*this);
-    v.normalize();
-    return v;
+    return Vector2T(*this).normalize();
 }
 
 template <typename T>
@@ -91,6 +89,20 @@ inline void Vector2T<T>::rotate(const Vector2T<T>& point, float angle)
         x = tempX * cos - tempY * sin + point.x;
         y = tempY * cos + tempX * sin + point.y;
     }
+}
+
+template <typename T>
+T Vector2T<T>::distance(const Vector2T& point) const
+{
+    return std::sqrt(distanceSquared());
+}
+
+template <typename T>
+T Vector2T<T>::distanceSquared(const Vector2T& point) const
+{
+    const auto dx = std::abs(x - point.x);
+    const auto dy = std::abs(y - point.y);
+    return dx * dx + dy * dy;
 }
 
 template <typename T>

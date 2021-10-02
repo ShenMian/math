@@ -60,9 +60,7 @@ inline Vector4T<T>& Vector4T<T>::normalize()
 template <typename T>
 inline Vector4T<T> Vector4T<T>::normalized() const
 {
-    Vector4T v(*this);
-    v.normalize();
-    return v;
+    return Vector4T(*this).normalize();
 }
 
 template <typename T>

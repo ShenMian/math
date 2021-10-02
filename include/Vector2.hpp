@@ -89,6 +89,24 @@ public:
     void rotate(const Vector2T& point, float angle);
 
     /**
+	 * @brief 获取两点之间的距离.
+	 *
+	 * @param point 另一个点.
+     * 
+	 * @see distanceSquared
+	 */
+    T distance(const Vector2T& point) const;
+
+    /**
+	 * @brief 获取两点之间的距离的平方.
+	 *
+	 * @param point 另一个点.
+     * 
+	 * @see distance
+	 */
+    T distanceSquared(const Vector2T& point) const;
+
+    /**
 	 * @brief 获取原始数据.
 	 */
     void*       data();

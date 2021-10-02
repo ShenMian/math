@@ -54,9 +54,7 @@ inline Vector3T<T>& Vector3T<T>::normalize()
 template <typename T>
 inline Vector3T<T> Vector3T<T>::normalized() const
 {
-    Vector3T v(*this);
-    v.normalize();
-    return v;
+    return Vector3T(*this).normalize();
 }
 
 template <typename T>
@@ -69,6 +67,21 @@ template <typename T>
 inline T Vector3T<T>::cross(const Vector3T& rhs) const
 {
     return x * rhs.y - y * rhs.x - z * rhs.z;
+}
+
+template <typename T>
+T Vector3T<T>::distance(const Vector3T& point) const
+{
+    return std::sqrt(distanceSquared());
+}
+
+template <typename T>
+T Vector3T<T>::distanceSquared(const Vector3T& point) const
+{
+    const auto dx = std::abs(x - point.x);
+    const auto dy = std::abs(y - point.y);
+    const auto dz = std::abs(z - point.z);
+    return dx * dx + dy * dy + dz * dz;
 }
 
 template <typename T>
