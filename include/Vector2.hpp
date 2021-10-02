@@ -1,89 +1,95 @@
-// Copyright 2021 SMS
+ï»¿// Copyright 2021 SMS
 // License(Apache-2.0)
 
 #pragma once
 
 #include <cstddef>
 
+/**
+ * @brief äºŒç»´å‘é‡.
+ */
 template <typename T>
 class Vector2T
 {
 public:
     /**
-	 * @brief Ä¬ÈÏ¹¹Ôìº¯Êı.
+	 * @brief é»˜è®¤æ„é€ å‡½æ•°.
 	 */
     Vector2T() = default;
 
+    /**
+	 * @brief æ„é€ å‡½æ•°.
+	 */
     explicit Vector2T(const T& scalar);
 
     /**
-	 * @brief ¹¹Ôìº¯Êı.
+	 * @brief æ„é€ å‡½æ•°.
 	 *
-	 * @param x x ·ÖÁ¿.
-	 * @param y y ·ÖÁ¿.
+	 * @param x x åˆ†é‡.
+	 * @param y y åˆ†é‡.
 	 */
     explicit Vector2T(const T& x, const T& y);
 
     /**
-	 * @brief ¿½±´¹¹Ôìº¯Êı.
+	 * @brief æ‹·è´æ„é€ å‡½æ•°.
 	 */
-    Vector2T(const Vector2T& rhs);
+    Vector2T(const Vector2T& v);
 
     /**
-	 * @brief »ñÈ¡³¤¶ÈÆ½·½.
+	 * @brief è·å–é•¿åº¦å¹³æ–¹.
 	 *
 	 * @see size
 	 */
     T sizeSquared() const;
 
     /**
-	 * @brief »ñÈ¡³¤¶È.
+	 * @brief è·å–é•¿åº¦.
 	 *
 	 * @see sizeSquared
 	 */
     T size() const;
 
     /**
-	 * @brief ±ê×¼»¯³Éµ¥Î»ÏòÁ¿.
+	 * @brief æ ‡å‡†åŒ–æˆå•ä½å‘é‡.
 	 */
     Vector2T& normalize();
 
     /**
-	 * @brief »ñÈ¡±ê×¼»¯µ¥Î»ÏòÁ¿.
+	 * @brief è·å–æ ‡å‡†åŒ–å•ä½å‘é‡.
 	 */
     Vector2T normalized() const;
 
     /**
-	 * @brief ¼ÆËãÏòÁ¿µã»ı.
+	 * @brief è®¡ç®—å‘é‡ç‚¹ç§¯.
 	 *
-	 * @param rhs Òªµã³ËµÄÏòÁ¿.
+	 * @param rhs è¦ç‚¹ä¹˜çš„å‘é‡.
 	 */
     T dot(const Vector2T& rhs) const;
 
     /**
-	 * @brief ¼ÆËãÏòÁ¿²æ»ı.
+	 * @brief è®¡ç®—å‘é‡å‰ç§¯.
 	 *
-	 * @param rhs Òª²æ³ËµÄÏòÁ¿.
+	 * @param rhs è¦å‰ä¹˜çš„å‘é‡.
 	 */
     T cross(const Vector2T& rhs) const;
 
     /**
-	 * @brief »ñÈ¡½Ç¶È.
+	 * @brief è·å–è§’åº¦.
 	 *
-	 * @return ½Ç¶È, »¡¶ÈÖÆ. ·¶Î§: [2¦Ğ, -2¦Ğ)
+	 * @return è§’åº¦, å¼§åº¦åˆ¶. èŒƒå›´: [2Ï€, -2Ï€)
 	 */
     T angle() const;
 
     /**
-	 * @brief Î§ÈÆÖ¸¶¨µãĞı×ªÖ¸¶¨»¡¶È.
+	 * @brief å›´ç»•æŒ‡å®šç‚¹æ—‹è½¬æŒ‡å®šå¼§åº¦.
 	 *
-	 * @param point µã.
-	 * @param angle Ğı×ª½Ç¶È, »¡¶ÈÖÆ.
+	 * @param point ç‚¹.
+	 * @param angle æ—‹è½¬è§’åº¦, å¼§åº¦åˆ¶.
 	 */
     void rotate(const Vector2T& point, float angle);
 
     /**
-	 * @brief »ñÈ¡Ô­Ê¼Êı¾İ.
+	 * @brief è·å–åŸå§‹æ•°æ®.
 	 */
     void*       data();
     const void* data() const;
@@ -98,7 +104,6 @@ public:
     const T& operator[](size_t index) const;
 
     bool      operator==(const Vector2T&) const;
-    bool      operator!=(const Vector2T&) const;
     Vector2T& operator+=(const Vector2T&);
     Vector2T& operator-=(const Vector2T&);
     Vector2T& operator*=(const T&);

@@ -1,4 +1,4 @@
-// Copyright 2021 SMS
+﻿// Copyright 2021 SMS
 // License(Apache-2.0)
 
 #include "vector2.hpp"
@@ -19,8 +19,8 @@ Vector2T<T>::Vector2T(const T& x, const T& y)
 }
 
 template <typename T>
-Vector2T<T>::Vector2T(const Vector2T& rhs)
-    : x(rhs.x), y(rhs.y)
+Vector2T<T>::Vector2T(const Vector2T& v)
+    : x(v.x), y(v.y)
 {
 }
 
@@ -119,6 +119,7 @@ inline const T& Vector2T<T>::operator[](size_t index) const
     return *(&x + index);
 }
 
+// TODO
 /*
 template <typename T>
 requires std::floating_point<T>
@@ -175,26 +176,34 @@ inline Vector2T<T>& Vector2T<T>::operator/=(const T& rhs)
 template <typename T>
 Vector2T<T> Vector2T<T>::operator+(const Vector2T<T>& rhs) const
 {
-    return {x + rhs.x, y + rhs.y};
+    Vector2T v;
+    v += rhs;
+    return v;
 }
 
 template <typename T>
 Vector2T<T> Vector2T<T>::operator-(const Vector2T<T>& rhs) const
 {
-    return {x - rhs.x, y - rhs.y};
+    Vector2T v;
+    v -= rhs;
+    return v;
 }
 
 template <typename T>
 Vector2T<T> Vector2T<T>::operator*(const T& rhs) const
 {
-    return {x * rhs, y * rhs};
+    Vector2T v;
+    v *= rhs;
+    return v;
 }
 
 template <typename T>
 Vector2T<T> Vector2T<T>::operator/(const T& rhs) const
 {
     assert(rhs);
-    return {x / rhs, y / rhs};
+    Vector2T v;
+    v /= rhs;
+    return v;
 }
 
 template <typename T>
