@@ -3,27 +3,25 @@
 
 #pragma once
 
+#include "Vector.hpp"
 #include <cstddef>
-
-template <typename T>
-class Vector2T;
 
 /**
  * @brief 三维向量.
  */
 template <typename T>
-class Vector3T
+class VectorT<T, 3>
 {
 public:
     /**
 	 * @brief 默认构造函数.
 	 */
-    Vector3T() = default;
+    VectorT() = default;
 
     /**
 	 * @brief 构造函数.
 	 */
-    explicit Vector3T(const T& scalar);
+    explicit VectorT(const T& scalar);
 
     /**
 	 * @brief 构造函数.
@@ -32,7 +30,7 @@ public:
 	 * @param y y 分量.
 	 * @param z z 分量.
 	 */
-    Vector3T(const T& x, const T& y, const T& z);
+    VectorT(const T& x, const T& y, const T& z);
 
     /**
 	 * @brief 构造函数.
@@ -40,12 +38,12 @@ public:
 	 * @param v 二维向量.
 	 * @param z z 分量.
 	 */
-    Vector3T(const Vector2T<T>& v, const T& z);
+    VectorT(const Vector2T<T>& v, const T& z);
 
     /**
 	 * @brief 拷贝构造函数.
 	 */
-    Vector3T(const Vector3T& v);
+    VectorT(const VectorT& v);
 
     /**
 	 * @brief 获取长度平方.
@@ -64,26 +62,26 @@ public:
     /**
 	 * @brief 标准化成单位向量.
 	 */
-    Vector3T& normalize();
+    VectorT& normalize();
 
     /**
 	 * @brief 获取标准化单位向量.
 	 */
-    Vector3T normalized() const;
+    VectorT normalized() const;
 
     /**
 	 * @brief 计算向量点积.
 	 *
 	 * @param rhs 要点乘的向量.
 	 */
-    T dot(const Vector3T& rhs) const;
+    T dot(const VectorT& rhs) const;
 
     /**
 	 * @brief 计算向量叉积.
 	 *
 	 * @param rhs 要叉乘的向量.
 	 */
-    T cross(const Vector3T& rhs) const;
+    T cross(const VectorT& rhs) const;
 
     /**
 	 * @brief 获取两点之间的距离.
@@ -92,7 +90,7 @@ public:
      * 
 	 * @see distanceSquared
 	 */
-    T distance(const Vector3T& point) const;
+    T distance(const VectorT& point) const;
 
     /**
 	 * @brief 获取两点之间的距离的平方.
@@ -101,7 +99,7 @@ public:
      * 
 	 * @see distance
 	 */
-    T distanceSquared(const Vector3T& point) const;
+    T distanceSquared(const VectorT& point) const;
 
     /**
 	 * @brief 获取原始数据.
@@ -110,39 +108,39 @@ public:
     const void* data() const;
 
     template <typename C>
-    operator Vector3T<C>()
+    operator VectorT<C, 3>()
     {
-        return Vector3T<C>(static_cast<C>(x), static_cast<C>(y), static_cast<C>(z));
+        return VectorT<C>(static_cast<C>(x), static_cast<C>(y), static_cast<C>(z));
     }
 
     T&       operator[](size_t index);
     const T& operator[](size_t index) const;
 
-    bool      operator==(const Vector3T&) const;
-    Vector3T& operator+=(const Vector3T&);
-    Vector3T& operator-=(const Vector3T&);
-    Vector3T& operator*=(const T&);
-    Vector3T& operator/=(const T&);
-    Vector3T  operator+(const Vector3T&) const;
-    Vector3T  operator-(const Vector3T&) const;
-    Vector3T  operator*(const T&) const;
-    Vector3T  operator/(const T&) const;
-    Vector3T  operator-() const;
+    bool      operator==(const VectorT&) const;
+    VectorT& operator+=(const VectorT&);
+    VectorT& operator-=(const VectorT&);
+    VectorT& operator*=(const T&);
+    VectorT& operator/=(const T&);
+    VectorT  operator+(const VectorT&) const;
+    VectorT  operator-(const VectorT&) const;
+    VectorT  operator*(const T&) const;
+    VectorT  operator/(const T&) const;
+    VectorT  operator-() const;
 
     static const size_t components = 3;
 
-    static const Vector3T unit;   // (1, 1, 1)
-    static const Vector3T unit_x; // (1, 0, 0)
-    static const Vector3T unit_y; // (0, 1, 0)
-    static const Vector3T unit_z; // (0, 0, 1)
-    static const Vector3T zero;   // (0, 0, 0)
+    static const VectorT unit;   // (1, 1, 1)
+    static const VectorT unit_x; // (1, 0, 0)
+    static const VectorT unit_y; // (0, 1, 0)
+    static const VectorT unit_z; // (0, 0, 1)
+    static const VectorT zero;   // (0, 0, 0)
 
-    static const Vector3T up;    // (0,  1,  0)
-    static const Vector3T down;  // (0,  -1, 0)
-    static const Vector3T right; // (1,  0,  0)
-    static const Vector3T left;  // (-1, 0,  0)
-    static const Vector3T front; // (0,  0,  -1)
-    static const Vector3T back;  // (0,  0,  1)
+    static const VectorT up;    // (0,  1,  0)
+    static const VectorT down;  // (0,  -1, 0)
+    static const VectorT right; // (1,  0,  0)
+    static const VectorT left;  // (-1, 0,  0)
+    static const VectorT front; // (0,  0,  -1)
+    static const VectorT back;  // (0,  0,  1)
 
 private:
     T x = T();
@@ -151,6 +149,9 @@ private:
 };
 
 #include "vector3.inl"
+
+template <typename T>
+using Vector3T = VectorT<T, 3>;
 
 using Vector3f = Vector3T<float>;
 using Vector3d = Vector3T<double>;

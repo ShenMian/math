@@ -3,30 +3,25 @@
 
 #pragma once
 
+#include "Vector.hpp"
 #include <cstddef>
-
-template <typename T>
-class Vector2T;
-
-template <typename T>
-class Vector3T;
 
 /**
  * @brief 三维向量.
  */
 template <typename T>
-class Vector4T
+class VectorT<T, 4>
 {
 public:
     /**
 	 * @brief 默认构造函数.
 	 */
-    Vector4T() = default;
+    VectorT() = default;
 
     /**
 	 * @brief 构造函数.
 	 */
-    explicit Vector4T(const T& scalar);
+    explicit VectorT(const T& scalar);
 
     /**
 	 * @brief 构造函数.
@@ -36,7 +31,7 @@ public:
 	 * @param z z 分量.
 	 * @param w w 分量.
 	 */
-    Vector4T(const T& x, const T& y, const T& z, const T& w);
+    VectorT(const T& x, const T& y, const T& z, const T& w);
 
     /**
 	 * @brief 构造函数.
@@ -44,7 +39,7 @@ public:
 	 * @param v 三维向量.
 	 * @param w w 分量.
 	 */
-    Vector4T(const Vector3T<T>& v, const T& w);
+    VectorT(const Vector3T<T>& v, const T& w);
 
     /**
 	 * @brief 构造函数.
@@ -53,12 +48,12 @@ public:
 	 * @param z z 分量.
 	 * @param w w 分量.
 	 */
-    Vector4T(const Vector2T<T>& v, const T& z, const T& w);
+    VectorT(const Vector2T<T>& v, const T& z, const T& w);
 
     /**
 	 * @brief 拷贝构造函数.
 	 */
-    Vector4T(const Vector4T& v);
+    VectorT(const VectorT& v);
 
     /**
 	 * @brief 获取长度平方.
@@ -77,26 +72,26 @@ public:
     /**
 	 * @brief 标准化成单位向量.
 	 */
-    Vector4T& normalize();
+    VectorT& normalize();
 
     /**
 	 * @brief 获取标准化单位向量.
 	 */
-    Vector4T normalized() const;
+    VectorT normalized() const;
 
     /**
 	 * @brief 计算向量点积.
 	 *
 	 * @param rhs 要点乘的向量.
 	 */
-    T dot(const Vector4T& rhs) const;
+    T dot(const VectorT& rhs) const;
 
     /**
 	 * @brief 计算向量叉积.
 	 *
 	 * @param rhs 要叉乘的向量.
 	 */
-    T cross(const Vector4T& rhs) const;
+    T cross(const VectorT& rhs) const;
 
     /**
 	 * @brief 获取原始数据.
@@ -105,33 +100,33 @@ public:
     const void* data() const;
 
     template <typename C>
-    operator Vector4T<C>()
+    operator VectorT<C, 4>()
     {
-        return Vector4T<C>(static_cast<C>(x), static_cast<C>(y), static_cast<C>(z), static_cast<C>(w));
+        return VectorT<C>(static_cast<C>(x), static_cast<C>(y), static_cast<C>(z), static_cast<C>(w));
     }
 
     T&       operator[](size_t index);
     const T& operator[](size_t index) const;
 
-    bool      operator==(const Vector4T&) const;
-    Vector4T& operator+=(const Vector4T&);
-    Vector4T& operator-=(const Vector4T&);
-    Vector4T& operator*=(const T&);
-    Vector4T& operator/=(const T&);
-    Vector4T  operator+(const Vector4T&) const;
-    Vector4T  operator-(const Vector4T&) const;
-    Vector4T  operator*(const T&) const;
-    Vector4T  operator/(const T&) const;
-    Vector4T  operator-() const;
+    bool      operator==(const VectorT&) const;
+    VectorT& operator+=(const VectorT&);
+    VectorT& operator-=(const VectorT&);
+    VectorT& operator*=(const T&);
+    VectorT& operator/=(const T&);
+    VectorT  operator+(const VectorT&) const;
+    VectorT  operator-(const VectorT&) const;
+    VectorT  operator*(const T&) const;
+    VectorT  operator/(const T&) const;
+    VectorT  operator-() const;
 
     static const size_t components = 4;
 
-    static const Vector4T unit;   // (1, 1, 1, 1)
-    static const Vector4T unit_x; // (1, 0, 0, 0)
-    static const Vector4T unit_y; // (0, 1, 0, 0)
-    static const Vector4T unit_z; // (0, 0, 1, 0)
-    static const Vector4T unit_w; // (0, 0, 0, 1)
-    static const Vector4T zero;   // (0, 0, 0, 0)
+    static const VectorT unit;   // (1, 1, 1, 1)
+    static const VectorT unit_x; // (1, 0, 0, 0)
+    static const VectorT unit_y; // (0, 1, 0, 0)
+    static const VectorT unit_z; // (0, 0, 1, 0)
+    static const VectorT unit_w; // (0, 0, 0, 1)
+    static const VectorT zero;   // (0, 0, 0, 0)
 
 private:
     T x = T();
@@ -141,6 +136,9 @@ private:
 };
 
 #include "vector4.inl"
+
+template <typename T>
+using Vector4T = VectorT<T, 4>;
 
 using Vector4f = Vector4T<float>;
 using Vector4d = Vector4T<double>;

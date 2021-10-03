@@ -6,67 +6,67 @@
 #include <concepts>
 
 template <typename T>
-inline const Vector4T<T> Vector4T<T>::unit(1, 1, 1, 1);
+inline const VectorT<T, 4> VectorT<T, 4>::unit(1, 1, 1, 1);
 
 template <typename T>
-inline const Vector4T<T> Vector4T<T>::unit_x(1, 0, 0, 0);
+inline const VectorT<T, 4> VectorT<T, 4>::unit_x(1, 0, 0, 0);
 
 template <typename T>
-inline const Vector4T<T> Vector4T<T>::unit_y(0, 1, 0, 0);
+inline const VectorT<T, 4> VectorT<T, 4>::unit_y(0, 1, 0, 0);
 
 template <typename T>
-inline const Vector4T<T> Vector4T<T>::unit_z(0, 0, 1, 0);
+inline const VectorT<T, 4> VectorT<T, 4>::unit_z(0, 0, 1, 0);
 
 template <typename T>
-inline const Vector4T<T> Vector4T<T>::unit_w(0, 0, 0, 1);
+inline const VectorT<T, 4> VectorT<T, 4>::unit_w(0, 0, 0, 1);
 
 template <typename T>
-inline const Vector4T<T> Vector4T<T>::zero(0, 0, 0, 0);
+inline const VectorT<T, 4> VectorT<T, 4>::zero(0, 0, 0, 0);
 
 template <typename T>
-inline Vector4T<T>::Vector4T(const T& scalar)
+inline VectorT<T, 4>::VectorT(const T& scalar)
     : x(scalar), y(scalar), z(scalar), w(scalar)
 {
 }
 
 template <typename T>
-Vector4T<T>::Vector4T(const T& x, const T& y, const T& z, const T& w)
+VectorT<T, 4>::VectorT(const T& x, const T& y, const T& z, const T& w)
     : x(x), y(y), z(z), w(w)
 {
 }
 
 template <typename T>
-Vector4T<T>::Vector4T(const Vector3T<T>& v, const T& w)
+VectorT<T, 4>::VectorT(const Vector3T<T>& v, const T& w)
     : x(v.x), y(v.y), z(v.z), w(w)
 {
 }
 
 template <typename T>
-Vector4T<T>::Vector4T(const Vector2T<T>& v, const T& z, const T& w)
+VectorT<T, 4>::VectorT(const Vector2T<T>& v, const T& z, const T& w)
     : x(v.x), y(v.y), z(z), w(w)
 {
 }
 
 template <typename T>
-Vector4T<T>::Vector4T(const Vector4T& v)
+VectorT<T, 4>::VectorT(const VectorT& v)
     : x(v.x), y(v.y), z(v.z), w(v.w)
 {
 }
 
 template <typename T>
-inline T Vector4T<T>::sizeSquared() const
+inline T VectorT<T, 4>::sizeSquared() const
 {
     return x * x + y * y + z * z + w * w;
 }
 
 template <typename T>
-inline T Vector4T<T>::size() const
+inline T VectorT<T, 4>::size() const
 {
     return static_cast<T>(std::sqrt(sizeSquared()));
 }
 
 template <typename T>
-inline Vector4T<T>& Vector4T<T>::normalize()
+inline VectorT<T, 4>& VectorT<T, 4>::normalize()
 {
     const auto len = size();
     if(len < std::numeric_limits<T>::epsilon())
@@ -75,51 +75,51 @@ inline Vector4T<T>& Vector4T<T>::normalize()
 }
 
 template <typename T>
-inline Vector4T<T> Vector4T<T>::normalized() const
+inline VectorT<T, 4> VectorT<T, 4>::normalized() const
 {
-    return Vector4T(*this).normalize();
+    return VectorT(*this).normalize();
 }
 
 template <typename T>
-inline T Vector4T<T>::dot(const Vector4T& rhs) const
+inline T VectorT<T, 4>::dot(const VectorT& rhs) const
 {
     return x * rhs.x + y * rhs.y + z * rhs.z + w * rhs.w;
 }
 
 template <typename T>
-inline T Vector4T<T>::cross(const Vector4T& rhs) const
+inline T VectorT<T, 4>::cross(const VectorT& rhs) const
 {
     return x * rhs.y - y * rhs.x - z * rhs.z - w * rhs.w;
 }
 
 template <typename T>
-inline void* Vector4T<T>::data()
+inline void* VectorT<T, 4>::data()
 {
     return &x;
 }
 
 template <typename T>
-inline const void* Vector4T<T>::data() const
+inline const void* VectorT<T, 4>::data() const
 {
     return &x;
 }
 
 template <typename T>
-inline T& Vector4T<T>::operator[](size_t index)
+inline T& VectorT<T, 4>::operator[](size_t index)
 {
     assert(index < components);
     return *(&x + index);
 }
 
 template <typename T>
-inline const T& Vector4T<T>::operator[](size_t index) const
+inline const T& VectorT<T, 4>::operator[](size_t index) const
 {
     assert(index < components);
     return *(&x + index);
 }
 
 template <typename T>
-inline bool Vector4T<T>::operator==(const Vector4T<T>& rhs) const
+inline bool VectorT<T, 4>::operator==(const VectorT<T, 4>& rhs) const
 {
     if constexpr(std::floating_point<T>)
         return (std::abs(x - rhs.x) < std::numeric_limits<T>::epsilon()) &&
@@ -131,7 +131,7 @@ inline bool Vector4T<T>::operator==(const Vector4T<T>& rhs) const
 }
 
 template <typename T>
-inline Vector4T<T>& Vector4T<T>::operator+=(const Vector4T<T>& rhs)
+inline VectorT<T, 4>& VectorT<T, 4>::operator+=(const VectorT<T, 4>& rhs)
 {
     x += rhs.x;
     y += rhs.y;
@@ -141,7 +141,7 @@ inline Vector4T<T>& Vector4T<T>::operator+=(const Vector4T<T>& rhs)
 }
 
 template <typename T>
-inline Vector4T<T>& Vector4T<T>::operator-=(const Vector4T<T>& rhs)
+inline VectorT<T, 4>& VectorT<T, 4>::operator-=(const VectorT<T, 4>& rhs)
 {
     x -= rhs.x;
     y -= rhs.y;
@@ -151,7 +151,7 @@ inline Vector4T<T>& Vector4T<T>::operator-=(const Vector4T<T>& rhs)
 }
 
 template <typename T>
-inline Vector4T<T>& Vector4T<T>::operator*=(const T& rhs)
+inline VectorT<T, 4>& VectorT<T, 4>::operator*=(const T& rhs)
 {
     x *= rhs;
     y *= rhs;
@@ -161,7 +161,7 @@ inline Vector4T<T>& Vector4T<T>::operator*=(const T& rhs)
 }
 
 template <typename T>
-inline Vector4T<T>& Vector4T<T>::operator/=(const T& rhs)
+inline VectorT<T, 4>& VectorT<T, 4>::operator/=(const T& rhs)
 {
     assert(rhs);
     x /= rhs;
@@ -172,40 +172,40 @@ inline Vector4T<T>& Vector4T<T>::operator/=(const T& rhs)
 }
 
 template <typename T>
-Vector4T<T> Vector4T<T>::operator+(const Vector4T<T>& rhs) const
+VectorT<T, 4> VectorT<T, 4>::operator+(const VectorT<T, 4>& rhs) const
 {
-    Vector4T v;
+    VectorT v;
     v += rhs;
     return v;
 }
 
 template <typename T>
-Vector4T<T> Vector4T<T>::operator-(const Vector4T<T>& rhs) const
+VectorT<T, 4> VectorT<T, 4>::operator-(const VectorT<T, 4>& rhs) const
 {
-    Vector4T v;
+    VectorT v;
     v -= rhs;
     return v;
 }
 
 template <typename T>
-Vector4T<T> Vector4T<T>::operator*(const T& rhs) const
+VectorT<T, 4> VectorT<T, 4>::operator*(const T& rhs) const
 {
-    Vector4T v;
+    VectorT v;
     v *= rhs;
     return v;
 }
 
 template <typename T>
-Vector4T<T> Vector4T<T>::operator/(const T& rhs) const
+VectorT<T, 4> VectorT<T, 4>::operator/(const T& rhs) const
 {
     assert(rhs);
-    Vector4T v;
+    VectorT v;
     v /= rhs;
     return v;
 }
 
 template <typename T>
-Vector4T<T> Vector4T<T>::operator-() const
+VectorT<T, 4> VectorT<T, 4>::operator-() const
 {
     return {-x, -y, -z, -w};
 }

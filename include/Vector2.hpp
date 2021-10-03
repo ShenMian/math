@@ -3,24 +3,25 @@
 
 #pragma once
 
+#include <Vector.hpp>
 #include <cstddef>
 
 /**
  * @brief 二维向量.
  */
 template <typename T>
-class Vector2T
+class VectorT<T, 2>
 {
 public:
     /**
 	 * @brief 默认构造函数.
 	 */
-    Vector2T() = default;
+    VectorT() = default;
 
     /**
 	 * @brief 构造函数.
 	 */
-    explicit Vector2T(const T& scalar);
+    explicit VectorT(const T& scalar);
 
     /**
 	 * @brief 构造函数.
@@ -28,12 +29,12 @@ public:
 	 * @param x x 分量.
 	 * @param y y 分量.
 	 */
-    explicit Vector2T(const T& x, const T& y);
+    explicit VectorT(const T& x, const T& y);
 
     /**
 	 * @brief 拷贝构造函数.
 	 */
-    Vector2T(const Vector2T& v);
+    VectorT(const VectorT& v);
 
     /**
 	 * @brief 获取长度平方.
@@ -52,26 +53,26 @@ public:
     /**
 	 * @brief 标准化成单位向量.
 	 */
-    Vector2T& normalize();
+    VectorT& normalize();
 
     /**
 	 * @brief 获取标准化单位向量.
 	 */
-    Vector2T normalized() const;
+    VectorT normalized() const;
 
     /**
 	 * @brief 计算向量点积.
 	 *
 	 * @param rhs 要点乘的向量.
 	 */
-    T dot(const Vector2T& rhs) const;
+    T dot(const VectorT& rhs) const;
 
     /**
 	 * @brief 计算向量叉积.
 	 *
 	 * @param rhs 要叉乘的向量.
 	 */
-    T cross(const Vector2T& rhs) const;
+    T cross(const VectorT& rhs) const;
 
     /**
 	 * @brief 获取角度.
@@ -86,7 +87,7 @@ public:
 	 * @param point 点.
 	 * @param angle 旋转角度, 弧度制.
 	 */
-    void rotate(const Vector2T& point, float angle);
+    void rotate(const VectorT& point, float angle);
 
     /**
 	 * @brief 获取两点之间的距离.
@@ -95,7 +96,7 @@ public:
      * 
 	 * @see distanceSquared
 	 */
-    T distance(const Vector2T& point) const;
+    T distance(const VectorT& point) const;
 
     /**
 	 * @brief 获取两点之间的距离的平方.
@@ -104,7 +105,7 @@ public:
      * 
 	 * @see distance
 	 */
-    T distanceSquared(const Vector2T& point) const;
+    T distanceSquared(const VectorT& point) const;
 
     /**
 	 * @brief 获取原始数据.
@@ -113,36 +114,36 @@ public:
     const void* data() const;
 
     template <typename C>
-    operator Vector2T<C>()
+    operator VectorT<C, 2>()
     {
-        return Vector2T<C>(static_cast<C>(x), static_cast<C>(y));
+        return VectorT<C>(static_cast<C>(x), static_cast<C>(y));
     }
 
     T&       operator[](size_t index);
     const T& operator[](size_t index) const;
 
-    bool      operator==(const Vector2T&) const;
-    Vector2T& operator+=(const Vector2T&);
-    Vector2T& operator-=(const Vector2T&);
-    Vector2T& operator*=(const T&);
-    Vector2T& operator/=(const T&);
-    Vector2T  operator+(const Vector2T&) const;
-    Vector2T  operator-(const Vector2T&) const;
-    Vector2T  operator*(const T&) const;
-    Vector2T  operator/(const T&) const;
-    Vector2T  operator-() const;
+    bool      operator==(const VectorT&) const;
+    VectorT& operator+=(const VectorT&);
+    VectorT& operator-=(const VectorT&);
+    VectorT& operator*=(const T&);
+    VectorT& operator/=(const T&);
+    VectorT  operator+(const VectorT&) const;
+    VectorT  operator-(const VectorT&) const;
+    VectorT  operator*(const T&) const;
+    VectorT  operator/(const T&) const;
+    VectorT  operator-() const;
 
     static const size_t components = 2;
 
-    static const Vector2T unit;   // (1, 1)
-    static const Vector2T unit_x; // (1, 0)
-    static const Vector2T unit_y; // (0, 1)
-    static const Vector2T zero;   // (0, 0)
+    static const VectorT unit;   // (1, 1)
+    static const VectorT unit_x; // (1, 0)
+    static const VectorT unit_y; // (0, 1)
+    static const VectorT zero;   // (0, 0)
 
-    static const Vector2T up;    // (0, 1)
-    static const Vector2T down;  // (0, -1)
-    static const Vector2T right; // (1, 0)
-    static const Vector2T left;  // (-1, 0)
+    static const VectorT up;    // (0, 1)
+    static const VectorT down;  // (0, -1)
+    static const VectorT right; // (1, 0)
+    static const VectorT left;  // (-1, 0)
 
 private:
     T x = T();
@@ -150,6 +151,9 @@ private:
 };
 
 #include "vector2.inl"
+
+template <typename T>
+using Vector2T = VectorT<T, 2>;
 
 using Vector2f = Vector2T<float>;
 using Vector2d = Vector2T<double>;
