@@ -7,6 +7,30 @@
 #include <concepts>
 
 template <typename T>
+inline const Vector2T<T> Vector2T<T>::unit(1, 1);
+
+template <typename T>
+inline const Vector2T<T> Vector2T<T>::unit_x(1, 0);
+
+template <typename T>
+inline const Vector2T<T> Vector2T<T>::unit_y(0, 1);
+
+template <typename T>
+inline const Vector2T<T> Vector2T<T>::zero(0, 0);
+
+template <typename T>
+inline const Vector2T<T> Vector2T<T>::up(0, 1);
+
+template <typename T>
+inline const Vector2T<T> Vector2T<T>::down(0, -1);
+
+template <typename T>
+inline const Vector2T<T> Vector2T<T>::right(1, 0);
+
+template <typename T>
+inline const Vector2T<T> Vector2T<T>::left(-1, 0);
+
+template <typename T>
 inline Vector2T<T>::Vector2T(const T& scalar)
     : x(scalar), y(scalar)
 {

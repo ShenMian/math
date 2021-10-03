@@ -40,3 +40,4 @@
 *.vcxproj
 *.filters
 *.user
+/.vscode

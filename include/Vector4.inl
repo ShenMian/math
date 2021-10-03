@@ -7,6 +7,24 @@
 #include <concepts>
 
 template <typename T>
+inline const Vector4T<T> Vector4T<T>::unit(1, 1, 1, 1);
+
+template <typename T>
+inline const Vector4T<T> Vector4T<T>::unit_x(1, 0, 0, 0);
+
+template <typename T>
+inline const Vector4T<T> Vector4T<T>::unit_y(0, 1, 0, 0);
+
+template <typename T>
+inline const Vector4T<T> Vector4T<T>::unit_z(0, 0, 1, 0);
+
+template <typename T>
+inline const Vector4T<T> Vector4T<T>::unit_w(0, 0, 0, 1);
+
+template <typename T>
+inline const Vector4T<T> Vector4T<T>::zero(0, 0, 0, 0);
+
+template <typename T>
 inline Vector4T<T>::Vector4T(const T& scalar)
     : x(scalar), y(scalar), z(scalar), w(scalar)
 {

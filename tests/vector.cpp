@@ -7,6 +7,8 @@
 #include "Vector3.hpp"
 #include "Vector4.hpp"
 
+#include "Quaternion.hpp"
+
 TEST(Vector2, subscript)
 {
     EXPECT_FLOAT_EQ(Vector2(1, 2)[0], 1.f);

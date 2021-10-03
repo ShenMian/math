@@ -126,14 +126,18 @@ public:
 
     static const size_t components = 4;
 
-    static const Vector4T unit; // (1, 1, 1, 1)
-    static const Vector4T zero; // (0, 0, 0, 0)
+    static const Vector4T unit;   // (1, 1, 1, 1)
+    static const Vector4T unit_x; // (1, 0, 0, 0)
+    static const Vector4T unit_y; // (0, 1, 0, 0)
+    static const Vector4T unit_z; // (0, 0, 1, 0)
+    static const Vector4T unit_w; // (0, 0, 0, 1)
+    static const Vector4T zero;   // (0, 0, 0, 0)
 
 private:
     T x = T();
     T y = T();
     T z = T();
-    T w = T();
+    T w = T(1);
 };
 
 #include "vector4.inl"

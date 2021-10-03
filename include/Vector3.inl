@@ -7,6 +7,39 @@
 #include <concepts>
 
 template <typename T>
+inline const Vector3T<T> Vector3T<T>::unit(1, 1, 1);
+
+template <typename T>
+inline const Vector3T<T> Vector3T<T>::unit_x(1, 0, 0);
+
+template <typename T>
+inline const Vector3T<T> Vector3T<T>::unit_y(0, 1, 0);
+
+template <typename T>
+inline const Vector3T<T> Vector3T<T>::unit_z(0, 0, 1);
+
+template <typename T>
+inline const Vector3T<T> Vector3T<T>::zero(0, 0, 0);
+
+template <typename T>
+inline const Vector3T<T> Vector3T<T>::up(0, 1, 0);
+
+template <typename T>
+inline const Vector3T<T> Vector3T<T>::down(0, -1, 0);
+
+template <typename T>
+inline const Vector3T<T> Vector3T<T>::right(1, 0, 0);
+
+template <typename T>
+inline const Vector3T<T> Vector3T<T>::left(-1, 0, 0);
+
+template <typename T>
+inline const Vector3T<T> Vector3T<T>::front(0, 0, -1);
+
+template <typename T>
+inline const Vector3T<T> Vector3T<T>::back(0, 0, 1);
+
+template <typename T>
 inline Vector3T<T>::Vector3T(const T& scalar)
     : x(scalar), y(scalar), z(scalar)
 {
