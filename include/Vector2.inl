@@ -168,11 +168,7 @@ inline bool VectorT<T, 2>::operator==(const VectorT<T, 2>& rhs) const
 template <typename T>
 inline bool VectorT<T, 2>::operator==(const VectorT<T, 2>& rhs) const
 {
-    if constexpr(std::floating_point<T>)
-        return (std::abs(x - rhs.x) <= std::numeric_limits<T>::epsilon()) &&
-               (std::abs(y - rhs.y) <= std::numeric_limits<T>::epsilon());
-    else
-        return x == rhs.x && y == rhs.y;
+    return Math::equal(x, rhs.x) && Math::equal(y, rhs.y);
 }
 
 template <typename T>

@@ -3,27 +3,37 @@
 
 #pragma once
 
+#include <cmath>
+#include <type_traits>
+
 class Math
 {
 public:
-    static double radians(double degrees)
+    template <typename T>
+    static bool equal(const T& lhs, const T& rhs)
     {
-        return degrees * pi / 180.0;
+        return lhs == rhs;
     }
 
-    static double degrees(double radians)
+    template <typename T>
+    requires std::floating_point<T>
+    static bool equal(const T& lhs, const T& rhs)
     {
-        return radians * 180.0 / pi;
+        return (std::abs(lhs - rhs) <= std::numeric_limits<T>::epsilon());
     }
 
-    static float radians(float degrees)
+    template <typename T>
+    requires std::floating_point<T>
+    static T radians(T degrees)
     {
-        return degrees * (float)pi / 180.f;
+        return degrees * static_cast<T>(pi) / 180;
     }
 
-    static float degrees(float radians)
+    template <typename T>
+    requires std::floating_point<T>
+    static T degrees(T radians)
     {
-        return radians * 180.f / (float)pi;
+        return radians * 180 / static_cast<T>(pi);
     }
 
     inline static constexpr double pi = 3.14159265358979323846;

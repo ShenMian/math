@@ -104,20 +104,10 @@ inline const T& VectorT<T, N>::operator[](size_t index) const
 template <typename T, size_t N>
 inline bool VectorT<T, N>::operator==(const VectorT<T, N>& rhs) const
 {
-    if constexpr(std::floating_point<T>)
-    {
-        for(size_t i = 0; i < N; i++)
-            if(std::abs(v_[i] - rhs.v_[i]) > std::numeric_limits<T>::epsilon())
-                return false;
-        return true;
-    }
-    else
-    {
-        for(size_t i = 0; i < N; i++)
-            if(v_[i] != rhs.v_[i])
-                return false;
-        return true;
-    }
+    for(size_t i = 0; i < N; i++)
+        if(!Math::equal(v_[i], rhs.v_[i]))
+            return false;
+    return true;
 }
 
 template <typename T, size_t N>
