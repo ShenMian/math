@@ -121,8 +121,6 @@ public:
     VectorT& operator-=(const VectorT&);
     VectorT& operator*=(const T&);
     VectorT& operator/=(const T&);
-    VectorT  operator+(const VectorT&) const;
-    VectorT  operator-(const VectorT&) const;
     VectorT  operator*(const T&) const;
     VectorT  operator/(const T&) const;
     VectorT  operator-() const;

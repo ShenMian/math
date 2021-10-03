@@ -209,31 +209,6 @@ inline VectorT<T, 2>& VectorT<T, 2>::operator/=(const T& rhs)
 }
 
 template <typename T>
-VectorT<T, 2> VectorT<T, 2>::operator+(const VectorT<T, 2>& rhs) const
-{
-    return VectorT(*this) += rhs;
-}
-
-template <typename T>
-VectorT<T, 2> VectorT<T, 2>::operator-(const VectorT<T, 2>& rhs) const
-{
-    return VectorT(*this) -= rhs;
-}
-
-template <typename T>
-VectorT<T, 2> VectorT<T, 2>::operator*(const T& rhs) const
-{
-    return VectorT(*this) *= rhs;
-}
-
-template <typename T>
-VectorT<T, 2> VectorT<T, 2>::operator/(const T& rhs) const
-{
-    assert(rhs);
-    return VectorT(*this) /= rhs;
-}
-
-template <typename T>
 VectorT<T, 2> VectorT<T, 2>::operator-() const
 {
     return VectorT(-x, -y);
