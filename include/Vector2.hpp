@@ -127,8 +127,6 @@ public:
     VectorT& operator-=(const VectorT&);
     VectorT& operator*=(const T&);
     VectorT& operator/=(const T&);
-    VectorT  operator*(const T&) const;
-    VectorT  operator/(const T&) const;
     VectorT  operator-() const;
 
     static const size_t components = 2;

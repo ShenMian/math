@@ -96,8 +96,6 @@ public:
     VectorT& operator-=(const VectorT&);
     VectorT& operator*=(const T&);
     VectorT& operator/=(const T&);
-    VectorT  operator*(const T&) const;
-    VectorT  operator/(const T&) const;
     VectorT  operator-() const;
 
     static const size_t components = N;
@@ -136,13 +134,25 @@ VectorT<T, N> operator/(const VectorT<T, N>& lhs, const VectorT<T, N>& rhs)
 }
 
 template <typename T, size_t N>
+VectorT<T, N> operator*(const VectorT<T, N>& lhs, const T& rhs)
+{
+    return VectorT(lhs) *= rhs;
+}
+
+template <typename T, size_t N>
+VectorT<T, N> operator/(const VectorT<T, N>& lhs, const T& rhs)
+{
+    return VectorT(lhs) /= rhs;
+}
+
+template <typename T, size_t N>
 VectorT<T, N> operator*(const T& lhs, const VectorT<T, N>& rhs)
 {
-    return VectorT(rhs) *= lhs;
+    return rhs * lhs;
 }
 
 template <typename T, size_t N>
 VectorT<T, N> operator/(const T& lhs, const VectorT<T, N>& rhs)
 {
-    return VectorT(rhs) /= lhs;
+    return rhs / lhs;
 }
