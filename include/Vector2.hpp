@@ -122,7 +122,7 @@ public:
     T&       operator[](size_t index);
     const T& operator[](size_t index) const;
 
-    bool      operator==(const VectorT&) const;
+    bool     operator==(const VectorT&) const;
     VectorT& operator+=(const VectorT&);
     VectorT& operator-=(const VectorT&);
     VectorT& operator*=(const T&);
