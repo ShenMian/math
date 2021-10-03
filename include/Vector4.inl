@@ -1,7 +1,6 @@
 ﻿// Copyright 2021 SMS
 // License(Apache-2.0)
 
-#include "vector4.hpp"
 #include <cassert>
 #include <cmath>
 #include <concepts>
@@ -84,7 +83,7 @@ inline Vector4T<T> Vector4T<T>::normalized() const
 template <typename T>
 inline T Vector4T<T>::dot(const Vector4T& rhs) const
 {
-    return x * rhs.x + y * rhs.y + z * rhs.z + z.w * rhs.w;
+    return x * rhs.x + y * rhs.y + z * rhs.z + w * rhs.w;
 }
 
 template <typename T>

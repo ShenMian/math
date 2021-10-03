@@ -3,6 +3,7 @@
 
 #include "gtest/gtest.h"
 #include "Math.hpp"
+#include "Vector.hpp"
 #include "Vector2.hpp"
 #include "Vector3.hpp"
 #include "Vector4.hpp"
@@ -35,7 +36,7 @@ TEST(Vector2, dot)
 {
     EXPECT_FLOAT_EQ(Vector2(3, 4).normalized().dot(Vector2(3, 4).normalized()), 1.f);
     EXPECT_FLOAT_EQ(Vector2(3, 4).normalized().dot(Vector2(4, -3).normalized()), 0.f);
-    EXPECT_FLOAT_EQ(Vector2(3, 4).normalized().dot(Vector2(-3, -4).normalized()), -1.f);
+    EXPECT_FLOAT_EQ(Vector2(3, 4).normalized().dot(-Vector2(3, 4).normalized()), -1.f);
 }
 
 TEST(Vector2, cross)
@@ -87,6 +88,12 @@ TEST(Vector3, normalize)
     EXPECT_EQ(Vector3(2, 3, 4).normalize(), Vector3(4, 6, 8).normalize());
 }
 
+TEST(Vector3, dot)
+{
+    EXPECT_FLOAT_EQ(Vector3(3, 4, 5).normalized().dot(Vector3(3, 4, 5).normalized()), 1.f);
+    EXPECT_FLOAT_EQ(Vector3(3, 4, 5).normalized().dot(-Vector3(3, 4, 5).normalized()), -1.f);
+}
+
 TEST(Vector3, equal)
 {
     EXPECT_EQ(Vector3(1, 2, 3), Vector3(1, 2, 3));
@@ -110,6 +117,13 @@ TEST(Vector4, normalize)
     EXPECT_EQ(Vector4(2, 3, 4, 5).normalize(), Vector4(4, 6, 8, 10).normalize());
 }
 
+TEST(Vector4, dot)
+{
+    EXPECT_FLOAT_EQ(Vector4(3, 4, 5, 6).normalized().dot(Vector4(3, 4, 5, 6).normalized()), 1.f);
+    EXPECT_FLOAT_EQ(Vector4(3, 4, 5, 6).normalized().dot(-Vector4(3, 4, 5, 6).normalized()), -1.f);
+}
+
+
 TEST(Vector4, equal)
 {
     EXPECT_EQ(Vector4(1, 2, 3, 4), Vector4(1, 2, 3, 4));
@@ -117,4 +131,35 @@ TEST(Vector4, equal)
     EXPECT_NE(Vector4(1, 2, 3, 4), Vector4(1, 0, 3, 4));
     EXPECT_NE(Vector4(1, 2, 3, 4), Vector4(1, 2, 0, 4));
     EXPECT_NE(Vector4(1, 2, 3, 4), Vector4(1, 2, 3, 0));
+}
+
+TEST(Vector, subscript)
+{
+    EXPECT_FLOAT_EQ(Vector<5>({1.f, 2.f, 3.f, 4.f, 5.f})[0], 1.f);
+    EXPECT_FLOAT_EQ(Vector<5>({1.f, 2.f, 3.f, 4.f, 5.f})[1], 2.f);
+    EXPECT_FLOAT_EQ(Vector<5>({1.f, 2.f, 3.f, 4.f, 5.f})[2], 3.f);
+    EXPECT_FLOAT_EQ(Vector<5>({1.f, 2.f, 3.f, 4.f, 5.f})[3], 4.f);
+    EXPECT_FLOAT_EQ(Vector<5>({1.f, 2.f, 3.f, 4.f, 5.f})[4], 5.f);
+}
+
+TEST(Vector, normalize)
+{
+    EXPECT_FLOAT_EQ(Vector<5>({1.f, 2.f, 3.f, 4.f, 5.f}).normalize().size(), 1.f);
+    EXPECT_EQ(Vector<5>({2.f, 3.f, 4.f, 5.f, 6.f}).normalize(), Vector<5>({4.f, 6.f, 8.f, 10.f, 12.f}).normalize());
+}
+
+TEST(Vector, dot)
+{
+    EXPECT_FLOAT_EQ(Vector<5>({1.f, 2.f, 3.f, 4.f, 5.f}).normalized().dot(Vector<5>({1.f, 2.f, 3.f, 4.f, 5.f}).normalized()), 1.f);
+    EXPECT_FLOAT_EQ(Vector<5>({1.f, 2.f, 3.f, 4.f, 5.f}).normalized().dot(-Vector<5>({1.f, 2.f, 3.f, 4.f, 5.f}).normalized()), -1.f);
+}
+
+TEST(Vector, equal)
+{
+    EXPECT_EQ(Vector<5>({1.f, 2.f, 3.f, 4.f, 5.f}), Vector<5>({1.f, 2.f, 3.f, 4.f, 5.f}));
+    EXPECT_NE(Vector<5>({1.f, 2.f, 3.f, 4.f, 5.f}), Vector<5>({0.f, 2.f, 3.f, 4.f, 5.f}));
+    EXPECT_NE(Vector<5>({1.f, 2.f, 3.f, 4.f, 5.f}), Vector<5>({1.f, 0.f, 3.f, 4.f, 5.f}));
+    EXPECT_NE(Vector<5>({1.f, 2.f, 3.f, 4.f, 5.f}), Vector<5>({1.f, 2.f, 0.f, 4.f, 5.f}));
+    EXPECT_NE(Vector<5>({1.f, 2.f, 3.f, 4.f, 5.f}), Vector<5>({1.f, 2.f, 3.f, 0.f, 5.f}));
+    EXPECT_NE(Vector<5>({1.f, 2.f, 3.f, 4.f, 5.f}), Vector<5>({1.f, 2.f, 3.f, 4.f, 0.f}));
 }

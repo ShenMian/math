@@ -1,7 +1,6 @@
 ﻿// Copyright 2021 SMS
 // License(Apache-2.0)
 
-#include "vector3.hpp"
 #include <cassert>
 #include <cmath>
 #include <concepts>

@@ -1,7 +1,6 @@
 ﻿// Copyright 2021 SMS
 // License(Apache-2.0)
 
-#include "vector2.hpp"
 #include <cassert>
 #include <cmath>
 #include <concepts>
@@ -245,5 +244,5 @@ Vector2T<T> Vector2T<T>::operator/(const T& rhs) const
 template <typename T>
 Vector2T<T> Vector2T<T>::operator-() const
 {
-    return {-x, -y};
+    return Vector2T(-x, -y);
 }
