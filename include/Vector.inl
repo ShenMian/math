@@ -107,7 +107,7 @@ inline bool VectorT<T, N>::operator==(const VectorT<T, N>& rhs) const
     if constexpr(std::floating_point<T>)
     {
         for(size_t i = 0; i < N; i++)
-            if(std::abs(v_[i] - rhs.v_[i]) >= std::numeric_limits<T>::epsilon())
+            if(std::abs(v_[i] - rhs.v_[i]) > std::numeric_limits<T>::epsilon())
                 return false;
         return true;
     }

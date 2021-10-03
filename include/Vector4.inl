@@ -122,10 +122,10 @@ template <typename T>
 inline bool VectorT<T, 4>::operator==(const VectorT<T, 4>& rhs) const
 {
     if constexpr(std::floating_point<T>)
-        return (std::abs(x - rhs.x) < std::numeric_limits<T>::epsilon()) &&
-               (std::abs(y - rhs.y) < std::numeric_limits<T>::epsilon()) &&
-               (std::abs(z - rhs.z) < std::numeric_limits<T>::epsilon()) &&
-               (std::abs(w - rhs.w) < std::numeric_limits<T>::epsilon());
+        return (std::abs(x - rhs.x) <= std::numeric_limits<T>::epsilon()) &&
+               (std::abs(y - rhs.y) <= std::numeric_limits<T>::epsilon()) &&
+               (std::abs(z - rhs.z) <= std::numeric_limits<T>::epsilon()) &&
+               (std::abs(w - rhs.w) <= std::numeric_limits<T>::epsilon());
     else
         return x == rhs.x && y == rhs.y && z == rhs.z && w == rhs.w;
 }
