@@ -24,6 +24,12 @@ template <typename T>
 inline const VectorT<T, 4> VectorT<T, 4>::zero(0, 0, 0, 0);
 
 template <typename T>
+inline VectorT<T, 4>::VectorT()
+    : x(0), y(0), z(0), w(0)
+{
+}
+
+template <typename T>
 inline VectorT<T, 4>::VectorT(const T& scalar)
     : x(scalar), y(scalar), z(scalar), w(scalar)
 {
@@ -89,17 +95,19 @@ inline T VectorT<T, 4>::dot(const VectorT& rhs) const
 template <typename T>
 inline T VectorT<T, 4>::cross(const VectorT& rhs) const
 {
-    return x * rhs.y - y * rhs.x - z * rhs.z - w * rhs.w;
+    // FIXME
+    // return x * rhs.y - y * rhs.x - z * rhs.z - w * rhs.w;
+    return T();
 }
 
 template <typename T>
-inline void* VectorT<T, 4>::data()
+inline T* VectorT<T, 4>::data()
 {
     return &x;
 }
 
 template <typename T>
-inline const void* VectorT<T, 4>::data() const
+inline const T* VectorT<T, 4>::data() const
 {
     return &x;
 }

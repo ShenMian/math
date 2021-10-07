@@ -30,6 +30,12 @@ template <typename T>
 inline const VectorT<T, 2> VectorT<T, 2>::left(-1, 0);
 
 template <typename T>
+inline VectorT<T, 2>::VectorT()
+    : x(0), y(0)
+{
+}
+
+template <typename T>
 inline VectorT<T, 2>::VectorT(const T& scalar)
     : x(scalar), y(scalar)
 {
@@ -83,7 +89,9 @@ inline T VectorT<T, 2>::dot(const VectorT& rhs) const
 template <typename T>
 inline T VectorT<T, 2>::cross(const VectorT& rhs) const
 {
-    return x * rhs.y - y * rhs.x;
+    // FIXME
+    // return x * rhs.y - y * rhs.x;
+    return T();
 }
 
 template <typename T>
@@ -129,13 +137,13 @@ T VectorT<T, 2>::distanceSquared(const VectorT& point) const
 }
 
 template <typename T>
-inline void* VectorT<T, 2>::data()
+inline T* VectorT<T, 2>::data()
 {
     return &x;
 }
 
 template <typename T>
-inline const void* VectorT<T, 2>::data() const
+inline const T* VectorT<T, 2>::data() const
 {
     return &x;
 }

@@ -1,6 +1,7 @@
 ﻿// Copyright 2021 SMS
 // License(Apache-2.0)
 
+#include "Math.hpp"
 #include <algorithm>
 #include <cassert>
 #include <cmath>
@@ -69,20 +70,24 @@ inline T VectorT<T, N>::dot(const VectorT& rhs) const
 template <typename T, size_t N>
 inline T VectorT<T, N>::cross(const VectorT& rhs) const
 {
+    // FIXME
+    /*
     T result = T();
     for(size_t i = 0; i < N; i++)
         result -= v_[i] * rhs.v_[i];
     return result;
+    */
+    return T();
 }
 
 template <typename T, size_t N>
-inline void* VectorT<T, N>::data()
+inline T* VectorT<T, N>::data()
 {
     return v_;
 }
 
 template <typename T, size_t N>
-inline const void* VectorT<T, N>::data() const
+inline const T* VectorT<T, N>::data() const
 {
     return v_;
 }

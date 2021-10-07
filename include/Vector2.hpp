@@ -13,10 +13,13 @@ template <typename T>
 class VectorT<T, 2>
 {
 public:
+    T x = T();
+    T y = T();
+
     /**
 	 * @brief 默认构造函数.
 	 */
-    VectorT() = default;
+    VectorT();
 
     /**
 	 * @brief 构造函数.
@@ -110,8 +113,8 @@ public:
     /**
 	 * @brief 获取原始数据.
 	 */
-    void*       data();
-    const void* data() const;
+    T*       data();
+    const T* data() const;
 
     template <typename C>
     operator VectorT<C, 2>()
@@ -140,10 +143,6 @@ public:
     static const VectorT down;  // (0, -1)
     static const VectorT right; // (1, 0)
     static const VectorT left;  // (-1, 0)
-
-private:
-    T x = T();
-    T y = T();
 };
 
 #include "vector2.inl"

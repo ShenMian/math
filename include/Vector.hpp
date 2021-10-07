@@ -76,8 +76,8 @@ public:
     /**
 	 * @brief 获取原始数据.
 	 */
-    void*       data();
-    const void* data() const;
+    T*       data();
+    const T* data() const;
 
     template <typename C>
     operator VectorT<C, N>()

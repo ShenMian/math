@@ -4,6 +4,8 @@
 #pragma once
 
 #include "Vector.hpp"
+#include "Vector2.hpp"
+#include "Vector3.hpp"
 #include <cstddef>
 
 /**
@@ -13,10 +15,28 @@ template <typename T>
 class VectorT<T, 4>
 {
 public:
+    union
+    {
+        struct
+        {
+            T x;
+            T y;
+            T z;
+            T w;
+        };
+        struct
+        {
+            T r;
+            T g;
+            T b;
+            T a;
+        };
+    };
+
     /**
 	 * @brief 默认构造函数.
 	 */
-    VectorT() = default;
+    VectorT();
 
     /**
 	 * @brief 构造函数.
@@ -96,8 +116,8 @@ public:
     /**
 	 * @brief 获取原始数据.
 	 */
-    void*       data();
-    const void* data() const;
+    T*       data();
+    const T* data() const;
 
     template <typename C>
     operator VectorT<C, 4>()
@@ -123,12 +143,6 @@ public:
     static const VectorT unit_z; // (0, 0, 1, 0)
     static const VectorT unit_w; // (0, 0, 0, 1)
     static const VectorT zero;   // (0, 0, 0, 0)
-
-private:
-    T x = T();
-    T y = T();
-    T z = T();
-    T w = T(1);
 };
 
 #include "vector4.inl"

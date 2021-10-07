@@ -1,4 +1,4 @@
-// Copyright 2021 SMS
+﻿// Copyright 2021 SMS
 // License(Apache-2.0)
 
 #include "gtest/gtest.h"
@@ -7,8 +7,6 @@
 #include "Vector2.hpp"
 #include "Vector3.hpp"
 #include "Vector4.hpp"
-
-#include "Quaternion.hpp"
 
 TEST(Vector2, subscript)
 {
@@ -45,7 +43,7 @@ TEST(Vector2, cross)
 
 TEST(Vector2, angle)
 {
-    EXPECT_FLOAT_EQ((float)Math::degrees(Vector2(1, 1).angle()), 45.f);
+    EXPECT_FLOAT_EQ(Math::degrees(Vector2(1, 1).angle()), 45.f);
     // EXPECT_FLOAT_EQ(Math::degrees(Vector2(1, 2).angle()), 60.f);
     // EXPECT_EQ(Math::degrees(Vector2(2, 1).angle()), 30);
 }
