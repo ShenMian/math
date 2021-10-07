@@ -3,6 +3,7 @@
 
 #pragma once
 
+#include "Vector3.hpp"
 #include <cstddef>
 
 template <typename T, size_t R, size_t C>

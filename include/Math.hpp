@@ -3,7 +3,6 @@
 
 #pragma once
 
-#include "Matrix.hpp"
 #include <cmath>
 
 class Math
