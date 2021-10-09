@@ -6,4 +6,4 @@
 cd "$( cd "$( dirname "$0"  )" && pwd  )" || exit
 cd ..
 
-./Thirdparty/premake/bin/premake5 gmake2
+./thirdparty/premake/bin/premake5 gmake2
