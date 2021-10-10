@@ -6,11 +6,12 @@
 #include <cassert>
 #include <cmath>
 #include <concepts>
+#include <ranges>
 
 template <typename T, size_t N>
 inline VectorT<T, N>::VectorT(const T& scalar)
 {
-    std::fill(std::begin(v_), std::end(v_), scalar);
+    std::ranges::fill(v_, scalar);
 }
 
 template <typename T, size_t N>
@@ -25,7 +26,7 @@ VectorT<T, N>::VectorT(const std::initializer_list<T>& list)
 template <typename T, size_t N>
 VectorT<T, N>::VectorT(const VectorT& rhs)
 {
-    std::copy(std::begin(rhs.v_), std::end(rhs.v_), v_);
+    std::ranges::copy(rhs.v_, v_);
 }
 
 template <typename T, size_t N>

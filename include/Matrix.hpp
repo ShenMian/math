@@ -33,12 +33,17 @@ public:
     MatrixT& inverse();
 
     /**
+     * @brief 获取逆矩阵.
+     */
+    MatrixT<T, C, R> inversed() const;
+
+    /**
      * @brief 转置.
      */
     MatrixT& transpose();
 
     /**
-     * @brief 转置.
+     * @brief 获取转置后的矩阵.
      */
     MatrixT<T, C, R> transposed() const;
 
@@ -76,6 +81,15 @@ public:
         return result;
     }
 
+    bool operator==(const MatrixT&) const;
+
+    static MatrixT createTranslate(const Vector3T<T>&);
+    static MatrixT createRotation(const Vector3T<T>& axis, float angle);
+    static MatrixT createScale(const Vector3T<T>&);
+
+    static MatrixT createOrtho();
+    static MatrixT createPerspective();
+
     static const size_t rows    = R;
     static const size_t columns = C;
 
@@ -87,10 +101,14 @@ private:
 
 #include "Matrix.inl"
 
-template <typename T>
-using Matrix3T = MatrixT<T, 3, 3>;
-using Matrix3  = Matrix3T<float>;
+#define DEF_MATRIX_NxN(n)                                        \
+    template <typename T> using Matrix##n##T = MatrixT<T, n, n>; \
+    using Matrix##n     = Matrix##n##T<float>;                   \
+    using Matrix##n##f  = Matrix##n##T<float>;                   \
+    using Matrix##n##d  = Matrix##n##T<double>;                  \
 
-template <typename T>
-using Matrix4T = MatrixT<T, 4, 4>;
-using Matrix4  = Matrix4T<float>;
+DEF_MATRIX_NxN(2);
+DEF_MATRIX_NxN(3);
+DEF_MATRIX_NxN(4);
+
+// #undef DEF_MATRIX_NxN
