@@ -8,40 +8,6 @@
 class Math
 {
 public:
-    /*
-    template <typename T>
-    static Matrix4T<T> transform()
-    {
-        return Matrix4();
-    }
-
-    template <typename T>
-    static Matrix4T<T> rotate()
-    {
-        return Matrix4();
-    }
-
-    template <typename T>
-    static Matrix4T<T> scale()
-    {
-        return Matrix4();
-    }
-
-    
-    template <typename T>
-    static Matrix4T<T> ortho()
-    {
-        return Matrix4T();
-    }
-
-    template <typename T>
-    static Matrix4T<T> perspective()
-    {
-        return Matrix4T();
-    }
-    */
-
-
     template <typename T>
     static bool equal(const T& lhs, const T& rhs)
     {
