@@ -6,6 +6,9 @@
 #include "Vector3.hpp"
 #include <cstddef>
 
+/**
+ * @brief 矩阵.
+ */
 template <typename T, size_t R, size_t C>
 class MatrixT
 {

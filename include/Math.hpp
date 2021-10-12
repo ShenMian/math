@@ -18,7 +18,7 @@ public:
     requires std::floating_point<T>
     static bool equal(const T& lhs, const T& rhs)
     {
-        return (std::abs(lhs - rhs) <= std::numeric_limits<T>::epsilon());
+        return std::abs(lhs - rhs) <= std::numeric_limits<T>::epsilon();
     }
 
 

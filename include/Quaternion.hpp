@@ -3,6 +3,7 @@
 
 #pragma once
 
+#include "Vector3.hpp"
 #include <type_traits>
 
 /**
@@ -27,6 +28,51 @@ public:
 	 * @param w w 分量.
 	 */
     QuaternionT(const T& x, const T& y, const T& z, const T& w);
+
+    /**
+     * @brief 设置欧拉角.
+     */
+    void eular(const Vector3T<T>& angles);
+
+    /**
+     * @brief 获取欧拉角.
+     */
+    Vector3T<T> eular() const;
+
+    /**
+     * @brief 求逆.
+     */
+    QuaternionT& inverse();
+
+    /**
+     * @brief 获取求逆结果.
+     */
+    QuaternionT inversed() const;
+
+    /**
+	 * @brief 标准化.
+	 */
+    QuaternionT& normalize();
+
+    /**
+	 * @brief 获取长度平方.
+	 *
+	 * @see size
+	 */
+    T sizeSquared() const;
+
+    /**
+	 * @brief 获取长度.
+	 *
+	 * @see sizeSquared
+	 */
+    T size() const;
+
+    template <typename C>
+    operator QuaternionT<C>() const
+    {
+        return QuaternionT<C>(static_cast<C>(x), static_cast<C>(y), static_cast<C>(z), static_cast<C>(w));
+    }
 
 private:
     T x = T();
