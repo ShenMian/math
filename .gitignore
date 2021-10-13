@@ -1,3 +1,16 @@
+# Build
+[Bb]uild/
+[Bb]in/
+!thirdparty/premake/bin/
+
+# Visual Studio
+*.sln
+*.vcxproj
+*.filters
+*.user
+/.vs
+/.vscode
+
 # Prerequisites
 *.d
 
@@ -27,17 +40,5 @@
 *.lib
 
 # Executables
-*.exe
 *.out
 *.app
-/.vs
-
-[Bb]uild/
-[Bb]in/
-
-# Visual Studio
-*.sln
-*.vcxproj
-*.filters
-*.user
-/.vscode
