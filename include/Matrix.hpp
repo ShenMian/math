@@ -23,7 +23,7 @@ public:
      * 
      * @param list 初始化列表.
 	 */
-    MatrixT(const std::initializer_list<T>& list);
+    explicit MatrixT(const std::initializer_list<T>& list);
 
     /**
      * @brief 计算行列式的值.
