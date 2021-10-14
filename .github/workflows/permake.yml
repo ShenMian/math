@@ -7,18 +7,18 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
     - uses: actions/checkout@v2
 
     - name: Get premake5
       run: |
-       wget -qO- https://github.com/premake/premake-core/releases/download/v5.0.0-alpha15/premake-5.0.0-alpha15-linux.tar.gz | \
+       wget -qO- https://github.com/premake/premake-core/releases/download/v5.0.0-alpha16/premake-5.0.0-alpha16-linux.tar.gz | \
        tar xvz premake5 | \
        xargs -I"{}" sudo mv {} /usr/bin
 
-    - name: Generate Makefiles
+    - name: Generate makefiles
       run: premake5 --file=premake5.lua gmake
 
     - name: Get dependencies
