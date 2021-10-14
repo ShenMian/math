@@ -3,6 +3,9 @@
 [Bb]in/
 !thirdparty/premake/bin/
 
+# Makefile
+Makefile
+
 # Visual Studio
 *.sln
 *.vcxproj
