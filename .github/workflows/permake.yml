@@ -14,11 +14,15 @@ jobs:
 
       - name: Build windows
         if: ${{ runner.os == 'windows' }}
-        run: ./scripts/generate_gmake2_project.bat
+        run: |
+          ./scripts/generate_gmake2_project.bat \
+          cmake --build .
 
       - name: Build ubuntu
         if: ${{ runner.os == 'ubuntu' }}
-        run: ./scripts/generate_gmake2_project.sh
+        run: |
+          ./scripts/generate_gmake2_project.sh \
+          cmake --build .
 
       # - name: Get premake5
       #   run: |
