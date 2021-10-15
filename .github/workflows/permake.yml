@@ -18,7 +18,7 @@ jobs:
 
       - name: Build linux
         if: ${{ runner.os == 'linux' }}
-        run: ./scripts/generate_gmake2_project.sh && ls
+        run: ./scripts/generate_gmake2_project.sh && ls && pwd
 
       # - name: Get premake5
       #   run: |
@@ -33,4 +33,5 @@ jobs:
       #   run: DEBIAN_FRONTEND=noninteractive sudo apt-get update -yqq --allow-releaseinfo-change -o::Dpkg::Use-Pty=0 && DEBIAN_FRONTEND=noninteractive sudo apt-get install -yqq -o::Dpkg::Use-Pty=0 libopenal-dev build-essential libgl1-mesa-dev libglm-dev libglfw3-dev ocl-icd-opencl-dev libc++abi-dev
       #
       # - name: Build
-      #   run: make all
+      #   run: cmake --build .
+      ##  run: make all
