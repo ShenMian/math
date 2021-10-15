@@ -97,7 +97,7 @@ inline VectorT<T, 4> VectorT<T, 4>::cross(const VectorT& rhs) const
 {
     // FIXME
     // return x * rhs.y - y * rhs.x - z * rhs.z - w * rhs.w;
-    return T();
+    return VectorT<T, 4>();
 }
 
 template <typename T>

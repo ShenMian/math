@@ -78,7 +78,7 @@ inline VectorT<T, N> VectorT<T, N>::cross(const VectorT& rhs) const
         result -= v_[i] * rhs.v_[i];
     return result;
     */
-    return T();
+    return VectorT<T, N>();
 }
 
 template <typename T, size_t N>
