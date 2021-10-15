@@ -18,9 +18,7 @@ jobs:
 
       - name: Build linux
         if: ${{ runner.os == 'linux' }}
-        run: |
-          ./scripts/generate_gmake2_project.sh \
-          cmake --build .
+        run: ./scripts/generate_gmake2_project.sh && cmake --build .
 
       # - name: Get premake5
       #   run: |
