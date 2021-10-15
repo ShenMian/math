@@ -69,7 +69,7 @@ inline T VectorT<T, N>::dot(const VectorT& rhs) const
 }
 
 template <typename T, size_t N>
-inline T VectorT<T, N>::cross(const VectorT& rhs) const
+inline VectorT<T, N> VectorT<T, N>::cross(const VectorT& rhs) const
 {
     // FIXME
     /*

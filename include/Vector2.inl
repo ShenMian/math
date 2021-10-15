@@ -87,7 +87,7 @@ inline T VectorT<T, 2>::dot(const VectorT& rhs) const
 }
 
 template <typename T>
-inline T VectorT<T, 2>::cross(const VectorT& rhs) const
+inline VectorT<T, 2> VectorT<T, 2>::cross(const VectorT& rhs) const
 {
     // FIXME
     // return x * rhs.y - y * rhs.x;

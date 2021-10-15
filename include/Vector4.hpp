@@ -111,7 +111,7 @@ public:
 	 *
 	 * @param rhs 要叉乘的向量.
 	 */
-    T cross(const VectorT& rhs) const;
+    VectorT cross(const VectorT& rhs) const;
 
     /**
 	 * @brief 获取原始数据.
