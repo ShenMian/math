@@ -1,12 +1,12 @@
 ﻿// Copyright 2021 SMS
 // License(Apache-2.0)
 
-#include "gtest/gtest.h"
-#include "Math.hpp"
-#include "Vector.hpp"
-#include "Vector2.hpp"
-#include "Vector3.hpp"
-#include "Vector4.hpp"
+#include <gtest/gtest.h>
+#include <Math/Math.hpp>
+#include <Math/Vector.hpp>
+#include <Math/Vector2.hpp>
+#include <Math/Vector3.hpp>
+#include <Math/Vector4.hpp>
 
 TEST(Vector2, subscript)
 {

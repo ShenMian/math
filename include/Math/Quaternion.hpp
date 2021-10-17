@@ -4,6 +4,7 @@
 #pragma once
 
 #include "Vector3.hpp"
+#include "Matrix.hpp"
 #include <type_traits>
 
 /**
@@ -14,6 +15,11 @@ requires std::floating_point<T>
 class QuaternionT
 {
 public:
+    T x = T();
+    T y = T();
+    T z = T();
+    T w = T(1);
+
     /**
      * @brief 默认构造函数.
      */
@@ -30,7 +36,16 @@ public:
     QuaternionT(const T& x, const T& y, const T& z, const T& w);
 
     /**
+	 * @brief 构造函数.
+	 *
+	 * @param mat 4x4 矩阵.
+	 */
+    QuaternionT(const Matrix4T<T>& mat);
+
+    /**
      * @brief 设置欧拉角.
+     * 
+     * @param angles 三个轴的角度, 弧度制.
      */
     void eular(const Vector3T<T>& angles);
 
@@ -74,11 +89,12 @@ public:
         return QuaternionT<C>(static_cast<C>(x), static_cast<C>(y), static_cast<C>(z), static_cast<C>(w));
     }
 
-private:
-    T x = T();
-    T y = T();
-    T z = T();
-    T w = T(1);
+    bool         operator==(const QuaternionT&) const;
+    QuaternionT& operator+=(const QuaternionT&);
+    QuaternionT& operator-=(const QuaternionT&);
+    QuaternionT& operator*=(const QuaternionT&);
+    QuaternionT& operator*=(T);
+    QuaternionT  operator-() const;
 };
 
 #include "Quaternion.inl"

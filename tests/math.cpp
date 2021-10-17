@@ -1,8 +1,8 @@
 ﻿// Copyright 2021 SMS
 // License(Apache-2.0)
 
-#include "gtest/gtest.h"
-#include "math.hpp"
+#include <gtest/gtest.h>
+#include <Math/math.hpp>
 
 TEST(Math, degrees)
 {
