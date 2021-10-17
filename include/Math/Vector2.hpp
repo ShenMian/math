@@ -119,7 +119,7 @@ public:
     template <typename C>
     operator VectorT<C, 2>()
     {
-        return VectorT<C>(static_cast<C>(x), static_cast<C>(y));
+        return VectorT<C, 2>(static_cast<C>(x), static_cast<C>(y));
     }
 
     T&       operator[](size_t index);
@@ -145,7 +145,7 @@ public:
     static const VectorT left;  // (-1, 0)
 };
 
-#include "vector2.inl"
+#include "Vector2.inl"
 
 template <typename T>
 using Vector2T = VectorT<T, 2>;
