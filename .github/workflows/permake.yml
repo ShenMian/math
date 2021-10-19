@@ -14,7 +14,7 @@ jobs:
 
       - name: Build windows
         if: ${{ runner.os == 'windows' }}
-        run: ./scripts/generate_gmake2_project.bat
+        run: ./scripts/generate_gmake2_project.bat && make
 
       # C++20  is not supported yet
       # - name: Build linux
