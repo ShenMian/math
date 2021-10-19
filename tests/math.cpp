@@ -2,7 +2,7 @@
 // License(Apache-2.0)
 
 #include <gtest/gtest.h>
-#include <Math/math.hpp>
+#include <Math/Math.hpp>
 
 TEST(Math, degrees)
 {

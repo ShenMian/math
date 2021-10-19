@@ -104,7 +104,7 @@ private:
     T v_[N] = {};
 };
 
-#include "vector.inl"
+#include "Vector.inl"
 
 template <size_t N>
 using Vector = VectorT<float, N>;
