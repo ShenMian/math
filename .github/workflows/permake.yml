@@ -16,9 +16,10 @@ jobs:
         if: ${{ runner.os == 'windows' }}
         run: ./scripts/generate_gmake2_project.bat
 
-      - name: Build linux
-        if: ${{ runner.os == 'linux' }}
-        run: ./scripts/generate_gmake2_project.sh && make all
+      # C++20  is not supported yet
+      # - name: Build linux
+      #   if: ${{ runner.os == 'linux' }}
+      #   run: ./scripts/generate_gmake2_project.sh && make all
 
       # - name: Get premake5
       #   run: |
