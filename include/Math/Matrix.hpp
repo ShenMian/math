@@ -26,11 +26,6 @@ public:
     explicit MatrixT(const std::initializer_list<T>& list);
 
     /**
-     * @brief 计算行列式的值.
-     */
-    T determinant() const;
-
-    /**
      * @brief 求逆.
      */
     MatrixT& inverse();
@@ -49,6 +44,11 @@ public:
      * @brief 获取转置后的矩阵.
      */
     MatrixT<T, C, R> transposed() const;
+
+    /**
+     * @brief 计算行列式的值.
+     */
+    T determinant() const;
 
     /**
      * @brief 求迹.

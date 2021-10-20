@@ -6,7 +6,7 @@
 
 template <typename T>
 requires std::floating_point<T>
-QuaternionT<T>::QuaternionT(const T& x, const T& y, const T& z, const T& w)
+QuaternionT<T>::QuaternionT(T x, T y, T z, T w)
     : x(x), y(y), z(z), w(w)
 {
 }

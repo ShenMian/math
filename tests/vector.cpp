@@ -121,7 +121,6 @@ TEST(Vector4, dot)
     EXPECT_FLOAT_EQ(Vector4(3, 4, 5, 6).normalized().dot(-Vector4(3, 4, 5, 6).normalized()), -1.f);
 }
 
-
 TEST(Vector4, equal)
 {
     EXPECT_EQ(Vector4(1, 2, 3, 4), Vector4(1, 2, 3, 4));
@@ -130,6 +129,7 @@ TEST(Vector4, equal)
     EXPECT_NE(Vector4(1, 2, 3, 4), Vector4(1, 2, 0, 4));
     EXPECT_NE(Vector4(1, 2, 3, 4), Vector4(1, 2, 3, 0));
 }
+
 
 TEST(Vector, subscript)
 {

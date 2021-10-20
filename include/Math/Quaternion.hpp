@@ -33,7 +33,7 @@ public:
 	 * @param z z 分量.
 	 * @param w w 分量.
 	 */
-    QuaternionT(const T& x, const T& y, const T& z, const T& w);
+    QuaternionT(T x, T y, T z, T w);
 
     /**
 	 * @brief 构造函数.
