@@ -64,21 +64,21 @@ inline const T* MatrixT<T, R, C>::data() const
 }
 
 template <typename T, size_t R, size_t C>
-T* MatrixT<T, R, C>::operator[](size_t row)
+inline T* MatrixT<T, R, C>::operator[](size_t row)
 {
     assert(row < R);
     return m_[row];
 }
 
 template <typename T, size_t R, size_t C>
-const T* MatrixT<T, R, C>::operator[](size_t row) const
+inline const T* MatrixT<T, R, C>::operator[](size_t row) const
 {
     assert(row < R);
     return m_[row];
 }
 
 template <typename T, size_t R, size_t C>
-bool MatrixT<T, R, C>::operator==(const MatrixT& rhs) const
+inline bool MatrixT<T, R, C>::operator==(const MatrixT& rhs) const
 {
     for(size_t r = 0; r < R; r++)
         for(size_t c = 0; c < C; c++)
@@ -88,7 +88,7 @@ bool MatrixT<T, R, C>::operator==(const MatrixT& rhs) const
 }
 
 template <typename T, size_t R, size_t C>
-MatrixT<T, R, C> MatrixT<T, R, C>::createTranslate(const Vector3T<T>& v)
+inline MatrixT<T, R, C> MatrixT<T, R, C>::createTranslate(const Vector3T<T>& v)
 {
     static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
     MatrixT result;

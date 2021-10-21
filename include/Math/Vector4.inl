@@ -36,25 +36,25 @@ inline VectorT<T, 4>::VectorT(const T& scalar)
 }
 
 template <typename T>
-VectorT<T, 4>::VectorT(const T& x, const T& y, const T& z, const T& w)
+inline VectorT<T, 4>::VectorT(const T& x, const T& y, const T& z, const T& w)
     : x(x), y(y), z(z), w(w)
 {
 }
 
 template <typename T>
-VectorT<T, 4>::VectorT(const Vector3T<T>& v, const T& w)
+inline VectorT<T, 4>::VectorT(const Vector3T<T>& v, const T& w)
     : x(v.x), y(v.y), z(v.z), w(w)
 {
 }
 
 template <typename T>
-VectorT<T, 4>::VectorT(const Vector2T<T>& v, const T& z, const T& w)
+inline VectorT<T, 4>::VectorT(const Vector2T<T>& v, const T& z, const T& w)
     : x(v.x), y(v.y), z(z), w(w)
 {
 }
 
 template <typename T>
-VectorT<T, 4>::VectorT(const VectorT& v)
+inline VectorT<T, 4>::VectorT(const VectorT& v)
     : x(v.x), y(v.y), z(v.z), w(v.w)
 {
 }

@@ -51,19 +51,19 @@ inline VectorT<T, 3>::VectorT(const T& scalar)
 }
 
 template <typename T>
-VectorT<T, 3>::VectorT(const T& x, const T& y, const T& z)
+inline VectorT<T, 3>::VectorT(const T& x, const T& y, const T& z)
     : x(x), y(y), z(z)
 {
 }
 
 template <typename T>
-VectorT<T, 3>::VectorT(const Vector2T<T>& v, const T& z)
+inline VectorT<T, 3>::VectorT(const Vector2T<T>& v, const T& z)
     : x(v.x), y(v.y), z(z)
 {
 }
 
 template <typename T>
-VectorT<T, 3>::VectorT(const VectorT& v)
+inline VectorT<T, 3>::VectorT(const VectorT& v)
     : x(v.x), y(v.y), z(v.z)
 {
 }
@@ -112,13 +112,13 @@ inline VectorT<T, 3> VectorT<T, 3>::cross(const VectorT& rhs) const
 }
 
 template <typename T>
-T VectorT<T, 3>::distance(const VectorT& point) const
+inline T VectorT<T, 3>::distance(const VectorT& point) const
 {
     return std::sqrt(distanceSquared());
 }
 
 template <typename T>
-T VectorT<T, 3>::distanceSquared(const VectorT& point) const
+inline T VectorT<T, 3>::distanceSquared(const VectorT& point) const
 {
     const auto dx = std::abs(x - point.x);
     const auto dy = std::abs(y - point.y);

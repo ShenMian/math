@@ -15,7 +15,7 @@ inline VectorT<T, N>::VectorT(const T& scalar)
 }
 
 template <typename T, size_t N>
-VectorT<T, N>::VectorT(const std::initializer_list<T>& list)
+inline VectorT<T, N>::VectorT(const std::initializer_list<T>& list)
 {
     assert(list.size() == N);
     auto it = list.begin();
@@ -24,7 +24,7 @@ VectorT<T, N>::VectorT(const std::initializer_list<T>& list)
 }
 
 template <typename T, size_t N>
-VectorT<T, N>::VectorT(const VectorT& rhs)
+inline VectorT<T, N>::VectorT(const VectorT& rhs)
 {
     std::ranges::copy(rhs.v_, v_);
 }
@@ -150,7 +150,7 @@ inline VectorT<T, N>& VectorT<T, N>::operator/=(const T& rhs)
 }
 
 template <typename T, size_t N>
-VectorT<T, N> VectorT<T, N>::operator-() const
+inline VectorT<T, N> VectorT<T, N>::operator-() const
 {
     VectorT result;
     for(size_t i = 0; i < N; i++)

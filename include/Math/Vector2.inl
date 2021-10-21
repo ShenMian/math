@@ -42,13 +42,13 @@ inline VectorT<T, 2>::VectorT(const T& scalar)
 }
 
 template <typename T>
-VectorT<T, 2>::VectorT(const T& x, const T& y)
+inline VectorT<T, 2>::VectorT(const T& x, const T& y)
     : x(x), y(y)
 {
 }
 
 template <typename T>
-VectorT<T, 2>::VectorT(const VectorT& v)
+inline VectorT<T, 2>::VectorT(const VectorT& v)
     : x(v.x), y(v.y)
 {
 }
@@ -123,13 +123,13 @@ inline void VectorT<T, 2>::rotate(const VectorT<T, 2>& point, float angle)
 }
 
 template <typename T>
-T VectorT<T, 2>::distance(const VectorT& point) const
+inline T VectorT<T, 2>::distance(const VectorT& point) const
 {
     return std::sqrt(distanceSquared());
 }
 
 template <typename T>
-T VectorT<T, 2>::distanceSquared(const VectorT& point) const
+inline T VectorT<T, 2>::distanceSquared(const VectorT& point) const
 {
     const auto dx = std::abs(x - point.x);
     const auto dy = std::abs(y - point.y);
@@ -213,7 +213,7 @@ inline VectorT<T, 2>& VectorT<T, 2>::operator/=(const T& rhs)
 }
 
 template <typename T>
-VectorT<T, 2> VectorT<T, 2>::operator-() const
+inline VectorT<T, 2> VectorT<T, 2>::operator-() const
 {
     return VectorT(-x, -y);
 }
