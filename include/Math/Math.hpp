@@ -4,6 +4,7 @@
 #pragma once
 
 #include <cmath>
+#include <numbers>
 
 class Math
 {
@@ -26,15 +27,13 @@ public:
     requires std::floating_point<T>
     static T radians(T degrees)
     {
-        return degrees * static_cast<T>(pi) / 180;
+        return degrees * static_cast<T>(std::numbers::pi) / 180;
     }
 
     template <typename T>
     requires std::floating_point<T>
     static T degrees(T radians)
     {
-        return radians * 180 / static_cast<T>(pi);
+        return radians * 180 / static_cast<T>(std::numbers::pi);
     }
-
-    inline static constexpr double pi = 3.14159265358979323846;
 };
