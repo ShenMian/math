@@ -40,7 +40,7 @@ public:
 	 *
 	 * @param mat 4x4 矩阵.
 	 */
-    QuaternionT(const Matrix4T<T>& mat);
+    explicit QuaternionT(const Matrix4T<T>& mat);
 
     /**
      * @brief 设置欧拉角.
