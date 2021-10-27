@@ -63,6 +63,16 @@ inline VectorT<T, 3>::VectorT(const Vector2T<T>& v, const T& z)
 }
 
 template <typename T>
+inline VectorT<T, 3>::VectorT(const std::initializer_list<T>& list)
+{
+    assert(list.size() == 3);
+    auto it = list.begin();
+    x       = *it++;
+    y       = *it++;
+    z       = *it++;
+}
+
+template <typename T>
 inline VectorT<T, 3>::VectorT(const VectorT& v)
     : x(v.x), y(v.y), z(v.z)
 {

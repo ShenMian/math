@@ -48,6 +48,15 @@ inline VectorT<T, 2>::VectorT(const T& x, const T& y)
 }
 
 template <typename T>
+inline VectorT<T, 2>::VectorT(const std::initializer_list<T>& list)
+{
+    assert(list.size() == 2);
+    auto it = list.begin();
+    x       = *it++;
+    y       = *it++;
+}
+
+template <typename T>
 inline VectorT<T, 2>::VectorT(const VectorT& v)
     : x(v.x), y(v.y)
 {
@@ -215,5 +224,5 @@ inline VectorT<T, 2>& VectorT<T, 2>::operator/=(const T& rhs)
 template <typename T>
 inline VectorT<T, 2> VectorT<T, 2>::operator-() const
 {
-    return VectorT(-x, -y);
+    return {-x, -y};
 }

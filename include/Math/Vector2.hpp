@@ -35,6 +35,13 @@ public:
     explicit VectorT(const T& x, const T& y);
 
     /**
+	 * @brief 构造函数.
+     * 
+     * @param list 初始化列表.
+	 */
+    VectorT(const std::initializer_list<T>& list);
+
+    /**
 	 * @brief 拷贝构造函数.
 	 */
     VectorT(const VectorT& v);
