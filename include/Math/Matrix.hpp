@@ -9,7 +9,7 @@
 /**
  * @brief 矩阵.
  */
-template <size_t R, size_t C, typename T>
+template <typename T, size_t R, size_t C>
 class MatrixT
 {
 public:
@@ -33,7 +33,7 @@ public:
     /**
      * @brief 获取逆矩阵.
      */
-    MatrixT<C, R, T> inversed() const;
+    MatrixT<T, R, C> inversed() const;
 
     /**
      * @brief 转置.
@@ -43,7 +43,7 @@ public:
     /**
      * @brief 获取转置后的矩阵.
      */
-    MatrixT<C, R, T> transposed() const;
+    MatrixT<T, R, C> transposed() const;
 
     /**
      * @brief 计算行列式的值.
@@ -75,7 +75,7 @@ public:
     const T* operator[](size_t row) const;
 
     template <typename T0>
-    operator MatrixT<R, C, T0>()
+    operator MatrixT<T0, R, C>()
     {
         MatrixT result;
         for(size_t r = 0; r < R; r++)
@@ -105,7 +105,7 @@ private:
 #include "Matrix.inl"
 
 #define DEF_MATRIX_NxN(n)                                        \
-    template <typename T> using Matrix##n##T = MatrixT<n, n, T>; \
+    template <typename T> using Matrix##n##T = MatrixT<T, n, n>; \
     using Matrix##n     = Matrix##n##T<float>;                   \
     using Matrix##n##f  = Matrix##n##T<float>;                   \
     using Matrix##n##d  = Matrix##n##T<double>;                  \
