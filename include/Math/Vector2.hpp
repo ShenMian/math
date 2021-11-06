@@ -5,6 +5,7 @@
 
 #include "Vector.hpp"
 #include <cstddef>
+#include <cstdint>
 
 /**
  * @brief 二维向量.
@@ -161,3 +162,4 @@ using Vector2f = Vector2T<float>;
 using Vector2d = Vector2T<double>;
 using Vector2i = Vector2T<int32_t>;
 using Vector2  = Vector2f;
+using Size2    = Vector2T<size_t>;

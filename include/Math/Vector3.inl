@@ -115,9 +115,9 @@ template <typename T>
 inline VectorT<T, 3> VectorT<T, 3>::cross(const VectorT& rhs) const
 {
     VectorT result;
-    result.x = (y * rhs.z) - (z * rhs.y);
-    result.y = (z * rhs.x) - (x * rhs.z);
-    result.z = (x * rhs.y) - (y * rhs.x);
+    result.x = y * rhs.z - z * rhs.y;
+    result.y = z * rhs.x - x * rhs.z;
+    result.z = x * rhs.y - y * rhs.x;
     return result;
 }
 
