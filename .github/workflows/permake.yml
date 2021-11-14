@@ -14,11 +14,11 @@ jobs:
 
       - name: Build windows
         if: ${{ runner.os == 'windows' }}
-        run: ./scripts/generate_gmake2_project.bat #&& make # 未知原因错误: 创建目录时报错无法找到要创建的目录, 可能是 premake 生成的是 Windows 文件路径
+        run: ./scripts/gen_gmake2.bat #&& make # 未知原因错误: 创建目录时报错无法找到要创建的目录, 可能是 premake 生成的是 Windows 文件路径
 
       - name: Build linux
         if: ${{ runner.os == 'linux' }}
-        run: ./scripts/generate_gmake2_project.sh #&& make all # 还不支持 C++20
+        run: ./scripts/gen_gmake2.sh #&& make all # 还不支持 C++20
 
       # - name: Get premake5
       #   run: |
