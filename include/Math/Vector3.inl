@@ -40,173 +40,173 @@ inline const VectorT<T, 3> VectorT<T, 3>::back(0, 0, 1);
 
 template <typename T>
 inline VectorT<T, 3>::VectorT()
-    : x(0), y(0), z(0)
+	: x(0), y(0), z(0)
 {
 }
 
 template <typename T>
 inline VectorT<T, 3>::VectorT(const T& scalar)
-    : x(scalar), y(scalar), z(scalar)
+	: x(scalar), y(scalar), z(scalar)
 {
 }
 
 template <typename T>
 inline VectorT<T, 3>::VectorT(const T& x, const T& y, const T& z)
-    : x(x), y(y), z(z)
+	: x(x), y(y), z(z)
 {
 }
 
 template <typename T>
 inline VectorT<T, 3>::VectorT(const Vector2T<T>& v, const T& z)
-    : x(v.x), y(v.y), z(z)
+	: x(v.x), y(v.y), z(z)
 {
 }
 
 template <typename T>
 inline VectorT<T, 3>::VectorT(const std::initializer_list<T>& list)
 {
-    assert(list.size() == 3);
-    auto it = list.begin();
-    x       = *it++;
-    y       = *it++;
-    z       = *it++;
+	assert(list.size() == 3);
+	auto it = list.begin();
+	x = *it++;
+	y = *it++;
+	z = *it++;
 }
 
 template <typename T>
 inline VectorT<T, 3>::VectorT(const VectorT& v)
-    : x(v.x), y(v.y), z(v.z)
+	: x(v.x), y(v.y), z(v.z)
 {
 }
 
 template <typename T>
 inline T VectorT<T, 3>::sizeSquared() const
 {
-    return x * x + y * y + z * z;
+	return x * x + y * y + z * z;
 }
 
 template <typename T>
 inline T VectorT<T, 3>::size() const
 {
-    return static_cast<T>(std::sqrt(sizeSquared()));
+	return static_cast<T>(std::sqrt(sizeSquared()));
 }
 
 template <typename T>
 inline VectorT<T, 3>& VectorT<T, 3>::normalize()
 {
-    const auto len = size();
-    if(len < std::numeric_limits<T>::epsilon())
-        return *this;
-    return *this *= 1.f / len;
+	const auto len = size();
+	if(len < std::numeric_limits<T>::epsilon())
+		return *this;
+	return *this *= 1.f / len;
 }
 
 template <typename T>
 inline VectorT<T, 3> VectorT<T, 3>::normalized() const
 {
-    return VectorT(*this).normalize();
+	return VectorT(*this).normalize();
 }
 
 template <typename T>
 inline T VectorT<T, 3>::dot(const VectorT& rhs) const
 {
-    return x * rhs.x + y * rhs.y + z * rhs.z;
+	return x * rhs.x + y * rhs.y + z * rhs.z;
 }
 
 template <typename T>
 inline VectorT<T, 3> VectorT<T, 3>::cross(const VectorT& rhs) const
 {
-    VectorT result;
-    result.x = y * rhs.z - z * rhs.y;
-    result.y = z * rhs.x - x * rhs.z;
-    result.z = x * rhs.y - y * rhs.x;
-    return result;
+	VectorT result;
+	result.x = y * rhs.z - z * rhs.y;
+	result.y = z * rhs.x - x * rhs.z;
+	result.z = x * rhs.y - y * rhs.x;
+	return result;
 }
 
 template <typename T>
 inline T VectorT<T, 3>::distance(const VectorT& point) const
 {
-    return std::sqrt(distanceSquared());
+	return std::sqrt(distanceSquared());
 }
 
 template <typename T>
 inline T VectorT<T, 3>::distanceSquared(const VectorT& point) const
 {
-    const auto dx = std::abs(x - point.x);
-    const auto dy = std::abs(y - point.y);
-    const auto dz = std::abs(z - point.z);
-    return dx * dx + dy * dy + dz * dz;
+	const auto dx = std::abs(x - point.x);
+	const auto dy = std::abs(y - point.y);
+	const auto dz = std::abs(z - point.z);
+	return dx * dx + dy * dy + dz * dz;
 }
 
 template <typename T>
 inline T* VectorT<T, 3>::data()
 {
-    return &x;
+	return &x;
 }
 
 template <typename T>
 inline const T* VectorT<T, 3>::data() const
 {
-    return &x;
+	return &x;
 }
 
 template <typename T>
 inline T& VectorT<T, 3>::operator[](size_t index)
 {
-    assert(index < components);
-    return *(&x + index);
+	assert(index < components);
+	return *(&x + index);
 }
 
 template <typename T>
 inline const T& VectorT<T, 3>::operator[](size_t index) const
 {
-    assert(index < components);
-    return *(&x + index);
+	assert(index < components);
+	return *(&x + index);
 }
 
 template <typename T>
 inline bool VectorT<T, 3>::operator==(const VectorT<T, 3>& rhs) const
 {
-    return Math::equal(x, rhs.x) && Math::equal(y, rhs.y) && Math::equal(z, rhs.z);
+	return Math::equal(x, rhs.x) && Math::equal(y, rhs.y) && Math::equal(z, rhs.z);
 }
 
 template <typename T>
 inline VectorT<T, 3>& VectorT<T, 3>::operator+=(const VectorT<T, 3>& rhs)
 {
-    x += rhs.x;
-    y += rhs.y;
-    z += rhs.z;
-    return *this;
+	x += rhs.x;
+	y += rhs.y;
+	z += rhs.z;
+	return *this;
 }
 
 template <typename T>
 inline VectorT<T, 3>& VectorT<T, 3>::operator-=(const VectorT<T, 3>& rhs)
 {
-    x -= rhs.x;
-    y -= rhs.y;
-    z -= rhs.z;
-    return *this;
+	x -= rhs.x;
+	y -= rhs.y;
+	z -= rhs.z;
+	return *this;
 }
 
 template <typename T>
 inline VectorT<T, 3>& VectorT<T, 3>::operator*=(const T& rhs)
 {
-    x *= rhs;
-    y *= rhs;
-    z *= rhs;
-    return *this;
+	x *= rhs;
+	y *= rhs;
+	z *= rhs;
+	return *this;
 }
 
 template <typename T>
 inline VectorT<T, 3>& VectorT<T, 3>::operator/=(const T& rhs)
 {
-    assert(rhs);
-    x /= rhs;
-    y /= rhs;
-    z /= rhs;
-    return *this;
+	assert(rhs);
+	x /= rhs;
+	y /= rhs;
+	z /= rhs;
+	return *this;
 }
 
 template <typename T>
 VectorT<T, 3> VectorT<T, 3>::operator-() const
 {
-    return {-x, -y, -z};
+	return {-x, -y, -z};
 }

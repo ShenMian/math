@@ -8,7 +8,7 @@ project "tests"
 	language "C++"
 	cppdialect "C++latest"
 	staticruntime "on"
-  
+
 	targetdir("%{wks.location}/build/" .. output_dir .. "/%{prj.name}/bin")
 	objdir("%{wks.location}/build/" .. output_dir .. "/%{prj.name}/obj")
 

@@ -7,12 +7,12 @@
 
 TEST(Math, degrees)
 {
-    EXPECT_FLOAT_EQ((float)Math::degrees(std::numbers::pi), 180.f);
-    EXPECT_FLOAT_EQ(Math::degrees(0.f), 0.f);
+	EXPECT_FLOAT_EQ((float)Math::degrees(std::numbers::pi), 180.f);
+	EXPECT_FLOAT_EQ(Math::degrees(0.f), 0.f);
 }
 
 TEST(Math, radians)
 {
-    EXPECT_FLOAT_EQ(Math::radians(180.f), (float)std::numbers::pi);
-    EXPECT_FLOAT_EQ(Math::radians(0.f), 0.f);
+	EXPECT_FLOAT_EQ(Math::radians(180.f), (float)std::numbers::pi);
+	EXPECT_FLOAT_EQ(Math::radians(0.f), 0.f);
 }

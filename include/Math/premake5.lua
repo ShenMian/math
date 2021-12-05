@@ -5,5 +5,5 @@ project "Math"
 	kind "ConsoleApp"
 	language "C++"
 	cppdialect "C++latest"
-  
+
 	files {"**.hpp", "premake5.lua"}

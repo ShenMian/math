@@ -11,21 +11,21 @@
  * @brief 四元数.
  */
 template <typename T>
-requires std::floating_point<T>
+	requires std::floating_point<T>
 class QuaternionT
 {
 public:
-    T x = T();
-    T y = T();
-    T z = T();
-    T w = T(1);
+	T x = T();
+	T y = T();
+	T z = T();
+	T w = T(1);
 
-    /**
-     * @brief 默认构造函数.
-     */
-    QuaternionT() = default;
+	/**
+	 * @brief 默认构造函数.
+	 */
+	QuaternionT() = default;
 
-    /**
+	/**
 	 * @brief 构造函数.
 	 *
 	 * @param x x 分量.
@@ -33,72 +33,72 @@ public:
 	 * @param z z 分量.
 	 * @param w w 分量.
 	 */
-    QuaternionT(T x, T y, T z, T w);
+	QuaternionT(T x, T y, T z, T w);
 
-    /**
+	/**
 	 * @brief 构造函数.
 	 *
 	 * @param mat 4x4 矩阵.
 	 */
-    explicit QuaternionT(const Matrix4T<T>& mat);
+	explicit QuaternionT(const Matrix4T<T>& mat);
 
-    /**
-     * @brief 设置欧拉角.
-     * 
-     * @param angles 三个轴的角度, 弧度制.
-     */
-    void eular(const Vector3T<T>& angles);
+	/**
+	 * @brief 设置欧拉角.
+	 *
+	 * @param angles 三个轴的角度, 弧度制.
+	 */
+	void eular(const Vector3T<T>& angles);
 
-    /**
-     * @brief 获取欧拉角.
-     */
-    Vector3T<T> eular() const;
+	/**
+	 * @brief 获取欧拉角.
+	 */
+	Vector3T<T> eular() const;
 
-    /**
-     * @brief 求逆.
-     */
-    QuaternionT& inverse();
+	/**
+	 * @brief 求逆.
+	 */
+	QuaternionT& inverse();
 
-    /**
-     * @brief 获取求逆结果.
-     */
-    QuaternionT inversed() const;
+	/**
+	 * @brief 获取求逆结果.
+	 */
+	QuaternionT inversed() const;
 
-    /**
+	/**
 	 * @brief 标准化.
 	 */
-    QuaternionT& normalize();
+	QuaternionT& normalize();
 
-    /**
+	/**
 	 * @brief 获取长度平方.
 	 *
 	 * @see size
 	 */
-    T sizeSquared() const;
+	T sizeSquared() const;
 
-    /**
+	/**
 	 * @brief 获取长度.
 	 *
 	 * @see sizeSquared
 	 */
-    T size() const;
+	T size() const;
 
-    template <typename C>
-    operator QuaternionT<C>() const
-    {
-        return QuaternionT<C>(static_cast<C>(x), static_cast<C>(y), static_cast<C>(z), static_cast<C>(w));
-    }
+	template <typename C>
+	operator QuaternionT<C>() const
+	{
+		return QuaternionT<C>(static_cast<C>(x), static_cast<C>(y), static_cast<C>(z), static_cast<C>(w));
+	}
 
-    bool         operator==(const QuaternionT&) const;
-    QuaternionT& operator+=(const QuaternionT&);
-    QuaternionT& operator-=(const QuaternionT&);
-    QuaternionT& operator*=(const QuaternionT&);
-    QuaternionT& operator*=(T);
-    QuaternionT  operator-() const;
+	bool         operator==(const QuaternionT&) const;
+	QuaternionT& operator+=(const QuaternionT&);
+	QuaternionT& operator-=(const QuaternionT&);
+	QuaternionT& operator*=(const QuaternionT&);
+	QuaternionT& operator*=(T);
+	QuaternionT  operator-() const;
 };
 
 #include "Quaternion.inl"
 
 using Quaternionf = QuaternionT<float>;
 using Quaterniond = QuaternionT<double>;
-using Quaternion  = Quaternionf;
+using Quaternion = Quaternionf;
