@@ -37,7 +37,4 @@ if(WIN32)
 endif()
 
 add_subdirectory("deps/googletest")
-
-enable_testing()
 add_subdirectory("tests")
-add_test(NAME unit_test COMMAND unit_test)

@@ -8,3 +8,6 @@ file(GLOB_RECURSE sources "*.cpp")
 add_executable(unit_test ${sources})
 
 target_link_libraries(unit_test PRIVATE gtest)
+
+enable_testing()
+add_test(NAME unit_test COMMAND unit_test)
