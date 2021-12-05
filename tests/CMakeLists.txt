@@ -1,14 +1,14 @@
 # Copyright 2021 SMS
 # License(Apache-2.0)
 
-include_directories("${PROJECT_SOURCE_DIR}/include")
+include_directories(
+    "${PROJECT_SOURCE_DIR}/include"
+    "${PROJECT_SOURCE_DIR}/deps/googletest/googletest/include")
 
 file(GLOB_RECURSE sources "*.cpp")
 
 add_executable(unit_test ${sources})
 
-target_link_libraries(unit_test PRIVATE gtest)
+target_link_libraries(unit_test PRIVATE gtest gtest_main)
 
-message(${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_BINDIR})
-
-add_test(NAME unit_test COMMAND ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_BINDIR}/unit_test)
+add_test(NAME unit_test COMMAND unit_test)
