@@ -9,4 +9,6 @@ add_executable(unit_test ${sources})
 
 target_link_libraries(unit_test PRIVATE gtest)
 
+message(${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_BINDIR})
+
 add_test(NAME unit_test COMMAND ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_BINDIR}/unit_test)
