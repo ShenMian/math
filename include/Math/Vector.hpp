@@ -28,7 +28,7 @@ public:
 	 *
 	 * @param list 初始化列表, 下标依次为 0 到 N-1.
 	 */
-	explicit VectorT(const std::initializer_list<T>& list);
+	VectorT(const std::initializer_list<T>& list);
 
 	/**
 	 * @brief 拷贝构造函数.
