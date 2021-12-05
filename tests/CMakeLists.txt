@@ -1,0 +1,10 @@
+# Copyright 2021 SMS
+# License(Apache-2.0)
+
+include_directories("${PROJECT_SOURCE_DIR}/include")
+
+file(GLOB_RECURSE sources "*.cpp")
+
+add_executable(test ${sources})
+
+target_link_libraries(test PRIVATE gtest)
