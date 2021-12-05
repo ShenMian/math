@@ -1,8 +1,6 @@
 # Copyright 2021 SMS
 # License(Apache-2.0)
 
-enable_testing()
-
 include_directories("${PROJECT_SOURCE_DIR}/include")
 
 file(GLOB_RECURSE sources "*.cpp")
