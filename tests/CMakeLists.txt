@@ -5,6 +5,6 @@ include_directories("${PROJECT_SOURCE_DIR}/include")
 
 file(GLOB_RECURSE sources "*.cpp")
 
-add_executable(test ${sources})
+add_executable(unit_test ${sources})
 
-target_link_libraries(test PRIVATE gtest)
+target_link_libraries(unit_test PRIVATE unit_test)

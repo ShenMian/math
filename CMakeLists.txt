@@ -40,4 +40,4 @@ add_subdirectory("deps/googletest")
 add_subdirectory("tests")
 
 enable_testing()
-add_test(NAME test COMMAND test)
+add_test(NAME unit_test COMMAND unit_test)
