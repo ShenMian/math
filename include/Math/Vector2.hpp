@@ -40,7 +40,7 @@ public:
      * 
      * @param list 初始化列表.
 	 */
-    VectorT(const std::initializer_list<T>& list);
+    explicit VectorT(const std::initializer_list<T>& list);
 
     /**
 	 * @brief 拷贝构造函数.
