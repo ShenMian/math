@@ -10,7 +10,7 @@ REM 签出第三方库
 git submodule update --init
 
 REM 生成VS解决方案
-thirdparty\premake\bin\premake5.exe vs2019
+deps\premake\bin\premake5.exe vs2019
 if errorlevel 1 pause
 
 REM 打开解决方案

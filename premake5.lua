@@ -1,14 +1,15 @@
 -- Copyright 2021 SMS
 -- License(Apache-2.0)
 
-include "thirdparty/premake/solution_items.lua"
+include "deps/premake/solution_items.lua"
 
 workspace "math"
   architecture "x86_64"
   startproject "tests"
-  configurations {"Debug", "Release"}
   flags "MultiProcessorCompile"
 
+  configurations {"Debug", "Release"}
+  
   solution_items {
     ".clang-format",
     "README.md",
@@ -24,12 +25,13 @@ workspace "math"
     runtime "Release"
     optimize "on"
 
-  filter "system:linux"
-      linkoptions "-pthread"
+  deps = {}
+  deps["googletest"] = "%{wks.location}/deps/googletest/googletest"
 
-thirdparty = {}
-thirdparty["googletest"] = "%{wks.location}/thirdparty/googletest/googletest"
+  deps_inc = {}
+  deps["googletest"] = "%{deps.googletest}/include"
 
-outputdir = "%{cfg.system}-%{cfg.architecture}-%{cfg.buildcfg}"
+	output_dir = "%{cfg.system}-%{cfg.architecture}-%{cfg.buildcfg}"
 
-include "tests"
+  include "include/Math"
+  include "tests"

@@ -7,17 +7,9 @@ project "googletest"
 	cppdialect "C++latest"
 	staticruntime "on"
 
-	targetdir("%{wks.location}/build/" .. outputdir .. "/%{prj.name}/bin")
-	objdir ("%{wks.location}/build/" .. outputdir .. "/%{prj.name}/obj")
+	targetdir("%{wks.location}/build/" .. output_dir .. "/%{prj.name}/lib")
+	objdir ("%{wks.location}/build/" .. output_dir .. "/%{prj.name}/obj")
 
 	files {"googletest/googletest/include/gtest/**.h", "googletest/googletest/src/**.cc"}
 
 	includedirs {"googletest/googletest", "googletest/googletest/include"}
-
-	filter "configurations:Debug"
-		runtime "Debug"
-		symbols "on"
-
-	filter "configurations:Release"
-		runtime "Release"
-		optimize "on"

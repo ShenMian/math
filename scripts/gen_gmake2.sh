@@ -9,4 +9,4 @@ cd ..
 # 签出第三方库
 git submodule update --init
 
-./thirdparty/premake/bin/premake5 gmake2
+./deps/premake/bin/premake5 gmake2

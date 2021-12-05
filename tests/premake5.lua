@@ -1,7 +1,7 @@
 -- Copyright 2021 SMS
 -- License(Apache-2.0)
 
-include "thirdparty/googletest.lua"
+include "deps/googletest.lua"
 
 project "tests"
 	kind "ConsoleApp"
@@ -9,13 +9,13 @@ project "tests"
 	cppdialect "C++latest"
 	staticruntime "on"
   
-	targetdir("%{wks.location}/build/" .. outputdir .. "/%{prj.name}/bin")
-	objdir ("%{wks.location}/build/" .. outputdir .. "/%{prj.name}/obj")
+	targetdir("%{wks.location}/build/" .. output_dir .. "/%{prj.name}/bin")
+	objdir("%{wks.location}/build/" .. output_dir .. "/%{prj.name}/obj")
 
 	files {"**.cpp", "premake5.lua"}
 
-	includedirs {
+	sysincludedirs {
 		"%{wks.location}/include",
-		"%{thirdparty.googletest}/include"}
+		"%{deps_inc.googletest}"}
 
-	links {"googletest"}
+	links "googletest"
