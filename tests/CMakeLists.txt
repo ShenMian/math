@@ -7,4 +7,4 @@ file(GLOB_RECURSE sources "*.cpp")
 
 add_executable(unit_test ${sources})
 
-target_link_libraries(unit_test PRIVATE unit_test)
+target_link_libraries(unit_test PRIVATE gtest)
