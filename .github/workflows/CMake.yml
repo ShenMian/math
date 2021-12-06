@@ -34,6 +34,9 @@ jobs:
         arch: [x64, x86, arm64, arm]
 
     steps:
+      - name: AAA
+        run: dir ${{github.workspace}}/build
+
       - name: Test
         run: ${{github.workspace}}/build/bin/${{env.BUILD_TYPE}}/unit_test.exe
 
