@@ -26,5 +26,19 @@ jobs:
       - name: Build
         run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
+  test:
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        os: [windows-latest] # ubuntu-latest, macos-latest
+        arch: [x64, x86, arm64, arm]
+
+    steps:
       - name: Test
         run: ${{github.workspace}}/build/bin/${{env.BUILD_TYPE}}/unit_test.exe
+
+      - name: Codecov
+        uses: codecov/codecov-action@v2.1.0
+
+    needs:
+      - build
