@@ -5,6 +5,7 @@
 
 # Makefile
 Makefile
+*.make
 
 # Visual Studio
 *.sln
@@ -13,6 +14,9 @@ Makefile
 *.user
 /.vs
 /.vscode
+
+# Doxygen
+/Docs/html
 
 # Prerequisites
 *.d
