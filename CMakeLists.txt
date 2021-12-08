@@ -36,5 +36,5 @@ if(WIN32)
     add_define(NOMINMAX)
 endif()
 
-add_subdirectory("deps/googletest")
+enable_testing()
 add_subdirectory("tests")
