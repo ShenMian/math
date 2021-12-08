@@ -7,10 +7,9 @@ env:
 
 jobs:
   build:
-    runs-on: ${{matrix.os}}
+    runs-on: windows-latest
     strategy:
       matrix:
-        os: [windows-latest] # ubuntu-latest, macos-latest
         arch: [x64, x86, arm64, arm]
         compiler: [clang, gcc]
 
@@ -43,4 +42,3 @@ jobs:
         with:
           files: ./report.xml
           fail_ci_if_error: true
-          verbose: true
