@@ -36,5 +36,10 @@ if(WIN32)
     add_define(NOMINMAX)
 endif()
 
+if(MSVC)
+  set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT")
+  set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MTd")
+endif()
+
 enable_testing()
 add_subdirectory("tests")
