@@ -3,13 +3,12 @@
 
 find_package(GTest)
 if(GTEST_FOUND)
-    list(APPEND INCS ${GTEST_INCLUDE_DIR})
     list(APPEND LIBS ${GTEST_LIBRARY})
 else()
     add_subdirectory("${PROJECT_SOURCE_DIR}/deps/googletest" "googletest")
-    list(APPEND INCS "${PROJECT_SOURCE_DIR}/deps/googletest/googletest/include")
     list(APPEND LIBS gtest gtest_main)
 endif()
+list(APPEND INCS "${PROJECT_SOURCE_DIR}/deps/googletest/googletest/include")
 
 include_directories(
     ${INCS}
