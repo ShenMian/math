@@ -18,6 +18,6 @@ file(GLOB_RECURSE SOURCES "*.cpp")
 
 add_executable(unit_test ${SOURCES})
 
-target_link_libraries(unit_test PRIVATE ${LIBS}})
+target_link_libraries(unit_test PRIVATE ${LIBS})
 
 add_test(unit_test unit_test)
