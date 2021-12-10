@@ -7,9 +7,10 @@ env:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ${{matrix.os}}
     strategy:
       matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
         arch: [x64, x86, arm64, arm]
         compiler: [clang, gcc]
 
@@ -30,17 +31,17 @@ jobs:
         # ctest -VV -C ${{env.BUILD_TYPE}}
 
       - name: Setup OpenCppCoverage
-        if: contains(matrix.os, 'windows')
+        if: matrix.os == 'windows-latest'
         run: |
           choco install OpenCppCoverage -y
           echo "C:\Program Files\OpenCppCoverage" >> $env:GITHUB_PATH
 
       - name: Generate report
-        if: contains(matrix.os, 'windows')
+        if: matrix.os == 'windows-latest'
         run: OpenCppCoverage.exe --sources "${{github.workspace}}\Source" --export_type cobertura:report.xml -- "${{github.workspace}}/build/bin/${{env.BUILD_TYPE}}/unit_test.exe"
 
       - name: Upload report to Codecov
-        if: contains(matrix.os, 'windows')
+        if: matrix.os == 'windows-latest'
         uses: codecov/codecov-action@v2.1.0
         with:
           files: ./report.xml
