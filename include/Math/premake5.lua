@@ -6,4 +6,4 @@ project "Math"
 	language "C++"
 	cppdialect "C++latest"
 
-	files {"**.hpp", "premake5.lua"}
+	files {"**.hpp", "**.inl", "premake5.lua"}
