@@ -10,14 +10,10 @@ else()
 endif()
 list(APPEND INCS "${PROJECT_SOURCE_DIR}/deps/googletest/googletest/include")
 
-include_directories(
-    ${INCS}
-    "${PROJECT_SOURCE_DIR}/include")
-
 file(GLOB_RECURSE SOURCES "*.cpp")
 
 add_executable(unit_test ${SOURCES})
-
+target_include_directories(unit_test PUBLIC ${INCS} "${PROJECT_SOURCE_DIR}/include")
 target_link_libraries(unit_test PRIVATE ${LIBS})
 
 add_test(unit_test unit_test)
