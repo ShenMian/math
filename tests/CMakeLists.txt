@@ -15,6 +15,6 @@ file(GLOB_RECURSE SOURCES "*.cpp")
 add_executable(unit_test ${SOURCES})
 target_include_directories(unit_test PUBLIC ${INCS} "${PROJECT_SOURCE_DIR}/include")
 target_link_libraries(unit_test PRIVATE ${LIBS})
-target_compile_definitions(graphics PUBLIC ${DEFINES})
+target_compile_definitions(unit_test PUBLIC ${DEFINES})
 
 add_test(unit_test unit_test)
