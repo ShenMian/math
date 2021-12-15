@@ -7,8 +7,6 @@ cmake_minimum_required(VERSION 3.16)
 # 指定项目名和版本号
 project(Math VERSION 0.0.0)
 
-# TODO: 使用 target_* 系列函数, 避免污染.
-
 # 指定 C++ 标准
 set(CMAKE_CXX_STANDARD          23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -26,16 +24,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 set(LIBRARY_OUTPUT_PATH            "${CMAKE_BINARY_DIR}/lib")
 set(EXECUTABLE_OUTPUT_PATH         "${CMAKE_BINARY_DIR}/bin")
 
-macro(add_define IDENT)
-  add_definitions("-D${IDENT}")
-endmacro()
-
 if(WIN32)
-  add_define(_CRT_SECURE_NO_WARNINGS)
-  add_define(_SCL_SECURE_NO_WARNINGS)
-  add_define(UNICODE)
-  add_define(_UNICODE)
-  add_define(NOMINMAX)
+  list(APPEND DEFINES _CRT_SECURE_NO_WARNINGS _SCL_SECURE_NO_WARNINGS UNICODE _UNICODE NOMINMAX)
 endif()
 
 if(MSVC)
