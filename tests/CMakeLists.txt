@@ -26,8 +26,10 @@ target_compile_definitions(unit_test PUBLIC ${MATH_DEFINES})
 
 # 指定 C++ 标准
 if(MSVC)
-    set_property(TARGET graphics PROPERTY CXX_STANDARD          23)
-    set_property(TARGET graphics PROPERTY CXX_STANDARD_REQUIRED ON)
+set_property(TARGET unit_test PROPERTY
+    CXX_STANDARD          23
+    CXX_STANDARD_REQUIRED ON
+    MSVC_RUNTIME_LIBRARY  "MultiThreaded$<$<CONFIG:${CMAKE_BUILD_TYPE}>:${CMAKE_BUILD_TYPE}>")
 else()
     target_compile_options(graphics PRIVATE -std=c++20)
 endif()
