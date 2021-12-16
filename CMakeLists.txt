@@ -7,10 +7,6 @@ cmake_minimum_required(VERSION 3.16)
 # 指定项目名和版本号
 project(Math VERSION 0.0.0)
 
-# 指定 C++ 标准
-set(CMAKE_CXX_STANDARD          23)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
 # 指定默认编译类型
 if(NOT DEFINED CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Debug)
