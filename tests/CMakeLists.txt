@@ -17,4 +17,4 @@ target_include_directories(unit_test PUBLIC ${INCS} "${PROJECT_SOURCE_DIR}/inclu
 target_link_libraries(unit_test PRIVATE ${LIBS})
 target_compile_definitions(unit_test PUBLIC ${DEFINES})
 
-add_test(unit_test unit_test)
+add_test(NAME unit_test COMMAND "${EXECUTABLE_OUTPUT_PATH}/${CMAKE_BUILD_TYPE}/unit_test")
