@@ -26,7 +26,7 @@ jobs:
         run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
       - name: Test
-        run: cd build/bin; ctest -VV -C ${{env.BUILD_TYPE}}
+        run: ctest -VV -C ${{env.BUILD_TYPE}}
         # run: ${{github.workspace}}/build/bin/${{env.BUILD_TYPE}}/unit_test
 
       - name: Setup OpenCppCoverage
