@@ -10,7 +10,7 @@ jobs:
     runs-on: ${{matrix.os}}
     strategy:
       matrix:
-        os: [windows-latest, ubuntu-latest, macos-latest]
+        os: [windows-latest, ubuntu-latest]
         arch: [x64, arm64]
 
     steps:
@@ -20,7 +20,6 @@ jobs:
         run: git submodule update --init
 
       - name: Install Clang
-        if: ${{matrix.os == 'windows-latest' || matrix.os == 'ubuntu-latest'}}
         uses: egor-tensin/setup-clang@v1
         with:
           version: 13
