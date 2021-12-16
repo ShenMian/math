@@ -20,10 +20,29 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 set(LIBRARY_OUTPUT_PATH            "${CMAKE_BINARY_DIR}/lib")
 set(EXECUTABLE_OUTPUT_PATH         "${CMAKE_BINARY_DIR}/bin")
 
+# 指定 Win32 下要定义的宏
+if(WIN32)
+  list(APPEND MATH_DEFINES _CRT_SECURE_NO_WARNINGS _SCL_SECURE_NO_WARNINGS UNICODE _UNICODE NOMINMAX)
+endif()
+
 if(MSVC)
-  list(APPEND DEFINES _CRT_SECURE_NO_WARNINGS _SCL_SECURE_NO_WARNINGS UNICODE _UNICODE NOMINMAX)
-  list(APPEND CMAKE_CXX_FLAGS_DEBUG   "/MTd")
-  list(APPEND CMAKE_CXX_FLAGS_RELEASE "/MT")
+  # 静态链接 MSVC 运行库
+  if(CMAKE_BUILD_TYPE STREQUAL Release)
+    add_link_options("/MT")
+  elseif(CMAKE_BUILD_TYPE STREQUAL Debug)
+    add_link_options("/MTd")
+  endif()
+
+  foreach(var
+      CMAKE_CXX_FLAGS CMAKE_CXX_FLAGS_DEBUG CMAKE_CXX_FLAGS_RELEASE
+      CMAKE_CXX_FLAGS_MINSIZEREL CMAKE_CXX_FLAGS_RELWITHDEBINFO
+    )
+    if(${var} MATCHES "/MD")
+      string(REGEX REPLACE "/MD" "/MT" ${var} "${${var}}")
+    endif()
+  endforeach()
+elseif(UNIX)
+  add_link_options("-ldl")
 endif()
 
 enable_testing()
