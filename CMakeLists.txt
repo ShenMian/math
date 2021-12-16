@@ -22,26 +22,15 @@ set(EXECUTABLE_OUTPUT_PATH         "${CMAKE_BINARY_DIR}/bin")
 
 # 指定 Win32 下要定义的宏
 if(WIN32)
-  list(APPEND MATH_DEFINES _CRT_SECURE_NO_WARNINGS _SCL_SECURE_NO_WARNINGS UNICODE _UNICODE NOMINMAX)
+  list(APPEND GRAPHICS_DEFINES _CRT_SECURE_NO_WARNINGS _SCL_SECURE_NO_WARNINGS UNICODE _UNICODE NOMINMAX)
 endif()
 
 if(MSVC)
   # 静态链接 MSVC 运行库
-  if(CMAKE_BUILD_TYPE STREQUAL Release)
-    add_link_options("/MT")
-  elseif(CMAKE_BUILD_TYPE STREQUAL Debug)
-    add_link_options("/MTd")
-  endif()
+  set_property(GLOBAL PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+endif()
 
-  foreach(var
-      CMAKE_CXX_FLAGS CMAKE_CXX_FLAGS_DEBUG CMAKE_CXX_FLAGS_RELEASE
-      CMAKE_CXX_FLAGS_MINSIZEREL CMAKE_CXX_FLAGS_RELWITHDEBINFO
-    )
-    if(${var} MATCHES "/MD")
-      string(REGEX REPLACE "/MD" "/MT" ${var} "${${var}}")
-    endif()
-  endforeach()
-elseif(UNIX)
+if(UNIX)
   add_link_options("-ldl")
 endif()
 
