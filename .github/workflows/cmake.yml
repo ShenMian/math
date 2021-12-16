@@ -30,12 +30,8 @@ jobs:
       - name: Build
         run: cmake --build "${{github.workspace}}/build" --config ${{env.BUILD_TYPE}}
 
-      - name: Test2
-        run: ls ${{github.workspace}}/build/
-
       - name: Test
-        run: ls ${{github.workspace}}/build/bin/
-        # .${{github.workspace}}/build/bin/${{env.BUILD_TYPE}}/unit_test
+        run: ./${{github.workspace}}/build/bin/${{env.BUILD_TYPE}}/unit_test || ./${{github.workspace}}/build/bin/unit_test
         # run: ctest -VV -C ${{env.BUILD_TYPE}}
 
       - name: Setup OpenCppCoverage (Windows)
