@@ -5,7 +5,14 @@
 cmake_minimum_required(VERSION 3.16)
 
 # 指定项目名和版本号
-project(Math VERSION 0.0.0)
+project(Math
+  VERSION     0.0.0
+  DESCRIPTION "A simple linear algebra header-only library.")
+
+# 输出编译器信息
+message(STATUS "Compiler")
+message(STATUS "|- ID     : ${CMAKE_CXX_COMPILER_ID}")
+message(STATUS "`- Version: ${CMAKE_CXX_COMPILER_VERSION}")
 
 # 指定默认编译类型
 if(NOT DEFINED CMAKE_BUILD_TYPE)
