@@ -30,7 +30,7 @@ set_property(TARGET unit_test PROPERTY
     CXX_STANDARD          23
     CXX_STANDARD_REQUIRED ON)
 else()
-    target_compile_options(graphics PRIVATE -std=c++20)
+    target_compile_options(unit_test PRIVATE -std=c++20)
 endif()
 
 # 添加测试
