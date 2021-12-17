@@ -10,8 +10,9 @@
 
 TEST(Vector2, subscript)
 {
-    EXPECT_FLOAT_EQ(Vector2(1, 2)[0], 1.f);
-    EXPECT_FLOAT_EQ(Vector2(1, 2)[1], 2.f);
+	Vector2 vec(1.f, 2.f);
+	EXPECT_FLOAT_EQ(vec[0], 1.f);
+	EXPECT_FLOAT_EQ(vec[1], 2.f);
 }
 
 TEST(Vector2, size)
@@ -32,9 +33,10 @@ TEST(Vector2, normalize)
 
 TEST(Vector2, dot)
 {
-    EXPECT_FLOAT_EQ(Vector2(3, 4).normalized().dot(Vector2(3, 4).normalized()), 1.f);
-    EXPECT_FLOAT_EQ(Vector2(3, 4).normalized().dot(Vector2(4, -3).normalized()), 0.f);
-    EXPECT_FLOAT_EQ(Vector2(3, 4).normalized().dot(-Vector2(3, 4).normalized()), -1.f);
+	Vector2 vec(3, 4);
+    EXPECT_FLOAT_EQ(vec.normalized().dot(Vector2(3, 4).normalized()), 1.f);
+    EXPECT_FLOAT_EQ(vec.normalized().dot(Vector2(4, -3).normalized()), 0.f);
+    EXPECT_FLOAT_EQ(vec.normalized().dot(-Vector2(3, 4).normalized()), -1.f);
 }
 
 TEST(Vector2, cross)
@@ -44,30 +46,32 @@ TEST(Vector2, cross)
 TEST(Vector2, angle)
 {
     EXPECT_FLOAT_EQ(Math::degrees(Vector2(1, 1).angle()), 45.f);
-    // EXPECT_FLOAT_EQ(Math::degrees(Vector2(1, 2).angle()), 60.f);
-    // EXPECT_EQ(Math::degrees(Vector2(2, 1).angle()), 30);
+    EXPECT_FLOAT_EQ(Math::degrees(Vector2(1, std::sqrt(3.f)).angle()), 60.f);
+	EXPECT_FLOAT_EQ(Math::degrees(Vector2(std::sqrt(3.f), 1).angle()), 30.f);
 }
 
 TEST(Vector2, rotate)
 {
-    // Vector2 v(1, 1);
-    // v.rotate(Vector2(0, 0), Math::radians(45.f));
-    // EXPECT_FLOAT_EQ(Math::degrees(v.angle()), 90.f);
+    Vector2 v(1, 1);
+    v.rotate(Vector2(0, 0), Math::radians(45.f));
+    EXPECT_FLOAT_EQ(Math::degrees(v.angle()), 90.f);
 }
 
 TEST(Vector2, equal)
 {
-    EXPECT_EQ(Vector2(1, 2), Vector2(1, 2));
-    EXPECT_NE(Vector2(1, 2), Vector2(0, 2));
-    EXPECT_NE(Vector2(1, 2), Vector2(1, 0));
+	Vector2 vec(1, 2);
+    EXPECT_EQ(vec, Vector2(1, 2));
+    EXPECT_NE(vec, Vector2(0, 2));
+    EXPECT_NE(vec, Vector2(1, 0));
 }
 
 
 TEST(Vector3, subscript)
 {
-    EXPECT_FLOAT_EQ(Vector3(1, 2, 3)[0], 1.f);
-    EXPECT_FLOAT_EQ(Vector3(1, 2, 3)[1], 2.f);
-    EXPECT_FLOAT_EQ(Vector3(1, 2, 3)[2], 3.f);
+	Vector3 vec(1, 2, 3);
+    EXPECT_FLOAT_EQ(vec[0], 1.f);
+    EXPECT_FLOAT_EQ(vec[1], 2.f);
+    EXPECT_FLOAT_EQ(vec[2], 3.f);
 }
 
 TEST(Vector3, size)
@@ -88,25 +92,28 @@ TEST(Vector3, normalize)
 
 TEST(Vector3, dot)
 {
-    EXPECT_FLOAT_EQ(Vector3(3, 4, 5).normalized().dot(Vector3(3, 4, 5).normalized()), 1.f);
-    EXPECT_FLOAT_EQ(Vector3(3, 4, 5).normalized().dot(-Vector3(3, 4, 5).normalized()), -1.f);
+	Vector3 vec(3, 4, 5);
+    EXPECT_FLOAT_EQ(vec.normalized().dot(vec.normalized()), 1.f);
+    EXPECT_FLOAT_EQ(vec.normalized().dot(-vec.normalized()), -1.f);
 }
 
 TEST(Vector3, equal)
 {
-    EXPECT_EQ(Vector3(1, 2, 3), Vector3(1, 2, 3));
-    EXPECT_NE(Vector3(1, 2, 3), Vector3(0, 2, 3));
-    EXPECT_NE(Vector3(1, 2, 3), Vector3(1, 0, 3));
-    EXPECT_NE(Vector3(1, 2, 3), Vector3(1, 2, 0));
+	Vector3 vec(1, 2, 3);
+    EXPECT_EQ(vec, Vector3(1, 2, 3));
+    EXPECT_NE(vec, Vector3(0, 2, 3));
+    EXPECT_NE(vec, Vector3(1, 0, 3));
+    EXPECT_NE(vec, Vector3(1, 2, 0));
 }
 
 
 TEST(Vector4, subscript)
 {
-    EXPECT_FLOAT_EQ(Vector4(1, 2, 3, 4)[0], 1.f);
-    EXPECT_FLOAT_EQ(Vector4(1, 2, 3, 4)[1], 2.f);
-    EXPECT_FLOAT_EQ(Vector4(1, 2, 3, 4)[2], 3.f);
-    EXPECT_FLOAT_EQ(Vector4(1, 2, 3, 4)[3], 4.f);
+	Vector4 vec(1, 2, 3, 4);
+    EXPECT_FLOAT_EQ(vec[0], 1.f);
+    EXPECT_FLOAT_EQ(vec[1], 2.f);
+    EXPECT_FLOAT_EQ(vec[2], 3.f);
+    EXPECT_FLOAT_EQ(vec[3], 4.f);
 }
 
 TEST(Vector4, normalize)
@@ -117,27 +124,30 @@ TEST(Vector4, normalize)
 
 TEST(Vector4, dot)
 {
-    EXPECT_FLOAT_EQ(Vector4(3, 4, 5, 6).normalized().dot(Vector4(3, 4, 5, 6).normalized()), 1.f);
-    EXPECT_FLOAT_EQ(Vector4(3, 4, 5, 6).normalized().dot(-Vector4(3, 4, 5, 6).normalized()), -1.f);
+	Vector4 vec(3, 4, 5, 6);
+    EXPECT_FLOAT_EQ(vec.normalized().dot(vec.normalized()), 1.f);
+    EXPECT_FLOAT_EQ(vec.normalized().dot(-vec.normalized()), -1.f);
 }
 
 TEST(Vector4, equal)
 {
-    EXPECT_EQ(Vector4(1, 2, 3, 4), Vector4(1, 2, 3, 4));
-    EXPECT_NE(Vector4(1, 2, 3, 4), Vector4(0, 2, 3, 4));
-    EXPECT_NE(Vector4(1, 2, 3, 4), Vector4(1, 0, 3, 4));
-    EXPECT_NE(Vector4(1, 2, 3, 4), Vector4(1, 2, 0, 4));
-    EXPECT_NE(Vector4(1, 2, 3, 4), Vector4(1, 2, 3, 0));
+	Vector4 vec(1, 2, 3, 4);
+    EXPECT_EQ(vec, Vector4(1, 2, 3, 4));
+    EXPECT_NE(vec, Vector4(0, 2, 3, 4));
+    EXPECT_NE(vec, Vector4(1, 0, 3, 4));
+    EXPECT_NE(vec, Vector4(1, 2, 0, 4));
+    EXPECT_NE(vec, Vector4(1, 2, 3, 0));
 }
 
 
 TEST(Vector, subscript)
 {
-    EXPECT_FLOAT_EQ(Vector<5>({1.f, 2.f, 3.f, 4.f, 5.f})[0], 1.f);
-    EXPECT_FLOAT_EQ(Vector<5>({1.f, 2.f, 3.f, 4.f, 5.f})[1], 2.f);
-    EXPECT_FLOAT_EQ(Vector<5>({1.f, 2.f, 3.f, 4.f, 5.f})[2], 3.f);
-    EXPECT_FLOAT_EQ(Vector<5>({1.f, 2.f, 3.f, 4.f, 5.f})[3], 4.f);
-    EXPECT_FLOAT_EQ(Vector<5>({1.f, 2.f, 3.f, 4.f, 5.f})[4], 5.f);
+	Vector<5> vec({1.f, 2.f, 3.f, 4.f, 5.f});
+    EXPECT_FLOAT_EQ(vec[0], 1.f);
+    EXPECT_FLOAT_EQ(vec[1], 2.f);
+    EXPECT_FLOAT_EQ(vec[2], 3.f);
+    EXPECT_FLOAT_EQ(vec[3], 4.f);
+    EXPECT_FLOAT_EQ(vec[4], 5.f);
 }
 
 TEST(Vector, normalize)
@@ -148,16 +158,18 @@ TEST(Vector, normalize)
 
 TEST(Vector, dot)
 {
-    EXPECT_FLOAT_EQ(Vector<5>({1.f, 2.f, 3.f, 4.f, 5.f}).normalized().dot(Vector<5>({1.f, 2.f, 3.f, 4.f, 5.f}).normalized()), 1.f);
-    EXPECT_FLOAT_EQ(Vector<5>({1.f, 2.f, 3.f, 4.f, 5.f}).normalized().dot(-Vector<5>({1.f, 2.f, 3.f, 4.f, 5.f}).normalized()), -1.f);
+	Vector<5> vec({1.f, 2.f, 3.f, 4.f, 5.f});
+    EXPECT_FLOAT_EQ(vec.normalized().dot(vec.normalized()), 1.f);
+    EXPECT_FLOAT_EQ(vec.normalized().dot(-vec.normalized()), -1.f);
 }
 
 TEST(Vector, equal)
 {
-    EXPECT_EQ(Vector<5>({1.f, 2.f, 3.f, 4.f, 5.f}), Vector<5>({1.f, 2.f, 3.f, 4.f, 5.f}));
-    EXPECT_NE(Vector<5>({1.f, 2.f, 3.f, 4.f, 5.f}), Vector<5>({0.f, 2.f, 3.f, 4.f, 5.f}));
-    EXPECT_NE(Vector<5>({1.f, 2.f, 3.f, 4.f, 5.f}), Vector<5>({1.f, 0.f, 3.f, 4.f, 5.f}));
-    EXPECT_NE(Vector<5>({1.f, 2.f, 3.f, 4.f, 5.f}), Vector<5>({1.f, 2.f, 0.f, 4.f, 5.f}));
-    EXPECT_NE(Vector<5>({1.f, 2.f, 3.f, 4.f, 5.f}), Vector<5>({1.f, 2.f, 3.f, 0.f, 5.f}));
-    EXPECT_NE(Vector<5>({1.f, 2.f, 3.f, 4.f, 5.f}), Vector<5>({1.f, 2.f, 3.f, 4.f, 0.f}));
+	Vector<5> vec({1.f, 2.f, 3.f, 4.f, 5.f});
+    EXPECT_EQ(vec, Vector<5>({1.f, 2.f, 3.f, 4.f, 5.f}));
+    EXPECT_NE(vec, Vector<5>({0.f, 2.f, 3.f, 4.f, 5.f}));
+    EXPECT_NE(vec, Vector<5>({1.f, 0.f, 3.f, 4.f, 5.f}));
+    EXPECT_NE(vec, Vector<5>({1.f, 2.f, 0.f, 4.f, 5.f}));
+    EXPECT_NE(vec, Vector<5>({1.f, 2.f, 3.f, 0.f, 5.f}));
+    EXPECT_NE(vec, Vector<5>({1.f, 2.f, 3.f, 4.f, 0.f}));
 }
