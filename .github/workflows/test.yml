@@ -7,11 +7,12 @@ env:
 
 jobs:
   build:
-    runs-on: ${{matrix.os}}
     strategy:
       matrix:
         os: [windows-latest, ubuntu-latest]
-        arch: [x64, arm64]
+
+    name: ${{matrix.os}}
+    runs-on: ${{matrix.os}}
 
     steps:
       - uses: actions/checkout@v2
