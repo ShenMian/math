@@ -165,7 +165,7 @@ inline const T& VectorT<T, 3>::operator[](size_t index) const
 template <typename T>
 inline bool VectorT<T, 3>::operator==(const VectorT<T, 3>& rhs) const
 {
-	return Math::equal(x, rhs.x) && Math::equal(y, rhs.y) && Math::equal(z, rhs.z);
+	return equal(x, rhs.x) && equal(y, rhs.y) && equal(z, rhs.z);
 }
 
 template <typename T>

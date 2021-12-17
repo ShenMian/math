@@ -1,7 +1,7 @@
 ﻿// Copyright 2021 SMS
 // License(Apache-2.0)
 
-#include <Math/Quaternion.hpp>
+#include <Math/Math.hpp>
 #include <gtest/gtest.h>
 
 TEST(Quaternion, eular)

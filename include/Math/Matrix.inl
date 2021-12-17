@@ -2,7 +2,7 @@
 // License(Apache-2.0)
 
 #include "Matrix.hpp"
-#include "Math.hpp"
+#include "Helper.hpp"
 
 template <typename T, size_t R, size_t C>
 inline MatrixT<T, R, C>::MatrixT()
@@ -82,7 +82,7 @@ inline bool MatrixT<T, R, C>::operator==(const MatrixT& rhs) const
 {
 	for(size_t r = 0; r < R; r++)
 		for(size_t c = 0; c < C; c++)
-			if(!Math::equal(m_[r][c], rhs.m_[r][c]))
+			if(!equal(m_[r][c], rhs.m_[r][c]))
 				return false;
 	return true;
 }

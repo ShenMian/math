@@ -140,7 +140,7 @@ inline const T& VectorT<T, 4>::operator[](size_t index) const
 template <typename T>
 inline bool VectorT<T, 4>::operator==(const VectorT<T, 4>& rhs) const
 {
-	return Math::equal(x, rhs.x) && Math::equal(y, rhs.y) && Math::equal(z, rhs.z) && Math::equal(w, rhs.w);
+	return equal(x, rhs.x) && equal(y, rhs.y) && equal(z, rhs.z) && equal(w, rhs.w);
 }
 
 template <typename T>

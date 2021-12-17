@@ -185,7 +185,7 @@ inline bool VectorT<T, 2>::operator==(const VectorT<T, 2>& rhs) const
 template <typename T>
 inline bool VectorT<T, 2>::operator==(const VectorT<T, 2>& rhs) const
 {
-	return Math::equal(x, rhs.x) && Math::equal(y, rhs.y);
+	return equal(x, rhs.x) && equal(y, rhs.y);
 }
 
 template <typename T>

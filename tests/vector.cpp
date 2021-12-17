@@ -1,12 +1,8 @@
 ﻿// Copyright 2021 SMS
 // License(Apache-2.0)
 
-#include <gtest/gtest.h>
 #include <Math/Math.hpp>
-#include <Math/Vector.hpp>
-#include <Math/Vector2.hpp>
-#include <Math/Vector3.hpp>
-#include <Math/Vector4.hpp>
+#include <gtest/gtest.h>
 
 TEST(Vector2, subscript)
 {
@@ -45,16 +41,16 @@ TEST(Vector2, cross)
 
 TEST(Vector2, angle)
 {
-    EXPECT_FLOAT_EQ(Math::degrees(Vector2(1, 1).angle()), 45.f);
-    EXPECT_FLOAT_EQ(Math::degrees(Vector2(1, std::sqrt(3.f)).angle()), 60.f);
-	EXPECT_FLOAT_EQ(Math::degrees(Vector2(std::sqrt(3.f), 1).angle()), 30.f);
+    EXPECT_FLOAT_EQ(degrees(Vector2(1, 1).angle()), 45.f);
+    EXPECT_FLOAT_EQ(degrees(Vector2(1, std::sqrt(3.f)).angle()), 60.f);
+	EXPECT_FLOAT_EQ(degrees(Vector2(std::sqrt(3.f), 1).angle()), 30.f);
 }
 
 TEST(Vector2, rotate)
 {
     Vector2 v(1, 1);
-    v.rotate(Vector2(0, 0), Math::radians(45.f));
-    EXPECT_FLOAT_EQ(Math::degrees(v.angle()), 90.f);
+    v.rotate(Vector2(0, 0), radians(45.f));
+    EXPECT_FLOAT_EQ(degrees(v.angle()), 90.f);
 }
 
 TEST(Vector2, equal)

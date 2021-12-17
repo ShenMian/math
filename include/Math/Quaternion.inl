@@ -152,7 +152,7 @@ template <typename T>
 	requires std::floating_point<T>
 inline bool QuaternionT<T>::operator==(const QuaternionT& rhs) const
 {
-	return Math::equal(x, rhs.x) && Math::equal(y, rhs.y) && Math::equal(z, rhs.z) && Math::equal(w, rhs.w);
+	return equal(x, rhs.x) && equal(y, rhs.y) && equal(z, rhs.z) && equal(w, rhs.w);
 }
 
 template <typename T>

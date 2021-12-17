@@ -1,7 +1,7 @@
 ﻿// Copyright 2021 SMS
 // License(Apache-2.0)
 
-#include "Math.hpp"
+#include "Helper.hpp"
 #include <algorithm>
 #include <cassert>
 #include <cmath>
@@ -111,7 +111,7 @@ template <typename T, size_t N>
 inline bool VectorT<T, N>::operator==(const VectorT<T, N>& rhs) const
 {
 	for(size_t i = 0; i < N; i++)
-		if(!Math::equal(v_[i], rhs.v_[i]))
+		if(!equal(v_[i], rhs.v_[i]))
 			return false;
 	return true;
 }
