@@ -26,9 +26,9 @@ target_compile_definitions(unit_test PUBLIC ${MATH_DEFINES})
 
 # 指定 C++ 标准
 if(MSVC)
-set_property(TARGET unit_test PROPERTY
-    CXX_STANDARD          23
-    CXX_STANDARD_REQUIRED ON)
+    set_property(TARGET unit_test PROPERTY
+        CXX_STANDARD          23
+        CXX_STANDARD_REQUIRED ON)
 else()
     target_compile_options(unit_test PRIVATE -std=c++20)
 endif()
