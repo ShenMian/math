@@ -1,37 +1,36 @@
--- Copyright 2021 SMS
+﻿-- Copyright 2021 SMS
 -- License(Apache-2.0)
 
 include "deps/premake/solution_items.lua"
 
 workspace "math"
-  architecture "x86_64"
-  startproject "tests"
-  flags "MultiProcessorCompile"
+    architecture "x86_64"
+    startproject "tests"
+    flags "MultiProcessorCompile"
 
-  configurations {"Debug", "Release"}
+    configurations {"Debug", "Release"}
   
-  solution_items {
-    ".clang-format",
+    solution_items {
     "README.md",
     "premake5.lua"}
 
-  filter "configurations:Debug"
+    filter "configurations:Debug"
     defines "DEBUG"
     runtime "Debug"
     symbols "on"
 
-  filter "configurations:Release"
+    filter "configurations:Release"
     defines "NDEBUG"
     runtime "Release"
     optimize "on"
 
-  deps = {}
-  deps["googletest"] = "%{wks.location}/deps/googletest/googletest"
+    deps = {}
+    deps["googletest"] = "%{wks.location}/deps/googletest/googletest"
 
-  deps_inc = {}
-  deps["googletest"] = "%{deps.googletest}/include"
+    deps_inc = {}
+    deps_inc["googletest"] = "%{deps.googletest}/include"
 
-	output_dir = "%{cfg.system}-%{cfg.architecture}-%{cfg.buildcfg}"
+    output_dir = "%{cfg.system}-%{cfg.architecture}-%{cfg.buildcfg}"
 
-  include "include/Math"
-  include "tests"
+    include "include/Math"
+    include "tests"
