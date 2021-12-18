@@ -29,8 +29,12 @@ if(MSVC)
     set_property(TARGET unit_test PROPERTY
         CXX_STANDARD          23
         CXX_STANDARD_REQUIRED ON)
-else()
+elseif(APPLE)
+    target_compile_options(unit_test PRIVATE -std=c++2a)
+elseif(UNIX)
     target_compile_options(unit_test PRIVATE -std=c++20)
+else()
+    message(FATAL_ERROR "Unsupported compiler")
 endif()
 
 # 添加测试
