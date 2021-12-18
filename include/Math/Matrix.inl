@@ -107,7 +107,7 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::perspective(float yFOV, float aspect, 
 
 	const float tanHalfFOV = std::tan(yFOV / 2.f);
 
-	Matrix4 mat;
+	MatrixT mat;
 	mat.m[0][0] = 1.f / (aspect * tanHalfFOV);
 	mat.m[1][1] = 1.f / tanHalfFOV;
 	mat.m[2][2] = f / (f - n);
