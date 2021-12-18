@@ -90,8 +90,8 @@ public:
 	static MatrixT createRotation(const Vector3T<T>& axis, float angle);
 	static MatrixT createScale(const Vector3T<T>&);
 
-	static MatrixT createOrtho();
-	static MatrixT createPerspective();
+	static MatrixT perspective(float yFOV, float aspect, float near, float far);
+	static MatrixT orthogonal(float width, float height, float near, float far);
 
 	static const size_t rows = R;
 	static const size_t columns = C;

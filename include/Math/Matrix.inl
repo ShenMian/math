@@ -3,6 +3,7 @@
 
 #include "Matrix.hpp"
 #include "Helper.hpp"
+#include <cassert>
 
 template <typename T, size_t R, size_t C>
 inline MatrixT<T, R, C>::MatrixT()
@@ -96,4 +97,27 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::createTranslate(const Vector3T<T>& v)
 	result[1][3] = v.y;
 	result[2][3] = v.z;
 	return result;
+}
+
+template<typename T, size_t R, size_t C>
+inline MatrixT<T, R, C> MatrixT<T, R, C>::perspective(float yFOV, float aspect, float n, float f)
+{
+	assert(std::abs(aspect - std::numeric_limits<float>::epsilon()) > 0.0f);
+	assert(aspect != 0 && n != f);
+
+	const float tanHalfFOV = std::tan(yFOV / 2.f);
+
+	Matrix4 mat;
+	mat.m[0][0] = 1.f / (aspect * tanHalfFOV);
+	mat.m[1][1] = 1.f / tanHalfFOV;
+	mat.m[2][2] = f / (f - n);
+	mat.m[2][3] = 1.f;
+	mat.m[3][2] = -(f * n) / (f - n);
+	return mat;
+}
+
+template<typename T, size_t R, size_t C>
+inline MatrixT<T, R, C> MatrixT<T, R, C>::orthogonal(float w, float h, float n, float f)
+{
+	return MatrixT();
 }
