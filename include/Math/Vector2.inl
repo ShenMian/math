@@ -171,17 +171,6 @@ inline const T& VectorT<T, 2>::operator[](size_t index) const
 	return *(&x + index);
 }
 
-// TODO
-/*
-template <typename T>
-requires std::floating_point<T>
-inline bool VectorT<T, 2>::operator==(const VectorT<T, 2>& rhs) const
-{
-	return (std::abs(x - rhs.x) < std::numeric_limits<T>::epsilon()) &&
-		   (std::abs(y - rhs.y) < std::numeric_limits<T>::epsilon());
-}
-*/
-
 template <typename T>
 inline bool VectorT<T, 2>::operator==(const VectorT<T, 2>& rhs) const
 {
