@@ -103,8 +103,8 @@ template<typename T, size_t R, size_t C>
 inline MatrixT<T, R, C> MatrixT<T, R, C>::perspective(float yFOV, float aspect, float n, float f)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
-	assert(std::abs(aspect - std::numeric_limits<float>::epsilon()) > 0.0f);
-	assert(aspect != 0 && n != f);
+	assert(!equal(aspect, 0.f));
+	assert(n != f);
 
 	const float tanHalfFOV = std::tan(yFOV / 2.f);
 
