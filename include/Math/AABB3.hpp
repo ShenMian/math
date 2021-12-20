@@ -11,6 +11,11 @@ public:
 	Vector3 min;
 	Vector3 max;
 
+	/**
+	 * @brief 构造函数, 通过最小点和最大点创建包围盒.
+	 *
+	 * @param min 指定点.
+	 */
 	AABB3(const Vector3& min, const Vector3& max);
 
 	/**
@@ -75,7 +80,7 @@ public:
 	 */
 	bool isEmpty() const;
 
-	bool operator==(const AABB3& rhs) const;
+	bool operator==(const AABB3& rhs) const = default;
 };
 
 #include "AABB3.inl"

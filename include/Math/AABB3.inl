@@ -58,8 +58,3 @@ inline bool AABB3::isEmpty() const
 	return min == max;
 }
 
-inline bool AABB3::operator==(const AABB3& rhs) const
-{
-	intersects(rhs);
-}
-
