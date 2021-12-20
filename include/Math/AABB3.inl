@@ -57,3 +57,8 @@ inline bool AABB3::isEmpty() const
 {
 	return min == max;
 }
+
+inline bool AABB3::opeartor==(const AABB3& aabb) const
+{
+	return intersects(aabb);
+}

@@ -74,6 +74,8 @@ public:
 	 * @return false 非空.
 	 */
 	bool isEmpty() const;
+
+	bool opeartor==(const AABB3& aabb) const;
 };
 
 #include "AABB3.inl"
