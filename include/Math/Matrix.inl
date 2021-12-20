@@ -55,13 +55,13 @@ inline void MatrixT<T, R, C>::decompose(Vector3T<T>* translation, Vector3T<T>* r
 template <typename T, size_t R, size_t C>
 inline T* MatrixT<T, R, C>::data()
 {
-	return m_;
+	return &m_[0][0];
 }
 
 template <typename T, size_t R, size_t C>
 inline const T* MatrixT<T, R, C>::data() const
 {
-	return m_;
+	return &m_[0][0];
 }
 
 template <typename T, size_t R, size_t C>
