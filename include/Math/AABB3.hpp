@@ -75,7 +75,7 @@ public:
 	 */
 	bool isEmpty() const;
 
-	bool opeartor==(const AABB3& aabb) const;
+	bool operator==(const AABB3& rhs) const;
 };
 
 #include "AABB3.inl"

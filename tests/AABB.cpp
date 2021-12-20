@@ -6,5 +6,5 @@
 
 TEST(AABB3, isEmpty)
 {
-	EXPECT_TRUE(AABB3({3, 3}, {4, 4}).isEmpty());
+	EXPECT_TRUE(AABB3({3, 4, 5}, {3, 4, 5}).isEmpty());
 }
