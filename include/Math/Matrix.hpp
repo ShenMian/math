@@ -23,7 +23,7 @@ public:
 	 *
 	 * @param list 初始化列表.
 	 */
-	explicit MatrixT(const std::initializer_list<T>& list);
+	MatrixT(const std::initializer_list<T>& list);
 
 	/**
 	 * @brief 求逆.
@@ -86,17 +86,17 @@ public:
 
 	bool operator==(const MatrixT&) const;
 
-	static MatrixT createTranslate(const Vector3T<T>&);
-	static MatrixT createRotation(const Vector3T<T>& axis, float angle);
-	static MatrixT createScale(const Vector3T<T>&);
+	static MatrixT translate(const Vector3T<T>&);
+	static MatrixT rotation(const Vector3T<T>& axis, float angle);
+	static MatrixT scale(const Vector3T<T>&);
 
-	static MatrixT perspective(float yFOV, float aspect, float near, float far);
+	static MatrixT perspective(float vFOV, float aspect, float near, float far);
 	static MatrixT orthogonal(float width, float height, float near, float far);
 
 	inline static const size_t rows = R;
 	inline static const size_t columns = C;
 
-	inline static const MatrixT identity;
+	static const MatrixT identity;
 
 private:
 	T m_[R][C] = {};

@@ -19,8 +19,8 @@ inline MatrixT<T, R, C>::MatrixT(const std::initializer_list<T>& list)
 	assert(list.size() == R * C);
 	auto it = list.begin();
 	for(size_t r = 0; r < R; r++)
-		for(size_t c = 0; c < C; c++, it++)
-			m_[r][c] = *it;
+		for(size_t c = 0; c < C; c++)
+			m_[r][c] = *it++;
 }
 
 template <typename T, size_t R, size_t C>
@@ -89,7 +89,7 @@ inline bool MatrixT<T, R, C>::operator==(const MatrixT& rhs) const
 }
 
 template <typename T, size_t R, size_t C>
-inline MatrixT<T, R, C> MatrixT<T, R, C>::createTranslate(const Vector3T<T>& v)
+inline MatrixT<T, R, C> MatrixT<T, R, C>::translate(const Vector3T<T>& v)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 	MatrixT result;
