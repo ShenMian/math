@@ -93,10 +93,10 @@ public:
 	static MatrixT perspective(float yFOV, float aspect, float near, float far);
 	static MatrixT orthogonal(float width, float height, float near, float far);
 
-	static const size_t rows = R;
-	static const size_t columns = C;
+	inline static const size_t rows = R;
+	inline static const size_t columns = C;
 
-	static const MatrixT identity;
+	inline static const MatrixT identity;
 
 private:
 	T m_[R][C] = {};
