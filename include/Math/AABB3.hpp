@@ -12,6 +12,11 @@ public:
 	Vector3 max;
 
 	/**
+	 * @brief 默认构造函数.
+	 */
+	AABB3() = default;
+
+	/**
 	 * @brief 构造函数, 通过最小点和最大点创建包围盒.
 	 *
 	 * @param min 指定点.
