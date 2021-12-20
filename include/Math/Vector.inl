@@ -19,8 +19,8 @@ inline VectorT<T, N>::VectorT(const std::initializer_list<T>& list)
 {
 	assert(list.size() == N);
 	auto it = list.begin();
-	for(size_t i = 0; i < N; i++, it++)
-		v_[i] = *it;
+	for(size_t i = 0; i < N; i++)
+		v_[i] = *it++;
 }
 
 template <typename T, size_t N>

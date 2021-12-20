@@ -52,8 +52,8 @@ inline VectorT<T, 2>::VectorT(const std::initializer_list<T>& list)
 {
 	assert(list.size() == 2);
 	auto it = list.begin();
-	x = *it++;
-	y = *it++;
+	x = *it;
+	y = *(++it);
 }
 
 template <typename T>

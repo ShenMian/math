@@ -58,10 +58,10 @@ inline VectorT<T, 4>::VectorT(const std::initializer_list<T>& list)
 {
 	assert(list.size() == 4);
 	auto it = list.begin();
-	x = *it++;
-	y = *it++;
-	z = *it++;
-	w = *it++;
+	x = *it;
+	y = *(++it);
+	z = *(++it);
+	w = *(++it);
 }
 
 template <typename T>
