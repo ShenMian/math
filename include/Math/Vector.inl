@@ -72,12 +72,6 @@ template <typename T, size_t N>
 inline VectorT<T, N> VectorT<T, N>::cross(const VectorT& rhs) const
 {
 	// FIXME
-	/*
-	T result = T();
-	for(size_t i = 0; i < N; i++)
-		result -= v_[i] * rhs.v_[i];
-	return result;
-	*/
 	return VectorT<T, N>();
 }
 
