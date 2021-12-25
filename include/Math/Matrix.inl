@@ -5,12 +5,27 @@
 #include "Helper.hpp"
 #include <cassert>
 
+namespace
+{
+
+template <typename T, size_t R, size_t C>
+inline void init(MatrixT<T, R, C>)
+{
+}
+
+template <typename T, size_t N>
+inline void init(MatrixT<T, N, N>& mat)
+{
+	for(size_t n = 0; n < N; n++)
+		mat[n][n] = T(1);
+}
+
+}
+
 template <typename T, size_t R, size_t C>
 inline MatrixT<T, R, C>::MatrixT()
 {
-	static_assert(R == C);
-	for(size_t r = 0; r < R; r++)
-		m_[r][r] = T(1);
+	init(*this);
 }
 
 template <typename T, size_t R, size_t C>
@@ -88,6 +103,46 @@ inline bool MatrixT<T, R, C>::operator==(const MatrixT& rhs) const
 	return true;
 }
 
+template<typename T, size_t R, size_t C>
+inline MatrixT<T, R, C>& MatrixT<T, R, C>::operator+=(const MatrixT& rhs)
+{
+	for(size_t r = 0; r < R; r++)
+		for(size_t c = 0; c < C; c++)
+			m_[r][c] += rhs[r][c];
+	return *this;
+}
+
+template<typename T, size_t R, size_t C>
+inline MatrixT<T, R, C>& MatrixT<T, R, C>::operator-=(const MatrixT& rhs)
+{
+	for(size_t r = 0; r < R; r++)
+		for(size_t c = 0; c < C; c++)
+			m_[r][c] -= rhs[r][c];
+	return *this;
+}
+
+template<typename T, size_t R, size_t C>
+inline MatrixT<T, R, C>& MatrixT<T, R, C>::operator*=(const MatrixT& rhs)
+{
+	// TODO: 在此处插入 return 语句
+}
+
+template<typename T, size_t R, size_t C>
+inline MatrixT<T, R, C>& MatrixT<T, R, C>::operator/=(const MatrixT& rhs)
+{
+	// TODO: 在此处插入 return 语句
+}
+
+template<typename T, size_t R, size_t C>
+inline MatrixT<T, R, C> MatrixT<T, R, C>::operator-()
+{
+	MatrixT result;
+	for(size_t r = 0; r < R; r++)
+		for(size_t c = 0; c < C; c++)
+			result[r][c] = -m_[r][c];
+	return result;
+}
+
 template <typename T, size_t R, size_t C>
 inline MatrixT<T, R, C> MatrixT<T, R, C>::translate(const Vector3T<T>& v)
 {
@@ -122,4 +177,12 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::orthogonal(float w, float h, float n, 
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 	return MatrixT();
+}
+
+template<typename T, size_t R, size_t C>
+inline MatrixT<T, R, C> MatrixT<T, R, C>::identity()
+{
+	static_assert(R == C, "only square matrix supports this operation");
+	static MatrixT mat;
+	return mat;
 }

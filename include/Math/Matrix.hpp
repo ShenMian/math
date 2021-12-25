@@ -84,7 +84,12 @@ public:
 		return result;
 	}
 
-	bool operator==(const MatrixT&) const;
+	bool     operator==(const MatrixT&) const;
+	MatrixT& operator+=(const MatrixT&);
+	MatrixT& operator-=(const MatrixT&);
+	MatrixT& operator*=(const MatrixT&);
+	MatrixT& operator/=(const MatrixT&);
+	MatrixT  operator-();
 
 	static MatrixT translate(const Vector3T<T>&);
 	static MatrixT rotation(const Vector3T<T>& axis, float angle);
@@ -93,10 +98,10 @@ public:
 	static MatrixT perspective(float vFOV, float aspect, float near, float far);
 	static MatrixT orthogonal(float width, float height, float near, float far);
 
+	static MatrixT identity();
+
 	inline static const size_t rows = R;
 	inline static const size_t columns = C;
-
-	static const MatrixT identity;
 
 private:
 	T m_[R][C] = {};
