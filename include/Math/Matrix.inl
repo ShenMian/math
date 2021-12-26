@@ -186,6 +186,8 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::perspective(float yFOV, float aspect, 
 template<typename T, size_t R, size_t C>
 inline MatrixT<T, R, C> MatrixT<T, R, C>::lookAt(const Vector3T<T>& eye, const Vector3T<T>& center, const Vector3T<T>& up)
 {
+	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
+	return MatrixT();
 }
 
 template<typename T, size_t R, size_t C>
