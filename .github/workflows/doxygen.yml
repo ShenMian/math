@@ -14,6 +14,11 @@ jobs:
         with:
           doxyfile-path: ./docs/Doxyfile
 
+      - name: Test
+        run: |
+          ls -a
+          ls -a docs
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
