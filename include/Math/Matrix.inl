@@ -8,7 +8,7 @@
 template <typename T, size_t R, size_t C>
 inline MatrixT<T, R, C>::MatrixT()
 {
-	if constexpr (R == C)
+	if constexpr(R == C)
 		for(size_t n = 0; n < R; n++)
 			m_[n][n] = T(1);
 }
