@@ -120,13 +120,11 @@ Public 成员函数</h2></td></tr>
 <tr class="memitem:a1507681967fc7fdf0f42d4f613dfb60a"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector_t.html#a1507681967fc7fdf0f42d4f613dfb60a">size</a> () const</td></tr>
 <tr class="memdesc:a1507681967fc7fdf0f42d4f613dfb60a"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取长度.  <a href="class_vector_t.html#a1507681967fc7fdf0f42d4f613dfb60a">更多...</a><br /></td></tr>
 <tr class="separator:a1507681967fc7fdf0f42d4f613dfb60a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aafae2237f0cc68af441c99c7aac5635b"><td class="memItemLeft" align="right" valign="top"><a id="aafae2237f0cc68af441c99c7aac5635b"></a>
-<a class="el" href="class_vector_t.html">VectorT</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector_t.html#aafae2237f0cc68af441c99c7aac5635b">normalize</a> ()</td></tr>
-<tr class="memdesc:aafae2237f0cc68af441c99c7aac5635b"><td class="mdescLeft">&#160;</td><td class="mdescRight">标准化成单位向量. <br /></td></tr>
+<tr class="memitem:aafae2237f0cc68af441c99c7aac5635b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector_t.html">VectorT</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector_t.html#aafae2237f0cc68af441c99c7aac5635b">normalize</a> ()</td></tr>
+<tr class="memdesc:aafae2237f0cc68af441c99c7aac5635b"><td class="mdescLeft">&#160;</td><td class="mdescRight">标准化成单位向量.  <a href="class_vector_t.html#aafae2237f0cc68af441c99c7aac5635b">更多...</a><br /></td></tr>
 <tr class="separator:aafae2237f0cc68af441c99c7aac5635b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e21dcfe641727a59ec3b7ac692b91b5"><td class="memItemLeft" align="right" valign="top"><a id="a6e21dcfe641727a59ec3b7ac692b91b5"></a>
-<a class="el" href="class_vector_t.html">VectorT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector_t.html#a6e21dcfe641727a59ec3b7ac692b91b5">normalized</a> () const</td></tr>
-<tr class="memdesc:a6e21dcfe641727a59ec3b7ac692b91b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取标准化单位向量. <br /></td></tr>
+<tr class="memitem:a6e21dcfe641727a59ec3b7ac692b91b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector_t.html">VectorT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector_t.html#a6e21dcfe641727a59ec3b7ac692b91b5">normalized</a> () const</td></tr>
+<tr class="memdesc:a6e21dcfe641727a59ec3b7ac692b91b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取标准化单位向量.  <a href="class_vector_t.html#a6e21dcfe641727a59ec3b7ac692b91b5">更多...</a><br /></td></tr>
 <tr class="separator:a6e21dcfe641727a59ec3b7ac692b91b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e5b9af9e18f43283538e9427fc08823"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector_t.html#a6e5b9af9e18f43283538e9427fc08823">dot</a> (const <a class="el" href="class_vector_t.html">VectorT</a> &amp;rhs) const</td></tr>
 <tr class="memdesc:a6e5b9af9e18f43283538e9427fc08823"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算向量点积.  <a href="class_vector_t.html#a6e5b9af9e18f43283538e9427fc08823">更多...</a><br /></td></tr>
@@ -304,6 +302,60 @@ template&lt;typename T , size_t N&gt; </div>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="aafae2237f0cc68af441c99c7aac5635b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafae2237f0cc68af441c99c7aac5635b">&#9670;&nbsp;</a></span>normalize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , size_t N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_vector_t.html">VectorT</a>&lt; T, N &gt; &amp; <a class="el" href="class_vector_t.html">VectorT</a>&lt; T, N &gt;::normalize</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>标准化成单位向量. </p>
+<dl class="section warning"><dt>警告</dt><dd>当向量大小太小时, 将会不进行标准化. </dd></dl>
+
+</div>
+</div>
+<a id="a6e21dcfe641727a59ec3b7ac692b91b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e21dcfe641727a59ec3b7ac692b91b5">&#9670;&nbsp;</a></span>normalized()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , size_t N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_vector_t.html">VectorT</a>&lt; T, N &gt; <a class="el" href="class_vector_t.html">VectorT</a>&lt; T, N &gt;::normalized</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取标准化单位向量. </p>
+<dl class="section warning"><dt>警告</dt><dd>当向量大小太小时, 将会不进行标准化. </dd></dl>
 
 </div>
 </div>
