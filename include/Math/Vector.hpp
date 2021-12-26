@@ -110,13 +110,13 @@ private:
 #include "Vector.inl"
 
 template <size_t N>
-using VectorXf = VectorT<float, N>;
+using Vectorf = VectorT<float, N>;
 
 template <size_t N>
-using VectorXd = VectorT<float, N>;
+using Vectord = VectorT<float, N>;
 
 template <size_t N>
-using VectorXi = VectorT<int32_t, N>;
+using Vectori = VectorT<int32_t, N>;
 
 template <typename T, size_t N>
 VectorT<T, N> operator+(const VectorT<T, N>& lhs, const VectorT<T, N>& rhs)
