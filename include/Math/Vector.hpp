@@ -169,13 +169,13 @@ VectorT<T, N> operator/(const T& lhs, const VectorT<T, N>& rhs)
 /*
  * @class VectorT
  *
- * 向量, 可以用于表示位置/速度/方向等属性.
+ * 大小固定的向量, 可以用于表示位置/速度/方向等.
  *
  * 例子:
  * @code{cpp}
  *
  * // 创建
- * Vector2i v(1, 2); // 创建一个 2 维向量, 初始值为 (1, 2), 类型为 int32_t
+ * Vector2i v(1, 2); // 创建一个 2 维向量, 类型为 int32_t, 初始值为 (1, 2)
  *
  * // 操作
  * v.x = 3;  // 设置 x 分量为 3
