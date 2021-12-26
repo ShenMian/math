@@ -63,11 +63,15 @@ public:
 
 	/**
 	 * @brief 标准化成单位向量.
+	 *
+	 * @warning 当向量大小太小时, 将会不进行标准化.
 	 */
 	VectorT& normalize();
 
 	/**
 	 * @brief 获取标准化单位向量.
+	 *
+	 * @warning 当向量大小太小时, 将会不进行标准化.
 	 */
 	VectorT normalized() const;
 
