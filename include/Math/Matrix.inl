@@ -5,36 +5,21 @@
 #include "Helper.hpp"
 #include <cassert>
 
-namespace
-{
-
-template <typename T, size_t R, size_t C>
-inline void init(MatrixT<T, R, C>)
-{
-}
-
-template <typename T, size_t N>
-inline void init(MatrixT<T, N, N>& mat)
-{
-	for(size_t n = 0; n < N; n++)
-		mat[n][n] = T(1);
-}
-
-}
-
 template <typename T, size_t R, size_t C>
 inline MatrixT<T, R, C>::MatrixT()
 {
-	init(*this);
+	if constexpr (R == C)
+		for(size_t n = 0; n < R; n++)
+			m_[n][n] = T(1);
 }
 
 template <typename T, size_t R, size_t C>
 inline MatrixT<T, R, C>::MatrixT(const std::initializer_list<T>& list)
 {
-	assert(list.size() == R * C);
+	assert(list.size() == rows() * cols());
 	auto it = list.begin();
-	for(size_t r = 0; r < R; r++)
-		for(size_t c = 0; c < C; c++)
+	for(size_t r = 0; r < rows(); r++)
+		for(size_t c = 0; c < cols(); c++)
 			m_[r][c] = *it++;
 }
 
@@ -57,7 +42,7 @@ inline T MatrixT<T, R, C>::trace() const
 {
 	static_assert(R == C, "only square matrix supports this operation");
 	T result = T(0);
-	for(size_t r = 0; r < R; r++)
+	for(size_t r = 0; r < rows(); r++)
 		result += m_[r][r];
 	return result;
 }
@@ -65,6 +50,18 @@ inline T MatrixT<T, R, C>::trace() const
 template <typename T, size_t R, size_t C>
 inline void MatrixT<T, R, C>::decompose(Vector3T<T>* translation, Vector3T<T>* rotation, Vector3T<T>* scale) const
 {
+}
+
+template<typename T, size_t R, size_t C>
+inline constexpr size_t MatrixT<T, R, C>::rows() const
+{
+	return rows_;
+}
+
+template<typename T, size_t R, size_t C>
+inline constexpr size_t MatrixT<T, R, C>::cols() const
+{
+	return cols_;
 }
 
 template <typename T, size_t R, size_t C>
@@ -79,25 +76,39 @@ inline const T* MatrixT<T, R, C>::data() const
 	return &m_[0][0];
 }
 
+template<typename T, size_t R, size_t C>
+inline T& MatrixT<T, R, C>::operator()(size_t r, size_t c)
+{
+	assert(r < rows() && c < cols());
+	return m_[r][c];
+}
+
+template<typename T, size_t R, size_t C>
+inline const T& MatrixT<T, R, C>::operator()(size_t r, size_t c) const
+{
+	assert(r < rows() && c < cols());
+	return m_[r][c];
+}
+
 template <typename T, size_t R, size_t C>
 inline T* MatrixT<T, R, C>::operator[](size_t row)
 {
-	assert(row < R);
+	assert(row < rows());
 	return m_[row];
 }
 
 template <typename T, size_t R, size_t C>
 inline const T* MatrixT<T, R, C>::operator[](size_t row) const
 {
-	assert(row < R);
+	assert(row < rows());
 	return m_[row];
 }
 
 template <typename T, size_t R, size_t C>
 inline bool MatrixT<T, R, C>::operator==(const MatrixT& rhs) const
 {
-	for(size_t r = 0; r < R; r++)
-		for(size_t c = 0; c < C; c++)
+	for(size_t r = 0; r < rows(); r++)
+		for(size_t c = 0; c < cols(); c++)
 			if(!equal(m_[r][c], rhs.m_[r][c]))
 				return false;
 	return true;
@@ -106,8 +117,8 @@ inline bool MatrixT<T, R, C>::operator==(const MatrixT& rhs) const
 template<typename T, size_t R, size_t C>
 inline MatrixT<T, R, C>& MatrixT<T, R, C>::operator+=(const MatrixT& rhs)
 {
-	for(size_t r = 0; r < R; r++)
-		for(size_t c = 0; c < C; c++)
+	for(size_t r = 0; r < rows(); r++)
+		for(size_t c = 0; c < cols(); c++)
 			m_[r][c] += rhs[r][c];
 	return *this;
 }
@@ -115,8 +126,8 @@ inline MatrixT<T, R, C>& MatrixT<T, R, C>::operator+=(const MatrixT& rhs)
 template<typename T, size_t R, size_t C>
 inline MatrixT<T, R, C>& MatrixT<T, R, C>::operator-=(const MatrixT& rhs)
 {
-	for(size_t r = 0; r < R; r++)
-		for(size_t c = 0; c < C; c++)
+	for(size_t r = 0; r < rows(); r++)
+		for(size_t c = 0; c < cols(); c++)
 			m_[r][c] -= rhs[r][c];
 	return *this;
 }
@@ -137,8 +148,8 @@ template<typename T, size_t R, size_t C>
 inline MatrixT<T, R, C> MatrixT<T, R, C>::operator-()
 {
 	MatrixT result;
-	for(size_t r = 0; r < R; r++)
-		for(size_t c = 0; c < C; c++)
+	for(size_t r = 0; r < rows(); r++)
+		for(size_t c = 0; c < cols(); c++)
 			result[r][c] = -m_[r][c];
 	return result;
 }

@@ -5,6 +5,7 @@
 
 #include "Vector3.hpp"
 #include <cstddef>
+#include <iostream>
 
 /**
  * @brief 矩阵.
@@ -66,23 +67,26 @@ public:
 	MatrixT& recompose(const Vector3T<T>& translation, const Vector3T<T>& rotation, const Vector3T<T>& scale);
 
 	/**
+	 * @brief 获取行数.
+	 */
+	constexpr size_t rows() const;
+
+	/**
+	 * @brief 获取列数.
+	 */
+	constexpr size_t cols() const;
+
+	/**
 	 * @brief 获取原始数据.
 	 */
 	T* data();
 	const T* data() const;
 
+	T& operator()(size_t r, size_t c);
+	const T& operator()(size_t r, size_t c) const;
+
 	T* operator[](size_t row);
 	const T* operator[](size_t row) const;
-
-	template <typename T0>
-	operator MatrixT<T0, R, C>()
-	{
-		MatrixT result;
-		for(size_t r = 0; r < R; r++)
-			for(size_t c = 0; c < C; c++)
-				result[r][c] = static_cast<T0>(m_[r][c]);
-		return result;
-	}
 
 	bool     operator==(const MatrixT&) const;
 	MatrixT& operator+=(const MatrixT&);
@@ -90,6 +94,27 @@ public:
 	MatrixT& operator*=(const MatrixT&);
 	MatrixT& operator/=(const MatrixT&);
 	MatrixT  operator-();
+
+	template <typename T0>
+	operator MatrixT<T0, R, C>()
+	{
+		MatrixT result;
+		for(size_t r = 0; r < rows(); r++)
+			for(size_t c = 0; c < cols(); c++)
+				result[r][c] = static_cast<T0>(m_[r][c]);
+		return result;
+	}
+
+	friend std::ostream& operator<<(std::ostream& stream, const MatrixT& mat)
+	{
+		for(size_t r = 0; r < R; r++)
+		{
+			for(size_t c = 0; c < C; c++)
+				stream << mat[r][c] << ' ';
+			stream << std::endl;
+		}
+		return stream;
+	}
 
 	static MatrixT translate(const Vector3T<T>&);
 	static MatrixT rotation(const Vector3T<T>& axis, float angle);
@@ -100,14 +125,23 @@ public:
 
 	static MatrixT identity();
 
-	inline static const size_t rows = R;
-	inline static const size_t columns = C;
-
 private:
 	T m_[R][C] = {};
+
+	inline static const size_t rows_ = R;
+	inline static const size_t cols_ = C;
 };
 
 #include "Matrix.inl"
+
+template <size_t R, size_t C>
+using Matrixf = MatrixT<float, R, C>;
+
+template <size_t R, size_t C>
+using Matrixd = MatrixT<double, R, C>;
+
+template <size_t R, size_t C>
+using Matrixi = MatrixT<int32_t, R, C>;
 
 #define DEF_MATRIX_NxN(n)                                        \
     template <typename T> using Matrix##n##T = MatrixT<T, n, n>; \
@@ -119,4 +153,25 @@ DEF_MATRIX_NxN(2);
 DEF_MATRIX_NxN(3);
 DEF_MATRIX_NxN(4);
 
-// #undef DEF_MATRIX_NxN
+#undef DEF_MATRIX_NxN
+
+/*
+ * @class MatrixT
+ *
+ * 大小固定的矩阵, 可用于表示线性变换等.
+ *
+ * 例子:
+ * @code{cpp}
+ *
+ * // 创建
+ * Matrix2f m; // 创建一个 2x2 矩阵, 类型为 float, 初始值为 2x2 单位矩阵
+ *
+ * // 操作
+ * m[0][1] = 4; // 设置第一行第二列的值为 4
+ * m(1, 0) = 3; // 设置第二行第一列的值为 3
+ * std::cout << m; // 输出矩阵, 结果为:
+ *                 // 1 4
+ *                 // 3 1
+ *
+ * @endcode
+ */
