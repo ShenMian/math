@@ -130,12 +130,6 @@ public:
 	T* data();
 	const T* data() const;
 
-	template <typename C>
-	operator VectorT<C, 3>()
-	{
-		return VectorT<C, 3>(static_cast<C>(x), static_cast<C>(y), static_cast<C>(z));
-	}
-
 	T& operator[](size_t index);
 	const T& operator[](size_t index) const;
 
@@ -145,6 +139,12 @@ public:
 	VectorT& operator*=(const T&);
 	VectorT& operator/=(const T&);
 	VectorT  operator-() const;
+
+	template <typename C>
+	operator VectorT<C, 3>()
+	{
+		return VectorT<C, 3>(static_cast<C>(x), static_cast<C>(y), static_cast<C>(z));
+	}
 
 	static const size_t components = 3;
 

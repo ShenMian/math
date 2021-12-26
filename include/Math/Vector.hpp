@@ -79,15 +79,6 @@ public:
 	T* data();
 	const T* data() const;
 
-	template <typename C>
-	operator VectorT<C, N>()
-	{
-		VectorT<C, N> result;
-		for(size_t i = 0; i < N; i++)
-			result[i] = static_cast<C>(v_[i]);
-		return result;
-	}
-
 	T& operator[](size_t index);
 	const T& operator[](size_t index) const;
 
@@ -97,6 +88,15 @@ public:
 	VectorT& operator*=(const T&);
 	VectorT& operator/=(const T&);
 	VectorT  operator-() const;
+
+	template <typename C>
+	operator VectorT<C, N>()
+	{
+		VectorT<C, N> result;
+		for(size_t i = 0; i < N; i++)
+			result[i] = static_cast<C>(v_[i]);
+		return result;
+	}
 
 	static const size_t components = N;
 
@@ -108,6 +108,15 @@ private:
 
 template <size_t N>
 using Vector = VectorT<float, N>;
+
+template <size_t N>
+using VectorXf = VectorT<float, N>;
+
+template <size_t N>
+using VectorXd = VectorT<float, N>;
+
+template <size_t N>
+using VectorXi = VectorT<int32_t, N>;
 
 template <typename T, size_t N>
 VectorT<T, N> operator+(const VectorT<T, N>& lhs, const VectorT<T, N>& rhs)
@@ -156,3 +165,22 @@ VectorT<T, N> operator/(const T& lhs, const VectorT<T, N>& rhs)
 {
 	return rhs / lhs;
 }
+
+/*
+ * @class VectorT
+ *
+ * 向量, 可以用于表示位置/速度/方向等属性.
+ *
+ * 例子:
+ * @code{cpp}
+ *
+ * // 创建
+ * Vector2i v(1, 2); // 创建一个 2 维向量, 初始值为 (1, 2), 类型为 int32_t
+ *
+ * // 操作
+ * v.x = 3;  // 设置 x 分量为 3
+ * v[1] = 4; // 设置 y 分量为 4
+ * std::cout << v.size() << std::endl; // 输出向量的长度, 结果为: 5
+ *
+ * @endcode
+ */
