@@ -13,3 +13,15 @@
 #include "Quaternion.hpp"
 
 #include "AABB3.hpp"
+
+// Doxygen main page
+/**
+ * @mainpage Math Documentation
+ *
+ * Math
+ * ====
+ *
+ * Overview
+ * --------
+ * A simple linear algebra header-only library.
+ */
