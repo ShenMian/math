@@ -9,15 +9,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Install doxygen
-        run: sudo apt-get install -y doxygen
-
-      - name: Generate documentation
-        run: doxygen ./docs/Doxyfile
-
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+        uses: langroodi/doxygenize@v1.5
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs/html
-          destination_dir: ./docs
+          doxygenconf: ./docs/Doxyfile
+          htmloutput: ./docs/html
+          ghpagesdir: ./docs
+
