@@ -6,6 +6,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Test
+        run: ls -a
+
       - name: Install doxygen
         run: sudo apt-get install -y doxygen
 
