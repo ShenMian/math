@@ -120,13 +120,56 @@ public:
 		return stream;
 	}
 
-	static MatrixT translate(const Vector3T<T>&);
-	static MatrixT rotation(const Vector3T<T>& axis, float angle);
-	static MatrixT scale(const Vector3T<T>&);
+	/**
+	 * @brief 生成平移变换矩阵.
+	 *
+	 * @param translation 平移向量. 指定了三个轴的变化量.
+	 */
+	static MatrixT translate(const Vector3T<T>& translation);
 
+	/**
+	 * @brief 生成旋转变换矩阵.
+	 *
+	 * @param axis  旋转轴.
+	 * @param angle 旋转角度, 单位: 弧度制.
+	 */
+	static MatrixT rotation(const Vector3T<T>& axis, float angle);
+
+	/**
+	 * @brief 生成缩放变换矩阵.
+	 *
+	 * @param scale 缩放向量. 指定了三个轴的缩放比.
+	 */
+	static MatrixT scale(const Vector3T<T>& scale);
+
+	/**
+	 * @brief 生成透视投影矩阵.
+	 *
+	 * @param vFOV   垂直视角, 单位: 弧度制.
+	 * @param aspect 宽高比.
+	 * @param near   近裁剪面.
+	 * @param far    远裁剪面.
+	 */
 	static MatrixT perspective(float vFOV, float aspect, float near, float far);
+
+	/**
+	 * @brief 生成正交投影矩阵.
+	 *
+	 * @param width  宽度.
+	 * @param height 高度.
+	 * @param near   近裁剪面.
+	 * @param far    远裁剪面.
+	 */
 	static MatrixT orthogonal(float width, float height, float near, float far);
-	static MatrixT lookAt(const Vector3T<T>& eye, const Vector3T<T>& center, const Vector3T<T>& up);
+
+	/**
+	 * @brief 生成视图矩阵.
+	 *
+	 * @param eye    观察者位置.
+	 * @param target 目标的位置.
+	 * @param up     观察者向上的方向.
+	 */
+	static MatrixT lookAt(const Vector3T<T>& eye, const Vector3T<T>& target, const Vector3T<T>& up = Vector3T<T>::up);
 
 	/**
 	 * @brief 获取单位矩阵.
