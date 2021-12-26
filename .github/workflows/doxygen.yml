@@ -9,10 +9,11 @@ jobs:
       - name: Generate documentation
         uses: mattnotmitt/doxygen-action@v1
         with:
-            doxyfile-path: '${{github.workspace}}/docs/Doxyfile'
+          working-directory: ${{ github.workspace }}
+          doxyfile-path: ./docs/Doxyfile
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./Docs/html
+          publish_dir: ./docs/html
