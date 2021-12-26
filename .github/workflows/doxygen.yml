@@ -6,11 +6,11 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Install doxygen
+        run: sudo apt-get install -y doxygen
+
       - name: Generate documentation
-        uses: mattnotmitt/doxygen-action@v1
-        with:
-          working-directory: ${{ github.workspace }}
-          doxyfile-path: ./docs/Doxyfile
+        run: doxygen ./docs/Doxyfile
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
