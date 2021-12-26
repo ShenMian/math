@@ -1,8 +1,0 @@
-.vs/
-.vscode/
-build/
-deps/
-docs/
-include/
-tests/
-*.sln
