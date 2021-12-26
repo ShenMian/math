@@ -1,0 +1,569 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Math: MatrixT&lt; T, R, C &gt; 模板类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Math
+   &#160;<span id="projectnumber">v0.0.0</span>
+   </div>
+   <div id="projectbrief">A simple linear algebra header-only library.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
+<a href="#friends">友元</a> &#124;
+<a href="class_matrix_t-members.html">所有成员列表</a>  </div>
+  <div class="headertitle">
+<div class="title">MatrixT&lt; T, R, C &gt; 模板类 参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>矩阵.  
+ <a href="class_matrix_t.html#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:ac0e3299067035a98063d30b0aefbbc23"><td class="memItemLeft" align="right" valign="top"><a id="ac0e3299067035a98063d30b0aefbbc23"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#ac0e3299067035a98063d30b0aefbbc23">MatrixT</a> ()</td></tr>
+<tr class="memdesc:ac0e3299067035a98063d30b0aefbbc23"><td class="mdescLeft">&#160;</td><td class="mdescRight">默认构造函数. <br /></td></tr>
+<tr class="separator:ac0e3299067035a98063d30b0aefbbc23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1bc8ddcf5c685aee73bf0d23b3d5158"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#ab1bc8ddcf5c685aee73bf0d23b3d5158">MatrixT</a> (const std::initializer_list&lt; T &gt; &amp;list)</td></tr>
+<tr class="memdesc:ab1bc8ddcf5c685aee73bf0d23b3d5158"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数.  <a href="class_matrix_t.html#ab1bc8ddcf5c685aee73bf0d23b3d5158">更多...</a><br /></td></tr>
+<tr class="separator:ab1bc8ddcf5c685aee73bf0d23b3d5158"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac15cdc9057c3438f3e3827c4b79322a4"><td class="memItemLeft" align="right" valign="top"><a id="ac15cdc9057c3438f3e3827c4b79322a4"></a>
+<a class="el" href="class_matrix_t.html">MatrixT</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#ac15cdc9057c3438f3e3827c4b79322a4">inverse</a> ()</td></tr>
+<tr class="memdesc:ac15cdc9057c3438f3e3827c4b79322a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">求逆. <br /></td></tr>
+<tr class="separator:ac15cdc9057c3438f3e3827c4b79322a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdf7412096930e7ebf20c95cfa364355"><td class="memItemLeft" align="right" valign="top"><a id="afdf7412096930e7ebf20c95cfa364355"></a>
+<a class="el" href="class_matrix_t.html">MatrixT</a>&lt; T, R, C &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#afdf7412096930e7ebf20c95cfa364355">inversed</a> () const</td></tr>
+<tr class="memdesc:afdf7412096930e7ebf20c95cfa364355"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取逆矩阵. <br /></td></tr>
+<tr class="separator:afdf7412096930e7ebf20c95cfa364355"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3292617faa610b96cc388e034828f6b"><td class="memItemLeft" align="right" valign="top"><a id="ab3292617faa610b96cc388e034828f6b"></a>
+<a class="el" href="class_matrix_t.html">MatrixT</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#ab3292617faa610b96cc388e034828f6b">transpose</a> ()</td></tr>
+<tr class="memdesc:ab3292617faa610b96cc388e034828f6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">转置. <br /></td></tr>
+<tr class="separator:ab3292617faa610b96cc388e034828f6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd0c2c125307330e102a82b5c8486b9a"><td class="memItemLeft" align="right" valign="top"><a id="abd0c2c125307330e102a82b5c8486b9a"></a>
+<a class="el" href="class_matrix_t.html">MatrixT</a>&lt; T, R, C &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#abd0c2c125307330e102a82b5c8486b9a">transposed</a> () const</td></tr>
+<tr class="memdesc:abd0c2c125307330e102a82b5c8486b9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取转置后的矩阵. <br /></td></tr>
+<tr class="separator:abd0c2c125307330e102a82b5c8486b9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acac9f051752eceb2cd0896d2f50d0d3d"><td class="memItemLeft" align="right" valign="top"><a id="acac9f051752eceb2cd0896d2f50d0d3d"></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#acac9f051752eceb2cd0896d2f50d0d3d">determinant</a> () const</td></tr>
+<tr class="memdesc:acac9f051752eceb2cd0896d2f50d0d3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算行列式的值. <br /></td></tr>
+<tr class="separator:acac9f051752eceb2cd0896d2f50d0d3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02e114344441e5a0774d612ae5ffb6da"><td class="memItemLeft" align="right" valign="top"><a id="a02e114344441e5a0774d612ae5ffb6da"></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#a02e114344441e5a0774d612ae5ffb6da">trace</a> () const</td></tr>
+<tr class="memdesc:a02e114344441e5a0774d612ae5ffb6da"><td class="mdescLeft">&#160;</td><td class="mdescRight">求迹. <br /></td></tr>
+<tr class="separator:a02e114344441e5a0774d612ae5ffb6da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d9c679a883dae76670fd9256aad6eb3"><td class="memItemLeft" align="right" valign="top"><a id="a9d9c679a883dae76670fd9256aad6eb3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#a9d9c679a883dae76670fd9256aad6eb3">decompose</a> (<a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; *translation, <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; *<a class="el" href="class_matrix_t.html#ac5b5f4a99152b0b99b1c3e61fa1e5ebd">rotation</a>, <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; *<a class="el" href="class_matrix_t.html#aa435a87602e81bc1e8faf9c19ea05a37">scale</a>) const</td></tr>
+<tr class="memdesc:a9d9c679a883dae76670fd9256aad6eb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">分解. <br /></td></tr>
+<tr class="separator:a9d9c679a883dae76670fd9256aad6eb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3a049f76f75a6b441b71b62912b7c6c"><td class="memItemLeft" align="right" valign="top"><a id="af3a049f76f75a6b441b71b62912b7c6c"></a>
+<a class="el" href="class_matrix_t.html">MatrixT</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#af3a049f76f75a6b441b71b62912b7c6c">recompose</a> (const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;translation, const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;<a class="el" href="class_matrix_t.html#ac5b5f4a99152b0b99b1c3e61fa1e5ebd">rotation</a>, const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;<a class="el" href="class_matrix_t.html#aa435a87602e81bc1e8faf9c19ea05a37">scale</a>)</td></tr>
+<tr class="memdesc:af3a049f76f75a6b441b71b62912b7c6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">重组. <br /></td></tr>
+<tr class="separator:af3a049f76f75a6b441b71b62912b7c6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae88068b21b659971332de5b63ea4b14b"><td class="memItemLeft" align="right" valign="top"><a id="ae88068b21b659971332de5b63ea4b14b"></a>
+constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#ae88068b21b659971332de5b63ea4b14b">rows</a> () const</td></tr>
+<tr class="memdesc:ae88068b21b659971332de5b63ea4b14b"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取行数. <br /></td></tr>
+<tr class="separator:ae88068b21b659971332de5b63ea4b14b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31aec19b7a0d0a989abbcb7a5185f450"><td class="memItemLeft" align="right" valign="top"><a id="a31aec19b7a0d0a989abbcb7a5185f450"></a>
+constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#a31aec19b7a0d0a989abbcb7a5185f450">cols</a> () const</td></tr>
+<tr class="memdesc:a31aec19b7a0d0a989abbcb7a5185f450"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列数. <br /></td></tr>
+<tr class="separator:a31aec19b7a0d0a989abbcb7a5185f450"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1275a39695012e65fd1f444991121bd2"><td class="memItemLeft" align="right" valign="top"><a id="a1275a39695012e65fd1f444991121bd2"></a>
+T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#a1275a39695012e65fd1f444991121bd2">data</a> ()</td></tr>
+<tr class="memdesc:a1275a39695012e65fd1f444991121bd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取原始数据. <br /></td></tr>
+<tr class="separator:a1275a39695012e65fd1f444991121bd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91f548fb93e76e295a6a3da5d9fd043a"><td class="memItemLeft" align="right" valign="top"><a id="a91f548fb93e76e295a6a3da5d9fd043a"></a>
+const T *&#160;</td><td class="memItemRight" valign="bottom"><b>data</b> () const</td></tr>
+<tr class="separator:a91f548fb93e76e295a6a3da5d9fd043a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff35cb781b2c6df39fcb0f797563b57a"><td class="memItemLeft" align="right" valign="top"><a id="aff35cb781b2c6df39fcb0f797563b57a"></a>
+T &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator()</b> (size_t r, size_t c)</td></tr>
+<tr class="separator:aff35cb781b2c6df39fcb0f797563b57a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabe853cdf0e74589dfdc6fcf5d666ccc"><td class="memItemLeft" align="right" valign="top"><a id="aabe853cdf0e74589dfdc6fcf5d666ccc"></a>
+const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator()</b> (size_t r, size_t c) const</td></tr>
+<tr class="separator:aabe853cdf0e74589dfdc6fcf5d666ccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af27593fe9fb1708af1e7c0758c168281"><td class="memItemLeft" align="right" valign="top"><a id="af27593fe9fb1708af1e7c0758c168281"></a>
+T *&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (size_t row)</td></tr>
+<tr class="separator:af27593fe9fb1708af1e7c0758c168281"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a951f95779321b1265ba95e8a535bc43a"><td class="memItemLeft" align="right" valign="top"><a id="a951f95779321b1265ba95e8a535bc43a"></a>
+const T *&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (size_t row) const</td></tr>
+<tr class="separator:a951f95779321b1265ba95e8a535bc43a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a757176eb6e22d6dd96a1064e5a8eb03b"><td class="memItemLeft" align="right" valign="top"><a id="a757176eb6e22d6dd96a1064e5a8eb03b"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_matrix_t.html">MatrixT</a> &amp;) const</td></tr>
+<tr class="separator:a757176eb6e22d6dd96a1064e5a8eb03b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20f785e64ded8b5c908d4baac00ef130"><td class="memItemLeft" align="right" valign="top"><a id="a20f785e64ded8b5c908d4baac00ef130"></a>
+<a class="el" href="class_matrix_t.html">MatrixT</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+=</b> (const <a class="el" href="class_matrix_t.html">MatrixT</a> &amp;)</td></tr>
+<tr class="separator:a20f785e64ded8b5c908d4baac00ef130"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6578118ac907dbb5a65d0c28877222dd"><td class="memItemLeft" align="right" valign="top"><a id="a6578118ac907dbb5a65d0c28877222dd"></a>
+<a class="el" href="class_matrix_t.html">MatrixT</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator-=</b> (const <a class="el" href="class_matrix_t.html">MatrixT</a> &amp;)</td></tr>
+<tr class="separator:a6578118ac907dbb5a65d0c28877222dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef42e2ba68b2c9227188f24e9e4714cf"><td class="memItemLeft" align="right" valign="top"><a id="aef42e2ba68b2c9227188f24e9e4714cf"></a>
+<a class="el" href="class_matrix_t.html">MatrixT</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*=</b> (const <a class="el" href="class_matrix_t.html">MatrixT</a> &amp;)</td></tr>
+<tr class="separator:aef42e2ba68b2c9227188f24e9e4714cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61df5174b2495b0cfb0fa16d40ad22d3"><td class="memItemLeft" align="right" valign="top"><a id="a61df5174b2495b0cfb0fa16d40ad22d3"></a>
+<a class="el" href="class_matrix_t.html">MatrixT</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator/=</b> (const <a class="el" href="class_matrix_t.html">MatrixT</a> &amp;)</td></tr>
+<tr class="separator:a61df5174b2495b0cfb0fa16d40ad22d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75446525e50d0565cc7723f2f2a7149a"><td class="memItemLeft" align="right" valign="top"><a id="a75446525e50d0565cc7723f2f2a7149a"></a>
+<a class="el" href="class_matrix_t.html">MatrixT</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator-</b> ()</td></tr>
+<tr class="separator:a75446525e50d0565cc7723f2f2a7149a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cfbc5bb6ffe85253e40c3d126186c59"><td class="memTemplParams" colspan="2"><a id="a4cfbc5bb6ffe85253e40c3d126186c59"></a>
+template&lt;typename T0 &gt; </td></tr>
+<tr class="memitem:a4cfbc5bb6ffe85253e40c3d126186c59"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator MatrixT&lt; T0, R, C &gt;</b> ()</td></tr>
+<tr class="separator:a4cfbc5bb6ffe85253e40c3d126186c59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:a85d54ddea9e9aa81dc4dbaa8243c6308"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_matrix_t.html">MatrixT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#a85d54ddea9e9aa81dc4dbaa8243c6308">translate</a> (const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;translation)</td></tr>
+<tr class="memdesc:a85d54ddea9e9aa81dc4dbaa8243c6308"><td class="mdescLeft">&#160;</td><td class="mdescRight">生成平移变换矩阵.  <a href="class_matrix_t.html#a85d54ddea9e9aa81dc4dbaa8243c6308">更多...</a><br /></td></tr>
+<tr class="separator:a85d54ddea9e9aa81dc4dbaa8243c6308"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5b5f4a99152b0b99b1c3e61fa1e5ebd"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_matrix_t.html">MatrixT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#ac5b5f4a99152b0b99b1c3e61fa1e5ebd">rotation</a> (const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;axis, float angle)</td></tr>
+<tr class="memdesc:ac5b5f4a99152b0b99b1c3e61fa1e5ebd"><td class="mdescLeft">&#160;</td><td class="mdescRight">生成旋转变换矩阵.  <a href="class_matrix_t.html#ac5b5f4a99152b0b99b1c3e61fa1e5ebd">更多...</a><br /></td></tr>
+<tr class="separator:ac5b5f4a99152b0b99b1c3e61fa1e5ebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa435a87602e81bc1e8faf9c19ea05a37"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_matrix_t.html">MatrixT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#aa435a87602e81bc1e8faf9c19ea05a37">scale</a> (const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;scale)</td></tr>
+<tr class="memdesc:aa435a87602e81bc1e8faf9c19ea05a37"><td class="mdescLeft">&#160;</td><td class="mdescRight">生成缩放变换矩阵.  <a href="class_matrix_t.html#aa435a87602e81bc1e8faf9c19ea05a37">更多...</a><br /></td></tr>
+<tr class="separator:aa435a87602e81bc1e8faf9c19ea05a37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee27f453e82211421527108f98ffa55e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_matrix_t.html">MatrixT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#aee27f453e82211421527108f98ffa55e">perspective</a> (float vFOV, float aspect, float near, float far)</td></tr>
+<tr class="memdesc:aee27f453e82211421527108f98ffa55e"><td class="mdescLeft">&#160;</td><td class="mdescRight">生成透视投影矩阵.  <a href="class_matrix_t.html#aee27f453e82211421527108f98ffa55e">更多...</a><br /></td></tr>
+<tr class="separator:aee27f453e82211421527108f98ffa55e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5036c52eb61bdd0ef707fb21fc86f051"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_matrix_t.html">MatrixT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#a5036c52eb61bdd0ef707fb21fc86f051">orthogonal</a> (float width, float height, float near, float far)</td></tr>
+<tr class="memdesc:a5036c52eb61bdd0ef707fb21fc86f051"><td class="mdescLeft">&#160;</td><td class="mdescRight">生成正交投影矩阵.  <a href="class_matrix_t.html#a5036c52eb61bdd0ef707fb21fc86f051">更多...</a><br /></td></tr>
+<tr class="separator:a5036c52eb61bdd0ef707fb21fc86f051"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed9c5a0f650adb4b3c75e7d4f500fc09"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_matrix_t.html">MatrixT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#aed9c5a0f650adb4b3c75e7d4f500fc09">lookAt</a> (const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;eye, const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;target, const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;up=<a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt;::up)</td></tr>
+<tr class="memdesc:aed9c5a0f650adb4b3c75e7d4f500fc09"><td class="mdescLeft">&#160;</td><td class="mdescRight">生成视图矩阵.  <a href="class_matrix_t.html#aed9c5a0f650adb4b3c75e7d4f500fc09">更多...</a><br /></td></tr>
+<tr class="separator:aed9c5a0f650adb4b3c75e7d4f500fc09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1f8e323aa394669400f805c366449b5"><td class="memItemLeft" align="right" valign="top"><a id="ab1f8e323aa394669400f805c366449b5"></a>
+static <a class="el" href="class_matrix_t.html">MatrixT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#ab1f8e323aa394669400f805c366449b5">identity</a> ()</td></tr>
+<tr class="memdesc:ab1f8e323aa394669400f805c366449b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取单位矩阵. <br /></td></tr>
+<tr class="separator:ab1f8e323aa394669400f805c366449b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+友元</h2></td></tr>
+<tr class="memitem:a55ab160745e4a23a901e99825bda9cea"><td class="memItemLeft" align="right" valign="top"><a id="a55ab160745e4a23a901e99825bda9cea"></a>
+std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;stream, const <a class="el" href="class_matrix_t.html">MatrixT</a> &amp;mat)</td></tr>
+<tr class="separator:a55ab160745e4a23a901e99825bda9cea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><h3>template&lt;typename T, size_t R, size_t C&gt;<br />
+class MatrixT&lt; T, R, C &gt;</h3>
+
+<p>矩阵. </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>数据类型. </td></tr>
+    <tr><td class="paramname">R</td><td>行数. </td></tr>
+    <tr><td class="paramname">C</td><td>列数.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>大小固定的矩阵, 可用于表示线性变换等.</p>
+<p>例子: </p><div class="fragment"><div class="line"><span class="comment">// 创建</span></div>
+<div class="line">Matrix2f m; <span class="comment">// 创建一个 2x2 矩阵, 类型为 float, 初始值为 2x2 单位矩阵</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// 操作</span></div>
+<div class="line">m[0][1] = 4; <span class="comment">// 设置第一行第二列的值为 4</span></div>
+<div class="line">m(1, 0) = 3; <span class="comment">// 设置第二行第一列的值为 3</span></div>
+<div class="line">std::cout &lt;&lt; m; <span class="comment">// 输出矩阵, 结果为:</span></div>
+<div class="line">                <span class="comment">// 1 4</span></div>
+<div class="line">                <span class="comment">// 3 1</span></div>
+</div><!-- fragment --> </div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="ab1bc8ddcf5c685aee73bf0d23b3d5158"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1bc8ddcf5c685aee73bf0d23b3d5158">&#9670;&nbsp;</a></span>MatrixT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , size_t R, size_t C&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix_t.html">MatrixT</a>&lt; T, R, C &gt;::<a class="el" href="class_matrix_t.html">MatrixT</a> </td>
+          <td>(</td>
+          <td class="paramtype">const std::initializer_list&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>list</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>构造函数. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">list</td><td>初始化列表. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="aed9c5a0f650adb4b3c75e7d4f500fc09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed9c5a0f650adb4b3c75e7d4f500fc09">&#9670;&nbsp;</a></span>lookAt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , size_t R, size_t C&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix_t.html">MatrixT</a>&lt; T, R, C &gt; <a class="el" href="class_matrix_t.html">MatrixT</a>&lt; T, R, C &gt;::lookAt </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>eye</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>up</em> = <code><a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt;T&gt;::up</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>生成视图矩阵. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">eye</td><td>观察者位置. </td></tr>
+    <tr><td class="paramname">target</td><td>目标的位置. </td></tr>
+    <tr><td class="paramname">up</td><td>观察者向上的方向. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5036c52eb61bdd0ef707fb21fc86f051"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5036c52eb61bdd0ef707fb21fc86f051">&#9670;&nbsp;</a></span>orthogonal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , size_t R, size_t C&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix_t.html">MatrixT</a>&lt; T, R, C &gt; <a class="el" href="class_matrix_t.html">MatrixT</a>&lt; T, R, C &gt;::orthogonal </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>near</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>far</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>生成正交投影矩阵. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">width</td><td>宽度. </td></tr>
+    <tr><td class="paramname">height</td><td>高度. </td></tr>
+    <tr><td class="paramname">near</td><td>近裁剪面. </td></tr>
+    <tr><td class="paramname">far</td><td>远裁剪面. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aee27f453e82211421527108f98ffa55e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee27f453e82211421527108f98ffa55e">&#9670;&nbsp;</a></span>perspective()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , size_t R, size_t C&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix_t.html">MatrixT</a>&lt; T, R, C &gt; <a class="el" href="class_matrix_t.html">MatrixT</a>&lt; T, R, C &gt;::perspective </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>vFOV</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>aspect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>near</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>far</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>生成透视投影矩阵. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vFOV</td><td>垂直视角, 单位: 弧度制. </td></tr>
+    <tr><td class="paramname">aspect</td><td>宽高比. </td></tr>
+    <tr><td class="paramname">near</td><td>近裁剪面. </td></tr>
+    <tr><td class="paramname">far</td><td>远裁剪面. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac5b5f4a99152b0b99b1c3e61fa1e5ebd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5b5f4a99152b0b99b1c3e61fa1e5ebd">&#9670;&nbsp;</a></span>rotation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , size_t R, size_t C&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="class_matrix_t.html">MatrixT</a> <a class="el" href="class_matrix_t.html">MatrixT</a>&lt; T, R, C &gt;::rotation </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>axis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>angle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>生成旋转变换矩阵. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">axis</td><td>旋转轴. </td></tr>
+    <tr><td class="paramname">angle</td><td>旋转角度, 单位: 弧度制. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa435a87602e81bc1e8faf9c19ea05a37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa435a87602e81bc1e8faf9c19ea05a37">&#9670;&nbsp;</a></span>scale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , size_t R, size_t C&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="class_matrix_t.html">MatrixT</a> <a class="el" href="class_matrix_t.html">MatrixT</a>&lt; T, R, C &gt;::scale </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>scale</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>生成缩放变换矩阵. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scale</td><td>缩放向量. 指定了三个轴的缩放比. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a85d54ddea9e9aa81dc4dbaa8243c6308"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85d54ddea9e9aa81dc4dbaa8243c6308">&#9670;&nbsp;</a></span>translate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , size_t R, size_t C&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix_t.html">MatrixT</a>&lt; T, R, C &gt; <a class="el" href="class_matrix_t.html">MatrixT</a>&lt; T, R, C &gt;::translate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>translation</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>生成平移变换矩阵. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">translation</td><td>平移向量. 指定了三个轴的变化量. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>/github/workspace/include/Math/<a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a></li>
+<li>/github/workspace/include/Math/Matrix.inl</li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

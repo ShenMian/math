@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Math: /github/workspace/include/Math/Quaternion.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Math
+   &#160;<span id="projectnumber">v0.0.0</span>
+   </div>
+   <div id="projectbrief">A simple linear algebra header-only library.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_6169d17290d9404be5262c21e04fa2c7.html">Math</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Quaternion.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// Copyright 2021 SMS</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// License(Apache-2.0)</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;Vector3.hpp&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;Matrix.hpp&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;type_traits&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    requires std::floating_point&lt;T&gt;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_quaternion_t.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_quaternion_t.html">QuaternionT</a></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    T x = T();</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    T y = T();</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    T z = T();</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    T w = T(1);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_quaternion_t.html#aa7463b42972c45dd99f96ebf121766eb">   26</a></span>&#160;    <a class="code" href="class_quaternion_t.html#aa7463b42972c45dd99f96ebf121766eb">QuaternionT</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="class_quaternion_t.html#aa7463b42972c45dd99f96ebf121766eb">QuaternionT</a>(T x, T y, T z, T w);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_quaternion_t.html#aa7463b42972c45dd99f96ebf121766eb">QuaternionT</a>(<span class="keyword">const</span> Matrix4T&lt;T&gt;&amp; mat);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_quaternion_t.html#ac351d8b5e23d0314279f69db138a1b6e">eular</a>(<span class="keyword">const</span> <a class="code" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T&lt;T&gt;</a>&amp; angles);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T&lt;T&gt;</a> <a class="code" href="class_quaternion_t.html#ac351d8b5e23d0314279f69db138a1b6e">eular</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="class_quaternion_t.html">QuaternionT</a>&amp; <a class="code" href="class_quaternion_t.html#a0d883a2dc646bd91896ac8c102caf3f1">inverse</a>();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="class_quaternion_t.html">QuaternionT</a> <a class="code" href="class_quaternion_t.html#adf728cc51f00dca66c5f4e623578c222">inversed</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="class_quaternion_t.html">QuaternionT</a>&amp; <a class="code" href="class_quaternion_t.html#ada9e276ba1523bf4c9ce69ade0d3ee69">normalize</a>();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    T <a class="code" href="class_quaternion_t.html#ab09e2003ed045e654d7277c6766def27">sizeSquared</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    T <a class="code" href="class_quaternion_t.html#a4c592eb364b4991733743f1ee9c16fb4">size</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> C&gt;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keyword">operator</span> <a class="code" href="class_quaternion_t.html">QuaternionT&lt;C&gt;</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="class_quaternion_t.html">QuaternionT&lt;C&gt;</a>(<span class="keyword">static_cast&lt;</span>C<span class="keyword">&gt;</span>(x), <span class="keyword">static_cast&lt;</span>C<span class="keyword">&gt;</span>(y), <span class="keyword">static_cast&lt;</span>C<span class="keyword">&gt;</span>(z), <span class="keyword">static_cast&lt;</span>C<span class="keyword">&gt;</span>(w));</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">bool</span>         operator==(<span class="keyword">const</span> <a class="code" href="class_quaternion_t.html">QuaternionT</a>&amp;) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <a class="code" href="class_quaternion_t.html">QuaternionT</a>&amp; operator+=(<span class="keyword">const</span> <a class="code" href="class_quaternion_t.html">QuaternionT</a>&amp;);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <a class="code" href="class_quaternion_t.html">QuaternionT</a>&amp; operator-=(<span class="keyword">const</span> <a class="code" href="class_quaternion_t.html">QuaternionT</a>&amp;);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <a class="code" href="class_quaternion_t.html">QuaternionT</a>&amp; operator*=(<span class="keyword">const</span> <a class="code" href="class_quaternion_t.html">QuaternionT</a>&amp;);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <a class="code" href="class_quaternion_t.html">QuaternionT</a>&amp; operator*=(T);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <a class="code" href="class_quaternion_t.html">QuaternionT</a>  operator-() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;};</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#include &quot;Quaternion.inl&quot;</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keyword">using</span> <a class="code" href="class_quaternion_t.html">Quaternionf</a> = <a class="code" href="class_quaternion_t.html">QuaternionT&lt;float&gt;</a>;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keyword">using</span> <a class="code" href="class_quaternion_t.html">Quaterniond</a> = <a class="code" href="class_quaternion_t.html">QuaternionT&lt;double&gt;</a>;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keyword">using</span> <a class="code" href="class_quaternion_t.html">Quaternion</a> = <a class="code" href="class_quaternion_t.html">Quaternionf</a>;</div>
+<div class="ttc" id="aclass_quaternion_t_html"><div class="ttname"><a href="class_quaternion_t.html">QuaternionT</a></div><div class="ttdoc">四元数.</div><div class="ttdef"><b>Definition:</b> Quaternion.hpp:16</div></div>
+<div class="ttc" id="aclass_quaternion_t_html_a0d883a2dc646bd91896ac8c102caf3f1"><div class="ttname"><a href="class_quaternion_t.html#a0d883a2dc646bd91896ac8c102caf3f1">QuaternionT::inverse</a></div><div class="ttdeci">QuaternionT &amp; inverse()</div><div class="ttdoc">求逆.</div><div class="ttdef"><b>Definition:</b> Quaternion.inl:112</div></div>
+<div class="ttc" id="aclass_quaternion_t_html_a4c592eb364b4991733743f1ee9c16fb4"><div class="ttname"><a href="class_quaternion_t.html#a4c592eb364b4991733743f1ee9c16fb4">QuaternionT::size</a></div><div class="ttdeci">T size() const</div><div class="ttdoc">获取长度.</div><div class="ttdef"><b>Definition:</b> Quaternion.inl:105</div></div>
+<div class="ttc" id="aclass_quaternion_t_html_aa7463b42972c45dd99f96ebf121766eb"><div class="ttname"><a href="class_quaternion_t.html#aa7463b42972c45dd99f96ebf121766eb">QuaternionT::QuaternionT</a></div><div class="ttdeci">QuaternionT()=default</div><div class="ttdoc">默认构造函数.</div></div>
+<div class="ttc" id="aclass_quaternion_t_html_ab09e2003ed045e654d7277c6766def27"><div class="ttname"><a href="class_quaternion_t.html#ab09e2003ed045e654d7277c6766def27">QuaternionT::sizeSquared</a></div><div class="ttdeci">T sizeSquared() const</div><div class="ttdoc">获取长度平方.</div><div class="ttdef"><b>Definition:</b> Quaternion.inl:98</div></div>
+<div class="ttc" id="aclass_quaternion_t_html_ac351d8b5e23d0314279f69db138a1b6e"><div class="ttname"><a href="class_quaternion_t.html#ac351d8b5e23d0314279f69db138a1b6e">QuaternionT::eular</a></div><div class="ttdeci">Vector3T&lt; T &gt; eular() const</div><div class="ttdoc">获取欧拉角.</div><div class="ttdef"><b>Definition:</b> Quaternion.inl:80</div></div>
+<div class="ttc" id="aclass_quaternion_t_html_ada9e276ba1523bf4c9ce69ade0d3ee69"><div class="ttname"><a href="class_quaternion_t.html#ada9e276ba1523bf4c9ce69ade0d3ee69">QuaternionT::normalize</a></div><div class="ttdeci">QuaternionT &amp; normalize()</div><div class="ttdoc">标准化.</div><div class="ttdef"><b>Definition:</b> Quaternion.inl:143</div></div>
+<div class="ttc" id="aclass_quaternion_t_html_adf728cc51f00dca66c5f4e623578c222"><div class="ttname"><a href="class_quaternion_t.html#adf728cc51f00dca66c5f4e623578c222">QuaternionT::inversed</a></div><div class="ttdeci">QuaternionT inversed() const</div><div class="ttdoc">获取求逆结果.</div><div class="ttdef"><b>Definition:</b> Quaternion.inl:136</div></div>
+<div class="ttc" id="aclass_vector_t_3_01_t_00_013_01_4_html"><div class="ttname"><a href="class_vector_t_3_01_t_00_013_01_4.html">VectorT&lt; T, 3 &gt;</a></div><div class="ttdoc">三维向量.</div><div class="ttdef"><b>Definition:</b> Vector3.hpp:14</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

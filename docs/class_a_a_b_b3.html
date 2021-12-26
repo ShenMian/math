@@ -1,0 +1,424 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Math: AABB3类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Math
+   &#160;<span id="projectnumber">v0.0.0</span>
+   </div>
+   <div id="projectbrief">A simple linear algebra header-only library.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-attribs">Public 属性</a> &#124;
+<a href="class_a_a_b_b3-members.html">所有成员列表</a>  </div>
+  <div class="headertitle">
+<div class="title">AABB3类 参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>3 维轴对齐包围盒.  
+ <a href="class_a_a_b_b3.html#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_a_a_b_b3_8hpp_source.html">AABB3.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:adf9992b38926851d35bf6b59281da2ce"><td class="memItemLeft" align="right" valign="top"><a id="adf9992b38926851d35bf6b59281da2ce"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_a_b_b3.html#adf9992b38926851d35bf6b59281da2ce">AABB3</a> ()=default</td></tr>
+<tr class="memdesc:adf9992b38926851d35bf6b59281da2ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">默认构造函数. <br /></td></tr>
+<tr class="separator:adf9992b38926851d35bf6b59281da2ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b6480f05cadd9ae6e4cd32763acf70e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_a_b_b3.html#a1b6480f05cadd9ae6e4cd32763acf70e">AABB3</a> (const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3</a> &amp;min, const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3</a> &amp;max)</td></tr>
+<tr class="memdesc:a1b6480f05cadd9ae6e4cd32763acf70e"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数, 通过最小点和最大点创建包围盒.  <a href="class_a_a_b_b3.html#a1b6480f05cadd9ae6e4cd32763acf70e">更多...</a><br /></td></tr>
+<tr class="separator:a1b6480f05cadd9ae6e4cd32763acf70e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adeeea8b2a57837e5f8cd8996efae7c8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_a_b_b3.html#adeeea8b2a57837e5f8cd8996efae7c8f">expand</a> (const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3</a> &amp;point)</td></tr>
+<tr class="memdesc:adeeea8b2a57837e5f8cd8996efae7c8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">拓展到包含指定点.  <a href="class_a_a_b_b3.html#adeeea8b2a57837e5f8cd8996efae7c8f">更多...</a><br /></td></tr>
+<tr class="separator:adeeea8b2a57837e5f8cd8996efae7c8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e642705281236962d947cdf946fe397"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_a_b_b3.html#a1e642705281236962d947cdf946fe397">expand</a> (const <a class="el" href="class_a_a_b_b3.html">AABB3</a> &amp;aabb)</td></tr>
+<tr class="memdesc:a1e642705281236962d947cdf946fe397"><td class="mdescLeft">&#160;</td><td class="mdescRight">拓展到包含指定 AABB.  <a href="class_a_a_b_b3.html#a1e642705281236962d947cdf946fe397">更多...</a><br /></td></tr>
+<tr class="separator:a1e642705281236962d947cdf946fe397"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcd03cc85be2b64307c1ac6455871c8e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_a_b_b3.html#afcd03cc85be2b64307c1ac6455871c8e">contains</a> (const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3</a> &amp;point) const</td></tr>
+<tr class="memdesc:afcd03cc85be2b64307c1ac6455871c8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断是否包含指定点.  <a href="class_a_a_b_b3.html#afcd03cc85be2b64307c1ac6455871c8e">更多...</a><br /></td></tr>
+<tr class="separator:afcd03cc85be2b64307c1ac6455871c8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a791887cad43dbfefc4f2317f03bf9df8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_a_b_b3.html#a791887cad43dbfefc4f2317f03bf9df8">contains</a> (const <a class="el" href="class_a_a_b_b3.html">AABB3</a> &amp;aabb) const</td></tr>
+<tr class="memdesc:a791887cad43dbfefc4f2317f03bf9df8"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断是否包含指定 AABB.  <a href="class_a_a_b_b3.html#a791887cad43dbfefc4f2317f03bf9df8">更多...</a><br /></td></tr>
+<tr class="separator:a791887cad43dbfefc4f2317f03bf9df8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85fdc49986c681ccaedf1f83237313a7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_a_b_b3.html#a85fdc49986c681ccaedf1f83237313a7">intersects</a> (const <a class="el" href="class_a_a_b_b3.html">AABB3</a> &amp;aabb) const</td></tr>
+<tr class="memdesc:a85fdc49986c681ccaedf1f83237313a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断是否与 AABB 相交.  <a href="class_a_a_b_b3.html#a85fdc49986c681ccaedf1f83237313a7">更多...</a><br /></td></tr>
+<tr class="separator:a85fdc49986c681ccaedf1f83237313a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a2c97b583fa50b26c2091d08f20cac8"><td class="memItemLeft" align="right" valign="top"><a id="a4a2c97b583fa50b26c2091d08f20cac8"></a>
+<a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_a_b_b3.html#a4a2c97b583fa50b26c2091d08f20cac8">getCenter</a> () const</td></tr>
+<tr class="memdesc:a4a2c97b583fa50b26c2091d08f20cac8"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取几何中心. <br /></td></tr>
+<tr class="separator:a4a2c97b583fa50b26c2091d08f20cac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90c29ce1000d0ac5c7249e44e1794d3a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_a_b_b3.html#a90c29ce1000d0ac5c7249e44e1794d3a">isValid</a> () const</td></tr>
+<tr class="memdesc:a90c29ce1000d0ac5c7249e44e1794d3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断是否有效.  <a href="class_a_a_b_b3.html#a90c29ce1000d0ac5c7249e44e1794d3a">更多...</a><br /></td></tr>
+<tr class="separator:a90c29ce1000d0ac5c7249e44e1794d3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6dcbfffb2662d87caf2d0b838f1f824"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_a_b_b3.html#aa6dcbfffb2662d87caf2d0b838f1f824">isEmpty</a> () const</td></tr>
+<tr class="memdesc:aa6dcbfffb2662d87caf2d0b838f1f824"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断大小是否为空.  <a href="class_a_a_b_b3.html#aa6dcbfffb2662d87caf2d0b838f1f824">更多...</a><br /></td></tr>
+<tr class="separator:aa6dcbfffb2662d87caf2d0b838f1f824"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae682bafd5e392af0cad60eefafcd42a0"><td class="memItemLeft" align="right" valign="top"><a id="ae682bafd5e392af0cad60eefafcd42a0"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_a_a_b_b3.html">AABB3</a> &amp;rhs) const =default</td></tr>
+<tr class="separator:ae682bafd5e392af0cad60eefafcd42a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public 属性</h2></td></tr>
+<tr class="memitem:a0d0a92e0abcd498bdbeb328fad19ea05"><td class="memItemLeft" align="right" valign="top"><a id="a0d0a92e0abcd498bdbeb328fad19ea05"></a>
+<a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><b>min</b></td></tr>
+<tr class="separator:a0d0a92e0abcd498bdbeb328fad19ea05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedf9fc44f621ee19077dd9220eb824e6"><td class="memItemLeft" align="right" valign="top"><a id="aedf9fc44f621ee19077dd9220eb824e6"></a>
+<a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><b>max</b></td></tr>
+<tr class="separator:aedf9fc44f621ee19077dd9220eb824e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>3 维轴对齐包围盒. </p>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="a1b6480f05cadd9ae6e4cd32763acf70e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b6480f05cadd9ae6e4cd32763acf70e">&#9670;&nbsp;</a></span>AABB3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">AABB3::AABB3 </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>min</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>max</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>构造函数, 通过最小点和最大点创建包围盒. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">min</td><td>指定点. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a791887cad43dbfefc4f2317f03bf9df8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a791887cad43dbfefc4f2317f03bf9df8">&#9670;&nbsp;</a></span>contains() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AABB3::contains </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_a_a_b_b3.html">AABB3</a> &amp;&#160;</td>
+          <td class="paramname"><em>aabb</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>判断是否包含指定 AABB. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aabb</td><td>判断是否包含的 AABB. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>true 包含. </dd>
+<dd>
+false 不包含. </dd></dl>
+
+</div>
+</div>
+<a id="afcd03cc85be2b64307c1ac6455871c8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcd03cc85be2b64307c1ac6455871c8e">&#9670;&nbsp;</a></span>contains() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AABB3::contains </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>point</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>判断是否包含指定点. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">point</td><td>判断是否包含的点. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>true 包含. </dd>
+<dd>
+false 不包含. </dd></dl>
+
+</div>
+</div>
+<a id="a1e642705281236962d947cdf946fe397"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e642705281236962d947cdf946fe397">&#9670;&nbsp;</a></span>expand() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AABB3::expand </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_a_a_b_b3.html">AABB3</a> &amp;&#160;</td>
+          <td class="paramname"><em>aabb</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>拓展到包含指定 AABB. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">point</td><td>AABB. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="adeeea8b2a57837e5f8cd8996efae7c8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adeeea8b2a57837e5f8cd8996efae7c8f">&#9670;&nbsp;</a></span>expand() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AABB3::expand </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>point</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>拓展到包含指定点. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">point</td><td>指定点. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a85fdc49986c681ccaedf1f83237313a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85fdc49986c681ccaedf1f83237313a7">&#9670;&nbsp;</a></span>intersects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AABB3::intersects </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_a_a_b_b3.html">AABB3</a> &amp;&#160;</td>
+          <td class="paramname"><em>aabb</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>判断是否与 AABB 相交. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aabb</td><td>判断是否相交的 AABB. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>true 相交. </dd>
+<dd>
+false 不相交. </dd></dl>
+
+</div>
+</div>
+<a id="aa6dcbfffb2662d87caf2d0b838f1f824"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6dcbfffb2662d87caf2d0b838f1f824">&#9670;&nbsp;</a></span>isEmpty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AABB3::isEmpty </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>判断大小是否为空. </p>
+<dl class="section return"><dt>返回</dt><dd>true 空. </dd>
+<dd>
+false 非空. </dd></dl>
+
+</div>
+</div>
+<a id="a90c29ce1000d0ac5c7249e44e1794d3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90c29ce1000d0ac5c7249e44e1794d3a">&#9670;&nbsp;</a></span>isValid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AABB3::isValid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>判断是否有效. </p>
+<dl class="section return"><dt>返回</dt><dd>true 有效. </dd>
+<dd>
+false 无效. </dd></dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>/github/workspace/include/Math/<a class="el" href="_a_a_b_b3_8hpp_source.html">AABB3.hpp</a></li>
+<li>/github/workspace/include/Math/AABB3.inl</li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

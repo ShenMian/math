@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Math: /github/workspace/include/Math/Matrix.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Math
+   &#160;<span id="projectnumber">v0.0.0</span>
+   </div>
+   <div id="projectbrief">A simple linear algebra header-only library.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_6169d17290d9404be5262c21e04fa2c7.html">Math</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Matrix.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// Copyright 2021 SMS</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// License(Apache-2.0)</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;Vector3.hpp&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;cstddef&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> R, <span class="keywordtype">size_t</span> C&gt;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_matrix_t.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_matrix_t.html">MatrixT</a></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="class_matrix_t.html#ac0e3299067035a98063d30b0aefbbc23">MatrixT</a>();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="class_matrix_t.html#ac0e3299067035a98063d30b0aefbbc23">MatrixT</a>(<span class="keyword">const</span> std::initializer_list&lt;T&gt;&amp; list);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="class_matrix_t.html#ac15cdc9057c3438f3e3827c4b79322a4">   36</a></span>&#160;    <a class="code" href="class_matrix_t.html">MatrixT</a>&amp; <a class="code" href="class_matrix_t.html#ac15cdc9057c3438f3e3827c4b79322a4">inverse</a>();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="class_matrix_t.html#afdf7412096930e7ebf20c95cfa364355">   41</a></span>&#160;    <a class="code" href="class_matrix_t.html">MatrixT&lt;T, R, C&gt;</a> <a class="code" href="class_matrix_t.html#afdf7412096930e7ebf20c95cfa364355">inversed</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="class_matrix_t.html">MatrixT</a>&amp; <a class="code" href="class_matrix_t.html#ab3292617faa610b96cc388e034828f6b">transpose</a>();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="class_matrix_t.html">MatrixT&lt;T, R, C&gt;</a> <a class="code" href="class_matrix_t.html#abd0c2c125307330e102a82b5c8486b9a">transposed</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="class_matrix_t.html#acac9f051752eceb2cd0896d2f50d0d3d">   56</a></span>&#160;    T <a class="code" href="class_matrix_t.html#acac9f051752eceb2cd0896d2f50d0d3d">determinant</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    T <a class="code" href="class_matrix_t.html#a02e114344441e5a0774d612ae5ffb6da">trace</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_matrix_t.html#a9d9c679a883dae76670fd9256aad6eb3">decompose</a>(<a class="code" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T&lt;T&gt;</a>* translation, <a class="code" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T&lt;T&gt;</a>* <a class="code" href="class_matrix_t.html#ac5b5f4a99152b0b99b1c3e61fa1e5ebd">rotation</a>, <a class="code" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T&lt;T&gt;</a>* <a class="code" href="class_matrix_t.html#aa435a87602e81bc1e8faf9c19ea05a37">scale</a>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="class_matrix_t.html#af3a049f76f75a6b441b71b62912b7c6c">   71</a></span>&#160;    <a class="code" href="class_matrix_t.html">MatrixT</a>&amp; <a class="code" href="class_matrix_t.html#af3a049f76f75a6b441b71b62912b7c6c">recompose</a>(<span class="keyword">const</span> <a class="code" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T&lt;T&gt;</a>&amp; translation, <span class="keyword">const</span> <a class="code" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T&lt;T&gt;</a>&amp; <a class="code" href="class_matrix_t.html#ac5b5f4a99152b0b99b1c3e61fa1e5ebd">rotation</a>, <span class="keyword">const</span> <a class="code" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T&lt;T&gt;</a>&amp; <a class="code" href="class_matrix_t.html#aa435a87602e81bc1e8faf9c19ea05a37">scale</a>);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    constexpr <span class="keywordtype">size_t</span> <a class="code" href="class_matrix_t.html#ae88068b21b659971332de5b63ea4b14b">rows</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    constexpr <span class="keywordtype">size_t</span> <a class="code" href="class_matrix_t.html#a31aec19b7a0d0a989abbcb7a5185f450">cols</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    T* <a class="code" href="class_matrix_t.html#a1275a39695012e65fd1f444991121bd2">data</a>();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keyword">const</span> T* <a class="code" href="class_matrix_t.html#a1275a39695012e65fd1f444991121bd2">data</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    T&amp; operator()(<span class="keywordtype">size_t</span> r, <span class="keywordtype">size_t</span> c);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keyword">const</span> T&amp; operator()(<span class="keywordtype">size_t</span> r, <span class="keywordtype">size_t</span> c) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    T* operator[](<span class="keywordtype">size_t</span> row);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keyword">const</span> T* operator[](<span class="keywordtype">size_t</span> row) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">bool</span>     operator==(<span class="keyword">const</span> <a class="code" href="class_matrix_t.html">MatrixT</a>&amp;) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <a class="code" href="class_matrix_t.html">MatrixT</a>&amp; operator+=(<span class="keyword">const</span> <a class="code" href="class_matrix_t.html">MatrixT</a>&amp;);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <a class="code" href="class_matrix_t.html">MatrixT</a>&amp; operator-=(<span class="keyword">const</span> <a class="code" href="class_matrix_t.html">MatrixT</a>&amp;);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <a class="code" href="class_matrix_t.html">MatrixT</a>&amp; operator*=(<span class="keyword">const</span> <a class="code" href="class_matrix_t.html">MatrixT</a>&amp;);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <a class="code" href="class_matrix_t.html">MatrixT</a>&amp; operator/=(<span class="keyword">const</span> <a class="code" href="class_matrix_t.html">MatrixT</a>&amp;);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <a class="code" href="class_matrix_t.html">MatrixT</a>  operator-();</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T0&gt;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keyword">operator</span> <a class="code" href="class_matrix_t.html">MatrixT&lt;T0, R, C&gt;</a>()</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    {</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <a class="code" href="class_matrix_t.html">MatrixT</a> result;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> r = 0; r &lt; <a class="code" href="class_matrix_t.html#ae88068b21b659971332de5b63ea4b14b">rows</a>(); r++)</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> c = 0; c &lt; <a class="code" href="class_matrix_t.html#a31aec19b7a0d0a989abbcb7a5185f450">cols</a>(); c++)</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                result[r][c] = <span class="keyword">static_cast&lt;</span>T0<span class="keyword">&gt;</span>(m_[r][c]);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    }</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keyword">friend</span> std::ostream&amp; operator&lt;&lt;(std::ostream&amp; stream, <span class="keyword">const</span> <a class="code" href="class_matrix_t.html">MatrixT</a>&amp; mat)</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    {</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> r = 0; r &lt; R; r++)</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> c = 0; c &lt; C; c++)</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                stream &lt;&lt; mat[r][c] &lt;&lt; <span class="charliteral">&#39; &#39;</span>;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            stream &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        }</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="keywordflow">return</span> stream;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    }</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_matrix_t.html">MatrixT</a> <a class="code" href="class_matrix_t.html#a85d54ddea9e9aa81dc4dbaa8243c6308">translate</a>(<span class="keyword">const</span> <a class="code" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T&lt;T&gt;</a>&amp; translation);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="class_matrix_t.html#ac5b5f4a99152b0b99b1c3e61fa1e5ebd">  136</a></span>&#160;    <span class="keyword">static</span> <a class="code" href="class_matrix_t.html">MatrixT</a> <a class="code" href="class_matrix_t.html#ac5b5f4a99152b0b99b1c3e61fa1e5ebd">rotation</a>(<span class="keyword">const</span> <a class="code" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T&lt;T&gt;</a>&amp; axis, <span class="keywordtype">float</span> angle);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="class_matrix_t.html#aa435a87602e81bc1e8faf9c19ea05a37">  143</a></span>&#160;    <span class="keyword">static</span> <a class="code" href="class_matrix_t.html">MatrixT</a> <a class="code" href="class_matrix_t.html#aa435a87602e81bc1e8faf9c19ea05a37">scale</a>(<span class="keyword">const</span> <a class="code" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T&lt;T&gt;</a>&amp; <a class="code" href="class_matrix_t.html#aa435a87602e81bc1e8faf9c19ea05a37">scale</a>);</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_matrix_t.html">MatrixT</a> <a class="code" href="class_matrix_t.html#aee27f453e82211421527108f98ffa55e">perspective</a>(<span class="keywordtype">float</span> vFOV, <span class="keywordtype">float</span> aspect, <span class="keywordtype">float</span> near, <span class="keywordtype">float</span> far);</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_matrix_t.html">MatrixT</a> <a class="code" href="class_matrix_t.html#a5036c52eb61bdd0ef707fb21fc86f051">orthogonal</a>(<span class="keywordtype">float</span> width, <span class="keywordtype">float</span> height, <span class="keywordtype">float</span> near, <span class="keywordtype">float</span> far);</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_matrix_t.html">MatrixT</a> <a class="code" href="class_matrix_t.html#aed9c5a0f650adb4b3c75e7d4f500fc09">lookAt</a>(<span class="keyword">const</span> <a class="code" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T&lt;T&gt;</a>&amp; eye, <span class="keyword">const</span> <a class="code" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T&lt;T&gt;</a>&amp; target, <span class="keyword">const</span> <a class="code" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T&lt;T&gt;</a>&amp; up = <a class="code" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T&lt;T&gt;::up</a>);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_matrix_t.html">MatrixT</a> <a class="code" href="class_matrix_t.html#ab1f8e323aa394669400f805c366449b5">identity</a>();</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    T m_[R][C] = {};</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">size_t</span> rows_ = R;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">size_t</span> cols_ = C;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;};</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="preprocessor">#include &quot;Matrix.inl&quot;</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">size_t</span> R, <span class="keywordtype">size_t</span> C&gt;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="keyword">using</span> <a class="code" href="class_matrix_t.html">Matrixf</a> = <a class="code" href="class_matrix_t.html">MatrixT&lt;float, R, C&gt;</a>;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">size_t</span> R, <span class="keywordtype">size_t</span> C&gt;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="keyword">using</span> <a class="code" href="class_matrix_t.html">Matrixd</a> = <a class="code" href="class_matrix_t.html">MatrixT&lt;double, R, C&gt;</a>;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">size_t</span> R, <span class="keywordtype">size_t</span> C&gt;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="keyword">using</span> <a class="code" href="class_matrix_t.html">Matrixi</a> = <a class="code" href="class_matrix_t.html">MatrixT&lt;int32_t, R, C&gt;</a>;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="preprocessor">#define DEF_MATRIX_NxN(n)                                        \</span></div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="preprocessor">    template &lt;typename T&gt; using Matrix##n##T = MatrixT&lt;T, n, n&gt;; \</span></div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="preprocessor">    using Matrix##n     = Matrix##n##T&lt;float&gt;;                   \</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="preprocessor">    using Matrix##n##f  = Matrix##n##T&lt;float&gt;;                   \</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="preprocessor">    using Matrix##n##d  = Matrix##n##T&lt;double&gt;;                  \</span></div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="preprocessor"></span> </div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;DEF_MATRIX_NxN(2);</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;DEF_MATRIX_NxN(3);</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;DEF_MATRIX_NxN(4);</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="preprocessor">#undef DEF_MATRIX_NxN</span></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
+<div class="ttc" id="aclass_matrix_t_html"><div class="ttname"><a href="class_matrix_t.html">MatrixT</a></div><div class="ttdoc">矩阵.</div><div class="ttdef"><b>Definition:</b> Matrix.hpp:19</div></div>
+<div class="ttc" id="aclass_matrix_t_html_a02e114344441e5a0774d612ae5ffb6da"><div class="ttname"><a href="class_matrix_t.html#a02e114344441e5a0774d612ae5ffb6da">MatrixT::trace</a></div><div class="ttdeci">T trace() const</div><div class="ttdoc">求迹.</div><div class="ttdef"><b>Definition:</b> Matrix.inl:41</div></div>
+<div class="ttc" id="aclass_matrix_t_html_a1275a39695012e65fd1f444991121bd2"><div class="ttname"><a href="class_matrix_t.html#a1275a39695012e65fd1f444991121bd2">MatrixT::data</a></div><div class="ttdeci">T * data()</div><div class="ttdoc">获取原始数据.</div><div class="ttdef"><b>Definition:</b> Matrix.inl:68</div></div>
+<div class="ttc" id="aclass_matrix_t_html_a31aec19b7a0d0a989abbcb7a5185f450"><div class="ttname"><a href="class_matrix_t.html#a31aec19b7a0d0a989abbcb7a5185f450">MatrixT::cols</a></div><div class="ttdeci">constexpr size_t cols() const</div><div class="ttdoc">获取列数.</div><div class="ttdef"><b>Definition:</b> Matrix.inl:62</div></div>
+<div class="ttc" id="aclass_matrix_t_html_a5036c52eb61bdd0ef707fb21fc86f051"><div class="ttname"><a href="class_matrix_t.html#a5036c52eb61bdd0ef707fb21fc86f051">MatrixT::orthogonal</a></div><div class="ttdeci">static MatrixT orthogonal(float width, float height, float near, float far)</div><div class="ttdoc">生成正交投影矩阵.</div><div class="ttdef"><b>Definition:</b> Matrix.inl:194</div></div>
+<div class="ttc" id="aclass_matrix_t_html_a85d54ddea9e9aa81dc4dbaa8243c6308"><div class="ttname"><a href="class_matrix_t.html#a85d54ddea9e9aa81dc4dbaa8243c6308">MatrixT::translate</a></div><div class="ttdeci">static MatrixT translate(const Vector3T&lt; T &gt; &amp;translation)</div><div class="ttdoc">生成平移变换矩阵.</div><div class="ttdef"><b>Definition:</b> Matrix.inl:158</div></div>
+<div class="ttc" id="aclass_matrix_t_html_a9d9c679a883dae76670fd9256aad6eb3"><div class="ttname"><a href="class_matrix_t.html#a9d9c679a883dae76670fd9256aad6eb3">MatrixT::decompose</a></div><div class="ttdeci">void decompose(Vector3T&lt; T &gt; *translation, Vector3T&lt; T &gt; *rotation, Vector3T&lt; T &gt; *scale) const</div><div class="ttdoc">分解.</div><div class="ttdef"><b>Definition:</b> Matrix.inl:51</div></div>
+<div class="ttc" id="aclass_matrix_t_html_aa435a87602e81bc1e8faf9c19ea05a37"><div class="ttname"><a href="class_matrix_t.html#aa435a87602e81bc1e8faf9c19ea05a37">MatrixT::scale</a></div><div class="ttdeci">static MatrixT scale(const Vector3T&lt; T &gt; &amp;scale)</div><div class="ttdoc">生成缩放变换矩阵.</div></div>
+<div class="ttc" id="aclass_matrix_t_html_ab1f8e323aa394669400f805c366449b5"><div class="ttname"><a href="class_matrix_t.html#ab1f8e323aa394669400f805c366449b5">MatrixT::identity</a></div><div class="ttdeci">static MatrixT identity()</div><div class="ttdoc">获取单位矩阵.</div><div class="ttdef"><b>Definition:</b> Matrix.inl:201</div></div>
+<div class="ttc" id="aclass_matrix_t_html_ab3292617faa610b96cc388e034828f6b"><div class="ttname"><a href="class_matrix_t.html#ab3292617faa610b96cc388e034828f6b">MatrixT::transpose</a></div><div class="ttdeci">MatrixT &amp; transpose()</div><div class="ttdoc">转置.</div><div class="ttdef"><b>Definition:</b> Matrix.inl:27</div></div>
+<div class="ttc" id="aclass_matrix_t_html_abd0c2c125307330e102a82b5c8486b9a"><div class="ttname"><a href="class_matrix_t.html#abd0c2c125307330e102a82b5c8486b9a">MatrixT::transposed</a></div><div class="ttdeci">MatrixT&lt; T, R, C &gt; transposed() const</div><div class="ttdoc">获取转置后的矩阵.</div><div class="ttdef"><b>Definition:</b> Matrix.inl:35</div></div>
+<div class="ttc" id="aclass_matrix_t_html_ac0e3299067035a98063d30b0aefbbc23"><div class="ttname"><a href="class_matrix_t.html#ac0e3299067035a98063d30b0aefbbc23">MatrixT::MatrixT</a></div><div class="ttdeci">MatrixT()</div><div class="ttdoc">默认构造函数.</div><div class="ttdef"><b>Definition:</b> Matrix.inl:9</div></div>
+<div class="ttc" id="aclass_matrix_t_html_ac15cdc9057c3438f3e3827c4b79322a4"><div class="ttname"><a href="class_matrix_t.html#ac15cdc9057c3438f3e3827c4b79322a4">MatrixT::inverse</a></div><div class="ttdeci">MatrixT &amp; inverse()</div><div class="ttdoc">求逆.</div></div>
+<div class="ttc" id="aclass_matrix_t_html_ac5b5f4a99152b0b99b1c3e61fa1e5ebd"><div class="ttname"><a href="class_matrix_t.html#ac5b5f4a99152b0b99b1c3e61fa1e5ebd">MatrixT::rotation</a></div><div class="ttdeci">static MatrixT rotation(const Vector3T&lt; T &gt; &amp;axis, float angle)</div><div class="ttdoc">生成旋转变换矩阵.</div></div>
+<div class="ttc" id="aclass_matrix_t_html_acac9f051752eceb2cd0896d2f50d0d3d"><div class="ttname"><a href="class_matrix_t.html#acac9f051752eceb2cd0896d2f50d0d3d">MatrixT::determinant</a></div><div class="ttdeci">T determinant() const</div><div class="ttdoc">计算行列式的值.</div></div>
+<div class="ttc" id="aclass_matrix_t_html_ae88068b21b659971332de5b63ea4b14b"><div class="ttname"><a href="class_matrix_t.html#ae88068b21b659971332de5b63ea4b14b">MatrixT::rows</a></div><div class="ttdeci">constexpr size_t rows() const</div><div class="ttdoc">获取行数.</div><div class="ttdef"><b>Definition:</b> Matrix.inl:56</div></div>
+<div class="ttc" id="aclass_matrix_t_html_aed9c5a0f650adb4b3c75e7d4f500fc09"><div class="ttname"><a href="class_matrix_t.html#aed9c5a0f650adb4b3c75e7d4f500fc09">MatrixT::lookAt</a></div><div class="ttdeci">static MatrixT lookAt(const Vector3T&lt; T &gt; &amp;eye, const Vector3T&lt; T &gt; &amp;target, const Vector3T&lt; T &gt; &amp;up=Vector3T&lt; T &gt;::up)</div><div class="ttdoc">生成视图矩阵.</div><div class="ttdef"><b>Definition:</b> Matrix.inl:187</div></div>
+<div class="ttc" id="aclass_matrix_t_html_aee27f453e82211421527108f98ffa55e"><div class="ttname"><a href="class_matrix_t.html#aee27f453e82211421527108f98ffa55e">MatrixT::perspective</a></div><div class="ttdeci">static MatrixT perspective(float vFOV, float aspect, float near, float far)</div><div class="ttdoc">生成透视投影矩阵.</div><div class="ttdef"><b>Definition:</b> Matrix.inl:169</div></div>
+<div class="ttc" id="aclass_matrix_t_html_af3a049f76f75a6b441b71b62912b7c6c"><div class="ttname"><a href="class_matrix_t.html#af3a049f76f75a6b441b71b62912b7c6c">MatrixT::recompose</a></div><div class="ttdeci">MatrixT &amp; recompose(const Vector3T&lt; T &gt; &amp;translation, const Vector3T&lt; T &gt; &amp;rotation, const Vector3T&lt; T &gt; &amp;scale)</div><div class="ttdoc">重组.</div></div>
+<div class="ttc" id="aclass_matrix_t_html_afdf7412096930e7ebf20c95cfa364355"><div class="ttname"><a href="class_matrix_t.html#afdf7412096930e7ebf20c95cfa364355">MatrixT::inversed</a></div><div class="ttdeci">MatrixT&lt; T, R, C &gt; inversed() const</div><div class="ttdoc">获取逆矩阵.</div></div>
+<div class="ttc" id="aclass_vector_t_3_01_t_00_013_01_4_html"><div class="ttname"><a href="class_vector_t_3_01_t_00_013_01_4.html">VectorT&lt; T, 3 &gt;</a></div><div class="ttdoc">三维向量.</div><div class="ttdef"><b>Definition:</b> Vector3.hpp:14</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>
