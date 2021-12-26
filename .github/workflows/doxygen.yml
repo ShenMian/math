@@ -6,8 +6,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Test
-        run: ls -a
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
       - name: Install doxygen
         run: sudo apt-get install -y doxygen
