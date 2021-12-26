@@ -1,7 +1,7 @@
 # Copyright 2021 SMS
 # License(Apache-2.0)
 
-find_package(GTest)
+find_package(GTest QUIET)
 if(GTEST_FOUND)
     list(APPEND LIBS ${GTEST_LIBRARY})
 else()
