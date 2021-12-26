@@ -9,6 +9,10 @@
 
 /**
  * @brief 矩阵.
+ *
+ * @tparam T 数据类型.
+ * @tparam R 行数.
+ * @tparam C 列数.
  */
 template <typename T, size_t R, size_t C>
 class MatrixT
@@ -122,7 +126,11 @@ public:
 
 	static MatrixT perspective(float vFOV, float aspect, float near, float far);
 	static MatrixT orthogonal(float width, float height, float near, float far);
+	static MatrixT lookAt(const Vector3T<T>& eye, const Vector3T<T>& center, const Vector3T<T>& up);
 
+	/**
+	 * @brief 获取单位矩阵.
+	 */
 	static MatrixT identity();
 
 private:
@@ -155,10 +163,10 @@ DEF_MATRIX_NxN(4);
 
 #undef DEF_MATRIX_NxN
 
-/*
+/**
  * @class MatrixT
  *
- * 大小固定的矩阵, 可用于表示线性变换等.
+ * @details 大小固定的矩阵, 可用于表示线性变换等.
  *
  * 例子:
  * @code{cpp}

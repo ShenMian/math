@@ -5,6 +5,9 @@
 
 #include "Vector3.hpp"
 
+/**
+ * @brief 3 维轴对齐包围盒.
+ */
 class AABB3
 {
 public:

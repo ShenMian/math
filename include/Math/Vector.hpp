@@ -8,6 +8,9 @@
 
 /**
  * @brief N 维向量.
+ *
+ * @tparam T 数据类型.
+ * @tparam N 维数.
  */
 template <typename T, size_t N>
 class VectorT
@@ -166,10 +169,10 @@ VectorT<T, N> operator/(const T& lhs, const VectorT<T, N>& rhs)
 	return rhs / lhs;
 }
 
-/*
+/**
  * @class VectorT
  *
- * 大小固定的向量, 可以用于表示位置/速度/方向等.
+ * @details 大小固定的向量, 可以用于表示位置/速度/方向等.
  *
  * 例子:
  * @code{cpp}
