@@ -110,9 +110,6 @@ private:
 #include "Vector.inl"
 
 template <size_t N>
-using Vector = VectorT<float, N>;
-
-template <size_t N>
 using VectorXf = VectorT<float, N>;
 
 template <size_t N>
