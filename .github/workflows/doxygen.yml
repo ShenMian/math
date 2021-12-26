@@ -9,10 +9,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Deploy
-        uses: langroodi/doxygenize@v1.5
+      - name: Generate documentation
+        uses: mattnotmitt/doxygen-action@v1
         with:
-          doxygenconf: ./docs/Doxyfile
-          htmloutput: ./docs/html
-          ghpagesdir: ./docs
+          doxyfile-path: ./docs/Doxyfile
 
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/html
+          destination_dir: ./docs
