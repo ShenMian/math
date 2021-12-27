@@ -11,8 +11,8 @@
 class AABB3
 {
 public:
-	Vector3 min;
-	Vector3 max;
+	Vector3 min; ///< 最小点.
+	Vector3 max; ///< 最大点.
 
 	/**
 	 * @brief 默认构造函数.
@@ -93,3 +93,25 @@ public:
 };
 
 #include "AABB3.inl"
+
+/**
+ * @class AABB3
+ *
+ * @details 在碰撞检测中用于简化物体外形. 包围盒的边都与坐标轴平行, 因此可以利用分离轴定理快速进行碰撞检测.
+ *
+ * 例子:
+ * @code{cpp}
+ *
+ * AABB3 a({0, 0, 0}, {1, 1, 1}); // 通过最大点和最小点创建包围盒
+ * AABB3 b({1, 1, 1}, {2, 2, 2});
+ *
+ * if(a.contains(b))        // 判断 a 是否包含 b
+ *   std::cout << "a contains b";
+ * else if(a.intersects(b)) // 判断 a 是否与 b 相交
+ *   std::cout << "a and b intersect";
+ * else                     // a 与 b 没有交集
+ *   std::cout << "a and b have no intersection";
+ * 
+ *
+ * @endcode
+ */
