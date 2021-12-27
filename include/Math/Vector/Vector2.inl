@@ -50,7 +50,7 @@ inline constexpr VectorT<T, 2>::VectorT(const T& x, const T& y)
 template <typename T> requires std::is_arithmetic_v<T>
 inline constexpr VectorT<T, 2>::VectorT(const std::initializer_list<T>& list)
 {
-	VERIFY(list.size() <= 2, "Too many initializers");
+	assert(list.size() <= 2, "Too many initializers");
 	auto it = list.begin();
 	x = *it;
 	y = *(++it);
@@ -197,7 +197,7 @@ inline constexpr VectorT<T, 2>& VectorT<T, 2>::operator*=(const T& rhs)
 template <typename T> requires std::is_arithmetic_v<T>
 inline constexpr VectorT<T, 2>& VectorT<T, 2>::operator/=(const T& rhs)
 {
-	VERIFY(rhs, "divisor cannot be zero");
+	assert(rhs, "divisor cannot be zero");
 	x /= rhs;
 	y /= rhs;
 	return *this;

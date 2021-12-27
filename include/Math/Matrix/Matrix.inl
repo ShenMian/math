@@ -16,7 +16,7 @@ inline MatrixT<T, R, C>::MatrixT()
 template <typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline MatrixT<T, R, C>::MatrixT(const std::initializer_list<T>& list)
 {
-	VERIFY(list.size() == rows() * cols(), "Initializers number not correct");
+	assert(list.size() == rows() * cols(), "Initializers number not correct");
 	auto it = list.begin();
 	for(size_t r = 0; r < rows(); r++)
 		for(size_t c = 0; c < cols(); c++)
@@ -79,28 +79,28 @@ inline constexpr const T* MatrixT<T, R, C>::data() const
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline constexpr T& MatrixT<T, R, C>::operator()(size_t r, size_t c)
 {
-	VERIFY(r < rows() && c < cols(), "subscript out of range");
+	assert(r < rows() && c < cols(), "subscript out of range");
 	return m_[r][c];
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline constexpr const T& MatrixT<T, R, C>::operator()(size_t r, size_t c) const
 {
-	VERIFY(r < rows() && c < cols(), "subscript out of range");
+	assert(r < rows() && c < cols(), "subscript out of range");
 	return m_[r][c];
 }
 
 template <typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline constexpr T* MatrixT<T, R, C>::operator[](size_t row)
 {
-	VERIFY(row < rows(), "subscript out of range");
+	assert(row < rows(), "subscript out of range");
 	return m_[row];
 }
 
 template <typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline constexpr const T* MatrixT<T, R, C>::operator[](size_t row) const
 {
-	VERIFY(row < rows(), "subscript out of range");
+	assert(row < rows(), "subscript out of range");
 	return m_[row];
 }
 

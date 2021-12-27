@@ -6,6 +6,7 @@
 #include <cstdio>
 #include <string_view>
 // #include <source_location>
+#include <type_traits>
 
 #if _MSC_VER
 #    define breakpoint() __debugbreak()
@@ -15,32 +16,26 @@
 
 // TODO: clang 暂时不支持 std::source_location.
 
-#include <stdlib.h>
-
-// constexpr 修饰的函数使用的断言
-#define VERIFY(cond, msg) \
-    do {                  \
-        if (cond) {       \
-		} else {          \
-            abort();      \
-        }                 \
-    } while (false)
-
-inline void assert(bool condition)
+inline constexpr void assert(bool condition)
 {
 	if(condition)
 		return;
-	abort();
+	breakpoint();
 }
 
-inline void assert(bool condition, std::string_view message)
+inline constexpr void assert(bool condition, std::string_view message)
 {
 	if(condition)
 		return;
 	std::puts(message.data());
-	abort();
+	breakpoint();
 }
 
+template <bool condition>
+inline constexpr void assert(std::integral_constant<bool, condition>, std::string_view message)
+{
+	static_assert(condition);
+}
 
 /*
 inline void assert(bool condition, const std::source_location& loc = std::source_location::current())

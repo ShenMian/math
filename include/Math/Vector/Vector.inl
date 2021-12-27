@@ -17,9 +17,9 @@ inline constexpr VectorT<T, N>::VectorT(const T& scalar)
 template <typename T, size_t N> requires std::is_arithmetic_v<T>
 inline constexpr VectorT<T, N>::VectorT(const std::initializer_list<T>& list)
 {
-	VERIFY(list.size() <= N, "Too many initializers");
+	assert(list.size() <= N, "Too many initializers");
 	auto it = list.begin();
-	for(size_t i = 0; i < N; i++)
+	for(size_t i = 0; i < list.size(); i++)
 		v_[i] = *it++;
 }
 
@@ -84,14 +84,14 @@ inline constexpr const T* VectorT<T, N>::data() const
 template <typename T, size_t N> requires std::is_arithmetic_v<T>
 inline constexpr T& VectorT<T, N>::operator[](size_t index)
 {
-	VERIFY(index < components, "subscript out of range");
+	assert(index < components, "subscript out of range");
 	return *(v_ + index);
 }
 
 template <typename T, size_t N> requires std::is_arithmetic_v<T>
 inline constexpr const T& VectorT<T, N>::operator[](size_t index) const
 {
-	VERIFY(index < components, "subscript out of range");
+	assert(index < components, "subscript out of range");
 	return *(v_ + index);
 }
 
@@ -131,7 +131,7 @@ inline constexpr VectorT<T, N>& VectorT<T, N>::operator*=(const T& rhs)
 template <typename T, size_t N> requires std::is_arithmetic_v<T>
 inline constexpr VectorT<T, N>& VectorT<T, N>::operator/=(const T& rhs)
 {
-	VERIFY(rhs, "divisor cannot be zero");
+	assert(rhs, "divisor cannot be zero");
 	for(size_t i = 0; i < N; i++)
 		v_[i] /= rhs;
 	return *this;
