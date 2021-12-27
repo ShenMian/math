@@ -56,10 +56,8 @@ jobs:
     #   with:
     #     version: 13
 
-    - name: Install GCC
-      uses: egor-tensin/setup-gcc@v1
-      with:
-        version: 11
+    - name: Install MinGW
+      uses: egor-tensin/setup-mingw@v2
 
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
