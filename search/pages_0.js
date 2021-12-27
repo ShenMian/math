@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['math_20documentation_89',['Math Documentation',['../index.html',1,'']]]
+  ['math_20文档_89',['Math 文档',['../index.html',1,'']]]
 ];
