@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Math: /github/workspace/include/Math/Vector/Vector4.hpp 源文件</title>
+<title>Math: /github/workspace/include/Math/Vector4.hpp 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('_vector4_8hpp_source.html',''); initRe
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;Vector3.hpp&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;cstddef&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; requires std::is_arithmetic_v&lt;T&gt;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_vector_t_3_01_t_00_014_01_4.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_vector_t.html">VectorT</a>&lt;T, 4&gt;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
@@ -131,20 +131,20 @@ $(document).ready(function(){initNavTree('_vector4_8hpp_source.html',''); initRe
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="class_vector_t.html#a343a9320f718caa0e157ed4c37ad3c6b">VectorT</a>(<span class="keyword">const</span> <a class="code" href="class_vector_t.html">VectorT</a>&amp; v);</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    T <a class="code" href="class_vector_t.html#a38677c91134438cd87b444da22810749">sizeSquared</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    T <a class="code" href="class_vector_t.html#aecbef3c90b0b2dbe5a3f4b918995e623">sizeSquared</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    T <a class="code" href="class_vector_t.html#ae7ec3e8eaaf1fb90e3431412b51f36f5">size</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    T <a class="code" href="class_vector_t.html#a1507681967fc7fdf0f42d4f613dfb60a">size</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <a class="code" href="class_vector_t.html">VectorT</a>&amp; <a class="code" href="class_vector_t.html#a4e3ae5404e88b36da01709c086e6544c">normalize</a>();</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <a class="code" href="class_vector_t.html">VectorT</a>&amp; <a class="code" href="class_vector_t.html#aafae2237f0cc68af441c99c7aac5635b">normalize</a>();</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <a class="code" href="class_vector_t.html">VectorT</a> <a class="code" href="class_vector_t.html#a416dd6aaa09fb1ca59adcc34b839a882">normalized</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <a class="code" href="class_vector_t.html">VectorT</a> <a class="code" href="class_vector_t.html#a6e21dcfe641727a59ec3b7ac692b91b5">normalized</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    T <a class="code" href="class_vector_t.html#a63c8caf19d084e190a39a363c49ce6ea">dot</a>(<span class="keyword">const</span> <a class="code" href="class_vector_t.html">VectorT</a>&amp; rhs) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    T <a class="code" href="class_vector_t.html#a6e5b9af9e18f43283538e9427fc08823">dot</a>(<span class="keyword">const</span> <a class="code" href="class_vector_t.html">VectorT</a>&amp; rhs) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <a class="code" href="class_vector_t.html">VectorT</a> <a class="code" href="class_vector_t.html#afca30fc6655a723a835f4fadcd781727">cross</a>(<span class="keyword">const</span> <a class="code" href="class_vector_t.html">VectorT</a>&amp; rhs) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <a class="code" href="class_vector_t.html">VectorT</a> <a class="code" href="class_vector_t.html#a37bec05cd131a95ddc04bd8882aedfab">cross</a>(<span class="keyword">const</span> <a class="code" href="class_vector_t.html">VectorT</a>&amp; rhs) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    T* <a class="code" href="class_vector_t.html#a499ca1a7b027bd41be8bd22e90e66fe6">data</a>();</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keyword">const</span> T* <a class="code" href="class_vector_t.html#a499ca1a7b027bd41be8bd22e90e66fe6">data</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    T* <a class="code" href="class_vector_t.html#af7d452cb41f80fb58da1b54c9222171d">data</a>();</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keyword">const</span> T* <a class="code" href="class_vector_t.html#af7d452cb41f80fb58da1b54c9222171d">data</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    T&amp; operator[](<span class="keywordtype">size_t</span> index);</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keyword">const</span> T&amp; operator[](<span class="keywordtype">size_t</span> index) <span class="keyword">const</span>;</div>
@@ -184,21 +184,21 @@ $(document).ready(function(){initNavTree('_vector4_8hpp_source.html',''); initRe
 <div class="ttc" id="aclass_vector_t_3_01_t_00_012_01_4_html"><div class="ttname"><a href="class_vector_t_3_01_t_00_012_01_4.html">VectorT&lt; T, 2 &gt;</a></div><div class="ttdoc">二维向量.</div><div class="ttdef"><b>Definition:</b> Vector2.hpp:15</div></div>
 <div class="ttc" id="aclass_vector_t_3_01_t_00_013_01_4_html"><div class="ttname"><a href="class_vector_t_3_01_t_00_013_01_4.html">VectorT&lt; T, 3 &gt;</a></div><div class="ttdoc">三维向量.</div><div class="ttdef"><b>Definition:</b> Vector3.hpp:14</div></div>
 <div class="ttc" id="aclass_vector_t_3_01_t_00_014_01_4_html"><div class="ttname"><a href="class_vector_t_3_01_t_00_014_01_4.html">VectorT&lt; T, 4 &gt;</a></div><div class="ttdoc">三维向量.</div><div class="ttdef"><b>Definition:</b> Vector4.hpp:14</div></div>
-<div class="ttc" id="aclass_vector_t_html"><div class="ttname"><a href="class_vector_t.html">VectorT</a></div><div class="ttdoc">N 维向量.</div><div class="ttdef"><b>Definition:</b> Vector.hpp:18</div></div>
+<div class="ttc" id="aclass_vector_t_html"><div class="ttname"><a href="class_vector_t.html">VectorT</a></div><div class="ttdoc">N 维向量.</div><div class="ttdef"><b>Definition:</b> Vector.hpp:17</div></div>
+<div class="ttc" id="aclass_vector_t_html_a1507681967fc7fdf0f42d4f613dfb60a"><div class="ttname"><a href="class_vector_t.html#a1507681967fc7fdf0f42d4f613dfb60a">VectorT::size</a></div><div class="ttdeci">T size() const</div><div class="ttdoc">获取长度.</div><div class="ttdef"><b>Definition:</b> Vector.inl:42</div></div>
 <div class="ttc" id="aclass_vector_t_html_a343a9320f718caa0e157ed4c37ad3c6b"><div class="ttname"><a href="class_vector_t.html#a343a9320f718caa0e157ed4c37ad3c6b">VectorT::VectorT</a></div><div class="ttdeci">VectorT()=default</div><div class="ttdoc">默认构造函数.</div></div>
-<div class="ttc" id="aclass_vector_t_html_a38677c91134438cd87b444da22810749"><div class="ttname"><a href="class_vector_t.html#a38677c91134438cd87b444da22810749">VectorT::sizeSquared</a></div><div class="ttdeci">T sizeSquared() const</div><div class="ttdoc">获取长度平方.</div><div class="ttdef"><b>Definition:</b> Vector.inl:33</div></div>
-<div class="ttc" id="aclass_vector_t_html_a416dd6aaa09fb1ca59adcc34b839a882"><div class="ttname"><a href="class_vector_t.html#a416dd6aaa09fb1ca59adcc34b839a882">VectorT::normalized</a></div><div class="ttdeci">VectorT normalized() const</div><div class="ttdoc">获取标准化单位向量.</div><div class="ttdef"><b>Definition:</b> Vector.inl:57</div></div>
-<div class="ttc" id="aclass_vector_t_html_a499ca1a7b027bd41be8bd22e90e66fe6"><div class="ttname"><a href="class_vector_t.html#a499ca1a7b027bd41be8bd22e90e66fe6">VectorT::data</a></div><div class="ttdeci">T * data()</div><div class="ttdoc">获取原始数据.</div><div class="ttdef"><b>Definition:</b> Vector.inl:79</div></div>
-<div class="ttc" id="aclass_vector_t_html_a4e3ae5404e88b36da01709c086e6544c"><div class="ttname"><a href="class_vector_t.html#a4e3ae5404e88b36da01709c086e6544c">VectorT::normalize</a></div><div class="ttdeci">VectorT &amp; normalize()</div><div class="ttdoc">标准化成单位向量.</div><div class="ttdef"><b>Definition:</b> Vector.inl:48</div></div>
-<div class="ttc" id="aclass_vector_t_html_a63c8caf19d084e190a39a363c49ce6ea"><div class="ttname"><a href="class_vector_t.html#a63c8caf19d084e190a39a363c49ce6ea">VectorT::dot</a></div><div class="ttdeci">T dot(const VectorT &amp;rhs) const</div><div class="ttdoc">计算向量点积.</div><div class="ttdef"><b>Definition:</b> Vector.inl:63</div></div>
-<div class="ttc" id="aclass_vector_t_html_ae7ec3e8eaaf1fb90e3431412b51f36f5"><div class="ttname"><a href="class_vector_t.html#ae7ec3e8eaaf1fb90e3431412b51f36f5">VectorT::size</a></div><div class="ttdeci">T size() const</div><div class="ttdoc">获取长度.</div><div class="ttdef"><b>Definition:</b> Vector.inl:42</div></div>
-<div class="ttc" id="aclass_vector_t_html_afca30fc6655a723a835f4fadcd781727"><div class="ttname"><a href="class_vector_t.html#afca30fc6655a723a835f4fadcd781727">VectorT::cross</a></div><div class="ttdeci">VectorT cross(const VectorT &amp;rhs) const</div><div class="ttdoc">计算向量叉积.</div><div class="ttdef"><b>Definition:</b> Vector.inl:72</div></div>
+<div class="ttc" id="aclass_vector_t_html_a37bec05cd131a95ddc04bd8882aedfab"><div class="ttname"><a href="class_vector_t.html#a37bec05cd131a95ddc04bd8882aedfab">VectorT::cross</a></div><div class="ttdeci">VectorT cross(const VectorT &amp;rhs) const</div><div class="ttdoc">计算向量叉积.</div><div class="ttdef"><b>Definition:</b> Vector.inl:72</div></div>
+<div class="ttc" id="aclass_vector_t_html_a6e21dcfe641727a59ec3b7ac692b91b5"><div class="ttname"><a href="class_vector_t.html#a6e21dcfe641727a59ec3b7ac692b91b5">VectorT::normalized</a></div><div class="ttdeci">VectorT normalized() const</div><div class="ttdoc">获取标准化单位向量.</div><div class="ttdef"><b>Definition:</b> Vector.inl:57</div></div>
+<div class="ttc" id="aclass_vector_t_html_a6e5b9af9e18f43283538e9427fc08823"><div class="ttname"><a href="class_vector_t.html#a6e5b9af9e18f43283538e9427fc08823">VectorT::dot</a></div><div class="ttdeci">T dot(const VectorT &amp;rhs) const</div><div class="ttdoc">计算向量点积.</div><div class="ttdef"><b>Definition:</b> Vector.inl:63</div></div>
+<div class="ttc" id="aclass_vector_t_html_aafae2237f0cc68af441c99c7aac5635b"><div class="ttname"><a href="class_vector_t.html#aafae2237f0cc68af441c99c7aac5635b">VectorT::normalize</a></div><div class="ttdeci">VectorT &amp; normalize()</div><div class="ttdoc">标准化成单位向量.</div><div class="ttdef"><b>Definition:</b> Vector.inl:48</div></div>
+<div class="ttc" id="aclass_vector_t_html_aecbef3c90b0b2dbe5a3f4b918995e623"><div class="ttname"><a href="class_vector_t.html#aecbef3c90b0b2dbe5a3f4b918995e623">VectorT::sizeSquared</a></div><div class="ttdeci">T sizeSquared() const</div><div class="ttdoc">获取长度平方.</div><div class="ttdef"><b>Definition:</b> Vector.inl:33</div></div>
+<div class="ttc" id="aclass_vector_t_html_af7d452cb41f80fb58da1b54c9222171d"><div class="ttname"><a href="class_vector_t.html#af7d452cb41f80fb58da1b54c9222171d">VectorT::data</a></div><div class="ttdeci">T * data()</div><div class="ttdoc">获取原始数据.</div><div class="ttdef"><b>Definition:</b> Vector.inl:79</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_6169d17290d9404be5262c21e04fa2c7.html">Math</a></li><li class="navelem"><a class="el" href="dir_0fd1335462920db3e5cc2377a567dd78.html">Vector</a></li><li class="navelem"><b>Vector4.hpp</b></li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_6169d17290d9404be5262c21e04fa2c7.html">Math</a></li><li class="navelem"><b>Vector4.hpp</b></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
