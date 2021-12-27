@@ -1,10 +1,11 @@
 var NAVTREEINDEX0 =
 {
 "_a_a_b_b3_8hpp_source.html":[2,0,0,0,2],
-"_helper_8hpp_source.html":[2,0,0,0,3],
-"_math_8hpp_source.html":[2,0,0,0,4],
+"_assert_8hpp_source.html":[2,0,0,0,3],
+"_helper_8hpp_source.html":[2,0,0,0,4],
+"_math_8hpp_source.html":[2,0,0,0,5],
 "_matrix_8hpp_source.html":[2,0,0,0,0,0],
-"_quaternion_8hpp_source.html":[2,0,0,0,5],
+"_quaternion_8hpp_source.html":[2,0,0,0,6],
 "_vector2_8hpp_source.html":[2,0,0,0,1,1],
 "_vector3_8hpp_source.html":[2,0,0,0,1,2],
 "_vector4_8hpp_source.html":[2,0,0,0,1,3],
