@@ -22,23 +22,10 @@ public:
 	/**
 	 * @brief 构造函数, 通过最小点和最大点创建包围盒.
 	 *
-	 * @param min 指定点.
+	 * @param a 第一个点.
+	 * @param b 第二个点.
 	 */
-	AABB3(const Vector3& min, const Vector3& max);
-
-	/**
-	 * @brief 拓展到包含指定点.
-	 *
-	 * @param point 指定点.
-	 */
-	void expand(const Vector3& point);
-
-	/**
-	 * @brief 拓展到包含指定 AABB.
-	 *
-	 * @param point AABB.
-	 */
-	void expand(const AABB3& aabb);
+	AABB3(const Vector3& a, const Vector3& b);
 
 	/**
 	 * @brief 判断是否包含指定点.
@@ -66,6 +53,20 @@ public:
 	 * @return false 不相交.
 	 */
 	bool intersects(const AABB3& aabb) const;
+
+	/**
+	 * @brief 拓展到包含指定点.
+	 *
+	 * @param point 指定点.
+	 */
+	void expand(const Vector3& point);
+
+	/**
+	 * @brief 拓展到包含指定 AABB.
+	 *
+	 * @param point AABB.
+	 */
+	void expand(const AABB3& aabb);
 
 	/**
 	 * @brief 获取几何中心.

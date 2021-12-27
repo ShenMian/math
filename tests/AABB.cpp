@@ -4,8 +4,35 @@
 #include <Math/Math.hpp>
 #include <gtest/gtest.h>
 
+TEST(AABB3, constructor)
+{
+	EXPECT_EQ(AABB3({1, 1, 1}, {0, 0, 0}), AABB3({0, 0, 0}, {1, 1, 1}));
+}
+
+TEST(AABB3, contains)
+{
+	AABB3 aabb({0, 0, 0}, {2, 2, 2});
+
+	// contains(const Vector3&)
+	EXPECT_TRUE(aabb.contains(aabb.min));
+	EXPECT_TRUE(aabb.contains(aabb.max));
+	EXPECT_TRUE(aabb.contains({1, 0, 0}));
+	EXPECT_TRUE(aabb.contains({0, 1, 0}));
+	EXPECT_TRUE(aabb.contains({0, 0, 1}));
+	EXPECT_TRUE(aabb.contains({2, 0, 0}));
+	EXPECT_TRUE(aabb.contains({0, 2, 0}));
+	EXPECT_TRUE(aabb.contains({0, 0, 2}));
+	EXPECT_FALSE(aabb.contains({-1, 0, 0}));
+	EXPECT_FALSE(aabb.contains({0, 3, 0}));
+
+	// contains(const AABB3&)
+	EXPECT_TRUE(aabb.contains(aabb));
+	EXPECT_TRUE(aabb.contains(AABB3({1, 1, 1}, {2, 2, 2})));
+}
+
 TEST(AABB3, expand)
 {
+	// expand(const Vector3&)
 	{
 		AABB3 aabb({0, 0, 0}, {1, 1, 1});
 		aabb.expand({1, 2, 3});
@@ -15,6 +42,13 @@ TEST(AABB3, expand)
 		AABB3 aabb({0, 0, 0}, {1, 1, 1});
 		aabb.expand({-1, 0, 2});
 		EXPECT_EQ(aabb, AABB3({-1, 0, 0}, {1, 1, 2}));
+	}
+
+	// expand(const AABB3&)
+	{
+		AABB3 aabb({0, 0, 0}, {1, 1, 1});
+		aabb.expand(AABB3({-1, -1, -1}, {0, 0, 0}));
+		EXPECT_EQ(aabb, AABB3({-1, -1, -1}, {1, 1, 1}));
 	}
 }
 
@@ -27,10 +61,4 @@ TEST(AABB3, isEmpty)
 {
 	EXPECT_TRUE(AABB3({3, 4, 5}, {3, 4, 5}).isEmpty());
 	EXPECT_FALSE(AABB3({3, 4, 5}, {3, 4, 6}).isEmpty());
-}
-
-TEST(AABB3, isValid)
-{
-	EXPECT_TRUE(AABB3({3, 4, 5}, {3, 4, 5}).isValid());
-	EXPECT_FALSE(AABB3({3, 4, 6}, {3, 4, 5}).isValid());
 }
