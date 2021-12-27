@@ -45,37 +45,31 @@ inline VectorT<T, 3>::VectorT()
 }
 
 template <typename T> requires std::is_arithmetic_v<T>
-inline VectorT<T, 3>::VectorT(const T& scalar)
+inline constexpr VectorT<T, 3>::VectorT(const T& scalar)
 	: x(scalar), y(scalar), z(scalar)
 {
 }
 
 template <typename T> requires std::is_arithmetic_v<T>
-inline VectorT<T, 3>::VectorT(const T& x, const T& y, const T& z)
+inline constexpr VectorT<T, 3>::VectorT(const T& x, const T& y, const T& z)
 	: x(x), y(y), z(z)
 {
 }
 
 template <typename T> requires std::is_arithmetic_v<T>
-inline VectorT<T, 3>::VectorT(const Vector2T<T>& v, const T& z)
+inline constexpr VectorT<T, 3>::VectorT(const Vector2T<T>& v, const T& z)
 	: x(v.x), y(v.y), z(z)
 {
 }
 
 template <typename T> requires std::is_arithmetic_v<T>
-inline VectorT<T, 3>::VectorT(const std::initializer_list<T>& list)
+inline constexpr VectorT<T, 3>::VectorT(const std::initializer_list<T>& list)
 {
-	assert(list.size() == 3);
+	VERIFY(list.size() <= 3, "Too many initializers");
 	auto it = list.begin();
 	x = *it;
 	y = *(++it);
 	z = *(++it);
-}
-
-template <typename T> requires std::is_arithmetic_v<T>
-inline VectorT<T, 3>::VectorT(const VectorT& v)
-	: x(v.x), y(v.y), z(v.z)
-{
 }
 
 template <typename T> requires std::is_arithmetic_v<T>
@@ -163,13 +157,13 @@ inline const T& VectorT<T, 3>::operator[](size_t index) const
 }
 
 template <typename T> requires std::is_arithmetic_v<T>
-inline bool VectorT<T, 3>::operator==(const VectorT<T, 3>& rhs) const
+inline constexpr bool VectorT<T, 3>::operator==(const VectorT<T, 3>& rhs) const
 {
 	return equal(x, rhs.x) && equal(y, rhs.y) && equal(z, rhs.z);
 }
 
 template <typename T> requires std::is_arithmetic_v<T>
-inline VectorT<T, 3>& VectorT<T, 3>::operator+=(const VectorT<T, 3>& rhs)
+inline constexpr VectorT<T, 3>& VectorT<T, 3>::operator+=(const VectorT<T, 3>& rhs)
 {
 	x += rhs.x;
 	y += rhs.y;
@@ -178,7 +172,7 @@ inline VectorT<T, 3>& VectorT<T, 3>::operator+=(const VectorT<T, 3>& rhs)
 }
 
 template <typename T> requires std::is_arithmetic_v<T>
-inline VectorT<T, 3>& VectorT<T, 3>::operator-=(const VectorT<T, 3>& rhs)
+inline constexpr VectorT<T, 3>& VectorT<T, 3>::operator-=(const VectorT<T, 3>& rhs)
 {
 	x -= rhs.x;
 	y -= rhs.y;
@@ -187,7 +181,7 @@ inline VectorT<T, 3>& VectorT<T, 3>::operator-=(const VectorT<T, 3>& rhs)
 }
 
 template <typename T> requires std::is_arithmetic_v<T>
-inline VectorT<T, 3>& VectorT<T, 3>::operator*=(const T& rhs)
+inline constexpr VectorT<T, 3>& VectorT<T, 3>::operator*=(const T& rhs)
 {
 	x *= rhs;
 	y *= rhs;
@@ -196,9 +190,9 @@ inline VectorT<T, 3>& VectorT<T, 3>::operator*=(const T& rhs)
 }
 
 template <typename T> requires std::is_arithmetic_v<T>
-inline VectorT<T, 3>& VectorT<T, 3>::operator/=(const T& rhs)
+inline constexpr VectorT<T, 3>& VectorT<T, 3>::operator/=(const T& rhs)
 {
-	assert(rhs);
+	VERIFY(rhs, "divisor cannot be zero");
 	x /= rhs;
 	y /= rhs;
 	z /= rhs;
@@ -206,7 +200,7 @@ inline VectorT<T, 3>& VectorT<T, 3>::operator/=(const T& rhs)
 }
 
 template <typename T> requires std::is_arithmetic_v<T>
-VectorT<T, 3> VectorT<T, 3>::operator-() const
+inline constexpr VectorT<T, 3> VectorT<T, 3>::operator-() const
 {
 	return {-x, -y, -z};
 }

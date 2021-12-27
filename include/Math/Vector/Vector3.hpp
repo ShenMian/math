@@ -46,7 +46,7 @@ public:
 	 * @param y y 分量.
 	 * @param z z 分量.
 	 */
-	VectorT(const T& x, const T& y, const T& z);
+	constexpr VectorT(const T& x, const T& y, const T& z);
 
 	/**
 	 * @brief 构造函数.
@@ -54,19 +54,19 @@ public:
 	 * @param v 二维向量.
 	 * @param z z 分量.
 	 */
-	VectorT(const Vector2T<T>& v, const T& z);
+	constexpr VectorT(const Vector2T<T>& v, const T& z);
 
 	/**
 	 * @brief 构造函数.
 	 *
 	 * @param list 初始化列表.
 	 */
-	VectorT(const std::initializer_list<T>& list);
+	constexpr VectorT(const std::initializer_list<T>& list);
 
 	/**
 	 * @brief 拷贝构造函数.
 	 */
-	VectorT(const VectorT& v);
+	VectorT(const VectorT& v) = default;;
 
 	/**
 	 * @brief 获取长度平方.
@@ -137,12 +137,12 @@ public:
 	T& operator[](size_t index);
 	const T& operator[](size_t index) const;
 
-	bool     operator==(const VectorT&) const;
-	VectorT& operator+=(const VectorT&);
-	VectorT& operator-=(const VectorT&);
-	VectorT& operator*=(const T&);
-	VectorT& operator/=(const T&);
-	VectorT  operator-() const;
+	constexpr bool     operator==(const VectorT&) const;
+	constexpr VectorT& operator+=(const VectorT&);
+	constexpr VectorT& operator-=(const VectorT&);
+	constexpr VectorT& operator*=(const T&);
+	constexpr VectorT& operator/=(const T&);
+	constexpr VectorT  operator-() const;
 
 	template <typename C>
 	operator VectorT<C, 3>()
@@ -150,7 +150,7 @@ public:
 		return VectorT<C, 3>(static_cast<C>(x), static_cast<C>(y), static_cast<C>(z));
 	}
 
-	static const size_t components = 3;
+	static constexpr size_t components = 3;
 
 	static const VectorT unit;   // (1, 1, 1)
 	static const VectorT unit_x; // (1, 0, 0)

@@ -25,26 +25,26 @@ public:
 	/**
 	 * @brief 构造函数.
 	 */
-	explicit VectorT(const T& scalar);
+	constexpr explicit VectorT(const T& scalar);
 
 	/**
 	 * @brief 构造函数.
 	 *
 	 * @param list 初始化列表, 下标依次为 0 到 N-1.
 	 */
-	VectorT(const std::initializer_list<T>& list);
+	constexpr VectorT(const std::initializer_list<T>& list);
 
 	/**
 	 * @brief 拷贝构造函数.
 	 */
-	VectorT(const VectorT& rhs);
+	VectorT(const VectorT& rhs) = default;
 
 	/**
 	 * @brief 获取长度平方.
 	 *
 	 * @see size
 	 */
-	T sizeSquared() const;
+	constexpr T sizeSquared() const;
 
 	/**
 	 * @brief 获取长度.
@@ -72,30 +72,30 @@ public:
 	 *
 	 * @param rhs 要点乘的向量.
 	 */
-	T dot(const VectorT& rhs) const;
+	constexpr T dot(const VectorT& rhs) const;
 
 	/**
 	 * @brief 计算向量叉积.
 	 *
 	 * @param rhs 要叉乘的向量.
 	 */
-	VectorT cross(const VectorT& rhs) const;
+	constexpr VectorT cross(const VectorT& rhs) const;
 
 	/**
 	 * @brief 获取原始数据.
 	 */
-	T* data();
-	const T* data() const;
+	constexpr T* data();
+	constexpr const T* data() const;
 
-	T& operator[](size_t index);
-	const T& operator[](size_t index) const;
+	constexpr T& operator[](size_t index);
+	constexpr const T& operator[](size_t index) const;
 
-	bool     operator==(const VectorT&) const;
-	VectorT& operator+=(const VectorT&);
-	VectorT& operator-=(const VectorT&);
-	VectorT& operator*=(const T&);
-	VectorT& operator/=(const T&);
-	VectorT  operator-() const;
+	constexpr bool     operator==(const VectorT&) const;
+	constexpr VectorT& operator+=(const VectorT&);
+	constexpr VectorT& operator-=(const VectorT&);
+	constexpr VectorT& operator*=(const T&);
+	constexpr VectorT& operator/=(const T&);
+	constexpr VectorT  operator-() const;
 
 	template <typename C>
 	operator VectorT<C, N>()
@@ -106,7 +106,7 @@ public:
 		return result;
 	}
 
-	static const size_t components = N;
+	static constexpr size_t components = N;
 
 private:
 	T v_[N] = {};
@@ -124,49 +124,49 @@ template <size_t N>
 using Vectori = VectorT<int32_t, N>;
 
 template <typename T, size_t N>
-VectorT<T, N> operator+(const VectorT<T, N>& lhs, const VectorT<T, N>& rhs)
+VectorT<T, N> constexpr operator+(const VectorT<T, N>& lhs, const VectorT<T, N>& rhs)
 {
 	return VectorT(lhs) += rhs;
 }
 
 template <typename T, size_t N>
-VectorT<T, N> operator-(const VectorT<T, N>& lhs, const VectorT<T, N>& rhs)
+VectorT<T, N> constexpr operator-(const VectorT<T, N>& lhs, const VectorT<T, N>& rhs)
 {
 	return VectorT(lhs) -= rhs;
 }
 
 template <typename T, size_t N>
-VectorT<T, N> operator*(const VectorT<T, N>& lhs, const VectorT<T, N>& rhs)
+VectorT<T, N> constexpr operator*(const VectorT<T, N>& lhs, const VectorT<T, N>& rhs)
 {
 	return VectorT(lhs) *= rhs;
 }
 
 template <typename T, size_t N>
-VectorT<T, N> operator/(const VectorT<T, N>& lhs, const VectorT<T, N>& rhs)
+VectorT<T, N> constexpr operator/(const VectorT<T, N>& lhs, const VectorT<T, N>& rhs)
 {
 	return VectorT(lhs) /= rhs;
 }
 
 template <typename T, size_t N>
-VectorT<T, N> operator*(const VectorT<T, N>& lhs, const T& rhs)
+VectorT<T, N> constexpr operator*(const VectorT<T, N>& lhs, const T& rhs)
 {
 	return VectorT(lhs) *= rhs;
 }
 
 template <typename T, size_t N>
-VectorT<T, N> operator/(const VectorT<T, N>& lhs, const T& rhs)
+VectorT<T, N> constexpr operator/(const VectorT<T, N>& lhs, const T& rhs)
 {
 	return VectorT(lhs) /= rhs;
 }
 
 template <typename T, size_t N>
-VectorT<T, N> operator*(const T& lhs, const VectorT<T, N>& rhs)
+VectorT<T, N> constexpr operator*(const T& lhs, const VectorT<T, N>& rhs)
 {
 	return rhs * lhs;
 }
 
 template <typename T, size_t N>
-VectorT<T, N> operator/(const T& lhs, const VectorT<T, N>& rhs)
+VectorT<T, N> constexpr operator/(const T& lhs, const VectorT<T, N>& rhs)
 {
 	return rhs / lhs;
 }

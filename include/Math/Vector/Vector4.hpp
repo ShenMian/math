@@ -49,7 +49,7 @@ public:
 	 * @param z z 分量.
 	 * @param w w 分量.
 	 */
-	VectorT(const T& x, const T& y, const T& z, const T& w);
+	constexpr VectorT(const T& x, const T& y, const T& z, const T& w);
 
 	/**
 	 * @brief 构造函数.
@@ -57,7 +57,7 @@ public:
 	 * @param v 三维向量.
 	 * @param w w 分量.
 	 */
-	VectorT(const Vector3T<T>& v, const T& w);
+	constexpr VectorT(const Vector3T<T>& v, const T& w);
 
 	/**
 	 * @brief 构造函数.
@@ -66,26 +66,26 @@ public:
 	 * @param z z 分量.
 	 * @param w w 分量.
 	 */
-	VectorT(const Vector2T<T>& v, const T& z, const T& w);
+	constexpr VectorT(const Vector2T<T>& v, const T& z, const T& w);
 
 	/**
 	 * @brief 构造函数.
 	 *
 	 * @param list 初始化列表.
 	 */
-	VectorT(const std::initializer_list<T>& list);
+	constexpr VectorT(const std::initializer_list<T>& list);
 
 	/**
 	 * @brief 拷贝构造函数.
 	 */
-	VectorT(const VectorT& v);
+	VectorT(const VectorT& v) = default;
 
 	/**
 	 * @brief 获取长度平方.
 	 *
 	 * @see size
 	 */
-	T sizeSquared() const;
+	constexpr T sizeSquared() const;
 
 	/**
 	 * @brief 获取长度.
@@ -113,30 +113,30 @@ public:
 	 *
 	 * @param rhs 要点乘的向量.
 	 */
-	T dot(const VectorT& rhs) const;
+	constexpr T dot(const VectorT& rhs) const;
 
 	/**
 	 * @brief 计算向量叉积.
 	 *
 	 * @param rhs 要叉乘的向量.
 	 */
-	VectorT cross(const VectorT& rhs) const;
+	constexpr VectorT cross(const VectorT& rhs) const;
 
 	/**
 	 * @brief 获取原始数据.
 	 */
-	T* data();
-	const T* data() const;
+	constexpr T* data();
+	constexpr const T* data() const;
 
 	T& operator[](size_t index);
 	const T& operator[](size_t index) const;
 
-	bool     operator==(const VectorT&) const;
-	VectorT& operator+=(const VectorT&);
-	VectorT& operator-=(const VectorT&);
-	VectorT& operator*=(const T&);
-	VectorT& operator/=(const T&);
-	VectorT  operator-() const;
+	constexpr bool     operator==(const VectorT&) const;
+	constexpr VectorT& operator+=(const VectorT&);
+	constexpr VectorT& operator-=(const VectorT&);
+	constexpr VectorT& operator*=(const T&);
+	constexpr VectorT& operator/=(const T&);
+	constexpr VectorT  operator-() const;
 
 	template <typename C>
 	operator VectorT<C, 4>()
@@ -144,7 +144,7 @@ public:
 		return VectorT<C, 4>(static_cast<C>(x), static_cast<C>(y), static_cast<C>(z), static_cast<C>(w));
 	}
 
-	static const size_t components = 4;
+	static constexpr size_t components = 4;
 
 	static const VectorT unit;   // (1, 1, 1, 1)
 	static const VectorT unit_x; // (1, 0, 0, 0)

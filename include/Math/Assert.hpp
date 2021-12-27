@@ -14,9 +14,33 @@
 #endif
 
 // TODO: clang 暂时不支持 std::source_location.
-//       因此 assert 先别使用第二个参数吧, 简单一点.
 
-#include <cassert>
+#include <stdlib.h>
+
+// constexpr 修饰的函数使用的断言
+#define VERIFY(cond, msg) \
+    do {                  \
+        if (cond) {       \
+		} else {          \
+            abort();      \
+        }                 \
+    } while (false)
+
+inline void assert(bool condition)
+{
+	if(condition)
+		return;
+	abort();
+}
+
+inline void assert(bool condition, std::string_view message)
+{
+	if(condition)
+		return;
+	std::puts(message.data());
+	abort();
+}
+
 
 /*
 inline void assert(bool condition, const std::source_location& loc = std::source_location::current())
