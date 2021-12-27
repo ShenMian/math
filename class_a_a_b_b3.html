@@ -138,15 +138,28 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public 属性</h2></td></tr>
 <tr class="memitem:a0d0a92e0abcd498bdbeb328fad19ea05"><td class="memItemLeft" align="right" valign="top"><a id="a0d0a92e0abcd498bdbeb328fad19ea05"></a>
-<a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><b>min</b></td></tr>
+<a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_a_b_b3.html#a0d0a92e0abcd498bdbeb328fad19ea05">min</a></td></tr>
+<tr class="memdesc:a0d0a92e0abcd498bdbeb328fad19ea05"><td class="mdescLeft">&#160;</td><td class="mdescRight">最小点. <br /></td></tr>
 <tr class="separator:a0d0a92e0abcd498bdbeb328fad19ea05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aedf9fc44f621ee19077dd9220eb824e6"><td class="memItemLeft" align="right" valign="top"><a id="aedf9fc44f621ee19077dd9220eb824e6"></a>
-<a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><b>max</b></td></tr>
+<a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_a_b_b3.html#aedf9fc44f621ee19077dd9220eb824e6">max</a></td></tr>
+<tr class="memdesc:aedf9fc44f621ee19077dd9220eb824e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">最大点. <br /></td></tr>
 <tr class="separator:aedf9fc44f621ee19077dd9220eb824e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><p>3 维轴对齐包围盒. </p>
-</div><h2 class="groupheader">构造及析构函数说明</h2>
+<p>在碰撞检测中用于简化物体外形. 包围盒的边都与坐标轴平行, 因此可以利用分离轴定理快速进行碰撞检测.</p>
+<p>例子: </p><div class="fragment"><div class="line"><a class="code" href="class_a_a_b_b3.html">AABB3</a> a({0, 0, 0}, {1, 1, 1}); <span class="comment">// 通过最大点和最小点创建包围盒</span></div>
+<div class="line"><a class="code" href="class_a_a_b_b3.html">AABB3</a> b({1, 1, 1}, {2, 2, 2});</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">if</span>(a.contains(b))        <span class="comment">// 判断 a 是否包含 b</span></div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;a contains b&quot;</span>;</div>
+<div class="line"><span class="keywordflow">else</span> <span class="keywordflow">if</span>(a.intersects(b)) <span class="comment">// 判断 a 是否与 b 相交</span></div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;a and b intersect&quot;</span>;</div>
+<div class="line"><span class="keywordflow">else</span>                     <span class="comment">// a 与 b 没有交集</span></div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;a and b have no intersection&quot;</span>;</div>
+<div class="ttc" id="aclass_a_a_b_b3_html"><div class="ttname"><a href="class_a_a_b_b3.html">AABB3</a></div><div class="ttdoc">3 维轴对齐包围盒.</div><div class="ttdef"><b>Definition:</b> AABB3.hpp:12</div></div>
+</div><!-- fragment --> </div><h2 class="groupheader">构造及析构函数说明</h2>
 <a id="a87462f4770d218e00c73fb230cdacfc4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a87462f4770d218e00c73fb230cdacfc4">&#9670;&nbsp;</a></span>AABB3()</h2>
 
