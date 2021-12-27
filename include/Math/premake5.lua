@@ -1,4 +1,4 @@
--- Copyright 2021 SMS
+﻿-- Copyright 2021 SMS
 -- License(Apache-2.0)
 
 project "Math"
@@ -7,3 +7,5 @@ project "Math"
 	cppdialect "C++latest"
 
 	files {"**.hpp", "**.inl", "premake5.lua"}
+
+	includedirs "%{wks.location}/include"

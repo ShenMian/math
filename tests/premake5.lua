@@ -12,7 +12,9 @@ project "tests"
 	targetdir("%{wks.location}/build/" .. output_dir .. "/%{prj.name}/bin")
 	objdir("%{wks.location}/build/" .. output_dir .. "/%{prj.name}/obj")
 
-	files {"**.cpp", "premake5.lua"}
+	files {"**.cpp", "premake5.lua", "CMakeLists.txt"}
+
+	includedirs "%{wks.location}/include"
 
 	sysincludedirs {
 		"%{wks.location}/include",
