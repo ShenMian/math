@@ -14,6 +14,6 @@ REM 生成VS解决方案
 Deps\premake\bin\premake5.exe vs2022 || pause
 
 REM 第一次生成时, 打开解决方案
-if "%firstGenerate%"=="true" start Graphics.sln
+if "%firstGenerate%"=="true" start math.sln
 
 popd
