@@ -6,11 +6,13 @@ on:
       - '**.cpp'
       - '**.hpp'
       - '**.h'
+      - '.github/workflows/test.yml'
   pull_request:
     paths:
       - '**.cpp'
       - '**.hpp'
       - '**.h'
+      - '.github/workflows/test.yml'
 
 env:
   BUILD_TYPE: Release
