@@ -2,7 +2,7 @@
 // License(Apache-2.0)
 
 #include "Matrix.hpp"
-#include "Helper.hpp"
+#include "../Helper.hpp"
 #include <cassert>
 
 template <typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
