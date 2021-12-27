@@ -52,13 +52,12 @@ inline Vector3 AABB3::getCenter() const
 	return (min + max) / 2.f;
 }
 
-inline bool AABB3::isValid() const
-{
-	return min.x <= max.x && min.y <= max.y && min.z <= max.z;
-}
-
 inline bool AABB3::isEmpty() const
 {
 	return min == max;
 }
 
+inline bool AABB3::isValid() const
+{
+	return min.x <= max.x && min.y <= max.y && min.z <= max.z;
+}

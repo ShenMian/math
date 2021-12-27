@@ -74,20 +74,20 @@ public:
 	Vector3 getCenter() const;
 
 	/**
-	 * @brief 判断是否有效.
-	 *
-	 * @return true  有效.
-	 * @return false 无效.
-	 */
-	bool isValid() const;
-
-	/**
 	 * @brief 判断大小是否为空.
 	 *
 	 * @return true  空.
 	 * @return false 非空.
 	 */
 	bool isEmpty() const;
+
+	/**
+	 * @brief 判断是否有效.
+	 *
+	 * @return true  有效.
+	 * @return false 无效.
+	 */
+	bool isValid() const;
 
 	bool operator==(const AABB3& rhs) const = default;
 };
