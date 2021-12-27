@@ -13,6 +13,12 @@
 #    define breakpoint() __builtin_trap()
 #endif
 
+// TODO: clang 暂时不支持 std::source_location.
+//       因此 assert 先别使用第二个参数吧, 简单一点.
+
+#include <cassert>
+
+/*
 inline void assert(bool condition, const std::source_location& loc = std::source_location::current())
 {
 	if(condition)
@@ -32,4 +38,4 @@ inline void assert(bool condition, std::string_view message, const std::source_l
 		loc.file_name(), loc.function_name(), loc.line(), loc.column(), message.data());
 	breakpoint();
 }
-
+*/
