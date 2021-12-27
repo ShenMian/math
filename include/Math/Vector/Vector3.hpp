@@ -37,7 +37,7 @@ public:
 	/**
 	 * @brief 构造函数.
 	 */
-	explicit VectorT(const T& scalar);
+	constexpr explicit VectorT(const T& scalar);
 
 	/**
 	 * @brief 构造函数.
