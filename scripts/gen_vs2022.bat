@@ -8,7 +8,7 @@ pushd %~dp0\..
 REM 签出第三方库
 git submodule update --init
 
-if not exist Graphics.sln set firstGenerate=true
+if not exist math.sln set firstGenerate=true
 
 REM 生成VS解决方案
 Deps\premake\bin\premake5.exe vs2022 || pause
