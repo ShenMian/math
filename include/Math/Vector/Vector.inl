@@ -2,8 +2,8 @@
 // License(Apache-2.0)
 
 #include "../Helper.hpp"
+#include "../Assert.hpp"
 #include <algorithm>
-#include <cassert>
 #include <cmath>
 #include <concepts>
 #include <ranges>

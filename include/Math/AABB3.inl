@@ -1,7 +1,7 @@
 ﻿// Copyright 2021 SMS
 // License(Apache-2.0)
 
-#include <cassert>
+#include "Assert.hpp"
 
 inline AABB3::AABB3(const Vector3& min, const Vector3& max)
 	: min(min), max(max)

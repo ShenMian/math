@@ -3,7 +3,7 @@
 
 #include "Matrix.hpp"
 #include "../Helper.hpp"
-#include <cassert>
+#include "../Assert.hpp"
 
 template <typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline MatrixT<T, R, C>::MatrixT()
