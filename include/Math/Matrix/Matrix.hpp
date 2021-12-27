@@ -84,21 +84,21 @@ public:
 	/**
 	 * @brief 获取原始数据.
 	 */
-	T* data();
-	const T* data() const;
+	constexpr T* data();
+	constexpr const T* data() const;
 
-	T& operator()(size_t r, size_t c);
-	const T& operator()(size_t r, size_t c) const;
+	constexpr T& operator()(size_t r, size_t c);
+	constexpr const T& operator()(size_t r, size_t c) const;
 
-	T* operator[](size_t row);
-	const T* operator[](size_t row) const;
+	constexpr T* operator[](size_t row);
+	constexpr const T* operator[](size_t row) const;
 
-	bool     operator==(const MatrixT&) const;
-	MatrixT& operator+=(const MatrixT&);
-	MatrixT& operator-=(const MatrixT&);
+	constexpr bool     operator==(const MatrixT&) const;
+	constexpr MatrixT& operator+=(const MatrixT&);
+	constexpr MatrixT& operator-=(const MatrixT&);
 	MatrixT& operator*=(const MatrixT&);
 	MatrixT& operator/=(const MatrixT&);
-	MatrixT  operator-();
+	constexpr MatrixT  operator-();
 
 	template <typename T0>
 	operator MatrixT<T0, R, C>()
