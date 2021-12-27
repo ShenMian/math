@@ -8,13 +8,13 @@
 #include <concepts>
 #include <ranges>
 
-template <typename T, size_t N>
+template <typename T, size_t N> requires std::is_arithmetic_v<T>
 inline VectorT<T, N>::VectorT(const T& scalar)
 {
 	std::ranges::fill(v_, scalar);
 }
 
-template <typename T, size_t N>
+template <typename T, size_t N> requires std::is_arithmetic_v<T>
 inline VectorT<T, N>::VectorT(const std::initializer_list<T>& list)
 {
 	assert(list.size() == N);
@@ -23,13 +23,13 @@ inline VectorT<T, N>::VectorT(const std::initializer_list<T>& list)
 		v_[i] = *it++;
 }
 
-template <typename T, size_t N>
+template <typename T, size_t N> requires std::is_arithmetic_v<T>
 inline VectorT<T, N>::VectorT(const VectorT& rhs)
 {
 	std::ranges::copy(rhs.v_, v_);
 }
 
-template <typename T, size_t N>
+template <typename T, size_t N> requires std::is_arithmetic_v<T>
 inline T VectorT<T, N>::sizeSquared() const
 {
 	T result = T();
@@ -38,13 +38,13 @@ inline T VectorT<T, N>::sizeSquared() const
 	return result;
 }
 
-template <typename T, size_t N>
+template <typename T, size_t N> requires std::is_arithmetic_v<T>
 inline T VectorT<T, N>::size() const
 {
 	return static_cast<T>(std::sqrt(sizeSquared()));
 }
 
-template <typename T, size_t N>
+template <typename T, size_t N> requires std::is_arithmetic_v<T>
 inline VectorT<T, N>& VectorT<T, N>::normalize()
 {
 	const auto len = size();
@@ -53,13 +53,13 @@ inline VectorT<T, N>& VectorT<T, N>::normalize()
 	return *this *= 1.f / len;
 }
 
-template <typename T, size_t N>
+template <typename T, size_t N> requires std::is_arithmetic_v<T>
 inline VectorT<T, N> VectorT<T, N>::normalized() const
 {
 	return VectorT(*this).normalize();
 }
 
-template <typename T, size_t N>
+template <typename T, size_t N> requires std::is_arithmetic_v<T>
 inline T VectorT<T, N>::dot(const VectorT& rhs) const
 {
 	T result = T();
@@ -68,40 +68,40 @@ inline T VectorT<T, N>::dot(const VectorT& rhs) const
 	return result;
 }
 
-template <typename T, size_t N>
+template <typename T, size_t N> requires std::is_arithmetic_v<T>
 inline VectorT<T, N> VectorT<T, N>::cross(const VectorT& rhs) const
 {
 	// FIXME
 	return VectorT<T, N>();
 }
 
-template <typename T, size_t N>
+template <typename T, size_t N> requires std::is_arithmetic_v<T>
 inline T* VectorT<T, N>::data()
 {
 	return v_;
 }
 
-template <typename T, size_t N>
+template <typename T, size_t N> requires std::is_arithmetic_v<T>
 inline const T* VectorT<T, N>::data() const
 {
 	return v_;
 }
 
-template <typename T, size_t N>
+template <typename T, size_t N> requires std::is_arithmetic_v<T>
 inline T& VectorT<T, N>::operator[](size_t index)
 {
 	assert(index < N);
 	return *(v_ + index);
 }
 
-template <typename T, size_t N>
+template <typename T, size_t N> requires std::is_arithmetic_v<T>
 inline const T& VectorT<T, N>::operator[](size_t index) const
 {
 	assert(index < N);
 	return *(v_ + index);
 }
 
-template <typename T, size_t N>
+template <typename T, size_t N> requires std::is_arithmetic_v<T>
 inline bool VectorT<T, N>::operator==(const VectorT<T, N>& rhs) const
 {
 	for(size_t i = 0; i < N; i++)
@@ -110,7 +110,7 @@ inline bool VectorT<T, N>::operator==(const VectorT<T, N>& rhs) const
 	return true;
 }
 
-template <typename T, size_t N>
+template <typename T, size_t N> requires std::is_arithmetic_v<T>
 inline VectorT<T, N>& VectorT<T, N>::operator+=(const VectorT<T, N>& rhs)
 {
 	for(size_t i = 0; i < N; i++)
@@ -118,7 +118,7 @@ inline VectorT<T, N>& VectorT<T, N>::operator+=(const VectorT<T, N>& rhs)
 	return *this;
 }
 
-template <typename T, size_t N>
+template <typename T, size_t N> requires std::is_arithmetic_v<T>
 inline VectorT<T, N>& VectorT<T, N>::operator-=(const VectorT<T, N>& rhs)
 {
 	for(size_t i = 0; i < N; i++)
@@ -126,7 +126,7 @@ inline VectorT<T, N>& VectorT<T, N>::operator-=(const VectorT<T, N>& rhs)
 	return *this;
 }
 
-template <typename T, size_t N>
+template <typename T, size_t N> requires std::is_arithmetic_v<T>
 inline VectorT<T, N>& VectorT<T, N>::operator*=(const T& rhs)
 {
 	for(size_t i = 0; i < N; i++)
@@ -134,7 +134,7 @@ inline VectorT<T, N>& VectorT<T, N>::operator*=(const T& rhs)
 	return *this;
 }
 
-template <typename T, size_t N>
+template <typename T, size_t N> requires std::is_arithmetic_v<T>
 inline VectorT<T, N>& VectorT<T, N>::operator/=(const T& rhs)
 {
 	assert(rhs);
@@ -143,7 +143,7 @@ inline VectorT<T, N>& VectorT<T, N>::operator/=(const T& rhs)
 	return *this;
 }
 
-template <typename T, size_t N>
+template <typename T, size_t N> requires std::is_arithmetic_v<T>
 inline VectorT<T, N> VectorT<T, N>::operator-() const
 {
 	VectorT result;

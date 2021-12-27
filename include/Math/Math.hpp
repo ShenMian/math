@@ -3,15 +3,14 @@
 
 #pragma once
 
-#include "Vector.hpp"
-#include "Vector2.hpp"
-#include "Vector3.hpp"
-#include "Vector4.hpp"
+#include "Vector/Vector.hpp"
+#include "Vector/Vector2.hpp"
+#include "Vector/Vector3.hpp"
+#include "Vector/Vector4.hpp"
 
-#include "Matrix.hpp"
+#include "Matrix/Matrix.hpp"
 
 #include "Quaternion.hpp"
-
 #include "AABB3.hpp"
 
 // Doxygen main page

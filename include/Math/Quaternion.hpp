@@ -3,8 +3,8 @@
 
 #pragma once
 
-#include "Vector3.hpp"
-#include "Matrix.hpp"
+#include "Vector/Vector3.hpp"
+#include "Matrix/Matrix.hpp"
 #include <type_traits>
 
 /**

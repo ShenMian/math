@@ -5,6 +5,7 @@
 
 #include <cstddef>
 #include <initializer_list>
+#include <type_traits>
 
 /**
  * @brief N 维向量.
@@ -12,7 +13,7 @@
  * @tparam T 数据类型.
  * @tparam N 维数.
  */
-template <typename T, size_t N>
+template <typename T, size_t N> requires std::is_arithmetic_v<T>
 class VectorT
 {
 public:

@@ -3,9 +3,10 @@
 
 #pragma once
 
-#include "Vector3.hpp"
+#include "Vector/Vector3.hpp"
 #include <cstddef>
 #include <iostream>
+#include <type_traits>
 
 /**
  * @brief 矩阵.
@@ -14,7 +15,7 @@
  * @tparam R 行数.
  * @tparam C 列数.
  */
-template <typename T, size_t R, size_t C>
+template <typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 class MatrixT
 {
 public:

@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include "Vector3.hpp"
+#include "Vector/Vector3.hpp"
 
 /**
  * @brief 3 维轴对齐包围盒.

@@ -3,33 +3,19 @@
 
 #pragma once
 
-#include "Vector3.hpp"
+#include "Vector.hpp"
 #include <cstddef>
+#include <cstdint>
 
 /**
- * @brief 三维向量.
+ * @brief 二维向量.
  */
-template <typename T>
-class VectorT<T, 4>
+template <typename T> requires std::is_arithmetic_v<T>
+class VectorT<T, 2>
 {
 public:
-	union
-	{
-		struct
-		{
-			T x;
-			T y;
-			T z;
-			T w;
-		};
-		struct
-		{
-			T r;
-			T g;
-			T b;
-			T a;
-		};
-	};
+	T x = T();
+	T y = T();
 
 	/**
 	 * @brief 默认构造函数.
@@ -46,27 +32,8 @@ public:
 	 *
 	 * @param x x 分量.
 	 * @param y y 分量.
-	 * @param z z 分量.
-	 * @param w w 分量.
 	 */
-	VectorT(const T& x, const T& y, const T& z, const T& w);
-
-	/**
-	 * @brief 构造函数.
-	 *
-	 * @param v 三维向量.
-	 * @param w w 分量.
-	 */
-	VectorT(const Vector3T<T>& v, const T& w);
-
-	/**
-	 * @brief 构造函数.
-	 *
-	 * @param v 二维向量.
-	 * @param z z 分量.
-	 * @param w w 分量.
-	 */
-	VectorT(const Vector2T<T>& v, const T& z, const T& w);
+	explicit VectorT(const T& x, const T& y);
 
 	/**
 	 * @brief 构造函数.
@@ -123,6 +90,39 @@ public:
 	VectorT cross(const VectorT& rhs) const;
 
 	/**
+	 * @brief 获取角度.
+	 *
+	 * @return 角度, 弧度制. 范围: [2π, -2π)
+	 */
+	T angle() const;
+
+	/**
+	 * @brief 围绕指定点旋转指定弧度.
+	 *
+	 * @param point 点.
+	 * @param angle 旋转角度, 弧度制.
+	 */
+	void rotate(const VectorT& point, float angle);
+
+	/**
+	 * @brief 获取两点之间的距离.
+	 *
+	 * @param point 另一个点.
+	 *
+	 * @see distanceSquared
+	 */
+	T distance(const VectorT& point) const;
+
+	/**
+	 * @brief 获取两点之间的距离的平方.
+	 *
+	 * @param point 另一个点.
+	 *
+	 * @see distance
+	 */
+	T distanceSquared(const VectorT& point) const;
+
+	/**
 	 * @brief 获取原始数据.
 	 */
 	T* data();
@@ -139,27 +139,31 @@ public:
 	VectorT  operator-() const;
 
 	template <typename C>
-	operator VectorT<C, 4>()
+	operator VectorT<C, 2>()
 	{
-		return VectorT<C, 4>(static_cast<C>(x), static_cast<C>(y), static_cast<C>(z), static_cast<C>(w));
+		return VectorT<C, 2>(static_cast<C>(x), static_cast<C>(y));
 	}
 
-	static const size_t components = 4;
+	static const size_t components = 2;
 
-	static const VectorT unit;   // (1, 1, 1, 1)
-	static const VectorT unit_x; // (1, 0, 0, 0)
-	static const VectorT unit_y; // (0, 1, 0, 0)
-	static const VectorT unit_z; // (0, 0, 1, 0)
-	static const VectorT unit_w; // (0, 0, 0, 1)
-	static const VectorT zero;   // (0, 0, 0, 0)
+	static const VectorT unit;   // (1, 1)
+	static const VectorT unit_x; // (1, 0)
+	static const VectorT unit_y; // (0, 1)
+	static const VectorT zero;   // (0, 0)
+
+	static const VectorT up;    // (0, 1)
+	static const VectorT down;  // (0, -1)
+	static const VectorT right; // (1, 0)
+	static const VectorT left;  // (-1, 0)
 };
 
-#include "Vector4.inl"
+#include "Vector2.inl"
 
 template <typename T>
-using Vector4T = VectorT<T, 4>;
+using Vector2T = VectorT<T, 2>;
 
-using Vector4f = Vector4T<float>;
-using Vector4d = Vector4T<double>;
-using Vector4i = Vector4T<int32_t>;
-using Vector4 = Vector4f;
+using Vector2f = Vector2T<float>;
+using Vector2d = Vector2T<double>;
+using Vector2i = Vector2T<int32_t>;
+using Vector2 = Vector2f;
+using Size2 = Vector2T<size_t>;
