@@ -4,7 +4,6 @@ var class_vector_t_3_01_t_00_012_01_4 =
     [ "VectorT", "class_vector_t_3_01_t_00_012_01_4.html#ab120fb454880045047766b5e43cf8bf4", null ],
     [ "VectorT", "class_vector_t_3_01_t_00_012_01_4.html#a4e1c8f238de400a96d28ed85c761e6c1", null ],
     [ "VectorT", "class_vector_t_3_01_t_00_012_01_4.html#aa3e0a99ce6923ed7312e3a21be696c24", null ],
-    [ "VectorT", "class_vector_t_3_01_t_00_012_01_4.html#a052bbde7d938334eac34f12a5ca9a0c5", null ],
     [ "angle", "class_vector_t_3_01_t_00_012_01_4.html#a3cdc3a130ea03686c20620e4da408113", null ],
     [ "cross", "class_vector_t_3_01_t_00_012_01_4.html#ad9a490d7da4adf5756252ad646a2903e", null ],
     [ "data", "class_vector_t_3_01_t_00_012_01_4.html#a4904449d527b1ae226248f1cb84ed3f7", null ],
