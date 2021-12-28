@@ -20,8 +20,8 @@ TEST(Matrix, element)
 
 TEST(Matrix, trace)
 {
-	EXPECT_FLOAT_EQ(Matrix3().trace(), 3);
-	EXPECT_FLOAT_EQ(Matrix4().trace(), 4);
+	EXPECT_FLOAT_EQ((Matrixf<3, 3>().trace()), 3);
+	EXPECT_FLOAT_EQ((Matrixf<4, 4>().trace()), 4);
 	EXPECT_FLOAT_EQ((Matrixf<5, 5>().trace()), 5);
 }
 
@@ -29,8 +29,19 @@ TEST(Matrix, inverse)
 {
 }
 
-TEST(Matrix, transpost)
+TEST(Matrix, transpose)
 {
+	Matrix3f a = {
+		1, 2, 3,
+		4, 5, 6,
+		7, 8, 9
+	};
+	Matrix3f b = {
+		1, 4, 7,
+		2, 5, 8,
+		3, 6, 9
+	};
+	EXPECT_EQ(a.transpose(), b);
 }
 
 TEST(Matrix, determinant)

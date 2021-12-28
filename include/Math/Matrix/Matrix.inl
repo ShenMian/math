@@ -4,6 +4,7 @@
 #include "Matrix.hpp"
 #include "../Helper.hpp"
 #include "../Assert.hpp"
+#include <algorithm>
 
 template <typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline MatrixT<T, R, C>::MatrixT()
@@ -23,11 +24,27 @@ inline MatrixT<T, R, C>::MatrixT(const std::initializer_list<T>& list)
 			m_[r][c] = *it++;
 }
 
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline MatrixT<T, R, C>& MatrixT<T, R, C>::inverse()
+{
+	// TODO
+	return *this;
+}
+
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline MatrixT<T, R, C> MatrixT<T, R, C>::inversed() const
+{
+	return MatrixT(*this).inverse();
+}
+
 template <typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline MatrixT<T, R, C>& MatrixT<T, R, C>::transpose()
 {
 	static_assert(R == C, "only square matrix supports this operation");
 
+	for(size_t r = 0; r < rows(); r++)
+		for(size_t c = r; c < cols(); c++)
+			std::swap(m_[r][c], m_[c][r]);
 	return *this;
 }
 
@@ -50,6 +67,7 @@ inline T MatrixT<T, R, C>::trace() const
 template <typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline void MatrixT<T, R, C>::decompose(Vector3T<T>* translation, Vector3T<T>* rotation, Vector3T<T>* scale) const
 {
+	// TODO
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
@@ -135,13 +153,13 @@ inline constexpr MatrixT<T, R, C>& MatrixT<T, R, C>::operator-=(const MatrixT& r
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline MatrixT<T, R, C>& MatrixT<T, R, C>::operator*=(const MatrixT& rhs)
 {
-	// TODO: 在此处插入 return 语句
+	// TODO
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline MatrixT<T, R, C>& MatrixT<T, R, C>::operator/=(const MatrixT& rhs)
 {
-	// TODO: 在此处插入 return 语句
+	// TODO
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
@@ -184,16 +202,20 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::perspective(float yFOV, float aspect, 
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
-inline MatrixT<T, R, C> MatrixT<T, R, C>::lookAt(const Vector3T<T>& eye, const Vector3T<T>& center, const Vector3T<T>& up)
+inline MatrixT<T, R, C> MatrixT<T, R, C>::orthogonal(float w, float h, float n, float f)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
+
+	// TODO
 	return MatrixT();
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
-inline MatrixT<T, R, C> MatrixT<T, R, C>::orthogonal(float w, float h, float n, float f)
+inline MatrixT<T, R, C> MatrixT<T, R, C>::lookAt(const Vector3T<T>& eye, const Vector3T<T>& center, const Vector3T<T>& up)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
+
+	// TODO
 	return MatrixT();
 }
 
