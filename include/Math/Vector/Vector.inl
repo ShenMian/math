@@ -65,7 +65,7 @@ inline constexpr T VectorT<T, N>::dot(const VectorT& rhs) const
 template <typename T, size_t N> requires std::is_arithmetic_v<T>
 inline constexpr VectorT<T, N> VectorT<T, N>::cross(const VectorT& rhs) const
 {
-	// FIXME
+	// TODO
 	return VectorT<T, N>();
 }
 

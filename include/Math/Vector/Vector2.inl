@@ -92,7 +92,7 @@ inline T VectorT<T, 2>::dot(const VectorT& rhs) const
 template <typename T> requires std::is_arithmetic_v<T>
 inline VectorT<T, 2> VectorT<T, 2>::cross(const VectorT& rhs) const
 {
-	// FIXME
+	// TODO
 	return VectorT<T, 2>();
 }
 

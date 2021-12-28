@@ -35,11 +35,6 @@ public:
 	constexpr VectorT(const std::initializer_list<T>& list);
 
 	/**
-	 * @brief 拷贝构造函数.
-	 */
-	VectorT(const VectorT& rhs) = default;
-
-	/**
 	 * @brief 获取长度平方.
 	 *
 	 * @see size

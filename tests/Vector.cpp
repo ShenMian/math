@@ -4,6 +4,41 @@
 #include <Math/Math.hpp>
 #include <gtest/gtest.h>
 
+TEST(Vector, subscript)
+{
+	Vectorf<5> vec({1.f, 2.f, 3.f, 4.f, 5.f});
+	EXPECT_FLOAT_EQ(vec[0], 1.f);
+	EXPECT_FLOAT_EQ(vec[1], 2.f);
+	EXPECT_FLOAT_EQ(vec[2], 3.f);
+	EXPECT_FLOAT_EQ(vec[3], 4.f);
+	EXPECT_FLOAT_EQ(vec[4], 5.f);
+}
+
+TEST(Vector, normalize)
+{
+	EXPECT_FLOAT_EQ(Vectorf<5>({1.f, 2.f, 3.f, 4.f, 5.f}).normalize().size(), 1.f);
+	EXPECT_EQ(Vectorf<5>({2.f, 3.f, 4.f, 5.f, 6.f}).normalize(), Vectorf<5>({4.f, 6.f, 8.f, 10.f, 12.f}).normalize());
+}
+
+TEST(Vector, dot)
+{
+	Vectorf<5> vec({1.f, 2.f, 3.f, 4.f, 5.f});
+	EXPECT_FLOAT_EQ(vec.normalized().dot(vec.normalized()), 1.f);
+	EXPECT_FLOAT_EQ(vec.normalized().dot(-vec.normalized()), -1.f);
+}
+
+TEST(Vector, equal)
+{
+	Vectorf<5> vec({1.f, 2.f, 3.f, 4.f, 5.f});
+	EXPECT_EQ(vec, Vectorf<5>({1.f, 2.f, 3.f, 4.f, 5.f}));
+	EXPECT_NE(vec, Vectorf<5>({0.f, 2.f, 3.f, 4.f, 5.f}));
+	EXPECT_NE(vec, Vectorf<5>({1.f, 0.f, 3.f, 4.f, 5.f}));
+	EXPECT_NE(vec, Vectorf<5>({1.f, 2.f, 0.f, 4.f, 5.f}));
+	EXPECT_NE(vec, Vectorf<5>({1.f, 2.f, 3.f, 0.f, 5.f}));
+	EXPECT_NE(vec, Vectorf<5>({1.f, 2.f, 3.f, 4.f, 0.f}));
+}
+
+
 TEST(Vector2, subscript)
 {
 	Vector2 vec(1.f, 2.f);
@@ -133,39 +168,4 @@ TEST(Vector4, equal)
 	EXPECT_NE(vec, Vector4(1, 0, 3, 4));
 	EXPECT_NE(vec, Vector4(1, 2, 0, 4));
 	EXPECT_NE(vec, Vector4(1, 2, 3, 0));
-}
-
-
-TEST(Vector, subscript)
-{
-	Vectorf<5> vec({1.f, 2.f, 3.f, 4.f, 5.f});
-	EXPECT_FLOAT_EQ(vec[0], 1.f);
-	EXPECT_FLOAT_EQ(vec[1], 2.f);
-	EXPECT_FLOAT_EQ(vec[2], 3.f);
-	EXPECT_FLOAT_EQ(vec[3], 4.f);
-	EXPECT_FLOAT_EQ(vec[4], 5.f);
-}
-
-TEST(Vector, normalize)
-{
-	EXPECT_FLOAT_EQ(Vectorf<5>({1.f, 2.f, 3.f, 4.f, 5.f}).normalize().size(), 1.f);
-	EXPECT_EQ(Vectorf<5>({2.f, 3.f, 4.f, 5.f, 6.f}).normalize(), Vectorf<5>({4.f, 6.f, 8.f, 10.f, 12.f}).normalize());
-}
-
-TEST(Vector, dot)
-{
-	Vectorf<5> vec({1.f, 2.f, 3.f, 4.f, 5.f});
-	EXPECT_FLOAT_EQ(vec.normalized().dot(vec.normalized()), 1.f);
-	EXPECT_FLOAT_EQ(vec.normalized().dot(-vec.normalized()), -1.f);
-}
-
-TEST(Vector, equal)
-{
-	Vectorf<5> vec({1.f, 2.f, 3.f, 4.f, 5.f});
-	EXPECT_EQ(vec, Vectorf<5>({1.f, 2.f, 3.f, 4.f, 5.f}));
-	EXPECT_NE(vec, Vectorf<5>({0.f, 2.f, 3.f, 4.f, 5.f}));
-	EXPECT_NE(vec, Vectorf<5>({1.f, 0.f, 3.f, 4.f, 5.f}));
-	EXPECT_NE(vec, Vectorf<5>({1.f, 2.f, 0.f, 4.f, 5.f}));
-	EXPECT_NE(vec, Vectorf<5>({1.f, 2.f, 3.f, 0.f, 5.f}));
-	EXPECT_NE(vec, Vectorf<5>({1.f, 2.f, 3.f, 4.f, 0.f}));
 }
