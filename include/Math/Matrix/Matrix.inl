@@ -71,6 +71,13 @@ inline void MatrixT<T, R, C>::decompose(Vector3T<T>* translation, Vector3T<T>* r
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline MatrixT<T, R, C>& MatrixT<T, R, C>::recompose(const Vector3T<T>& translation, const Vector3T<T>& rotation, const Vector3T<T>& scale)
+{
+	// TODO
+	return *this;
+}
+
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline constexpr size_t MatrixT<T, R, C>::rows() const
 {
 	return rows_;
@@ -170,6 +177,30 @@ inline constexpr MatrixT<T, R, C> MatrixT<T, R, C>::operator-()
 		for(size_t c = 0; c < cols(); c++)
 			result[r][c] = -m_[r][c];
 	return result;
+}
+
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline constexpr MatrixT<T, R, C> MatrixT<T, R, C>::operator+(const MatrixT& rhs) const
+{
+	return MatrixT(*this) += rhs;
+}
+
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline constexpr MatrixT<T, R, C> MatrixT<T, R, C>::operator-(const MatrixT& rhs) const
+{
+	return MatrixT(*this) -= rhs;
+}
+
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline constexpr MatrixT<T, R, C> MatrixT<T, R, C>::operator*(const MatrixT& rhs) const
+{
+	return MatrixT(*this) *= rhs;
+}
+
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline constexpr MatrixT<T, R, C> MatrixT<T, R, C>::operator/(const MatrixT& rhs) const
+{
+	return MatrixT(*this) /= rhs;
 }
 
 template <typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>

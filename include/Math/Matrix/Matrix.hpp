@@ -100,6 +100,11 @@ public:
 	MatrixT& operator/=(const MatrixT&);
 	constexpr MatrixT  operator-();
 
+	constexpr MatrixT operator+(const MatrixT& rhs) const;
+	constexpr MatrixT operator-(const MatrixT& rhs) const;
+	constexpr MatrixT operator*(const MatrixT& rhs) const;
+	constexpr MatrixT operator/(const MatrixT& rhs) const;
+
 	template <typename T0>
 	operator MatrixT<T0, R, C>()
 	{
@@ -116,7 +121,7 @@ public:
 		{
 			for(size_t c = 0; c < C; c++)
 				stream << mat[r][c] << ' ';
-			stream << std::endl;
+			stream << '\n';
 		}
 		return stream;
 	}

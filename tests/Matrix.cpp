@@ -47,3 +47,39 @@ TEST(Matrix, transpose)
 TEST(Matrix, determinant)
 {
 }
+
+TEST(Matrix, addition)
+{
+	Matrix2d a = {
+		1, 2,
+		3, 4
+	};
+	Matrix2d b = {
+		2, 3,
+		1, 4
+	};
+
+	Matrix2d c = {
+		3, 5,
+		4, 8
+	};
+	EXPECT_EQ(a + b, c);
+}
+
+TEST(Matrix, subtraction)
+{
+	Matrix2d a = {
+		1, 2,
+		3, 4
+	};
+	Matrix2d b = {
+		2, 3,
+		1, 4
+	};
+
+	Matrix2d c = {
+		-1, -1,
+		2, 0
+	};
+	EXPECT_EQ(a - b, c);
+}
