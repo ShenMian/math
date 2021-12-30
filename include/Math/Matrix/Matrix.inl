@@ -170,6 +170,24 @@ inline MatrixT<T, R, C>& MatrixT<T, R, C>::operator/=(const MatrixT& rhs)
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline constexpr MatrixT<T, R, C>& MatrixT<T, R, C>::operator*=(const T& v)
+{
+	for(size_t r = 0; r < rows(); r++)
+		for(size_t c = 0; c < cols(); c++)
+			m_[r][c] *= v;
+	return *this;
+}
+
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline constexpr MatrixT<T, R, C>& MatrixT<T, R, C>::operator/=(const T& v)
+{
+	for(size_t r = 0; r < rows(); r++)
+		for(size_t c = 0; c < cols(); c++)
+			m_[r][c] /= v;
+	return *this;
+}
+
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline constexpr MatrixT<T, R, C> MatrixT<T, R, C>::operator-()
 {
 	MatrixT result;
@@ -177,30 +195,6 @@ inline constexpr MatrixT<T, R, C> MatrixT<T, R, C>::operator-()
 		for(size_t c = 0; c < cols(); c++)
 			result[r][c] = -m_[r][c];
 	return result;
-}
-
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
-inline constexpr MatrixT<T, R, C> MatrixT<T, R, C>::operator+(const MatrixT& rhs) const
-{
-	return MatrixT(*this) += rhs;
-}
-
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
-inline constexpr MatrixT<T, R, C> MatrixT<T, R, C>::operator-(const MatrixT& rhs) const
-{
-	return MatrixT(*this) -= rhs;
-}
-
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
-inline constexpr MatrixT<T, R, C> MatrixT<T, R, C>::operator*(const MatrixT& rhs) const
-{
-	return MatrixT(*this) *= rhs;
-}
-
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
-inline constexpr MatrixT<T, R, C> MatrixT<T, R, C>::operator/(const MatrixT& rhs) const
-{
-	return MatrixT(*this) /= rhs;
 }
 
 template <typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>

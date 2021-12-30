@@ -98,12 +98,9 @@ public:
 	constexpr MatrixT& operator-=(const MatrixT&);
 	MatrixT& operator*=(const MatrixT&);
 	MatrixT& operator/=(const MatrixT&);
+	constexpr MatrixT& operator*=(const T&);
+	constexpr MatrixT& operator/=(const T&);
 	constexpr MatrixT  operator-();
-
-	constexpr MatrixT operator+(const MatrixT& rhs) const;
-	constexpr MatrixT operator-(const MatrixT& rhs) const;
-	constexpr MatrixT operator*(const MatrixT& rhs) const;
-	constexpr MatrixT operator/(const MatrixT& rhs) const;
 
 	template <typename T0>
 	operator MatrixT<T0, R, C>()
@@ -211,6 +208,54 @@ DEF_MATRIX_NxN(3);
 DEF_MATRIX_NxN(4);
 
 #undef DEF_MATRIX_NxN
+
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline constexpr MatrixT<T, R, C> operator+(const MatrixT<T, R, C>& lhs, const MatrixT<T, R, C>& rhs)
+{
+	return MatrixT(lhs) += rhs;
+}
+
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline constexpr MatrixT<T, R, C> operator-(const MatrixT<T, R, C>& lhs, const MatrixT<T, R, C>& rhs)
+{
+	return MatrixT(lhs) -= rhs;
+}
+
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline constexpr MatrixT<T, R, C> operator*(const MatrixT<T, R, C>& lhs, const MatrixT<T, R, C>& rhs)
+{
+	return MatrixT(lhs) *= rhs;
+}
+
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline constexpr MatrixT<T, R, C> operator/(const MatrixT<T, R, C>& lhs, const MatrixT<T, R, C>& rhs)
+{
+	return MatrixT(lhs) /= rhs;
+}
+
+template <typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+MatrixT<T, R, C> constexpr operator*(const MatrixT<T, R, C>& lhs, const T& rhs)
+{
+	return MatrixT(lhs) *= rhs;
+}
+
+template <typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+MatrixT<T, R, C> constexpr operator/(const MatrixT<T, R, C>& lhs, const T& rhs)
+{
+	return MatrixT(lhs) /= rhs;
+}
+
+template <typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+MatrixT<T, R, C> constexpr operator*(const T& lhs, const MatrixT<T, R, C>& rhs)
+{
+	return rhs * lhs;
+}
+
+template <typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+MatrixT<T, R, C> constexpr operator/(const T& lhs, const MatrixT<T, R, C>& rhs)
+{
+	return rhs / lhs;
+}
 
 /**
  * @class MatrixT

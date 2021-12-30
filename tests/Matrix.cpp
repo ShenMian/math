@@ -83,3 +83,29 @@ TEST(Matrix, subtraction)
 	};
 	EXPECT_EQ(a - b, c);
 }
+
+TEST(Matrix, multiplication)
+{
+	Matrix2f a = {
+		1, 2,
+		3, 4
+	};
+	Matrix2f b = {
+		2.5, 5,
+		7.5, 10
+	};
+	EXPECT_EQ(2.5f * a, b);
+}
+
+TEST(Matrix, division)
+{
+	Matrix2f a = {
+		1, 2,
+		3, 4
+	};
+	Matrix2f b = {
+		0.5, 1,
+		1.5, 2
+	};
+	EXPECT_EQ(a / 2.f, b);
+}
