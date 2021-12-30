@@ -6,6 +6,7 @@
 #include <cstddef>
 #include <initializer_list>
 #include <type_traits>
+#include <iostream>
 
 /**
  * @brief N 维向量.
@@ -99,6 +100,13 @@ public:
 		for(size_t i = 0; i < N; i++)
 			result[i] = static_cast<C>(v_[i]);
 		return result;
+	}
+
+	friend std::ostream& operator<<(std::ostream& stream, const VectorT& vec)
+	{
+		for(size_t i = 0; i < N; i++)
+			stream << vec[i] << ' ';
+		return stream;
 	}
 
 	static constexpr size_t components = N;
