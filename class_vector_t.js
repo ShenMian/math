@@ -19,5 +19,6 @@ var class_vector_t =
     [ "operator[]", "class_vector_t.html#aaf1d1214735fd036dc299f590fcae05c", null ],
     [ "operator[]", "class_vector_t.html#aee3eb0a96e49595345262735b3f4f117", null ],
     [ "size", "class_vector_t.html#ae7ec3e8eaaf1fb90e3431412b51f36f5", null ],
-    [ "sizeSquared", "class_vector_t.html#aa6a4645c1ce780f1f54d8aaf013588b1", null ]
+    [ "sizeSquared", "class_vector_t.html#aa6a4645c1ce780f1f54d8aaf013588b1", null ],
+    [ "operator<<", "class_vector_t.html#a9fbfa15bf5cd957004d918ef0d6a95f9", null ]
 ];
