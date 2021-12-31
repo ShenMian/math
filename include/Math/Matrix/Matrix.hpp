@@ -212,6 +212,11 @@ public:
 	 */
 	static MatrixT identity();
 
+	/**
+	 * @brief 获取零矩阵.
+	 */
+	static MatrixT zero();
+
 private:
 	T m_[R][C] = {};
 

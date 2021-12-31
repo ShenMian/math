@@ -282,7 +282,7 @@ inline MatrixT<T, 4, 4> MatrixT<T, R, C>::orthographic(float l, float r, float b
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 	assert(!equal(l, r) && !equal(b, t) && !equal(n, f));
 
-	MatrixT<T, 4, 4> mat(0.f);
+	MatrixT<T, 4, 4> mat;
 	mat[0][0] = 2 / (r - l);
 	mat[1][1] = 2 / (t - b);
 	mat[2][2] = 2 / (n - f);
@@ -308,4 +308,19 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::identity()
 	static_assert(R == C, "only square matrix supports this operation");
 	static MatrixT mat;
 	return mat;
+}
+
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline MatrixT<T, R, C> MatrixT<T, R, C>::zero()
+{
+	if constexpr(R == C)
+	{
+		MatrixT mat;
+		for(size_t r = 0; r < R; r++)
+			for(size_t c = 0; c < C; c++)
+				mat[r][c] = T(0);
+		return mat;
+	}
+	else
+		return MatrixT();
 }

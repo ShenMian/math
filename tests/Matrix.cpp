@@ -158,6 +158,30 @@ TEST(Matrix, division)
 	EXPECT_EQ(a / 2.f, b);
 }
 
+TEST(Matrix, identity)
+{
+	Matrix2f a = {
+		1, 0,
+		0, 1
+	};
+	EXPECT_EQ(Matrix2f::identity(), a);
+}
+
+TEST(Matrix, zero)
+{
+	Matrix2f a = {
+		0, 0,
+		0, 0
+	};
+	Matrixf<3, 4> b = {
+		0, 0, 0, 0,
+		0, 0, 0, 0,
+		0, 0, 0, 0
+	};
+	EXPECT_EQ(Matrix2f::zero(), a);
+	EXPECT_EQ((Matrixf<3, 4>::zero()), b);
+}
+
 TEST(Matrix, io)
 {
 	Matrix2f a = {
