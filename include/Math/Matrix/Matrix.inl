@@ -258,7 +258,7 @@ inline MatrixT<T, 4, 4> MatrixT<T, R, C>::perspective(float yFOV, float aspect, 
 
 	const float tanHalfFOV = std::tan(yFOV / 2.f);
 
-	MatrixT mat;
+	MatrixT<T, 4, 4> mat;
 	mat[0][0] = 1.f / (aspect * tanHalfFOV);
 	mat[1][1] = 1.f / tanHalfFOV;
 	mat[2][2] = f / (f - n);
@@ -283,13 +283,13 @@ inline MatrixT<T, 4, 4> MatrixT<T, R, C>::orthographic(float l, float r, float b
 	assert(!equal(l, r) && !equal(b, t) && !equal(n, f));
 
 	MatrixT<T, 4, 4> mat(0.f);
-	mat.m[0][0] = 2 / (r - l);
-	mat.m[1][1] = 2 / (t - b);
-	mat.m[2][2] = 2 / (n - f);
-	mat.m[3][0] = (l + r) / (l - r);
-	mat.m[3][1] = (t + b) / (b - t);
-	mat.m[3][2] = (n + f) / (n - f);
-	mat.m[3][3] = 1;
+	mat[0][0] = 2 / (r - l);
+	mat[1][1] = 2 / (t - b);
+	mat[2][2] = 2 / (n - f);
+	mat[3][0] = (l + r) / (l - r);
+	mat[3][1] = (t + b) / (b - t);
+	mat[3][2] = (n + f) / (n - f);
+	mat[3][3] = 1;
 	return mat;
 }
 
