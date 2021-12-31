@@ -250,7 +250,7 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::translate(const Vector3T<T>& v)
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
-inline MatrixT<T, R, C> MatrixT<T, R, C>::perspective(float yFOV, float aspect, float n, float f)
+inline MatrixT<T, 4, 4> MatrixT<T, R, C>::perspective(float yFOV, float aspect, float n, float f)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 	assert(!equal(aspect, 0.f));
@@ -268,21 +268,38 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::perspective(float yFOV, float aspect, 
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
-inline MatrixT<T, R, C> MatrixT<T, R, C>::orthogonal(float w, float h, float n, float f)
+inline MatrixT<T, 4, 4> MatrixT<T, R, C>::orthogonal(float w, float h, float n, float f)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
+	assert(!equal(h, 0.f) && !equal(h, 0.f) && !equal(n, f));
 
-	// TODO
-	return MatrixT();
+	return orthographic(-w / 2, w / 2, -h / 2, h / 2, n, f);
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
-inline MatrixT<T, R, C> MatrixT<T, R, C>::lookAt(const Vector3T<T>& eye, const Vector3T<T>& center, const Vector3T<T>& up)
+inline MatrixT<T, 4, 4> MatrixT<T, R, C>::orthographic(float l, float r, float b, float t, float n, float f)
+{
+	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
+	assert(!equal(l, r) && !equal(b, t) && !equal(n, f));
+
+	MatrixT<T, 4, 4> mat(0.f);
+	mat.m[0][0] = 2 / (r - l);
+	mat.m[1][1] = 2 / (t - b);
+	mat.m[2][2] = 2 / (n - f);
+	mat.m[3][0] = (l + r) / (l - r);
+	mat.m[3][1] = (t + b) / (b - t);
+	mat.m[3][2] = (n + f) / (n - f);
+	mat.m[3][3] = 1;
+	return mat;
+}
+
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline MatrixT<T, 4, 4> MatrixT<T, R, C>::lookAt(const Vector3T<T>& eye, const Vector3T<T>& center, const Vector3T<T>& up)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 
 	// TODO
-	return MatrixT();
+	return MatrixT<T, 4, 4>();
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>

@@ -173,7 +173,7 @@ public:
 	 * @param near   近裁剪面.
 	 * @param far    远裁剪面.
 	 */
-	static MatrixT perspective(float vFOV, float aspect, float near, float far);
+	static MatrixT<T, 4, 4> perspective(float vFOV, float aspect, float near, float far);
 
 	/**
 	 * @brief 生成正交投影矩阵.
@@ -183,7 +183,20 @@ public:
 	 * @param near   近裁剪面.
 	 * @param far    远裁剪面.
 	 */
-	static MatrixT orthogonal(float width, float height, float near, float far);
+	static MatrixT<T, 4, 4> orthogonal(float width, float height, float near, float far);
+
+	/**
+	 * @brief 生成正交投影矩阵.
+	 *
+	 * @param left   左平面.
+	 * @param right  右平面.
+	 * @param bottom 底面.
+	 * @param top    顶面.
+	 * @param near   近裁剪面.
+	 * @param far    远裁剪面.
+	 */
+	static MatrixT<T, 4, 4> orthographic(float left, float right, float bottom, float top,
+		float near, float far);
 
 	/**
 	 * @brief 生成视图矩阵.
@@ -192,7 +205,7 @@ public:
 	 * @param target 目标的位置.
 	 * @param up     观察者向上的方向.
 	 */
-	static MatrixT lookAt(const Vector3T<T>& eye, const Vector3T<T>& target, const Vector3T<T>& up = Vector3T<T>::up);
+	static MatrixT<T, 4, 4> lookAt(const Vector3T<T>& eye, const Vector3T<T>& target, const Vector3T<T>& up = Vector3T<T>::up);
 
 	/**
 	 * @brief 获取单位矩阵.
