@@ -44,7 +44,8 @@ var menudata={children:[
 {text:"r",url:"functions.html#index_r"},
 {text:"s",url:"functions.html#index_s"},
 {text:"t",url:"functions.html#index_t"},
-{text:"v",url:"functions.html#index_v"}]},
+{text:"v",url:"functions.html#index_v"},
+{text:"z",url:"functions.html#index_z"}]},
 {text:"函数",url:"functions_func.html",children:[
 {text:"a",url:"functions_func.html#index_a"},
 {text:"c",url:"functions_func.html#index_c"},
@@ -61,7 +62,8 @@ var menudata={children:[
 {text:"r",url:"functions_func.html#index_r"},
 {text:"s",url:"functions_func.html#index_s"},
 {text:"t",url:"functions_func.html#index_t"},
-{text:"v",url:"functions_func.html#index_v"}]},
+{text:"v",url:"functions_func.html#index_v"},
+{text:"z",url:"functions_func.html#index_z"}]},
 {text:"变量",url:"functions_vars.html"}]}]},
 {text:"文件",url:"files.html",children:[
 {text:"文件列表",url:"files.html"}]}]}
