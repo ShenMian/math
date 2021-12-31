@@ -258,7 +258,7 @@ inline MatrixT<T, 4, 4> MatrixT<T, R, C>::perspective(float yFOV, float aspect, 
 
 	const float tanHalfFOV = std::tan(yFOV / 2.f);
 
-	MatrixT<T, 4, 4> mat;
+	auto mat = MatrixT<T, 4, 4>::zero();
 	mat[0][0] = 1.f / (aspect * tanHalfFOV);
 	mat[1][1] = 1.f / tanHalfFOV;
 	mat[2][2] = f / (f - n);
@@ -282,7 +282,7 @@ inline MatrixT<T, 4, 4> MatrixT<T, R, C>::orthographic(float l, float r, float b
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 	assert(!equal(l, r) && !equal(b, t) && !equal(n, f));
 
-	MatrixT<T, 4, 4> mat;
+	auto mat = MatrixT<T, 4, 4>::zero();
 	mat[0][0] = 2 / (r - l);
 	mat[1][1] = 2 / (t - b);
 	mat[2][2] = 2 / (n - f);
@@ -298,8 +298,27 @@ inline MatrixT<T, 4, 4> MatrixT<T, R, C>::lookAt(const Vector3T<T>& eye, const V
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 
-	// TODO
-	return MatrixT<T, 4, 4>();
+	Vector3f f(center - eye);
+	Vector3f s(f.cross(up));
+	Vector3f  u(s.cross(f));
+	f.normalize();
+	s.normalize();
+	u.normalize();
+
+	auto mat = MatrixT<T, 4, 4>::identity();
+	mat[0][0] = s.x;
+	mat[1][0] = s.y;
+	mat[2][0] = s.z;
+	mat[0][1] = u.x;
+	mat[1][1] = u.y;
+	mat[2][1] = u.z;
+	mat[0][2] = -f.x;
+	mat[1][2] = -f.y;
+	mat[2][2] = -f.z;
+	mat[3][0] = -s.dot(eye);
+	mat[3][1] = -u.dot(eye);
+	mat[3][2] = f.dot(eye);
+	return mat;
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>

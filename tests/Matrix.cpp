@@ -158,6 +158,18 @@ TEST(Matrix, division)
 	EXPECT_EQ(a / 2.f, b);
 }
 
+TEST(Matrix, perspective)
+{
+}
+
+TEST(Matrix, orthographic)
+{
+}
+
+TEST(Matrix, lookAt)
+{
+}
+
 TEST(Matrix, identity)
 {
 	Matrix2f a = {
