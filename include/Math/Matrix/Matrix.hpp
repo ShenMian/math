@@ -59,7 +59,27 @@ public:
 	/**
 	 * @brief 求迹.
 	 */
-	T trace() const;
+	constexpr T trace() const;
+
+	/**
+	 * @brief 获取所有元素之和.
+	 */
+	constexpr T sum() const;
+
+	/**
+	 * @brief 获取最小元素的值.
+	 */
+	constexpr T minCoeff() const;
+
+	/**
+	 * @brief 获取最大元素的值.
+	 */
+	constexpr T maxCoeff() const;
+	
+	/**
+	 * @brief 获取主对角线.
+	 */
+	constexpr const VectorT<T, R> diagonal() const;
 
 	/**
 	 * @brief 分解.
@@ -116,9 +136,9 @@ public:
 	{
 		for(size_t r = 0; r < R; r++)
 		{
-			for(size_t c = 0; c < C; c++)
+			for(size_t c = 0; c < C - 1; c++)
 				stream << mat[r][c] << ' ';
-			stream << '\n';
+			stream << mat[r][C - 1] << '\n';
 		}
 		return stream;
 	}

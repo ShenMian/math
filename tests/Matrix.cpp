@@ -6,23 +6,16 @@
 
 TEST(Matrix, element)
 {
-	Matrix2f m;
-	m(0, 0) = 3;
-	m(1, 0) = 2.5;
-	m(0, 1) = -1;
-	m(1, 1) = m(1, 0) + m(0, 1);
-	EXPECT_EQ(m, Matrix2f({3, -1, 2.5, 1.5}));
-	EXPECT_FLOAT_EQ(m(0, 0), 3.f);
-	EXPECT_FLOAT_EQ(m(0, 1), -1.f);
-	EXPECT_FLOAT_EQ(m(1, 0), 2.5f);
-	EXPECT_FLOAT_EQ(m(1, 1), 1.5f);
-}
-
-TEST(Matrix, trace)
-{
-	EXPECT_FLOAT_EQ((Matrixf<3, 3>().trace()), 3);
-	EXPECT_FLOAT_EQ((Matrixf<4, 4>().trace()), 4);
-	EXPECT_FLOAT_EQ((Matrixf<5, 5>().trace()), 5);
+	Matrix2f a;
+	a(0, 0) = 3;
+	a(1, 0) = 2.5;
+	a(0, 1) = -1;
+	a(1, 1) = a(1, 0) + a(0, 1);
+	EXPECT_EQ(a, Matrix2f({3, -1, 2.5, 1.5}));
+	EXPECT_FLOAT_EQ(a(0, 0), 3.f);
+	EXPECT_FLOAT_EQ(a(0, 1), -1.f);
+	EXPECT_FLOAT_EQ(a(1, 0), 2.5f);
+	EXPECT_FLOAT_EQ(a(1, 1), 1.5f);
 }
 
 TEST(Matrix, inverse)
@@ -46,6 +39,49 @@ TEST(Matrix, transpose)
 
 TEST(Matrix, determinant)
 {
+}
+
+TEST(Matrix, trace)
+{
+	EXPECT_FLOAT_EQ((Matrixf<3, 3>().trace()), 3);
+	EXPECT_FLOAT_EQ((Matrixf<4, 4>().trace()), 4);
+	EXPECT_FLOAT_EQ((Matrixf<5, 5>().trace()), 5);
+}
+
+TEST(Matrix, sum)
+{
+	Matrix2f a = {
+		1, 2,
+		3, 4
+	};
+	EXPECT_FLOAT_EQ(a.sum(), 10.f);
+}
+
+TEST(Matrix, minCoeff)
+{
+	Matrix2f a = {
+		1, 2,
+		3, 4
+	};
+	EXPECT_FLOAT_EQ(a.minCoeff(), 1.f);
+}
+
+TEST(Matrix, maxCoeff)
+{
+	Matrix2f a = {
+		1, 2,
+		3, 4
+	};
+	EXPECT_FLOAT_EQ(a.maxCoeff(), 4.f);
+}
+
+TEST(Matrix, diagonal)
+{
+	Matrix2f a = {
+		1, 2,
+		3, 4
+	};
+	EXPECT_EQ(a.diagonal(), Vector2f(1, 4));
 }
 
 TEST(Matrix, addition)
@@ -90,11 +126,23 @@ TEST(Matrix, multiplication)
 		1, 2,
 		3, 4
 	};
-	Matrix2f b = {
-		2.5, 5,
-		7.5, 10
-	};
-	EXPECT_EQ(2.5f * a, b);
+
+	{
+		Matrix2f b = {
+			2.5, 5,
+			7.5, 10
+		};
+		EXPECT_EQ(2.5f * a, b);
+	}
+	/*
+	{
+		Matrix2f b = {
+			7, 10,
+			15, 22
+		};
+		EXPECT_EQ(a * a, b);
+	}
+	*/
 }
 
 TEST(Matrix, division)
@@ -108,4 +156,16 @@ TEST(Matrix, division)
 		1.5, 2
 	};
 	EXPECT_EQ(a / 2.f, b);
+}
+
+TEST(Matrix, io)
+{
+	Matrix2f a = {
+		1, 2,
+		3, 4
+	};
+
+	std::ostringstream stream;
+	stream << a;
+	EXPECT_EQ(stream.str(), "1 2\n3 4\n");
 }

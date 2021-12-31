@@ -55,12 +55,51 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::transposed() const
 }
 
 template <typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
-inline T MatrixT<T, R, C>::trace() const
+inline constexpr T MatrixT<T, R, C>::trace() const
 {
 	static_assert(R == C, "only square matrix supports this operation");
+	return diagonal().sum();
+}
+
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline constexpr T MatrixT<T, R, C>::sum() const
+{
 	T result = T(0);
 	for(size_t r = 0; r < rows(); r++)
-		result += m_[r][r];
+		for(size_t c = 0; c < cols(); c++)
+			result += m_[r][c];
+	return result;
+}
+
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline constexpr T MatrixT<T, R, C>::minCoeff() const
+{
+	T min = std::numeric_limits<T>::max();
+	for(size_t r = 0; r < rows(); r++)
+		for(size_t c = 0; c < cols(); c++)
+			if(m_[r][c] < min)
+				min = m_[r][c];
+	return min;
+}
+
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline constexpr T MatrixT<T, R, C>::maxCoeff() const
+{
+	T max = std::numeric_limits<T>::min();
+	for(size_t r = 0; r < rows(); r++)
+		for(size_t c = 0; c < cols(); c++)
+			if(m_[r][c] > max)
+				max = m_[r][c];
+	return max;
+}
+
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline constexpr const VectorT<T, R> MatrixT<T, R, C>::diagonal() const
+{
+	static_assert(R == C, "only square matrix supports this operation");
+	VectorT<T, R> result;
+	for(size_t n = 0; n < rows(); n++)
+		result[n] = m_[n][n];
 	return result;
 }
 
@@ -161,12 +200,14 @@ template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline MatrixT<T, R, C>& MatrixT<T, R, C>::operator*=(const MatrixT& rhs)
 {
 	// TODO
+	return *this;
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline MatrixT<T, R, C>& MatrixT<T, R, C>::operator/=(const MatrixT& rhs)
 {
 	// TODO
+	return *this;
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
