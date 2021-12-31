@@ -162,8 +162,8 @@ public:
 	static const VectorT down;  // (0,  -1, 0)
 	static const VectorT right; // (1,  0,  0)
 	static const VectorT left;  // (-1, 0,  0)
-	static const VectorT front; // (0,  0,  -1)
-	static const VectorT back;  // (0,  0,  1)
+	static const VectorT front; // (0,  0,  1)
+	static const VectorT back;  // (0,  0,  -1)
 };
 
 #include "Vector3.inl"

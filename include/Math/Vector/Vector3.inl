@@ -33,10 +33,10 @@ template <typename T> requires std::is_arithmetic_v<T>
 inline const VectorT<T, 3> VectorT<T, 3>::left(-1, 0, 0);
 
 template <typename T> requires std::is_arithmetic_v<T>
-inline const VectorT<T, 3> VectorT<T, 3>::front(0, 0, -1);
+inline const VectorT<T, 3> VectorT<T, 3>::front(0, 0, 1);
 
 template <typename T> requires std::is_arithmetic_v<T>
-inline const VectorT<T, 3> VectorT<T, 3>::back(0, 0, 1);
+inline const VectorT<T, 3> VectorT<T, 3>::back(0, 0, -1);
 
 template <typename T> requires std::is_arithmetic_v<T>
 inline VectorT<T, 3>::VectorT()
