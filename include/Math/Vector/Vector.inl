@@ -7,6 +7,7 @@
 #include <cmath>
 #include <concepts>
 #include <ranges>
+#include "Vector.hpp"
 
 template <typename T, size_t N> requires std::is_arithmetic_v<T>
 inline constexpr VectorT<T, N>::VectorT(const T& scalar)
@@ -24,7 +25,13 @@ inline constexpr VectorT<T, N>::VectorT(const std::initializer_list<T>& list)
 }
 
 template <typename T, size_t N> requires std::is_arithmetic_v<T>
-inline constexpr T VectorT<T, N>::sizeSquared() const
+inline T VectorT<T, N>::norm() const
+{
+	return static_cast<T>(std::sqrt(normSquared()));
+}
+
+template <typename T, size_t N> requires std::is_arithmetic_v<T>
+inline constexpr T VectorT<T, N>::normSquared() const
 {
 	T result = T();
 	for(size_t i = 0; i < N; i++)
@@ -33,15 +40,9 @@ inline constexpr T VectorT<T, N>::sizeSquared() const
 }
 
 template <typename T, size_t N> requires std::is_arithmetic_v<T>
-inline T VectorT<T, N>::size() const
-{
-	return static_cast<T>(std::sqrt(sizeSquared()));
-}
-
-template <typename T, size_t N> requires std::is_arithmetic_v<T>
 inline VectorT<T, N>& VectorT<T, N>::normalize()
 {
-	const auto len = size();
+	const auto len = norm();
 	if(len < std::numeric_limits<T>::epsilon())
 		return *this;
 	return *this *= 1.f / len;
@@ -67,6 +68,15 @@ inline constexpr VectorT<T, N> VectorT<T, N>::cross(const VectorT& rhs) const
 {
 	// TODO
 	return VectorT<T, N>();
+}
+
+template<typename T, size_t N> requires std::is_arithmetic_v<T>
+inline constexpr T VectorT<T, N>::sum() const
+{
+	T sum = T(0);
+	for(size_t i = 0; i < N; i++)
+		sum += v_[i];
+	return sum;
 }
 
 template <typename T, size_t N> requires std::is_arithmetic_v<T>

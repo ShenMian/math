@@ -65,21 +65,21 @@ inline constexpr VectorT<T, 4>::VectorT(const std::initializer_list<T>& list)
 }
 
 template <typename T> requires std::is_arithmetic_v<T>
-inline constexpr T VectorT<T, 4>::sizeSquared() const
+inline T VectorT<T, 4>::norm() const
+{
+	return static_cast<T>(std::sqrt(normSquared()));
+}
+
+template <typename T> requires std::is_arithmetic_v<T>
+inline constexpr T VectorT<T, 4>::normSquared() const
 {
 	return x * x + y * y + z * z + w * w;
 }
 
 template <typename T> requires std::is_arithmetic_v<T>
-inline T VectorT<T, 4>::size() const
-{
-	return static_cast<T>(std::sqrt(sizeSquared()));
-}
-
-template <typename T> requires std::is_arithmetic_v<T>
 inline VectorT<T, 4>& VectorT<T, 4>::normalize()
 {
-	const auto len = size();
+	const auto len = norm();
 	if(len < std::numeric_limits<T>::epsilon())
 		return *this;
 	return *this *= 1.f / len;
@@ -102,6 +102,17 @@ inline constexpr VectorT<T, 4> VectorT<T, 4>::cross(const VectorT& rhs) const
 {
 	// TODO
 	return VectorT<T, 4>();
+}
+
+template <typename T> requires std::is_arithmetic_v<T>
+inline constexpr T VectorT<T, 4>::sum() const
+{
+	T sum = T(0);
+	sum += x;
+	sum += y;
+	sum += z;
+	sum += w;
+	return sum;
 }
 
 template <typename T> requires std::is_arithmetic_v<T>

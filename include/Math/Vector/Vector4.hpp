@@ -76,18 +76,18 @@ public:
 	constexpr VectorT(const std::initializer_list<T>& list);
 
 	/**
-	 * @brief 获取长度平方.
+	 * @brief 获取模.
 	 *
-	 * @see size
+	 * @see normSquared
 	 */
-	constexpr T sizeSquared() const;
+	T norm() const;
 
 	/**
-	 * @brief 获取长度.
+	 * @brief 获取模的平方.
 	 *
-	 * @see sizeSquared
+	 * @see norm
 	 */
-	T size() const;
+	constexpr T normSquared() const;
 
 	/**
 	 * @brief 标准化成单位向量.
@@ -116,6 +116,11 @@ public:
 	 * @param rhs 要叉乘的向量.
 	 */
 	constexpr VectorT cross(const VectorT& rhs) const;
+
+	/**
+	 * @brief 获取所有元素之和.
+	 */
+	constexpr T sum() const;
 
 	/**
 	 * @brief 获取原始数据.
