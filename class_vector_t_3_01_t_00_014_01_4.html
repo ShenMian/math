@@ -120,12 +120,12 @@ Public 成员函数</h2></td></tr>
 <tr class="memitem:a3265515fe20c3f3e467708028534828c"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector_t_3_01_t_00_014_01_4.html#a3265515fe20c3f3e467708028534828c">VectorT</a> (const std::initializer_list&lt; T &gt; &amp;list)</td></tr>
 <tr class="memdesc:a3265515fe20c3f3e467708028534828c"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数.  <a href="class_vector_t_3_01_t_00_014_01_4.html#a3265515fe20c3f3e467708028534828c">更多...</a><br /></td></tr>
 <tr class="separator:a3265515fe20c3f3e467708028534828c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a462950c3bfe1c87d3921746746d596bc"><td class="memItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector_t_3_01_t_00_014_01_4.html#a462950c3bfe1c87d3921746746d596bc">sizeSquared</a> () const</td></tr>
-<tr class="memdesc:a462950c3bfe1c87d3921746746d596bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取长度平方.  <a href="class_vector_t_3_01_t_00_014_01_4.html#a462950c3bfe1c87d3921746746d596bc">更多...</a><br /></td></tr>
-<tr class="separator:a462950c3bfe1c87d3921746746d596bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab604d2b1a05711507950a4933055c7a2"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector_t_3_01_t_00_014_01_4.html#ab604d2b1a05711507950a4933055c7a2">size</a> () const</td></tr>
-<tr class="memdesc:ab604d2b1a05711507950a4933055c7a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取长度.  <a href="class_vector_t_3_01_t_00_014_01_4.html#ab604d2b1a05711507950a4933055c7a2">更多...</a><br /></td></tr>
-<tr class="separator:ab604d2b1a05711507950a4933055c7a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef4284c04afafcfb2c7d8841658eca67"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector_t_3_01_t_00_014_01_4.html#aef4284c04afafcfb2c7d8841658eca67">norm</a> () const</td></tr>
+<tr class="memdesc:aef4284c04afafcfb2c7d8841658eca67"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取模.  <a href="class_vector_t_3_01_t_00_014_01_4.html#aef4284c04afafcfb2c7d8841658eca67">更多...</a><br /></td></tr>
+<tr class="separator:aef4284c04afafcfb2c7d8841658eca67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a765369708ab9f003dab5d0153a8b2f3d"><td class="memItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector_t_3_01_t_00_014_01_4.html#a765369708ab9f003dab5d0153a8b2f3d">normSquared</a> () const</td></tr>
+<tr class="memdesc:a765369708ab9f003dab5d0153a8b2f3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取模的平方.  <a href="class_vector_t_3_01_t_00_014_01_4.html#a765369708ab9f003dab5d0153a8b2f3d">更多...</a><br /></td></tr>
+<tr class="separator:a765369708ab9f003dab5d0153a8b2f3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5efb927ff088f2339711efce3f2f66ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector_t.html">VectorT</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector_t_3_01_t_00_014_01_4.html#a5efb927ff088f2339711efce3f2f66ec">normalize</a> ()</td></tr>
 <tr class="memdesc:a5efb927ff088f2339711efce3f2f66ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">标准化成单位向量.  <a href="class_vector_t_3_01_t_00_014_01_4.html#a5efb927ff088f2339711efce3f2f66ec">更多...</a><br /></td></tr>
 <tr class="separator:a5efb927ff088f2339711efce3f2f66ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -138,6 +138,10 @@ Public 成员函数</h2></td></tr>
 <tr class="memitem:aca6e839a86a98228a34703cd5198030a"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="class_vector_t.html">VectorT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector_t_3_01_t_00_014_01_4.html#aca6e839a86a98228a34703cd5198030a">cross</a> (const <a class="el" href="class_vector_t.html">VectorT</a> &amp;rhs) const</td></tr>
 <tr class="memdesc:aca6e839a86a98228a34703cd5198030a"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算向量叉积.  <a href="class_vector_t_3_01_t_00_014_01_4.html#aca6e839a86a98228a34703cd5198030a">更多...</a><br /></td></tr>
 <tr class="separator:aca6e839a86a98228a34703cd5198030a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa185ce30e2be56d90a237e835e0d28a7"><td class="memItemLeft" align="right" valign="top"><a id="aa185ce30e2be56d90a237e835e0d28a7"></a>
+constexpr T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector_t_3_01_t_00_014_01_4.html#aa185ce30e2be56d90a237e835e0d28a7">sum</a> () const</td></tr>
+<tr class="memdesc:aa185ce30e2be56d90a237e835e0d28a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取所有元素之和. <br /></td></tr>
+<tr class="separator:aa185ce30e2be56d90a237e835e0d28a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4577eac729871ea2d06203144b27f8d7"><td class="memItemLeft" align="right" valign="top"><a id="a4577eac729871ea2d06203144b27f8d7"></a>
 constexpr T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector_t_3_01_t_00_014_01_4.html#a4577eac729871ea2d06203144b27f8d7">data</a> ()</td></tr>
 <tr class="memdesc:a4577eac729871ea2d06203144b27f8d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取原始数据. <br /></td></tr>
@@ -505,6 +509,33 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="aef4284c04afafcfb2c7d8841658eca67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef4284c04afafcfb2c7d8841658eca67">&#9670;&nbsp;</a></span>norm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">requires std::is_arithmetic_v&lt; T &gt; T <a class="el" href="class_vector_t.html">VectorT</a>&lt; T, 4 &gt;::norm</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取模. </p>
+<dl class="section see"><dt>参见</dt><dd><a class="el" href="class_vector_t_3_01_t_00_014_01_4.html#a765369708ab9f003dab5d0153a8b2f3d" title="获取模的平方.">normSquared</a> </dd></dl>
+
+</div>
+</div>
 <a id="a5efb927ff088f2339711efce3f2f66ec"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5efb927ff088f2339711efce3f2f66ec">&#9670;&nbsp;</a></span>normalize()</h2>
 
@@ -559,8 +590,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="ab604d2b1a05711507950a4933055c7a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab604d2b1a05711507950a4933055c7a2">&#9670;&nbsp;</a></span>size()</h2>
+<a id="a765369708ab9f003dab5d0153a8b2f3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a765369708ab9f003dab5d0153a8b2f3d">&#9670;&nbsp;</a></span>normSquared()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -571,34 +602,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">requires std::is_arithmetic_v&lt; T &gt; T <a class="el" href="class_vector_t.html">VectorT</a>&lt; T, 4 &gt;::size</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>获取长度. </p>
-<dl class="section see"><dt>参见</dt><dd><a class="el" href="class_vector_t_3_01_t_00_014_01_4.html#a462950c3bfe1c87d3921746746d596bc" title="获取长度平方.">sizeSquared</a> </dd></dl>
-
-</div>
-</div>
-<a id="a462950c3bfe1c87d3921746746d596bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a462950c3bfe1c87d3921746746d596bc">&#9670;&nbsp;</a></span>sizeSquared()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">requires constexpr std::is_arithmetic_v&lt; T &gt; T <a class="el" href="class_vector_t.html">VectorT</a>&lt; T, 4 &gt;::sizeSquared</td>
+          <td class="memname">requires constexpr std::is_arithmetic_v&lt; T &gt; T <a class="el" href="class_vector_t.html">VectorT</a>&lt; T, 4 &gt;::normSquared</td>
         </tr>
       </table>
   </td>
@@ -608,8 +612,8 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>获取长度平方. </p>
-<dl class="section see"><dt>参见</dt><dd><a class="el" href="class_vector_t_3_01_t_00_014_01_4.html#ab604d2b1a05711507950a4933055c7a2" title="获取长度.">size</a> </dd></dl>
+<p>获取模的平方. </p>
+<dl class="section see"><dt>参见</dt><dd><a class="el" href="class_vector_t_3_01_t_00_014_01_4.html#aef4284c04afafcfb2c7d8841658eca67" title="获取模.">norm</a> </dd></dl>
 
 </div>
 </div>

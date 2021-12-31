@@ -11,8 +11,10 @@ var class_vector_t_3_01_t_00_012_01_4 =
     [ "distance", "class_vector_t_3_01_t_00_012_01_4.html#a0a2e2dfcda5bcefe5283d182d82598dd", null ],
     [ "distanceSquared", "class_vector_t_3_01_t_00_012_01_4.html#aa9c75e2a01e3f116c73d858b8c67dc97", null ],
     [ "dot", "class_vector_t_3_01_t_00_012_01_4.html#acc4a70e974e8cd817f98cff3e5520804", null ],
+    [ "norm", "class_vector_t_3_01_t_00_012_01_4.html#a99530870ebaaf5de5ed5978832dea4bf", null ],
     [ "normalize", "class_vector_t_3_01_t_00_012_01_4.html#a523c1c1425424121b50c3bba46574266", null ],
     [ "normalized", "class_vector_t_3_01_t_00_012_01_4.html#af8a73d7a1b4ff58a1a9f628945922db9", null ],
+    [ "normSquared", "class_vector_t_3_01_t_00_012_01_4.html#a20acf7b888d6834f815f10fa6c07226a", null ],
     [ "operator VectorT< C, 2 >", "class_vector_t_3_01_t_00_012_01_4.html#a1a2d04a34a31e27b9c43f8ba82ca5184", null ],
     [ "operator*=", "class_vector_t_3_01_t_00_012_01_4.html#ae1f19559be821336fa6fa6c99c4c37b4", null ],
     [ "operator+=", "class_vector_t_3_01_t_00_012_01_4.html#a090e910d5504e90ec0c6061e8daba4d4", null ],
@@ -23,8 +25,7 @@ var class_vector_t_3_01_t_00_012_01_4 =
     [ "operator[]", "class_vector_t_3_01_t_00_012_01_4.html#af7e172d4dbda6e42b092d5444caa7d6d", null ],
     [ "operator[]", "class_vector_t_3_01_t_00_012_01_4.html#a2b9fc604f7bda031bce51de9ae8f880c", null ],
     [ "rotate", "class_vector_t_3_01_t_00_012_01_4.html#a9cae353e5223916055cb64311c23592b", null ],
-    [ "size", "class_vector_t_3_01_t_00_012_01_4.html#a3340a9d06463d11e13e9f427b599bc3f", null ],
-    [ "sizeSquared", "class_vector_t_3_01_t_00_012_01_4.html#ae45b84d5b3bdc1f943b171d7672c328e", null ],
+    [ "sum", "class_vector_t_3_01_t_00_012_01_4.html#a98d2a8bd0409ec93a2ed2137104ffce1", null ],
     [ "x", "class_vector_t_3_01_t_00_012_01_4.html#ac057719230f906b432196f818b477cf9", null ],
     [ "y", "class_vector_t_3_01_t_00_012_01_4.html#a54bbf2af719936bb5aa7bac95761db8c", null ]
 ];
