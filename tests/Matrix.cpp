@@ -162,16 +162,19 @@ TEST(Matrix, division)
 TEST(Matrix, perspective)
 {
 	// TODO
+	Matrix4f::perspective(radians(60.f), 1 / 1, -1, 1);
 }
 
 TEST(Matrix, orthographic)
 {
 	// TODO
+	Matrix4f::orthographic(-1, 1, -1, 1, -1, 1);
 }
 
 TEST(Matrix, lookAt)
 {
 	// TODO
+	Matrix4f::lookAt(Vector3f(1.f), Vector3f(0.f), Vector3f(0.f, 1.f, 0.f));
 }
 
 TEST(Matrix, identity)
