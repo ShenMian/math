@@ -173,7 +173,7 @@ public:
 	 * @param near   近裁剪面.
 	 * @param far    远裁剪面.
 	 */
-	static MatrixT<T, 4, 4> perspective(float vFOV, float aspect, float near, float far);
+	static MatrixT<T, 4, 4> perspective(T vFOV, T aspect, T near, T far);
 
 	/**
 	 * @brief 生成正交投影矩阵.
@@ -183,7 +183,7 @@ public:
 	 * @param near   近裁剪面.
 	 * @param far    远裁剪面.
 	 */
-	static MatrixT<T, 4, 4> orthogonal(float width, float height, float near, float far);
+	static MatrixT<T, 4, 4> orthogonal(T width, T height, T near, T far);
 
 	/**
 	 * @brief 生成正交投影矩阵.
@@ -195,8 +195,7 @@ public:
 	 * @param near   近裁剪面.
 	 * @param far    远裁剪面.
 	 */
-	static MatrixT<T, 4, 4> orthographic(float left, float right, float bottom, float top,
-		float near, float far);
+	static MatrixT<T, 4, 4> orthographic(T left, T right, T bottom, T top, T near, T far);
 
 	/**
 	 * @brief 生成视图矩阵.

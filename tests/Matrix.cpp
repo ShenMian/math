@@ -20,6 +20,7 @@ TEST(Matrix, element)
 
 TEST(Matrix, inverse)
 {
+	// TODO
 }
 
 TEST(Matrix, transpose)
@@ -160,14 +161,17 @@ TEST(Matrix, division)
 
 TEST(Matrix, perspective)
 {
+	// TODO
 }
 
 TEST(Matrix, orthographic)
 {
+	// TODO
 }
 
 TEST(Matrix, lookAt)
 {
+	// TODO
 }
 
 TEST(Matrix, identity)

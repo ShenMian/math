@@ -250,46 +250,47 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::translate(const Vector3T<T>& v)
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
-inline MatrixT<T, 4, 4> MatrixT<T, R, C>::perspective(float yFOV, float aspect, float n, float f)
+inline MatrixT<T, 4, 4> MatrixT<T, R, C>::perspective(T vFOV, T aspect, T n, T f)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 	assert(!equal(aspect, 0.f));
 	assert(n != f);
 
-	const float tanHalfFOV = std::tan(yFOV / 2.f);
+	const float tanHalfFOV = std::tan(vFOV / 2.f);
 
 	auto mat = MatrixT<T, 4, 4>::zero();
-	mat[0][0] = 1.f / (aspect * tanHalfFOV);
-	mat[1][1] = 1.f / tanHalfFOV;
+	mat[0][0] = 1.0 / (aspect * tanHalfFOV);
+	mat[1][1] = 1.0 / tanHalfFOV;
 	mat[2][2] = f / (f - n);
-	mat[2][3] = 1.f;
+	mat[2][3] = 1.0;
 	mat[3][2] = -(f * n) / (f - n);
 	return mat;
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
-inline MatrixT<T, 4, 4> MatrixT<T, R, C>::orthogonal(float w, float h, float n, float f)
+inline MatrixT<T, 4, 4> MatrixT<T, R, C>::orthogonal(T w, T h, T n, T f)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
-	assert(!equal(h, 0.f) && !equal(h, 0.f) && !equal(n, f));
+	static_assert(std::is_floating_point<T>);
 
 	return orthographic(-w / 2, w / 2, -h / 2, h / 2, n, f);
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
-inline MatrixT<T, 4, 4> MatrixT<T, R, C>::orthographic(float l, float r, float b, float t, float n, float f)
+inline MatrixT<T, 4, 4> MatrixT<T, R, C>::orthographic(T l, T r, T b, T t, T n, T f)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
+	static_assert(std::is_floating_point<T>);
 	assert(!equal(l, r) && !equal(b, t) && !equal(n, f));
 
 	auto mat = MatrixT<T, 4, 4>::zero();
-	mat[0][0] = 2 / (r - l);
-	mat[1][1] = 2 / (t - b);
-	mat[2][2] = 2 / (n - f);
-	mat[3][0] = (l + r) / (l - r);
-	mat[3][1] = (t + b) / (b - t);
-	mat[3][2] = (n + f) / (n - f);
-	mat[3][3] = 1;
+	mat[0][0] = 2.0 / (r - l);
+	mat[1][1] = 2.0 / (b - t);
+	mat[2][2] = 1.0 / (f - n);
+	mat[3][0] = -(r + l) / (r - l);
+	mat[3][1] = -(b + t) / (b - t);
+	mat[3][2] = -n / (f - n);
+	mat[3][3] = 1.0;
 	return mat;
 }
 
@@ -297,10 +298,11 @@ template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline MatrixT<T, 4, 4> MatrixT<T, R, C>::lookAt(const Vector3T<T>& eye, const Vector3T<T>& center, const Vector3T<T>& up)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
+	static_assert(std::is_floating_point<T>);
 
 	Vector3f f(center - eye);
 	Vector3f s(f.cross(up));
-	Vector3f  u(s.cross(f));
+	Vector3f u(s.cross(f));
 	f.normalize();
 	s.normalize();
 	u.normalize();
