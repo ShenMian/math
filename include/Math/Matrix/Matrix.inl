@@ -257,7 +257,7 @@ inline MatrixT<T, 4, 4> MatrixT<T, R, C>::perspective(T vFOV, T aspect, T n, T f
 	assert(!equal(aspect, 0.f));
 	assert(n != f);
 
-	const float tanHalfFOV = std::tan(vFOV / 2.f);
+	const auto tanHalfFOV = std::tan(vFOV / 2.f);
 
 	auto mat = MatrixT<T, 4, 4>::zero();
 	mat[0][0] = T(1) / (aspect * tanHalfFOV);
@@ -301,26 +301,23 @@ inline MatrixT<T, 4, 4> MatrixT<T, R, C>::lookAt(const Vector3T<T>& eye, const V
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 	static_assert(std::is_floating_point_v<T>);
 
-	Vector3f f(center - eye);
-	Vector3f s(f.cross(up));
-	Vector3f u(s.cross(f));
-	f.normalize();
-	s.normalize();
-	u.normalize();
+	const Vector3T<T> w((center - eye).normalize());
+	const Vector3T<T> u(w.cross(up).normalize());
+	const Vector3T<T> v(w.cross(u));
 
 	auto mat = MatrixT<T, 4, 4>::identity();
-	mat[0][0] = s.x;
-	mat[1][0] = s.y;
-	mat[2][0] = s.z;
-	mat[0][1] = u.x;
-	mat[1][1] = u.y;
-	mat[2][1] = u.z;
-	mat[0][2] = -f.x;
-	mat[1][2] = -f.y;
-	mat[2][2] = -f.z;
-	mat[3][0] = -s.dot(eye);
-	mat[3][1] = -u.dot(eye);
-	mat[3][2] = f.dot(eye);
+	mat[0][0] = u.x;
+	mat[1][0] = u.y;
+	mat[2][0] = u.z;
+	mat[0][1] = v.x;
+	mat[1][1] = v.y;
+	mat[2][1] = v.z;
+	mat[0][2] = w.x;
+	mat[1][2] = w.y;
+	mat[2][2] = w.z;
+	mat[3][0] = -u.dot(eye);
+	mat[3][1] = -v.dot(eye);
+	mat[3][2] = -w.dot(eye);
 	return mat;
 }
 
