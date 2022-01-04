@@ -251,13 +251,41 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::translate(const Vector3T<T>& v)
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
-inline MatrixT<T, R, C> MatrixT<T, R, C>::rotation(const Vector3T<T>& axis, float angle)
+inline MatrixT<T, R, C> MatrixT<T, R, C>::rotation(float angle, Vector3T<T> axis)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 	assert(axis == Vector3T<T>::unit_x || axis == Vector3T<T>::unit_y || axis == Vector3T<T>::unit_z);
 
-	// TODO
-	MatrixT result;
+	axis.normalize();
+	const float x = axis.x;
+	const float y = axis.y;
+	const float z = axis.z;
+
+	const float sin = std::sin(angle);
+	const float cos = std::cos(angle);
+	const float t = 1.0f - cos;
+	const float tx = t * x;
+	const float ty = t * y;
+	const float tz = t * z;
+	const float txy = tx * y;
+	const float txz = tx * z;
+	const float tyz = ty * z;
+	const float sx = sin * x;
+	const float sy = sin * y;
+	const float sz = sin * z;
+
+	auto result = MatrixT::identity();
+	result[0][0] = cos + tx * x;
+	result[0][1] = txy + sz;
+	result[0][2] = txz - sy;
+
+	result[1][0] = txy - sz;
+	result[1][1] = cos + ty * y;
+	result[1][2] = tyz + sx;
+
+	result[2][0] = txz + sy;
+	result[2][1] = tyz - sx;
+	result[2][2] = cos + tz * z;
 	return result;
 }
 
@@ -269,7 +297,7 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::rotationX(float angle)
 	const float sin = std::sin(angle);
 	const float cos = std::cos(angle);
 
-	MatrixT result = MatrixT::identity();
+	auto result = MatrixT::identity();
 	result[1][1] = cos;
 	result[1][2] = sin;
 	result[2][1] = -sin;
@@ -285,7 +313,7 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::rotationY(float angle)
 	const float sin = std::sin(angle);
 	const float cos = std::cos(angle);
 
-	MatrixT result = MatrixT::identity();
+	auto result = MatrixT::identity();
 	result[0][0] = cos;
 	result[0][2] = sin;
 	result[2][0] = -sin;
@@ -301,7 +329,7 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::rotationZ(float angle)
 	const float sin = std::sin(angle);
 	const float cos = std::cos(angle);
 
-	MatrixT result = MatrixT::identity();
+	auto result = MatrixT::identity();
 	result[0][0] = cos;
 	result[0][1] = -sin;
 	result[1][0] = sin;

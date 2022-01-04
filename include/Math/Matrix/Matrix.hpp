@@ -156,7 +156,7 @@ public:
 	 * @param axis  旋转轴.
 	 * @param angle 旋转角度, 单位: 弧度制.
 	 */
-	static MatrixT rotation(const Vector3T<T>& axis, float angle);
+	static MatrixT rotation(float angle, Vector3T<T> axis);
 
 	/**
 	 * @brief 生成绕 X 轴旋转变换矩阵.
