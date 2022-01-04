@@ -6,6 +6,7 @@
 #include <cmath>
 #include <numbers>
 
+// TODO: 用命名空间后, 移除该命名空间
 namespace detail
 {
 
@@ -26,22 +27,22 @@ inline constexpr bool equal(const T& lhs, const T& rhs)
 
 template <typename T>
 	requires std::floating_point<T>
-inline constexpr bool equal(const T& lhs, const T& rhs)
+inline constexpr bool equal(T lhs, T rhs, T error = std::numeric_limits<T>::epsilon())
 {
-	return detail::abs(lhs - rhs) <= std::numeric_limits<T>::epsilon();
+	return detail::abs(lhs - rhs) <= error;
 }
 
 
 template <typename T>
 	requires std::floating_point<T>
-inline T radians(T degrees)
+inline constexpr T radians(T degrees)
 {
 	return degrees * static_cast<T>(std::numbers::pi) / 180;
 }
 
 template <typename T>
 	requires std::floating_point<T>
-inline T degrees(T radians)
+inline constexpr T degrees(T radians)
 {
 	return radians * 180 / static_cast<T>(std::numbers::pi);
 }
