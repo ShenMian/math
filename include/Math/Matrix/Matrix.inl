@@ -64,32 +64,35 @@ inline constexpr T MatrixT<T, R, C>::trace() const
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline constexpr T MatrixT<T, R, C>::sum() const
 {
+	const auto& mat = *this;
 	T result = T(0);
 	for(size_t r = 0; r < rows(); r++)
 		for(size_t c = 0; c < cols(); c++)
-			result += m_[r][c];
+			result += mat(r, c);
 	return result;
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline constexpr T MatrixT<T, R, C>::minCoeff() const
 {
+	const auto& mat = *this;
 	T min = std::numeric_limits<T>::max();
 	for(size_t r = 0; r < rows(); r++)
 		for(size_t c = 0; c < cols(); c++)
-			if(m_[r][c] < min)
-				min = m_[r][c];
+			if(mat(r, c) < min)
+				min = mat(r, c);
 	return min;
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline constexpr T MatrixT<T, R, C>::maxCoeff() const
 {
+	const auto& mat = *this;
 	T max = std::numeric_limits<T>::min();
 	for(size_t r = 0; r < rows(); r++)
 		for(size_t c = 0; c < cols(); c++)
-			if(m_[r][c] > max)
-				max = m_[r][c];
+			if(mat(r, c) > max)
+				max = mat(r, c);
 	return max;
 }
 
@@ -101,6 +104,93 @@ inline constexpr const VectorT<T, R> MatrixT<T, R, C>::diagonal() const
 	for(size_t n = 0; n < rows(); n++)
 		result[n] = m_[n][n];
 	return result;
+}
+
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline MatrixT<T, R, C>& MatrixT<T, R, C>::translate(const Vector3T<T>& v)
+{
+	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
+
+	auto& mat = *this;
+	mat(0, 3) += v.x;
+	mat(1, 3) += v.y;
+	mat(2, 3) += v.z;
+	return *this;
+}
+
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline MatrixT<T, R, C>& MatrixT<T, R, C>::rotateX(float angle)
+{
+	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
+
+	auto& mat = *this;
+
+	const auto cos = std::cos(angle);
+	const auto sin = std::sin(angle);
+
+	const auto m01 = mat(0, 1);
+	const auto m11 = mat(1, 1);
+	const auto m21 = mat(2, 1);
+
+	mat(0, 1) = mat(0, 1) * cos + mat(0, 2) * sin;
+	mat(1, 1) = mat(1, 1) * cos + mat(1, 2) * sin;
+	mat(2, 1) = mat(2, 1) * cos + mat(2, 2) * sin;
+
+	mat(0, 2) = mat(0, 2) * cos - m01 * sin;
+	mat(1, 2) = mat(1, 2) * cos - m11 * sin;
+	mat(2, 2) = mat(2, 2) * cos - m21 * sin;
+
+	return *this;
+}
+
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline MatrixT<T, R, C>& MatrixT<T, R, C>::rotateY(float angle)
+{
+	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
+
+	auto& mat = *this;
+
+	const auto cos = std::cos(angle);
+	const auto sin = std::sin(angle);
+
+	const auto m00 = mat(0, 0);
+	const auto m10 = mat(1, 0);
+	const auto m20 = mat(2, 0);
+
+	mat(0, 0) = mat(0, 0) * cos - mat(0, 2) * sin;
+	mat(1, 0) = mat(1, 0) * cos - mat(1, 2) * sin;
+	mat(2, 0) = mat(2, 0) * cos - mat(2, 2) * sin;
+
+	mat(0, 2) = m00 * sin - mat(0, 2) * cos;
+	mat(1, 2) = m10 * sin - mat(1, 2) * cos;
+	mat(2, 2) = m20 * sin - mat(2, 2) * cos;
+
+	return *this;
+}
+
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline MatrixT<T, R, C>& MatrixT<T, R, C>::rotateZ(float angle)
+{
+	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
+
+	auto& mat = *this;
+
+	const auto cos = std::cos(angle);
+	const auto sin = std::sin(angle);
+
+	const auto m00 = mat(0, 0);
+	const auto m10 = mat(1, 0);
+	const auto m20 = mat(2, 0);
+
+	mat(0, 0) = mat(0, 0) * cos + mat(0, 1) * sin;
+	mat(1, 0) = mat(1, 0) * cos + mat(1, 1) * sin;
+	mat(2, 0) = mat(2, 0) * cos + mat(2, 1) * sin;
+
+	mat(0, 1) = mat(0, 1) * cos - m00 * sin;
+	mat(1, 1) = mat(1, 1) * cos - m10 * sin;
+	mat(2, 1) = mat(2, 1) * cos - m20 * sin;
+
+	return *this;
 }
 
 template <typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
@@ -239,7 +329,7 @@ inline constexpr MatrixT<T, R, C> MatrixT<T, R, C>::operator-()
 }
 
 template <typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
-inline MatrixT<T, R, C> MatrixT<T, R, C>::translate(const Vector3T<T>& v)
+inline MatrixT<T, R, C> MatrixT<T, R, C>::createTranslate(const Vector3T<T>& v)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 
@@ -251,7 +341,7 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::translate(const Vector3T<T>& v)
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
-inline MatrixT<T, R, C> MatrixT<T, R, C>::rotation(float angle, Vector3T<T> axis)
+inline MatrixT<T, R, C> MatrixT<T, R, C>::createRotation(float angle, Vector3T<T> axis)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 	assert(axis == Vector3T<T>::unit_x || axis == Vector3T<T>::unit_y || axis == Vector3T<T>::unit_z);
@@ -290,7 +380,7 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::rotation(float angle, Vector3T<T> axis
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
-inline MatrixT<T, R, C> MatrixT<T, R, C>::rotationX(float angle)
+inline MatrixT<T, R, C> MatrixT<T, R, C>::createRotationX(float angle)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 
@@ -306,7 +396,7 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::rotationX(float angle)
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
-inline MatrixT<T, R, C> MatrixT<T, R, C>::rotationY(float angle)
+inline MatrixT<T, R, C> MatrixT<T, R, C>::createRotationY(float angle)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 
@@ -322,7 +412,7 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::rotationY(float angle)
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
-inline MatrixT<T, R, C> MatrixT<T, R, C>::rotationZ(float angle)
+inline MatrixT<T, R, C> MatrixT<T, R, C>::createRotationZ(float angle)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 
@@ -338,7 +428,7 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::rotationZ(float angle)
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
-inline MatrixT<T, R, C> MatrixT<T, R, C>::scale(const Vector3T<T>& scale)
+inline MatrixT<T, R, C> MatrixT<T, R, C>::createScale(const Vector3T<T>& scale)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 

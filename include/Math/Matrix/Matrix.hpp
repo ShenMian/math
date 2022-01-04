@@ -81,6 +81,12 @@ public:
 	 */
 	constexpr const VectorT<T, R> diagonal() const;
 
+	MatrixT& translate(const Vector3T<T>& translation);
+	MatrixT& rotateX(float angle);
+	MatrixT& rotateY(float angle);
+	MatrixT& rotateZ(float angle);
+	MatrixT& scale(const Vector3T<T>& scale);
+
 	/**
 	 * @brief 分解.
 	 */
@@ -107,6 +113,9 @@ public:
 	constexpr T* data();
 	constexpr const T* data() const;
 
+	/**
+	 * @brief 获取指定元素.
+	 */
 	constexpr T& operator()(size_t r, size_t c);
 	constexpr const T& operator()(size_t r, size_t c) const;
 
@@ -148,7 +157,7 @@ public:
 	 *
 	 * @param translation 平移向量. 指定了三个轴的变化量.
 	 */
-	static MatrixT translate(const Vector3T<T>& translation);
+	static MatrixT createTranslate(const Vector3T<T>& translation);
 
 	/**
 	 * @brief 生成旋转变换矩阵.
@@ -156,35 +165,35 @@ public:
 	 * @param axis  旋转轴.
 	 * @param angle 旋转角度, 单位: 弧度制.
 	 */
-	static MatrixT rotation(float angle, Vector3T<T> axis);
+	static MatrixT createRotation(float angle, Vector3T<T> axis);
 
 	/**
 	 * @brief 生成绕 X 轴旋转变换矩阵.
 	 *
 	 * @param angle 旋转角度, 单位: 弧度制.
 	 */
-	static MatrixT rotationX(float angle);
+	static MatrixT createRotationX(float angle);
 
 	/**
 	 * @brief 生成绕 Y 轴旋转变换矩阵.
 	 *
 	 * @param angle 旋转角度, 单位: 弧度制.
 	 */
-	static MatrixT rotationY(float angle);
+	static MatrixT createRotationY(float angle);
 
 	/**
 	 * @brief 生成绕 Z 轴旋转变换矩阵.
 	 *
 	 * @param angle 旋转角度, 单位: 弧度制.
 	 */
-	static MatrixT rotationZ(float angle);
+	static MatrixT createRotationZ(float angle);
 
 	/**
 	 * @brief 生成缩放变换矩阵.
 	 *
 	 * @param scale 缩放向量. 指定了三个轴的缩放比.
 	 */
-	static MatrixT scale(const Vector3T<T>& scale);
+	static MatrixT createScale(const Vector3T<T>& scale);
 
 	/**
 	 * @brief 生成透视投影矩阵.
