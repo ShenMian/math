@@ -216,7 +216,7 @@ public:
 	 * @param near   近裁剪面.
 	 * @param far    远裁剪面.
 	 */
-	static MatrixT<T, 4, 4> orthographic(T left, T right, T bottom, T top, T near, T far);
+	static MatrixT<T, 4, 4> orthogonal(T left, T right, T bottom, T top, T near, T far);
 
 	/**
 	 * @brief 生成视图矩阵.

@@ -243,11 +243,11 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::translate(const Vector3T<T>& v)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 
-	MatrixT result;
-	result[0][3] = v.x;
-	result[1][3] = v.y;
-	result[2][3] = v.z;
-	return result;
+	MatrixT mat;
+	mat(0, 3) = v.x;
+	mat(1, 3) = v.y;
+	mat(2, 3) = v.z;
+	return mat;
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
@@ -274,19 +274,19 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::rotation(float angle, Vector3T<T> axis
 	const float sy = sin * y;
 	const float sz = sin * z;
 
-	auto result = MatrixT::identity();
-	result[0][0] = cos + tx * x;
-	result[0][1] = txy + sz;
-	result[0][2] = txz - sy;
+	auto mat = MatrixT::identity();
+	mat(0, 0) = cos + tx * x;
+	mat(0, 1) = txy + sz;
+	mat(0, 2) = txz - sy;
 
-	result[1][0] = txy - sz;
-	result[1][1] = cos + ty * y;
-	result[1][2] = tyz + sx;
+	mat(1, 0) = txy - sz;
+	mat(1, 1) = cos + ty * y;
+	mat(1, 2) = tyz + sx;
 
-	result[2][0] = txz + sy;
-	result[2][1] = tyz - sx;
-	result[2][2] = cos + tz * z;
-	return result;
+	mat(2, 0) = txz + sy;
+	mat(2, 1) = tyz - sx;
+	mat(2, 2) = cos + tz * z;
+	return mat;
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
@@ -297,12 +297,12 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::rotationX(float angle)
 	const float sin = std::sin(angle);
 	const float cos = std::cos(angle);
 
-	auto result = MatrixT::identity();
-	result[1][1] = cos;
-	result[1][2] = sin;
-	result[2][1] = -sin;
-	result[2][2] = cos;
-	return result;
+	auto mat = MatrixT::identity();
+	mat(1, 1) = cos;
+	mat(1, 2) = sin;
+	mat(2, 1) = -sin;
+	mat(2, 2) = cos;
+	return mat;
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
@@ -313,12 +313,12 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::rotationY(float angle)
 	const float sin = std::sin(angle);
 	const float cos = std::cos(angle);
 
-	auto result = MatrixT::identity();
-	result[0][0] = cos;
-	result[0][2] = sin;
-	result[2][0] = -sin;
-	result[2][2] = cos;
-	return result;
+	auto mat = MatrixT::identity();
+	mat(0, 0) = cos;
+	mat(0, 2) = sin;
+	mat(2, 0) = -sin;
+	mat(2, 2) = cos;
+	return mat;
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
@@ -329,12 +329,12 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::rotationZ(float angle)
 	const float sin = std::sin(angle);
 	const float cos = std::cos(angle);
 
-	auto result = MatrixT::identity();
-	result[0][0] = cos;
-	result[0][1] = -sin;
-	result[1][0] = sin;
-	result[1][1] = cos;
-	return result;
+	auto mat = MatrixT::identity();
+	mat(0, 0) = cos;
+	mat(0, 1) = -sin;
+	mat(1, 0) = sin;
+	mat(1, 1) = cos;
+	return mat;
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
@@ -342,11 +342,11 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::scale(const Vector3T<T>& scale)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 
-	MatrixT result;
-	result[0][0] = scale.x;
-	result[1][1] = scale.y;
-	result[2][2] = scale.z;
-	return result;
+	MatrixT mat;
+	mat(0, 0) = scale.x;
+	mat(1, 1) = scale.y;
+	mat(2, 2) = scale.z;
+	return mat;
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
@@ -360,11 +360,11 @@ inline MatrixT<T, 4, 4> MatrixT<T, R, C>::perspective(T vFOV, T aspect, T n, T f
 	const auto tanHalfFOV = std::tan(vFOV / 2.f);
 
 	auto mat = MatrixT::zero();
-	mat[0][0] = T(1) / (aspect * tanHalfFOV);
-	mat[1][1] = T(1) / tanHalfFOV;
-	mat[2][2] = f / (f - n);
-	mat[2][3] = T(1);
-	mat[3][2] = -(f * n) / (f - n);
+	mat(0, 0) = T(1) / (aspect * tanHalfFOV);
+	mat(1, 1) = T(1) / tanHalfFOV;
+	mat(2, 2) = f / (f - n);
+	mat(2, 3) = T(1);
+	mat(3, 2) = -(f * n) / (f - n);
 	return mat;
 }
 
@@ -374,24 +374,24 @@ inline MatrixT<T, 4, 4> MatrixT<T, R, C>::orthogonal(T w, T h, T n, T f)
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 	static_assert(std::is_floating_point_v<T>);
 
-	return orthographic(-w / T(2), w / T(2), -h / T(2), h / T(2), n, f);
+	return orthogonal(-w / T(2), w / T(2), -h / T(2), h / T(2), n, f);
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
-inline MatrixT<T, 4, 4> MatrixT<T, R, C>::orthographic(T l, T r, T b, T t, T n, T f)
+inline MatrixT<T, 4, 4> MatrixT<T, R, C>::orthogonal(T l, T r, T b, T t, T n, T f)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 	static_assert(std::is_floating_point_v<T>);
 	assert(!equal(l, r) && !equal(b, t) && !equal(n, f));
 
 	auto mat = MatrixT::zero();
-	mat[0][0] = T(2) / (r - l);
-	mat[1][1] = T(2) / (b - t);
-	mat[2][2] = T(1) / (f - n);
-	mat[3][0] = -(r + l) / (r - l);
-	mat[3][1] = -(b + t) / (b - t);
-	mat[3][2] = -n / (f - n);
-	mat[3][3] = T(1);
+	mat(0, 0) = T(2) / (r - l);
+	mat(1, 1) = T(2) / (b - t);
+	mat(2, 2) = T(1) / (f - n);
+	mat(3, 0) = -(r + l) / (r - l);
+	mat(3, 1) = -(b + t) / (b - t);
+	mat(3, 2) = -n / (f - n);
+	mat(3, 3) = T(1);
 	return mat;
 }
 
@@ -406,18 +406,18 @@ inline MatrixT<T, 4, 4> MatrixT<T, R, C>::lookAt(const Vector3T<T>& eye, const V
 	const Vector3T<T> v(w.cross(u));
 
 	auto mat = MatrixT::identity();
-	mat[0][0] = u.x;
-	mat[1][0] = u.y;
-	mat[2][0] = u.z;
-	mat[0][1] = v.x;
-	mat[1][1] = v.y;
-	mat[2][1] = v.z;
-	mat[0][2] = w.x;
-	mat[1][2] = w.y;
-	mat[2][2] = w.z;
-	mat[3][0] = -u.dot(eye);
-	mat[3][1] = -v.dot(eye);
-	mat[3][2] = -w.dot(eye);
+	mat(0, 0) = u.x;
+	mat(1, 0) = u.y;
+	mat(2, 0) = u.z;
+	mat(0, 1) = v.x;
+	mat(1, 1) = v.y;
+	mat(2, 1) = v.z;
+	mat(0, 2) = w.x;
+	mat(1, 2) = w.y;
+	mat(2, 2) = w.z;
+	mat(3, 0) = -u.dot(eye);
+	mat(3, 1) = -v.dot(eye);
+	mat(3, 2) = -w.dot(eye);
 	return mat;
 }
 

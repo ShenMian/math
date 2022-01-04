@@ -159,6 +159,38 @@ TEST(Matrix, division)
 	EXPECT_EQ(a / 2.f, b);
 }
 
+TEST(Matrix, translate)
+{
+	// TODO
+	auto a = Matrix4f::identity();
+	Matrix4f b = {
+		1, 0, 0, 1,
+		0, 1, 0, 1,
+		0, 0, 1, 1,
+		0, 0, 0, 1
+	};
+	EXPECT_EQ(a.translate(Vector3f(1.f)), b);
+}
+
+TEST(Matrix, rotation)
+{
+	// TODO
+	auto a = Matrix4f::rotation(radians(90.f), Vector3f::unit_z);
+	// EXPECT_EQ(a * Vector4f({1.0f, 0.0f, 0.0f, 1.0f}), Vector4f({0.0f, 1.0f, 0.0f, 1.0f}));
+}
+
+TEST(Matrix, scale)
+{
+	auto a = Matrix4f::identity();
+	Matrix4f b = {
+		2, 0, 0, 0,
+		0, 2, 0, 0,
+		0, 0, 2, 0,
+		0, 0, 0, 1
+	};
+	EXPECT_EQ(a.scale(Vector3f(2.f)), b);
+}
+
 TEST(Matrix, perspective)
 {
 	// TODO
@@ -168,7 +200,7 @@ TEST(Matrix, perspective)
 TEST(Matrix, orthographic)
 {
 	// TODO
-	Matrix4f::orthographic(-1, 1, -1, 1, -1, 1);
+	Matrix4f::orthogonal(-1, 1, -1, 1, -1, 1);
 }
 
 TEST(Matrix, lookAt)
