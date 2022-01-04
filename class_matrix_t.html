@@ -148,11 +148,11 @@ constexpr const <a class="el" href="class_vector_t.html">VectorT</a>&lt; T, R &g
 <tr class="memdesc:affa6c29d71e1d2d1c92e6bc25b485407"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取主对角线. <br /></td></tr>
 <tr class="separator:affa6c29d71e1d2d1c92e6bc25b485407"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7185c550ceb79a3793ccf5faba4bea3a"><td class="memItemLeft" align="right" valign="top"><a id="a7185c550ceb79a3793ccf5faba4bea3a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#a7185c550ceb79a3793ccf5faba4bea3a">decompose</a> (<a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; *translation, <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; *<a class="el" href="class_matrix_t.html#ac5b5f4a99152b0b99b1c3e61fa1e5ebd">rotation</a>, <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; *<a class="el" href="class_matrix_t.html#aa435a87602e81bc1e8faf9c19ea05a37">scale</a>) const</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#a7185c550ceb79a3793ccf5faba4bea3a">decompose</a> (<a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; *translation, <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; *<a class="el" href="class_matrix_t.html#adacd2aa44e60c85c68c2620ffdfd03bb">rotation</a>, <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; *<a class="el" href="class_matrix_t.html#a2384f2422004a5b2e736ed7d442593ba">scale</a>) const</td></tr>
 <tr class="memdesc:a7185c550ceb79a3793ccf5faba4bea3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">分解. <br /></td></tr>
 <tr class="separator:a7185c550ceb79a3793ccf5faba4bea3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adaa2df1d22490a7ef4c6f8937cc45808"><td class="memItemLeft" align="right" valign="top"><a id="adaa2df1d22490a7ef4c6f8937cc45808"></a>
-<a class="el" href="class_matrix_t.html">MatrixT</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#adaa2df1d22490a7ef4c6f8937cc45808">recompose</a> (const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;translation, const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;<a class="el" href="class_matrix_t.html#ac5b5f4a99152b0b99b1c3e61fa1e5ebd">rotation</a>, const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;<a class="el" href="class_matrix_t.html#aa435a87602e81bc1e8faf9c19ea05a37">scale</a>)</td></tr>
+<a class="el" href="class_matrix_t.html">MatrixT</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#adaa2df1d22490a7ef4c6f8937cc45808">recompose</a> (const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;translation, const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;<a class="el" href="class_matrix_t.html#adacd2aa44e60c85c68c2620ffdfd03bb">rotation</a>, const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;<a class="el" href="class_matrix_t.html#a2384f2422004a5b2e736ed7d442593ba">scale</a>)</td></tr>
 <tr class="memdesc:adaa2df1d22490a7ef4c6f8937cc45808"><td class="mdescLeft">&#160;</td><td class="mdescRight">重组. <br /></td></tr>
 <tr class="separator:adaa2df1d22490a7ef4c6f8937cc45808"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4dc232fc07fbba1a3c512fa3b85e6335"><td class="memItemLeft" align="right" valign="top"><a id="a4dc232fc07fbba1a3c512fa3b85e6335"></a>
@@ -216,12 +216,21 @@ template&lt;typename T0 &gt; </td></tr>
 <tr class="memitem:ae4cdd480650b19c76ceaa6b3c4f84b7d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_matrix_t.html">MatrixT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#ae4cdd480650b19c76ceaa6b3c4f84b7d">translate</a> (const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;translation)</td></tr>
 <tr class="memdesc:ae4cdd480650b19c76ceaa6b3c4f84b7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">生成平移变换矩阵.  <a href="class_matrix_t.html#ae4cdd480650b19c76ceaa6b3c4f84b7d">更多...</a><br /></td></tr>
 <tr class="separator:ae4cdd480650b19c76ceaa6b3c4f84b7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5b5f4a99152b0b99b1c3e61fa1e5ebd"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_matrix_t.html">MatrixT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#ac5b5f4a99152b0b99b1c3e61fa1e5ebd">rotation</a> (const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;axis, float angle)</td></tr>
-<tr class="memdesc:ac5b5f4a99152b0b99b1c3e61fa1e5ebd"><td class="mdescLeft">&#160;</td><td class="mdescRight">生成旋转变换矩阵.  <a href="class_matrix_t.html#ac5b5f4a99152b0b99b1c3e61fa1e5ebd">更多...</a><br /></td></tr>
-<tr class="separator:ac5b5f4a99152b0b99b1c3e61fa1e5ebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa435a87602e81bc1e8faf9c19ea05a37"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_matrix_t.html">MatrixT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#aa435a87602e81bc1e8faf9c19ea05a37">scale</a> (const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;scale)</td></tr>
-<tr class="memdesc:aa435a87602e81bc1e8faf9c19ea05a37"><td class="mdescLeft">&#160;</td><td class="mdescRight">生成缩放变换矩阵.  <a href="class_matrix_t.html#aa435a87602e81bc1e8faf9c19ea05a37">更多...</a><br /></td></tr>
-<tr class="separator:aa435a87602e81bc1e8faf9c19ea05a37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adacd2aa44e60c85c68c2620ffdfd03bb"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_matrix_t.html">MatrixT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#adacd2aa44e60c85c68c2620ffdfd03bb">rotation</a> (const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;axis, float angle)</td></tr>
+<tr class="memdesc:adacd2aa44e60c85c68c2620ffdfd03bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">生成旋转变换矩阵.  <a href="class_matrix_t.html#adacd2aa44e60c85c68c2620ffdfd03bb">更多...</a><br /></td></tr>
+<tr class="separator:adacd2aa44e60c85c68c2620ffdfd03bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a314a36c86d32eb88db9f1e2c2de7946d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_matrix_t.html">MatrixT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#a314a36c86d32eb88db9f1e2c2de7946d">rotationX</a> (float angle)</td></tr>
+<tr class="memdesc:a314a36c86d32eb88db9f1e2c2de7946d"><td class="mdescLeft">&#160;</td><td class="mdescRight">生成绕 X 轴旋转变换矩阵.  <a href="class_matrix_t.html#a314a36c86d32eb88db9f1e2c2de7946d">更多...</a><br /></td></tr>
+<tr class="separator:a314a36c86d32eb88db9f1e2c2de7946d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9d1eec102785f5830b5a7a83af9db49"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_matrix_t.html">MatrixT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#aa9d1eec102785f5830b5a7a83af9db49">rotationY</a> (float angle)</td></tr>
+<tr class="memdesc:aa9d1eec102785f5830b5a7a83af9db49"><td class="mdescLeft">&#160;</td><td class="mdescRight">生成绕 Y 轴旋转变换矩阵.  <a href="class_matrix_t.html#aa9d1eec102785f5830b5a7a83af9db49">更多...</a><br /></td></tr>
+<tr class="separator:aa9d1eec102785f5830b5a7a83af9db49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90ac138e470a4570c8d992905dfd81ac"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_matrix_t.html">MatrixT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#a90ac138e470a4570c8d992905dfd81ac">rotationZ</a> (float angle)</td></tr>
+<tr class="memdesc:a90ac138e470a4570c8d992905dfd81ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">生成绕 Z 轴旋转变换矩阵.  <a href="class_matrix_t.html#a90ac138e470a4570c8d992905dfd81ac">更多...</a><br /></td></tr>
+<tr class="separator:a90ac138e470a4570c8d992905dfd81ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2384f2422004a5b2e736ed7d442593ba"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_matrix_t.html">MatrixT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#a2384f2422004a5b2e736ed7d442593ba">scale</a> (const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;scale)</td></tr>
+<tr class="memdesc:a2384f2422004a5b2e736ed7d442593ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">生成缩放变换矩阵.  <a href="class_matrix_t.html#a2384f2422004a5b2e736ed7d442593ba">更多...</a><br /></td></tr>
+<tr class="separator:a2384f2422004a5b2e736ed7d442593ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa04ccb0b1768ed199de65a114bebfce5"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_matrix_t.html">MatrixT</a>&lt; T, 4, 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#aa04ccb0b1768ed199de65a114bebfce5">perspective</a> (T vFOV, T aspect, T near, T far)</td></tr>
 <tr class="memdesc:aa04ccb0b1768ed199de65a114bebfce5"><td class="mdescLeft">&#160;</td><td class="mdescRight">生成透视投影矩阵.  <a href="class_matrix_t.html#aa04ccb0b1768ed199de65a114bebfce5">更多...</a><br /></td></tr>
 <tr class="separator:aa04ccb0b1768ed199de65a114bebfce5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -561,8 +570,8 @@ template&lt;typename T , size_t R, size_t C&gt; </div>
 
 </div>
 </div>
-<a id="ac5b5f4a99152b0b99b1c3e61fa1e5ebd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac5b5f4a99152b0b99b1c3e61fa1e5ebd">&#9670;&nbsp;</a></span>rotation()</h2>
+<a id="adacd2aa44e60c85c68c2620ffdfd03bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adacd2aa44e60c85c68c2620ffdfd03bb">&#9670;&nbsp;</a></span>rotation()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -573,7 +582,7 @@ template&lt;typename T , size_t R, size_t C&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="class_matrix_t.html">MatrixT</a> <a class="el" href="class_matrix_t.html">MatrixT</a>&lt; T, R, C &gt;::rotation </td>
+          <td class="memname">requires std::is_arithmetic_v&lt; T &gt; <a class="el" href="class_matrix_t.html">MatrixT</a>&lt; T, R, C &gt; <a class="el" href="class_matrix_t.html">MatrixT</a>&lt; T, R, C &gt;::rotation </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;&#160;</td>
           <td class="paramname"><em>axis</em>, </td>
@@ -592,7 +601,7 @@ template&lt;typename T , size_t R, size_t C&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -608,8 +617,8 @@ template&lt;typename T , size_t R, size_t C&gt; </div>
 
 </div>
 </div>
-<a id="aa435a87602e81bc1e8faf9c19ea05a37"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa435a87602e81bc1e8faf9c19ea05a37">&#9670;&nbsp;</a></span>scale()</h2>
+<a id="a314a36c86d32eb88db9f1e2c2de7946d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a314a36c86d32eb88db9f1e2c2de7946d">&#9670;&nbsp;</a></span>rotationX()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -620,7 +629,115 @@ template&lt;typename T , size_t R, size_t C&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="class_matrix_t.html">MatrixT</a> <a class="el" href="class_matrix_t.html">MatrixT</a>&lt; T, R, C &gt;::scale </td>
+          <td class="memname">requires std::is_arithmetic_v&lt; T &gt; <a class="el" href="class_matrix_t.html">MatrixT</a>&lt; T, R, C &gt; <a class="el" href="class_matrix_t.html">MatrixT</a>&lt; T, R, C &gt;::rotationX </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>angle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>生成绕 X 轴旋转变换矩阵. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">angle</td><td>旋转角度, 单位: 弧度制. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa9d1eec102785f5830b5a7a83af9db49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9d1eec102785f5830b5a7a83af9db49">&#9670;&nbsp;</a></span>rotationY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , size_t R, size_t C&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">requires std::is_arithmetic_v&lt; T &gt; <a class="el" href="class_matrix_t.html">MatrixT</a>&lt; T, R, C &gt; <a class="el" href="class_matrix_t.html">MatrixT</a>&lt; T, R, C &gt;::rotationY </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>angle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>生成绕 Y 轴旋转变换矩阵. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">angle</td><td>旋转角度, 单位: 弧度制. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a90ac138e470a4570c8d992905dfd81ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90ac138e470a4570c8d992905dfd81ac">&#9670;&nbsp;</a></span>rotationZ()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , size_t R, size_t C&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">requires std::is_arithmetic_v&lt; T &gt; <a class="el" href="class_matrix_t.html">MatrixT</a>&lt; T, R, C &gt; <a class="el" href="class_matrix_t.html">MatrixT</a>&lt; T, R, C &gt;::rotationZ </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>angle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>生成绕 Z 轴旋转变换矩阵. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">angle</td><td>旋转角度, 单位: 弧度制. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2384f2422004a5b2e736ed7d442593ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2384f2422004a5b2e736ed7d442593ba">&#9670;&nbsp;</a></span>scale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , size_t R, size_t C&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">requires std::is_arithmetic_v&lt; T &gt; <a class="el" href="class_matrix_t.html">MatrixT</a>&lt; T, R, C &gt; <a class="el" href="class_matrix_t.html">MatrixT</a>&lt; T, R, C &gt;::scale </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;&#160;</td>
           <td class="paramname"><em>scale</em></td><td>)</td>
@@ -629,7 +746,7 @@ template&lt;typename T , size_t R, size_t C&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
