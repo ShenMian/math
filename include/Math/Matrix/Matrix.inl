@@ -242,10 +242,82 @@ template <typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline MatrixT<T, R, C> MatrixT<T, R, C>::translate(const Vector3T<T>& v)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
+
 	MatrixT result;
 	result[0][3] = v.x;
 	result[1][3] = v.y;
 	result[2][3] = v.z;
+	return result;
+}
+
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline MatrixT<T, R, C> MatrixT<T, R, C>::rotation(const Vector3T<T>& axis, float angle)
+{
+	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
+	assert(axis == Vector3T<T>::unit_x || axis == Vector3T<T>::unit_y || axis == Vector3T<T>::unit_z);
+
+	// TODO
+	MatrixT result;
+	return result;
+}
+
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline MatrixT<T, R, C> MatrixT<T, R, C>::rotationX(float angle)
+{
+	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
+
+	const float sin = std::sin(angle);
+	const float cos = std::cos(angle);
+
+	Matrix4 result = Matrix4::identity();
+	result[1][1] = cos;
+	result[1][2] = sin;
+	result[2][1] = -sin;
+	result[2][2] = cos;
+	return result;
+}
+
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline MatrixT<T, R, C> MatrixT<T, R, C>::rotationY(float angle)
+{
+	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
+
+	const float sin = std::sin(angle);
+	const float cos = std::cos(angle);
+
+	Matrix4 result = Matrix4::identity();
+	result[0][0] = cos;
+	result[0][2] = sin;
+	result[2][0] = -sin;
+	result[2][2] = cos;
+	return result;
+}
+
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline MatrixT<T, R, C> MatrixT<T, R, C>::rotationZ(float angle)
+{
+	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
+
+	const float sin = std::sin(angle);
+	const float cos = std::cos(angle);
+
+	Matrix4 result = Matrix4::identity();
+	result[0][0] = cos;
+	result[0][1] = -sin;
+	result[1][0] = sin;
+	result[1][1] = cos;
+	return result;
+}
+
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline MatrixT<T, R, C> MatrixT<T, R, C>::scale(const Vector3T<T>& scale)
+{
+	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
+
+	MatrixT result;
+	result[0][0] = scale.x;
+	result[1][1] = scale.y;
+	result[2][2] = scale.z;
 	return result;
 }
 

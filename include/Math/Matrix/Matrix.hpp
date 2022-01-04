@@ -159,6 +159,27 @@ public:
 	static MatrixT rotation(const Vector3T<T>& axis, float angle);
 
 	/**
+	 * @brief 生成绕 X 轴旋转变换矩阵.
+	 *
+	 * @param angle 旋转角度, 单位: 弧度制.
+	 */
+	static MatrixT rotationX(float angle);
+
+	/**
+	 * @brief 生成绕 Y 轴旋转变换矩阵.
+	 *
+	 * @param angle 旋转角度, 单位: 弧度制.
+	 */
+	static MatrixT rotationY(float angle);
+
+	/**
+	 * @brief 生成绕 Z 轴旋转变换矩阵.
+	 *
+	 * @param angle 旋转角度, 单位: 弧度制.
+	 */
+	static MatrixT rotationZ(float angle);
+
+	/**
 	 * @brief 生成缩放变换矩阵.
 	 *
 	 * @param scale 缩放向量. 指定了三个轴的缩放比.
