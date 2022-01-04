@@ -5,12 +5,14 @@ on:
     paths:
       - '**.cpp'
       - '**.hpp'
+      - '**.inl'
       - '**.h'
       - '.github/workflows/test.yml'
   pull_request:
     paths:
       - '**.cpp'
       - '**.hpp'
+      - '**.inl'
       - '**.h'
       - '.github/workflows/test.yml'
 

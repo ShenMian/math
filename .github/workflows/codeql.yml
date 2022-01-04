@@ -17,6 +17,7 @@ on:
     paths:
       - '**.cpp'
       - '**.hpp'
+      - '**.inl'
       - '**.h'
       - '.github/workflows/codeql.yml'
   pull_request:
@@ -25,6 +26,7 @@ on:
     paths:
       - '**.cpp'
       - '**.hpp'
+      - '**.inl'
       - '**.h'
       - '.github/workflows/codeql.yml'
   schedule:
