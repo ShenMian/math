@@ -269,7 +269,7 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::rotationX(float angle)
 	const float sin = std::sin(angle);
 	const float cos = std::cos(angle);
 
-	Matrix4 result = MatrixT::identity();
+	MatrixT result = MatrixT::identity();
 	result[1][1] = cos;
 	result[1][2] = sin;
 	result[2][1] = -sin;
@@ -285,7 +285,7 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::rotationY(float angle)
 	const float sin = std::sin(angle);
 	const float cos = std::cos(angle);
 
-	Matrix4 result = MatrixT::identity();
+	MatrixT result = MatrixT::identity();
 	result[0][0] = cos;
 	result[0][2] = sin;
 	result[2][0] = -sin;
@@ -301,7 +301,7 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::rotationZ(float angle)
 	const float sin = std::sin(angle);
 	const float cos = std::cos(angle);
 
-	Matrix4 result = MatrixT::identity();
+	MatrixT result = MatrixT::identity();
 	result[0][0] = cos;
 	result[0][1] = -sin;
 	result[1][0] = sin;
