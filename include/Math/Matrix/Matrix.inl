@@ -269,7 +269,7 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::rotationX(float angle)
 	const float sin = std::sin(angle);
 	const float cos = std::cos(angle);
 
-	Matrix4 result = Matrix4::identity();
+	Matrix4 result = MatrixT::identity();
 	result[1][1] = cos;
 	result[1][2] = sin;
 	result[2][1] = -sin;
@@ -285,7 +285,7 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::rotationY(float angle)
 	const float sin = std::sin(angle);
 	const float cos = std::cos(angle);
 
-	Matrix4 result = Matrix4::identity();
+	Matrix4 result = MatrixT::identity();
 	result[0][0] = cos;
 	result[0][2] = sin;
 	result[2][0] = -sin;
@@ -301,7 +301,7 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::rotationZ(float angle)
 	const float sin = std::sin(angle);
 	const float cos = std::cos(angle);
 
-	Matrix4 result = Matrix4::identity();
+	Matrix4 result = MatrixT::identity();
 	result[0][0] = cos;
 	result[0][1] = -sin;
 	result[1][0] = sin;
@@ -331,7 +331,7 @@ inline MatrixT<T, 4, 4> MatrixT<T, R, C>::perspective(T vFOV, T aspect, T n, T f
 
 	const auto tanHalfFOV = std::tan(vFOV / 2.f);
 
-	auto mat = MatrixT<T, 4, 4>::zero();
+	auto mat = MatrixT::zero();
 	mat[0][0] = T(1) / (aspect * tanHalfFOV);
 	mat[1][1] = T(1) / tanHalfFOV;
 	mat[2][2] = f / (f - n);
@@ -356,7 +356,7 @@ inline MatrixT<T, 4, 4> MatrixT<T, R, C>::orthographic(T l, T r, T b, T t, T n, 
 	static_assert(std::is_floating_point_v<T>);
 	assert(!equal(l, r) && !equal(b, t) && !equal(n, f));
 
-	auto mat = MatrixT<T, 4, 4>::zero();
+	auto mat = MatrixT::zero();
 	mat[0][0] = T(2) / (r - l);
 	mat[1][1] = T(2) / (b - t);
 	mat[2][2] = T(1) / (f - n);
@@ -377,7 +377,7 @@ inline MatrixT<T, 4, 4> MatrixT<T, R, C>::lookAt(const Vector3T<T>& eye, const V
 	const Vector3T<T> u(w.cross(up).normalize());
 	const Vector3T<T> v(w.cross(u));
 
-	auto mat = MatrixT<T, 4, 4>::identity();
+	auto mat = MatrixT::identity();
 	mat[0][0] = u.x;
 	mat[1][0] = u.y;
 	mat[2][0] = u.z;
