@@ -189,9 +189,8 @@ TEST(Matrix, createTranslate)
 
 TEST(Matrix, createRotation)
 {
-	// TODO
 	auto a = Matrix4f::createRotation(radians(90.f), Vector3f::unit_z);
-	// EXPECT_EQ(a * Vector4f({1.0f, 0.0f, 0.0f, 1.0f}), Vector4f({0.0f, 1.0f, 0.0f, 1.0f}));
+	EXPECT_EQ(a * Vector4f({1.f, 0.f, 0.f, 1.f}), Vector4f({0.f, 1.f, 0.f, 1.f}));
 }
 
 TEST(Matrix, createScale)

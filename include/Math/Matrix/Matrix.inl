@@ -567,3 +567,28 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::zero()
 	else
 		return MatrixT();
 }
+
+
+inline Vector4f operator*(const MatrixT<float, 4, 4>& mat, const Vector4f& vec)
+{
+	__m128 m[4];
+	__m128 v = {};
+	simd::load(m, mat.data());
+	simd::load(v, vec.data());
+	simd::matrixMulVec(m, v, v);
+
+	Vector4f result;
+	simd::store(result.data(), v);
+	return result;
+}
+
+inline Vector4f& operator*=(Vector4f& vec, const MatrixT<float, 4, 4>& mat)
+{
+	vec = mat * vec;
+	return vec;
+}
+
+inline Vector4f operator*(const Vector4f& vec, const MatrixT<float, 4, 4>& mat)
+{
+	return mat * vec;
+}

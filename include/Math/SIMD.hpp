@@ -129,8 +129,17 @@ inline void matrixTranspose(const __m128 m[4], __m128 dst[4])
 	dst[3] = _mm_shuffle_ps(tmp2, tmp3, 0xDD);
 }
 
-inline void matrixMulVec(const __m128 m1[4], const __m128 v, __m128 dst[4])
+inline void matrixMulVec(const __m128 m[4], const __m128& v, __m128& dst)
 {
+	__m128 col1 = _mm_shuffle_ps(v, v, _MM_SHUFFLE(0, 0, 0, 0));
+	__m128 col2 = _mm_shuffle_ps(v, v, _MM_SHUFFLE(1, 1, 1, 1));
+	__m128 col3 = _mm_shuffle_ps(v, v, _MM_SHUFFLE(2, 2, 2, 2));
+	__m128 col4 = _mm_shuffle_ps(v, v, _MM_SHUFFLE(3, 3, 3, 3));
+
+	dst = _mm_add_ps(
+		_mm_add_ps(_mm_mul_ps(m[0], col1), _mm_mul_ps(m[1], col2)),
+		_mm_add_ps(_mm_mul_ps(m[2], col3), _mm_mul_ps(m[3], col4))
+	);
 }
 
 inline void vecMulMatrix(const __m128 v, const __m128 m1[4], __m128 dst[4])
@@ -154,14 +163,14 @@ inline void store(float* mat, const __m128 m[4])
 	_mm_store_ps(&mat[3 * 4], m[3]);
 }
 
-inline void load(__m128 m, const float* vec)
+inline void load(__m128& v, const float* vec)
 {
-	m = _mm_load_ps(vec);
+	v = _mm_load_ps(vec);
 }
 
-inline void store(float* vec, __m128 m)
+inline void store(float* vec, const __m128& v)
 {
-	_mm_store_ps(vec, m);
+	_mm_store_ps(vec, v);
 }
 
 } // namespace simd
