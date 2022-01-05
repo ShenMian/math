@@ -24,6 +24,7 @@ var class_vector_t_3_01_t_00_014_01_4 =
     [ "operator[]", "class_vector_t_3_01_t_00_014_01_4.html#a21dd3c63baacbde6e2931468d0d9e689", null ],
     [ "operator[]", "class_vector_t_3_01_t_00_014_01_4.html#ac365e1f33fae8c806f840673bd6e2298", null ],
     [ "sum", "class_vector_t_3_01_t_00_014_01_4.html#aa185ce30e2be56d90a237e835e0d28a7", null ],
+    [ "operator<<", "class_vector_t_3_01_t_00_014_01_4.html#a9fbfa15bf5cd957004d918ef0d6a95f9", null ],
     [ "a", "class_vector_t_3_01_t_00_014_01_4.html#a4f0fd87071a1569b2ba456f38cfed465", null ],
     [ "b", "class_vector_t_3_01_t_00_014_01_4.html#adc6760e58794bea1e6803a8786eba174", null ],
     [ "g", "class_vector_t_3_01_t_00_014_01_4.html#a707997672b56dd5a5b26d5784cfebe5d", null ],
