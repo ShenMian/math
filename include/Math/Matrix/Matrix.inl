@@ -2,8 +2,9 @@
 // License(Apache-2.0)
 
 #include "Matrix.hpp"
-#include "../Helper.hpp"
 #include "../Assert.hpp"
+#include "../Helper.hpp"
+#include "../SIMD.hpp"
 #include <algorithm>
 
 template <typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
@@ -207,6 +208,30 @@ inline MatrixT<T, R, C>& MatrixT<T, R, C>::recompose(const Vector3T<T>& translat
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline constexpr VectorT<T, C> MatrixT<T, R, C>::row(size_t index) const
+{
+	assert(index < R);
+
+	auto& mat = *this;
+	VectorT<T, C> vec;
+	for(size_t i = 0; i < C; i++)
+		vec[i] = mat(index, i);
+	return vec;
+}
+
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline constexpr VectorT<T, R> MatrixT<T, R, C>::col(size_t index) const
+{
+	assert(index < C);
+
+	auto& mat = *this;
+	VectorT<T, R> vec;
+	for(size_t i = 0; i < R; i++)
+		vec[i] = mat(i, index);
+	return vec;
+}
+
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline constexpr size_t MatrixT<T, R, C>::rows() const
 {
 	return rows_;
@@ -290,6 +315,15 @@ template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline MatrixT<T, R, C>& MatrixT<T, R, C>::operator*=(const MatrixT& rhs)
 {
 	// TODO
+	if constexpr(R == C && R == 4)
+	{
+		__m128 m1[4];
+		__m128 m2[4];
+		simd::load(m1, data());
+		simd::load(m2, rhs.data());
+		simd::matrixMul(m1, m2, m1);
+		simd::store(data(), m1);
+	}
 	return *this;
 }
 

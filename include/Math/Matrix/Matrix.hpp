@@ -98,6 +98,16 @@ public:
 	MatrixT& recompose(const Vector3T<T>& translation, const Vector3T<T>& rotation, const Vector3T<T>& scale);
 
 	/**
+	 * @brief 获取指定行.
+	 */
+	constexpr VectorT<T, C> row(size_t index) const;
+
+	/**
+	 * @brief 获取指定列.
+	 */
+	constexpr VectorT<T, R> col(size_t index) const;
+
+	/**
 	 * @brief 获取行数.
 	 */
 	constexpr size_t rows() const;

@@ -14,6 +14,8 @@
 #include "Quaternion.hpp"
 #include "AABB3.hpp"
 
+#include "SIMD.hpp"
+
 /**
  * @mainpage Math 文档
  *
