@@ -2,6 +2,7 @@ var class_matrix_t =
 [
     [ "MatrixT", "class_matrix_t.html#a22fe4d9b75c116f75b8ce65bf1abb602", null ],
     [ "MatrixT", "class_matrix_t.html#a393294b4fec218b5423d452ae515c911", null ],
+    [ "col", "class_matrix_t.html#a9379669e790b6be614af48672b6633ca", null ],
     [ "cols", "class_matrix_t.html#af4d36cf74c1e3f4dbed92c475385c303", null ],
     [ "data", "class_matrix_t.html#adafb7d5e0d2307c85344688bf2ea4030", null ],
     [ "data", "class_matrix_t.html#ac6aeb1625cace0c94fc6c9b7f3aa2579", null ],
@@ -29,6 +30,7 @@ var class_matrix_t =
     [ "rotateX", "class_matrix_t.html#a2cd8ad91b38316c9593494e65b866d78", null ],
     [ "rotateY", "class_matrix_t.html#a6db6ca8bc0b7c1efda945ae471303eb2", null ],
     [ "rotateZ", "class_matrix_t.html#a7d6f86eb5367286a1aa1d9e1dd67c5a6", null ],
+    [ "row", "class_matrix_t.html#a98e4b9d4adfeb94b5d2059478674cea7", null ],
     [ "rows", "class_matrix_t.html#a4dc232fc07fbba1a3c512fa3b85e6335", null ],
     [ "scale", "class_matrix_t.html#abb3fcb9e790417dfecc2ec5a60297d4a", null ],
     [ "sum", "class_matrix_t.html#aae5fc708942f522ca387a661455ae4bd", null ],

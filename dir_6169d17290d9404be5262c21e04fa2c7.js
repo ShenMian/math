@@ -6,5 +6,6 @@ var dir_6169d17290d9404be5262c21e04fa2c7 =
     [ "Assert.hpp", "_assert_8hpp_source.html", null ],
     [ "Helper.hpp", "_helper_8hpp_source.html", null ],
     [ "Math.hpp", "_math_8hpp_source.html", null ],
-    [ "Quaternion.hpp", "_quaternion_8hpp_source.html", null ]
+    [ "Quaternion.hpp", "_quaternion_8hpp_source.html", null ],
+    [ "SIMD.hpp", "_s_i_m_d_8hpp_source.html", null ]
 ];
