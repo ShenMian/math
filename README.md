@@ -7,3 +7,9 @@
 [![Test](https://github.com/ShenMian/Math/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/ShenMian/Math/actions/workflows/test.yml)
 
 A simple linear algebra header-only library.
+
+## Features
+- Some operations support SIMD.
+
+## Documentation
+- [API Reference](https://shenmian.github.io/Math/index.html)
