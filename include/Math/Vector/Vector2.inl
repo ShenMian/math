@@ -93,6 +93,7 @@ template <typename T> requires std::is_arithmetic_v<T>
 inline VectorT<T, 2> VectorT<T, 2>::cross(const VectorT& rhs) const
 {
 	// TODO
+	static_assert(false);
 	return VectorT<T, 2>();
 }
 
