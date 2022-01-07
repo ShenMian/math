@@ -29,6 +29,7 @@ template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline MatrixT<T, R, C>& MatrixT<T, R, C>::inverse()
 {
 	// TODO
+	static_assert(false);
 	return *this;
 }
 
@@ -113,9 +114,9 @@ inline MatrixT<T, R, C>& MatrixT<T, R, C>::translate(const Vector3T<T>& v)
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 
 	auto& mat = *this;
-	mat(0, 3) += v.x;
-	mat(1, 3) += v.y;
-	mat(2, 3) += v.z;
+	mat(3, 0) += v.x;
+	mat(3, 1) += v.y;
+	mat(3, 2) += v.z;
 	return *this;
 }
 
@@ -198,12 +199,14 @@ template <typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline void MatrixT<T, R, C>::decompose(Vector3T<T>* translation, Vector3T<T>* rotation, Vector3T<T>* scale) const
 {
 	// TODO
+	static_assert(false);
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline MatrixT<T, R, C>& MatrixT<T, R, C>::recompose(const Vector3T<T>& translation, const Vector3T<T>& rotation, const Vector3T<T>& scale)
 {
 	// TODO
+	static_assert(false);
 	return *this;
 }
 
@@ -212,10 +215,9 @@ inline constexpr VectorT<T, C> MatrixT<T, R, C>::row(size_t index) const
 {
 	assert(index < R);
 
-	auto& mat = *this;
 	VectorT<T, C> vec;
 	for(size_t i = 0; i < C; i++)
-		vec[i] = mat(index, i);
+		vec[i] = *this(index, i);
 	return vec;
 }
 
@@ -259,28 +261,20 @@ template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline constexpr T& MatrixT<T, R, C>::operator()(size_t r, size_t c)
 {
 	assert(r < rows() && c < cols(), "subscript out of range");
-	return m_[r][c];
+	if constexpr(row_manjor)
+		return m_[r][c];
+	else
+		return m_[c][r];
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline constexpr const T& MatrixT<T, R, C>::operator()(size_t r, size_t c) const
 {
 	assert(r < rows() && c < cols(), "subscript out of range");
-	return m_[r][c];
-}
-
-template <typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
-inline constexpr T* MatrixT<T, R, C>::operator[](size_t row)
-{
-	assert(row < rows(), "subscript out of range");
-	return m_[row];
-}
-
-template <typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
-inline constexpr const T* MatrixT<T, R, C>::operator[](size_t row) const
-{
-	assert(row < rows(), "subscript out of range");
-	return m_[row];
+	if constexpr(row_manjor)
+		return m_[r][c];
+	else
+		return m_[c][r];
 }
 
 template <typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
@@ -298,7 +292,7 @@ inline constexpr MatrixT<T, R, C>& MatrixT<T, R, C>::operator+=(const MatrixT& r
 {
 	for(size_t r = 0; r < rows(); r++)
 		for(size_t c = 0; c < cols(); c++)
-			m_[r][c] += rhs[r][c];
+			(*this)(r, c) += rhs(r, c);
 	return *this;
 }
 
@@ -307,7 +301,7 @@ inline constexpr MatrixT<T, R, C>& MatrixT<T, R, C>::operator-=(const MatrixT& r
 {
 	for(size_t r = 0; r < rows(); r++)
 		for(size_t c = 0; c < cols(); c++)
-			m_[r][c] -= rhs[r][c];
+			(*this)(r, c) -= rhs(r, c);
 	return *this;
 }
 
@@ -324,6 +318,10 @@ inline MatrixT<T, R, C>& MatrixT<T, R, C>::operator*=(const MatrixT& rhs)
 		simd::matrixMul(m1, m2, m1);
 		simd::store(data(), m1);
 	}
+	else
+	{
+		static_assert(false);
+	}
 	return *this;
 }
 
@@ -331,6 +329,7 @@ template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline MatrixT<T, R, C>& MatrixT<T, R, C>::operator/=(const MatrixT& rhs)
 {
 	// TODO
+	static_assert(false);
 	return *this;
 }
 
@@ -368,9 +367,9 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::createTranslate(const Vector3T<T>& v)
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 
 	MatrixT mat;
-	mat(0, 3) = v.x;
-	mat(1, 3) = v.y;
-	mat(2, 3) = v.z;
+	mat(3, 0) = v.x;
+	mat(3, 1) = v.y;
+	mat(3, 2) = v.z;
 	return mat;
 }
 
@@ -561,7 +560,7 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::zero()
 		MatrixT mat;
 		for(size_t r = 0; r < R; r++)
 			for(size_t c = 0; c < C; c++)
-				mat[r][c] = T(0);
+				mat(r, c) = T(0);
 		return mat;
 	}
 	else

@@ -163,12 +163,12 @@ TEST(Matrix, translate)
 {
 	auto a = Matrix4f::identity();
 	Matrix4f b = {
-		1, 0, 0, 1,
-		0, 1, 0, 1,
-		0, 0, 1, 1,
-		0, 0, 0, 1
+		1, 0, 0, 0,
+		0, 1, 0, 0,
+		0, 0, 1, 0,
+		2, 2, 2, 1
 	};
-	EXPECT_EQ(a.translate(Vector3f(1.f)), b);
+	EXPECT_EQ(a.translate(Vector3f(2.f)), b);
 }
 
 TEST(Matrix, scale)
@@ -179,12 +179,12 @@ TEST(Matrix, createTranslate)
 {
 	auto a = Matrix4f::identity();
 	Matrix4f b = {
-		1, 0, 0, 1,
-		0, 1, 0, 1,
-		0, 0, 1, 1,
-		0, 0, 0, 1
+		1, 0, 0, 0,
+		0, 1, 0, 0,
+		0, 0, 1, 0,
+		2, 2, 2, 1
 	};
-	EXPECT_EQ(a.createTranslate(Vector3f(1.f)), b);
+	EXPECT_EQ(a.createTranslate(Vector3f(2.f)), b);
 }
 
 TEST(Matrix, createRotation)

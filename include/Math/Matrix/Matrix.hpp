@@ -8,6 +8,8 @@
 #include <iostream>
 #include <type_traits>
 
+constexpr bool row_manjor = true;
+
 /**
  * @brief 矩阵.
  *
@@ -75,7 +77,7 @@ public:
 	 * @brief 获取最大元素的值.
 	 */
 	constexpr T maxCoeff() const;
-	
+
 	/**
 	 * @brief 获取主对角线.
 	 */
@@ -129,9 +131,6 @@ public:
 	constexpr T& operator()(size_t r, size_t c);
 	constexpr const T& operator()(size_t r, size_t c) const;
 
-	constexpr T* operator[](size_t row);
-	constexpr const T* operator[](size_t row) const;
-
 	constexpr bool     operator==(const MatrixT&) const;
 	constexpr MatrixT& operator+=(const MatrixT&);
 	constexpr MatrixT& operator-=(const MatrixT&);
@@ -147,7 +146,7 @@ public:
 		MatrixT result;
 		for(size_t r = 0; r < rows(); r++)
 			for(size_t c = 0; c < cols(); c++)
-				result[r][c] = static_cast<T0>(m_[r][c]);
+				result(r, c) = static_cast<T0>(*this(r, c));
 		return result;
 	}
 
@@ -156,8 +155,8 @@ public:
 		for(size_t r = 0; r < R; r++)
 		{
 			for(size_t c = 0; c < C - 1; c++)
-				stream << mat[r][c] << ' ';
-			stream << mat[r][C - 1] << '\n';
+				stream << mat(r, c) << ' ';
+			stream << mat(r, C - 1) << '\n';
 		}
 		return stream;
 	}
