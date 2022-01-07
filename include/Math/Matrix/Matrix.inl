@@ -29,7 +29,7 @@ template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline MatrixT<T, R, C>& MatrixT<T, R, C>::inverse()
 {
 	// TODO
-	static_assert(false);
+	assert(false);
 	return *this;
 }
 
@@ -199,14 +199,14 @@ template <typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline void MatrixT<T, R, C>::decompose(Vector3T<T>* translation, Vector3T<T>* rotation, Vector3T<T>* scale) const
 {
 	// TODO
-	static_assert(false);
+	assert(false);
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline MatrixT<T, R, C>& MatrixT<T, R, C>::recompose(const Vector3T<T>& translation, const Vector3T<T>& rotation, const Vector3T<T>& scale)
 {
 	// TODO
-	static_assert(false);
+	assert(false);
 	return *this;
 }
 
@@ -320,7 +320,7 @@ inline MatrixT<T, R, C>& MatrixT<T, R, C>::operator*=(const MatrixT& rhs)
 	}
 	else
 	{
-		static_assert(false);
+		assert(false);
 	}
 	return *this;
 }
@@ -329,7 +329,7 @@ template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline MatrixT<T, R, C>& MatrixT<T, R, C>::operator/=(const MatrixT& rhs)
 {
 	// TODO
-	static_assert(false);
+	assert(false);
 	return *this;
 }
 
