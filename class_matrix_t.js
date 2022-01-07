@@ -24,8 +24,6 @@ var class_matrix_t =
     [ "operator/=", "class_matrix_t.html#ab205ce5409696c0a0fa035dae455682a", null ],
     [ "operator/=", "class_matrix_t.html#ad4ee8bec9f5463c702895f2e44cfae64", null ],
     [ "operator==", "class_matrix_t.html#a9ffcdda1552ee01964768a2a486682cc", null ],
-    [ "operator[]", "class_matrix_t.html#a8eac73fc5747b34d694aaf78d717c4cc", null ],
-    [ "operator[]", "class_matrix_t.html#a1495a8b358e1b961f21e362655289779", null ],
     [ "recompose", "class_matrix_t.html#adaa2df1d22490a7ef4c6f8937cc45808", null ],
     [ "rotateX", "class_matrix_t.html#a2cd8ad91b38316c9593494e65b866d78", null ],
     [ "rotateY", "class_matrix_t.html#a6db6ca8bc0b7c1efda945ae471303eb2", null ],
