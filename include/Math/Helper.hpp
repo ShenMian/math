@@ -25,12 +25,25 @@ inline constexpr bool equal(const T& lhs, const T& rhs)
 	return lhs == rhs;
 }
 
+inline constexpr bool equal(float lhs, float rhs, float error = std::numeric_limits<float>::epsilon())
+{
+	return detail::abs(lhs - rhs) <= error;
+}
+
+inline constexpr bool equal(double lhs, double rhs, double error = std::numeric_limits<double>::epsilon())
+{
+	return detail::abs(lhs - rhs) <= error;
+}
+
+/*
+// Will cause error on gcc
 template <typename T>
 	requires std::floating_point<T>
 inline constexpr bool equal(T lhs, T rhs, T error = std::numeric_limits<T>::epsilon())
 {
 	return detail::abs(lhs - rhs) <= error;
 }
+*/
 
 
 template <typename T>
