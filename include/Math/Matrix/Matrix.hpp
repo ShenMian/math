@@ -8,7 +8,7 @@
 #include <iostream>
 #include <type_traits>
 
-constexpr bool row_manjor = true;
+#define ROW_MANJOR true
 
 /**
  * @brief 矩阵.
@@ -256,7 +256,11 @@ public:
 	static MatrixT zero();
 
 private:
-	T m_[R][C] = {};
+#if ROW_MANJOR
+		T m_[R][C] = {};
+#else
+		T m_[C][R] = {};
+#endif
 
 	inline static const size_t rows_ = R;
 	inline static const size_t cols_ = C;

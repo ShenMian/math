@@ -261,20 +261,22 @@ template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline constexpr T& MatrixT<T, R, C>::operator()(size_t r, size_t c)
 {
 	assert(r < rows() && c < cols(), "subscript out of range");
-	if constexpr(row_manjor)
+#if ROW_MANJOR
 		return m_[r][c];
-	else
+#else
 		return m_[c][r];
+#endif
 }
 
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline constexpr const T& MatrixT<T, R, C>::operator()(size_t r, size_t c) const
 {
 	assert(r < rows() && c < cols(), "subscript out of range");
-	if constexpr(row_manjor)
-		return m_[r][c];
-	else
-		return m_[c][r];
+#if ROW_MANJOR
+	return m_[r][c];
+#else
+	return m_[c][r];
+#endif
 }
 
 template <typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
