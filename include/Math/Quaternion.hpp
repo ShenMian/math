@@ -45,7 +45,7 @@ public:
 	/**
 	 * @brief 设置欧拉角.
 	 *
-	 * @param angles 三个轴的角度, 弧度制.
+	 * @param angles 三个轴的角度, 单位: 弧度.
 	 */
 	void eular(const Vector3T<T>& angles);
 

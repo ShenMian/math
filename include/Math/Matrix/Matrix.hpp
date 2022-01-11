@@ -172,28 +172,28 @@ public:
 	 * @brief 生成旋转变换矩阵.
 	 *
 	 * @param axis  旋转轴.
-	 * @param angle 旋转角度, 单位: 弧度制.
+	 * @param angle 旋转角度, 单位: 弧度.
 	 */
 	static MatrixT createRotation(float angle, Vector3T<T> axis);
 
 	/**
 	 * @brief 生成绕 X 轴旋转变换矩阵.
 	 *
-	 * @param angle 旋转角度, 单位: 弧度制.
+	 * @param angle 旋转角度, 单位: 弧度.
 	 */
 	static MatrixT createRotationX(float angle);
 
 	/**
 	 * @brief 生成绕 Y 轴旋转变换矩阵.
 	 *
-	 * @param angle 旋转角度, 单位: 弧度制.
+	 * @param angle 旋转角度, 单位: 弧度.
 	 */
 	static MatrixT createRotationY(float angle);
 
 	/**
 	 * @brief 生成绕 Z 轴旋转变换矩阵.
 	 *
-	 * @param angle 旋转角度, 单位: 弧度制.
+	 * @param angle 旋转角度, 单位: 弧度.
 	 */
 	static MatrixT createRotationZ(float angle);
 
@@ -207,7 +207,7 @@ public:
 	/**
 	 * @brief 生成透视投影矩阵.
 	 *
-	 * @param vFOV   垂直视角, 单位: 弧度制.
+	 * @param vFOV   垂直视角, 单位: 弧度.
 	 * @param aspect 宽高比.
 	 * @param near   近裁剪面.
 	 * @param far    远裁剪面.

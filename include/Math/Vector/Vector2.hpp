@@ -92,7 +92,7 @@ public:
 	/**
 	 * @brief 获取角度.
 	 *
-	 * @return 角度, 弧度制. 范围: [2π, -2π)
+	 * @return 角度, 单位: 弧度. 范围: [2π, -2π)
 	 */
 	T angle() const;
 
@@ -100,7 +100,7 @@ public:
 	 * @brief 围绕指定点旋转指定弧度.
 	 *
 	 * @param point 点.
-	 * @param angle 旋转角度, 弧度制.
+	 * @param angle 旋转角度, 单位: 弧度.
 	 */
 	void rotate(const VectorT& point, float angle);
 
