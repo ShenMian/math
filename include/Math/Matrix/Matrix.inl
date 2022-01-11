@@ -245,6 +245,48 @@ inline constexpr size_t MatrixT<T, R, C>::cols() const
 	return cols_;
 }
 
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline Vector3T<T> MatrixT<T, R, C>::front() const
+{
+	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
+	return -back();
+}
+
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline Vector3T<T> MatrixT<T, R, C>::back() const
+{
+	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
+	return {(*this)(2, 0), (*this)(2, 1), (*this)(2, 2)};
+}
+
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline Vector3T<T> MatrixT<T, R, C>::left() const
+{
+	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
+	return -right();
+}
+
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline Vector3T<T> MatrixT<T, R, C>::right() const
+{
+	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
+	return {(*this)(0, 0), (*this)(0, 1), (*this)(0, 2)};
+}
+
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline Vector3T<T> MatrixT<T, R, C>::up() const
+{
+	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
+	return {(*this)(1, 0), (*this)(1, 1), (*this)(1, 2)};
+}
+
+template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+inline Vector3T<T> MatrixT<T, R, C>::down() const
+{
+	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
+	return -up();
+}
+
 template <typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline constexpr T* MatrixT<T, R, C>::data()
 {
@@ -310,7 +352,6 @@ inline constexpr MatrixT<T, R, C>& MatrixT<T, R, C>::operator-=(const MatrixT& r
 template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
 inline MatrixT<T, R, C>& MatrixT<T, R, C>::operator*=(const MatrixT& rhs)
 {
-	// TODO
 	if constexpr(R == C && R == 4)
 	{
 		__m128 m1[4];
@@ -322,6 +363,7 @@ inline MatrixT<T, R, C>& MatrixT<T, R, C>::operator*=(const MatrixT& rhs)
 	}
 	else
 	{
+		// TODO
 		assert(false);
 	}
 	return *this;
@@ -526,23 +568,29 @@ inline MatrixT<T, 4, 4> MatrixT<T, R, C>::lookAt(const Vector3T<T>& eye, const V
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 	static_assert(std::is_floating_point_v<T>);
 
-	const Vector3T<T> w((center - eye).normalize());
-	const Vector3T<T> u(w.cross(up).normalize());
-	const Vector3T<T> v(w.cross(u));
+	Vector3T<T> f((center - eye).normalize()); // front
+	Vector3T<T> u(up.normalized());            // up
+	Vector3T<T> r(f.cross(up).normalize());    // right
+	u = r.cross(f);
 
 	auto mat = MatrixT::identity();
-	mat(0, 0) = u.x;
-	mat(1, 0) = u.y;
-	mat(2, 0) = u.z;
-	mat(0, 1) = v.x;
-	mat(1, 1) = v.y;
-	mat(2, 1) = v.z;
-	mat(0, 2) = w.x;
-	mat(1, 2) = w.y;
-	mat(2, 2) = w.z;
-	mat(3, 0) = -u.dot(eye);
-	mat(3, 1) = -v.dot(eye);
-	mat(3, 2) = -w.dot(eye);
+
+	mat(0, 0) = r.x;
+	mat(1, 0) = r.y;
+	mat(2, 0) = r.z;
+
+	mat(0, 1) = u.x;
+	mat(1, 1) = u.y;
+	mat(2, 1) = u.z;
+
+	mat(0, 2) = -f.x;
+	mat(1, 2) = -f.y;
+	mat(2, 2) = -f.z;
+
+	mat(3, 0) = -r.dot(eye);
+	mat(3, 1) = -u.dot(eye);
+	mat(3, 2) = f.dot(eye);
+
 	return mat;
 }
 

@@ -6,6 +6,7 @@
 #include "../Vector/Vector3.hpp"
 #include <cstddef>
 #include <iostream>
+#include <iomanip>
 #include <type_traits>
 
 #define ROW_MANJOR true
@@ -119,6 +120,13 @@ public:
 	 */
 	constexpr size_t cols() const;
 
+	Vector3T<T> front() const;
+	Vector3T<T> back() const;
+	Vector3T<T> left() const;
+	Vector3T<T> right() const;
+	Vector3T<T> up() const;
+	Vector3T<T> down() const;
+
 	/**
 	 * @brief 获取原始数据.
 	 */
@@ -152,10 +160,15 @@ public:
 
 	friend std::ostream& operator<<(std::ostream& stream, const MatrixT& mat)
 	{
+		stream << std::setiosflags(std::ios::fixed) << std::setprecision(2);
 		for(size_t r = 0; r < R; r++)
 		{
 			for(size_t c = 0; c < C - 1; c++)
+			{
+				stream.width(5);
 				stream << mat(r, c) << ' ';
+			}
+			stream.width(5);
 			stream << mat(r, C - 1) << '\n';
 		}
 		return stream;

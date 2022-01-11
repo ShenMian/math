@@ -23,6 +23,18 @@ TEST(Matrix, inverse)
 	// TODO
 }
 
+TEST(Matrix, front_back_right_left_up_down)
+{
+	auto a = Matrix4f::lookAt(Vector3f::unit, Vector3f::unit - Vector3f::unit_z, Vector3f::up);
+	std::cout << a;
+	EXPECT_EQ(a.front(), -Vector3f::unit_z);
+	EXPECT_EQ(a.back(), Vector3f::unit_z);
+	EXPECT_EQ(a.right(), Vector3f::unit_x);
+	EXPECT_EQ(a.left(), -Vector3f::unit_x);
+	EXPECT_EQ(a.up(), Vector3f::up);
+	EXPECT_EQ(a.down(), -Vector3f::up);
+}
+
 TEST(Matrix, transpose)
 {
 	Matrix3f a = {
@@ -253,8 +265,7 @@ TEST(Matrix, io)
 		1, 2,
 		3, 4
 	};
-
 	std::ostringstream stream;
 	stream << a;
-	EXPECT_EQ(stream.str(), "1 2\n3 4\n");
+	EXPECT_EQ(stream.str(), " 1.00  2.00\n 3.00  4.00\n");
 }
