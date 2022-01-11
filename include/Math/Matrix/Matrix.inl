@@ -217,7 +217,7 @@ inline constexpr VectorT<T, C> MatrixT<T, R, C>::row(size_t index) const
 
 	VectorT<T, C> vec;
 	for(size_t i = 0; i < C; i++)
-		vec[i] = *this(index, i);
+		vec[i] = (*this)(index, i);
 	return vec;
 }
 
