@@ -2,6 +2,7 @@ var class_matrix_t =
 [
     [ "MatrixT", "class_matrix_t.html#a22fe4d9b75c116f75b8ce65bf1abb602", null ],
     [ "MatrixT", "class_matrix_t.html#a393294b4fec218b5423d452ae515c911", null ],
+    [ "back", "class_matrix_t.html#a8a3909778ab303f935c24ffc239b315c", null ],
     [ "col", "class_matrix_t.html#a9379669e790b6be614af48672b6633ca", null ],
     [ "cols", "class_matrix_t.html#af4d36cf74c1e3f4dbed92c475385c303", null ],
     [ "data", "class_matrix_t.html#adafb7d5e0d2307c85344688bf2ea4030", null ],
@@ -9,8 +10,11 @@ var class_matrix_t =
     [ "decompose", "class_matrix_t.html#a7185c550ceb79a3793ccf5faba4bea3a", null ],
     [ "determinant", "class_matrix_t.html#acac9f051752eceb2cd0896d2f50d0d3d", null ],
     [ "diagonal", "class_matrix_t.html#affa6c29d71e1d2d1c92e6bc25b485407", null ],
+    [ "down", "class_matrix_t.html#a1b9b2f791d228db0dade61af4248a8d2", null ],
+    [ "front", "class_matrix_t.html#a7b5ac81a7e3d5c5cf3035b781a143af2", null ],
     [ "inverse", "class_matrix_t.html#aff7637448ee416adaef0c4eda844bd06", null ],
     [ "inversed", "class_matrix_t.html#ab2a4ecdfa5401c778a6684efe3b0643f", null ],
+    [ "left", "class_matrix_t.html#a6c96144709b762d4d735cc0a921bc427", null ],
     [ "maxCoeff", "class_matrix_t.html#ae795428a6eabcb92242d47aa5c38649e", null ],
     [ "minCoeff", "class_matrix_t.html#adf18d95317407a980adf1a6204bd9fe2", null ],
     [ "operator MatrixT< T0, R, C >", "class_matrix_t.html#a4cfbc5bb6ffe85253e40c3d126186c59", null ],
@@ -25,6 +29,7 @@ var class_matrix_t =
     [ "operator/=", "class_matrix_t.html#ad4ee8bec9f5463c702895f2e44cfae64", null ],
     [ "operator==", "class_matrix_t.html#a9ffcdda1552ee01964768a2a486682cc", null ],
     [ "recompose", "class_matrix_t.html#adaa2df1d22490a7ef4c6f8937cc45808", null ],
+    [ "right", "class_matrix_t.html#ad36103d8a9ff175530b2cb10cba993c0", null ],
     [ "rotateX", "class_matrix_t.html#a2cd8ad91b38316c9593494e65b866d78", null ],
     [ "rotateY", "class_matrix_t.html#a6db6ca8bc0b7c1efda945ae471303eb2", null ],
     [ "rotateZ", "class_matrix_t.html#a7d6f86eb5367286a1aa1d9e1dd67c5a6", null ],
@@ -36,5 +41,6 @@ var class_matrix_t =
     [ "translate", "class_matrix_t.html#a6714c4ddc642a7a1bd1d941622c118b1", null ],
     [ "transpose", "class_matrix_t.html#ac859fd06d94f7d247abdb70639a66b88", null ],
     [ "transposed", "class_matrix_t.html#a213e13ae97124cf2110c1db05d5e5f74", null ],
+    [ "up", "class_matrix_t.html#a7e5996ebfb781274c97b559bf3e2f4cd", null ],
     [ "operator<<", "class_matrix_t.html#a55ab160745e4a23a901e99825bda9cea", null ]
 ];

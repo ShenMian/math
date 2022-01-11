@@ -26,6 +26,7 @@ var class_vector_t_3_01_t_00_012_01_4 =
     [ "operator[]", "class_vector_t_3_01_t_00_012_01_4.html#a2b9fc604f7bda031bce51de9ae8f880c", null ],
     [ "rotate", "class_vector_t_3_01_t_00_012_01_4.html#a9cae353e5223916055cb64311c23592b", null ],
     [ "sum", "class_vector_t_3_01_t_00_012_01_4.html#a98d2a8bd0409ec93a2ed2137104ffce1", null ],
+    [ "operator<<", "class_vector_t_3_01_t_00_012_01_4.html#a9fbfa15bf5cd957004d918ef0d6a95f9", null ],
     [ "x", "class_vector_t_3_01_t_00_012_01_4.html#ac057719230f906b432196f818b477cf9", null ],
     [ "y", "class_vector_t_3_01_t_00_012_01_4.html#a54bbf2af719936bb5aa7bac95761db8c", null ]
 ];
