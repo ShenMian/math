@@ -150,6 +150,12 @@ public:
 		return VectorT<C, 3>(static_cast<C>(x), static_cast<C>(y), static_cast<C>(z));
 	}
 
+	friend std::ostream& operator<<(std::ostream& stream, const VectorT& vec)
+	{
+		stream << vec.x << ' ' << vec.y << ' ' << vec.z;
+		return stream;
+	}
+
 	static constexpr size_t components = 3;
 
 	static const VectorT unit;   // (1, 1, 1)

@@ -51,8 +51,7 @@ TEST(Vector, equal)
 TEST(Vector, io)
 {
 	Vectorf<5> vec({1.f, 2.f, 3.f, 4.f, 5.f});
-
 	std::ostringstream stream;
 	stream << vec;
-	EXPECT_EQ(stream.str(), "1 2 3 4 5");
+	EXPECT_EQ(stream.str(), " 1.00  2.00  3.00  4.00  5.00");
 }

@@ -7,6 +7,7 @@
 #include <initializer_list>
 #include <type_traits>
 #include <iostream>
+#include <iomanip>
 
 /**
  * @brief N 维向量.
@@ -117,8 +118,13 @@ public:
 
 	friend std::ostream& operator<<(std::ostream& stream, const VectorT& vec)
 	{
+		stream << std::setiosflags(std::ios::fixed) << std::setprecision(2);
 		for(size_t i = 0; i < N - 1; i++)
+		{
+			stream.width(5);
 			stream << vec[i] << ' ';
+		}
+		stream.width(5);
 		stream << vec[N - 1];
 		return stream;
 	}
