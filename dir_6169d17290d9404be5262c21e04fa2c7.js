@@ -4,6 +4,7 @@ var dir_6169d17290d9404be5262c21e04fa2c7 =
     [ "Vector", "dir_0fd1335462920db3e5cc2377a567dd78.html", "dir_0fd1335462920db3e5cc2377a567dd78" ],
     [ "AABB3.hpp", "_a_a_b_b3_8hpp_source.html", null ],
     [ "Assert.hpp", "_assert_8hpp_source.html", null ],
+    [ "Easing.hpp", "_easing_8hpp_source.html", null ],
     [ "Helper.hpp", "_helper_8hpp_source.html", null ],
     [ "Math.hpp", "_math_8hpp_source.html", null ],
     [ "Quaternion.hpp", "_quaternion_8hpp_source.html", null ],
