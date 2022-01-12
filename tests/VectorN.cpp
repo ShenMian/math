@@ -109,6 +109,11 @@ TEST(Vector3, equal)
 	EXPECT_NE(vec, Vector3(1, 2, 0));
 }
 
+TEST(Vector3, lerp)
+{
+	EXPECT_EQ(Vector3::lerp(Vector3(0), Vector3(1), 0.5f), Vector3(0.5));
+}
+
 
 TEST(Vector4, subscript)
 {

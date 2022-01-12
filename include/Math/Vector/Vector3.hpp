@@ -156,6 +156,8 @@ public:
 		return stream;
 	}
 
+	static VectorT lerp(const VectorT& from, const VectorT& to, T t);
+
 	static constexpr size_t components = 3;
 
 	static const VectorT unit;   // (1, 1, 1)
