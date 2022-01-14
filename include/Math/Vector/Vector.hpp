@@ -200,8 +200,8 @@ VectorT<T, N> constexpr operator/(const T& lhs, const VectorT<T, N>& rhs)
  * @details 大小固定的向量, 可以用于表示位置/速度/方向等.
  *
  * 例子:
- * @code{cpp}
  *
+ * ```cpp
  * // 创建
  * Vector2i v(1, 2); // 创建一个 2 维向量, 类型为 int32_t, 初始值为 (1, 2)
  *
@@ -209,6 +209,5 @@ VectorT<T, N> constexpr operator/(const T& lhs, const VectorT<T, N>& rhs)
  * v.x = 3;  // 设置 x 分量为 3
  * v[1] = 4; // 设置 y 分量为 4
  * std::cout << v.size() << std::endl; // 输出向量的长度, 结果为: 5
- *
- * @endcode
+ * ```
  */

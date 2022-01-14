@@ -356,8 +356,8 @@ MatrixT<T, R, C> constexpr operator/(const T& lhs, const MatrixT<T, R, C>& rhs)
  * @details 大小固定的矩阵, 可用于表示线性变换等.
  *
  * 例子:
- * @code{cpp}
  *
+ * ```cpp
  * // 创建
  * Matrix2f m; // 创建一个 2x2 矩阵, 类型为 float, 初始值为 2x2 单位矩阵
  *
@@ -367,6 +367,5 @@ MatrixT<T, R, C> constexpr operator/(const T& lhs, const MatrixT<T, R, C>& rhs)
  * std::cout << m; // 输出矩阵, 结果为:
  *                 // 1 4
  *                 // 3 1
- *
- * @endcode
+ * ```
  */

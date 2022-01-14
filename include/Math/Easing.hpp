@@ -14,7 +14,7 @@ public:
 	 *
 	 * @param t 当前时间.
 	 * @param b 起始值.
-	 * @param c 总距离.
+	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
 	static float linearTween(float t, float b, float c, float d)
@@ -27,7 +27,7 @@ public:
 	 *
 	 * @param t 当前时间.
 	 * @param b 起始值.
-	 * @param c 总距离.
+	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
 	static float easeInQuad(float t, float b, float c, float d)
@@ -40,7 +40,7 @@ public:
 	 *
 	 * @param t 当前时间.
 	 * @param b 起始值.
-	 * @param c 总距离.
+	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
 	static float easeOutQuad(float t, float b, float c, float d)
@@ -53,7 +53,7 @@ public:
 	 *
 	 * @param t 当前时间.
 	 * @param b 起始值.
-	 * @param c 总距离.
+	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
 	static float easeInOutQuad(float t, float b, float c, float d)
@@ -70,7 +70,7 @@ public:
 	 *
 	 * @param t 当前时间.
 	 * @param b 起始值.
-	 * @param c 总距离.
+	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
 	static float easeInCubic(float t, float b, float c, float d)
@@ -83,7 +83,7 @@ public:
 	 *
 	 * @param t 当前时间.
 	 * @param b 起始值.
-	 * @param c 总距离.
+	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
 	static float easeOutCubic(float t, float b, float c, float d)
@@ -97,7 +97,7 @@ public:
 	 *
 	 * @param t 当前时间.
 	 * @param b 起始值.
-	 * @param c 总距离.
+	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
 	static float easeInOutCubic(float t, float b, float c, float d)
@@ -114,7 +114,7 @@ public:
 	 *
 	 * @param t 当前时间.
 	 * @param b 起始值.
-	 * @param c 总距离.
+	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
 	static float easeInQuart(float t, float b, float c, float d)
@@ -128,7 +128,7 @@ public:
 	 *
 	 * @param t 当前时间.
 	 * @param b 起始值.
-	 * @param c 总距离.
+	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
 	static float easeOutQuart(float t, float b, float c, float d)
@@ -142,7 +142,7 @@ public:
 	 *
 	 * @param t 当前时间.
 	 * @param b 起始值.
-	 * @param c 总距离.
+	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
 	static float easeInOutQuart(float t, float b, float c, float d)
@@ -159,7 +159,7 @@ public:
 	 *
 	 * @param t 当前时间.
 	 * @param b 起始值.
-	 * @param c 总距离.
+	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
 	static float easeInQuint(float t, float b, float c, float d)
@@ -173,7 +173,7 @@ public:
 	 *
 	 * @param t 当前时间.
 	 * @param b 起始值.
-	 * @param c 总距离.
+	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
 	static float easeOutQuint(float t, float b, float c, float d)
@@ -187,7 +187,7 @@ public:
 	 *
 	 * @param t 当前时间.
 	 * @param b 起始值.
-	 * @param c 总距离.
+	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
 	static float easeInOutQuint(float t, float b, float c, float d)
@@ -204,7 +204,7 @@ public:
 	 *
 	 * @param t 当前时间.
 	 * @param b 起始值.
-	 * @param c 总距离.
+	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
 	static float easeInSine(float t, float b, float c, float d)
@@ -217,7 +217,7 @@ public:
 	 *
 	 * @param t 当前时间.
 	 * @param b 起始值.
-	 * @param c 总距离.
+	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
 	static float easeOutSine(float t, float b, float c, float d)
@@ -230,7 +230,7 @@ public:
 	 *
 	 * @param t 当前时间.
 	 * @param b 起始值.
-	 * @param c 总距离.
+	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
 	static float easeInOutSine(float t, float b, float c, float d)
@@ -243,7 +243,7 @@ public:
 	 *
 	 * @param t 当前时间.
 	 * @param b 起始值.
-	 * @param c 总距离.
+	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
 	static float easeInExpo(float t, float b, float c, float d)
@@ -256,7 +256,7 @@ public:
 	 *
 	 * @param t 当前时间.
 	 * @param b 起始值.
-	 * @param c 总距离.
+	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
 	static float easeOutExpo(float t, float b, float c, float d)
@@ -269,7 +269,7 @@ public:
 	 *
 	 * @param t 当前时间.
 	 * @param b 起始值.
-	 * @param c 总距离.
+	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
 	static float easeInOutExpo(float t, float b, float c, float d)
@@ -286,7 +286,7 @@ public:
 	 *
 	 * @param t 当前时间.
 	 * @param b 起始值.
-	 * @param c 总距离.
+	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
 	static float easeInCirc(float t, float b, float c, float d)
@@ -300,7 +300,7 @@ public:
 	 *
 	 * @param t 当前时间.
 	 * @param b 起始值.
-	 * @param c 总距离.
+	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
 	static float easeOutCirc(float t, float b, float c, float d)
@@ -314,7 +314,7 @@ public:
 	 *
 	 * @param t 当前时间.
 	 * @param b 起始值.
-	 * @param c 总距离.
+	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
 	static float easeInOutCirc(float t, float b, float c, float d)

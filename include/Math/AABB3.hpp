@@ -100,8 +100,8 @@ public:
  * @details 在碰撞检测中用于简化物体外形. 包围盒的边都与坐标轴平行, 因此可以利用分离轴定理快速进行碰撞检测.
  *
  * 例子:
- * @code{cpp}
  *
+ * ```cpp
  * AABB3 a({0, 0, 0}, {1, 1, 1}); // 通过最大点和最小点创建包围盒
  * AABB3 b({1, 1, 1}, {2, 2, 2});
  *
@@ -111,7 +111,5 @@ public:
  *   std::cout << "a and b intersect";
  * else                     // a 与 b 没有交集
  *   std::cout << "a and b have no intersection";
- * 
- *
- * @endcode
+ * ```
  */
