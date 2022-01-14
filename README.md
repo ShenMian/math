@@ -6,6 +6,8 @@
 [![CodeQL](https://github.com/ShenMian/Math/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/ShenMian/Math/actions/workflows/codeql.yml)
 [![Test](https://github.com/ShenMian/Math/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/ShenMian/Math/actions/workflows/test.yml)
 
+<sub>(The project is still in the early stages of development)</sub>
+
 A simple linear algebra header-only library.
 
 ## Features
