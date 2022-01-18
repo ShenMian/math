@@ -16,6 +16,8 @@
 
 // TODO: clang 暂时不支持 std::source_location.
 
+#ifndef assert
+
 inline constexpr void assert(bool condition)
 {
 	if(condition)
@@ -58,3 +60,5 @@ inline void assert(bool condition, std::string_view message, const std::source_l
 	breakpoint();
 }
 */
+
+#endif
