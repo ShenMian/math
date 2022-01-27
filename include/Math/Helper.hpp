@@ -7,7 +7,7 @@
 #include <numbers>
 #include <numeric>
 
-namespace
+namespace detail
 {
 
 template <typename T>
