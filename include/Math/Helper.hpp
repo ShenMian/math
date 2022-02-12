@@ -33,6 +33,11 @@ inline constexpr bool equal(T lhs, T rhs, T error = std::numeric_limits<T>::epsi
 }
 
 
+/**
+ * @brief 角度转弧度.
+ *
+ * @param degress 角度.
+ */
 template <typename T>
 	requires std::floating_point<T>
 inline constexpr T radians(T degrees)
@@ -40,6 +45,11 @@ inline constexpr T radians(T degrees)
 	return degrees * static_cast<T>(std::numbers::pi) / 180;
 }
 
+/**
+ * @brief 弧度转角度.
+ *
+ * @param radians 弧度.
+ */
 template <typename T>
 	requires std::floating_point<T>
 inline constexpr T degrees(T radians)
