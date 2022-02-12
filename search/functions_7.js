@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['matrixt_144',['MatrixT',['../class_matrix_t.html#a22fe4d9b75c116f75b8ce65bf1abb602',1,'MatrixT::MatrixT()'],['../class_matrix_t.html#a393294b4fec218b5423d452ae515c911',1,'MatrixT::MatrixT(const std::initializer_list&lt; T &gt; &amp;list)']]],
-  ['maxcoeff_145',['maxCoeff',['../class_matrix_t.html#ae795428a6eabcb92242d47aa5c38649e',1,'MatrixT']]],
-  ['mincoeff_146',['minCoeff',['../class_matrix_t.html#adf18d95317407a980adf1a6204bd9fe2',1,'MatrixT']]]
+  ['matrixt_0',['MatrixT',['../class_matrix_t.html#ac6ddf9beb0c909bbad0245e8d97c27f2',1,'MatrixT::MatrixT()'],['../class_matrix_t.html#ad2db3d095d584e7f7aad452f6662352c',1,'MatrixT::MatrixT(const std::initializer_list&lt; T &gt; &amp;list)']]],
+  ['maxcoeff_1',['maxCoeff',['../class_matrix_t.html#a505c22afd4a8c0f4d9b54a40ae047f16',1,'MatrixT']]],
+  ['mincoeff_2',['minCoeff',['../class_matrix_t.html#accb0971d1e5d93efc5cc19ad6e8c406d',1,'MatrixT']]]
 ];

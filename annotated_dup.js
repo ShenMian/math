@@ -3,7 +3,7 @@ var annotated_dup =
     [ "AABB3", "class_a_a_b_b3.html", "class_a_a_b_b3" ],
     [ "Easing", "class_easing.html", null ],
     [ "MatrixT", "class_matrix_t.html", "class_matrix_t" ],
-    [ "MatrixT< T, N, N >", "class_matrix_t_3_01_t_00_01_n_00_01_n_01_4.html", "class_matrix_t_3_01_t_00_01_n_00_01_n_01_4" ],
+    [ "MatrixT< T, N, N >", "class_matrix_t_3_01_t_00_01_n_00_01_n_01_4.html", null ],
     [ "QuaternionT", "class_quaternion_t.html", "class_quaternion_t" ],
     [ "VectorT", "class_vector_t.html", "class_vector_t" ],
     [ "VectorT< T, 2 >", "class_vector_t_3_01_t_00_012_01_4.html", "class_vector_t_3_01_t_00_012_01_4" ],

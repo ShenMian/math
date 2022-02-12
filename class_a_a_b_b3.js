@@ -10,7 +10,6 @@ var class_a_a_b_b3 =
     [ "intersects", "class_a_a_b_b3.html#a85fdc49986c681ccaedf1f83237313a7", null ],
     [ "isEmpty", "class_a_a_b_b3.html#aa6dcbfffb2662d87caf2d0b838f1f824", null ],
     [ "isValid", "class_a_a_b_b3.html#a90c29ce1000d0ac5c7249e44e1794d3a", null ],
-    [ "operator==", "class_a_a_b_b3.html#ae682bafd5e392af0cad60eefafcd42a0", null ],
     [ "max", "class_a_a_b_b3.html#aedf9fc44f621ee19077dd9220eb824e6", null ],
     [ "min", "class_a_a_b_b3.html#a0d0a92e0abcd498bdbeb328fad19ea05", null ]
 ];
