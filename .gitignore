@@ -17,6 +17,9 @@ Makefile
 /.vs
 /.vscode
 
+# CLion
+/.idea
+
 # Doxygen
 /Docs/html
 
