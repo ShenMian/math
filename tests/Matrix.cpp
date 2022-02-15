@@ -26,7 +26,6 @@ TEST(Matrix, inverse)
 TEST(Matrix, front_back_right_left_up_down)
 {
 	auto a = Matrix4f::lookAt(Vector3f::unit, Vector3f::unit - Vector3f::unit_z, Vector3f::up);
-	std::cout << a;
 	EXPECT_EQ(a.front(), -Vector3f::unit_z);
 	EXPECT_EQ(a.back(), Vector3f::unit_z);
 	EXPECT_EQ(a.right(), Vector3f::unit_x);
