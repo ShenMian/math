@@ -84,22 +84,6 @@ public:
 	 */
 	constexpr const VectorT<T, R> diagonal() const;
 
-	MatrixT& translate(const Vector3T<T>& translation);
-	MatrixT& rotateX(float angle);
-	MatrixT& rotateY(float angle);
-	MatrixT& rotateZ(float angle);
-	MatrixT& scale(const Vector3T<T>& scale);
-
-	/**
-	 * @brief 分解.
-	 */
-	void decompose(Vector3T<T>* translation, Vector3T<T>* rotation, Vector3T<T>* scale) const;
-
-	/**
-	 * @brief 重组.
-	 */
-	MatrixT& recompose(const Vector3T<T>& translation, const Vector3T<T>& rotation, const Vector3T<T>& scale);
-
 	/**
 	 * @brief 获取指定行.
 	 */
@@ -119,6 +103,61 @@ public:
 	 * @brief 获取列数.
 	 */
 	constexpr size_t cols() const;
+
+    /**
+     * @brief 平移变换.
+     *
+     * @param translation 平移量.
+     *
+     * @return *this.
+     */
+    MatrixT& translate(const Vector3T<T>& translation);
+
+    /**
+     * @brief 绕 X 轴旋转.
+     *
+     * @param angle 旋转角度, 单位: 弧度制.
+     *
+     * @return *this.
+     */
+    MatrixT& rotateX(float angle);
+
+    /**
+     * @brief 绕 Y 轴旋转.
+     *
+     * @param angle 旋转角度, 单位: 弧度制.
+     *
+     * @return *this.
+     */
+    MatrixT& rotateY(float angle);
+
+    /**
+     * @brief 绕 Z 轴旋转.
+     *
+     * @param angle 旋转角度, 单位: 弧度制.
+     *
+     * @return *this.
+     */
+    MatrixT& rotateZ(float angle);
+
+    /**
+     * @brief 缩放变换.
+     *
+     * @param scale 缩放量.
+     *
+     * @return *this.
+     */
+    MatrixT& scale(const Vector3T<T>& scale);
+
+    /**
+     * @brief 分解.
+     */
+    void decompose(Vector3T<T>* translation, Vector3T<T>* rotation, Vector3T<T>* scale) const;
+
+    /**
+     * @brief 重组.
+     */
+    MatrixT& recompose(const Vector3T<T>& translation, const Vector3T<T>& rotation, const Vector3T<T>& scale);
 
 	Vector3T<T> front() const;
 	Vector3T<T> back() const;

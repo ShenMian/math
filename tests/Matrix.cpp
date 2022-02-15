@@ -23,17 +23,6 @@ TEST(Matrix, inverse)
 	// TODO
 }
 
-TEST(Matrix, front_back_right_left_up_down)
-{
-	auto a = Matrix4f::lookAt(Vector3f::unit, Vector3f::unit - Vector3f::unit_z, Vector3f::up);
-	EXPECT_EQ(a.front(), -Vector3f::unit_z);
-	EXPECT_EQ(a.back(), Vector3f::unit_z);
-	EXPECT_EQ(a.right(), Vector3f::unit_x);
-	EXPECT_EQ(a.left(), -Vector3f::unit_x);
-	EXPECT_EQ(a.up(), Vector3f::up);
-	EXPECT_EQ(a.down(), -Vector3f::up);
-}
-
 TEST(Matrix, transpose)
 {
 	Matrix3f a = {
@@ -96,80 +85,6 @@ TEST(Matrix, diagonal)
 	EXPECT_EQ(a.diagonal(), Vector2f(1, 4));
 }
 
-TEST(Matrix, addition)
-{
-	Matrix2d a = {
-		1, 2,
-		3, 4
-	};
-	Matrix2d b = {
-		2, 3,
-		1, 4
-	};
-
-	Matrix2d c = {
-		3, 5,
-		4, 8
-	};
-	EXPECT_EQ(a + b, c);
-}
-
-TEST(Matrix, subtraction)
-{
-	Matrix2d a = {
-		1, 2,
-		3, 4
-	};
-	Matrix2d b = {
-		2, 3,
-		1, 4
-	};
-
-	Matrix2d c = {
-		-1, -1,
-		2, 0
-	};
-	EXPECT_EQ(a - b, c);
-}
-
-TEST(Matrix, multiplication)
-{
-	Matrix2f a = {
-		1, 2,
-		3, 4
-	};
-
-	{
-		Matrix2f b = {
-			2.5, 5,
-			7.5, 10
-		};
-		EXPECT_EQ(2.5f * a, b);
-	}
-	/*
-	{
-		Matrix2f b = {
-			7, 10,
-			15, 22
-		};
-		EXPECT_EQ(a * a, b);
-	}
-	*/
-}
-
-TEST(Matrix, division)
-{
-	Matrix2f a = {
-		1, 2,
-		3, 4
-	};
-	Matrix2f b = {
-		0.5, 1,
-		1.5, 2
-	};
-	EXPECT_EQ(a / 2.f, b);
-}
-
 TEST(Matrix, translate)
 {
 	auto a = Matrix4f::identity();
@@ -184,6 +99,17 @@ TEST(Matrix, translate)
 
 TEST(Matrix, scale)
 {
+}
+
+TEST(Matrix, front_back_right_left_up_down)
+{
+    auto a = Matrix4f::lookAt(Vector3f::unit, Vector3f::unit - Vector3f::unit_z, Vector3f::up);
+    EXPECT_EQ(a.front(), -Vector3f::unit_z);
+    EXPECT_EQ(a.back(), Vector3f::unit_z);
+    EXPECT_EQ(a.right(), Vector3f::unit_x);
+    EXPECT_EQ(a.left(), -Vector3f::unit_x);
+    EXPECT_EQ(a.up(), Vector3f::up);
+    EXPECT_EQ(a.down(), -Vector3f::up);
 }
 
 TEST(Matrix, createTranslate)
@@ -256,6 +182,80 @@ TEST(Matrix, zero)
 	};
 	EXPECT_EQ(Matrix2f::zero(), a);
 	EXPECT_EQ((Matrixf<3, 4>::zero()), b);
+}
+
+TEST(Matrix, addition)
+{
+    Matrix2d a = {
+            1, 2,
+            3, 4
+    };
+    Matrix2d b = {
+            2, 3,
+            1, 4
+    };
+
+    Matrix2d c = {
+            3, 5,
+            4, 8
+    };
+    EXPECT_EQ(a + b, c);
+}
+
+TEST(Matrix, subtraction)
+{
+    Matrix2d a = {
+            1, 2,
+            3, 4
+    };
+    Matrix2d b = {
+            2, 3,
+            1, 4
+    };
+
+    Matrix2d c = {
+            -1, -1,
+            2, 0
+    };
+    EXPECT_EQ(a - b, c);
+}
+
+TEST(Matrix, multiplication)
+{
+    Matrix2f a = {
+            1, 2,
+            3, 4
+    };
+
+    {
+        Matrix2f b = {
+                2.5, 5,
+                7.5, 10
+        };
+        EXPECT_EQ(2.5f * a, b);
+    }
+    /*
+    {
+        Matrix2f b = {
+            7, 10,
+            15, 22
+        };
+        EXPECT_EQ(a * a, b);
+    }
+    */
+}
+
+TEST(Matrix, division)
+{
+    Matrix2f a = {
+            1, 2,
+            3, 4
+    };
+    Matrix2f b = {
+            0.5, 1,
+            1.5, 2
+    };
+    EXPECT_EQ(a / 2.f, b);
 }
 
 TEST(Matrix, io)
