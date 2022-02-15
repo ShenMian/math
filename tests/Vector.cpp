@@ -37,6 +37,24 @@ TEST(Vector, dot)
 	EXPECT_FLOAT_EQ(vec.normalized().dot(-vec.normalized()), -1.f);
 }
 
+TEST(Vector, sum)
+{
+    Vectorf<5> vec({1.f, 2.f, 3.f, 4.f, 5.f});
+    EXPECT_FLOAT_EQ(vec.sum(), 15.f);
+}
+
+TEST(Vector, minCoeff)
+{
+    Vectorf<5> vec({1.f, 2.f, 3.f, 4.f, 5.f});
+    EXPECT_FLOAT_EQ(vec.minCoeff(), 1.f);
+}
+
+TEST(Vector, maxCoeff)
+{
+    Vectorf<5> vec({1.f, 2.f, 3.f, 4.f, 5.f});
+    EXPECT_FLOAT_EQ(vec.maxCoeff(), 5.f);
+}
+
 TEST(Vector, equal)
 {
 	Vectorf<5> vec({1.f, 2.f, 3.f, 4.f, 5.f});

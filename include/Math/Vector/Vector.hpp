@@ -83,13 +83,23 @@ public:
 	 */
 	constexpr T sum() const;
 
+    /**
+     * @brief 获取最小元素的值.
+     */
+    constexpr T minCoeff() const;
+
+    /**
+     * @brief 获取最大元素的值.
+     */
+    constexpr T maxCoeff() const;
+
 	/**
 	 * @brief 裁剪到指定范围内.
 	 *
 	 * @param min 最小值.
 	 * @param max 最大值.
 	 */
-	void clamp(const VectorT& min, const VectorT& max);
+    constexpr void clamp(const VectorT& min, const VectorT& max);
 
 	/**
 	 * @brief 获取原始数据.
