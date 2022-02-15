@@ -14,10 +14,15 @@ var class_matrix_t =
     [ "minCoeff", "class_matrix_t.html#accb0971d1e5d93efc5cc19ad6e8c406d", null ],
     [ "operator()", "class_matrix_t.html#a4361ca400d05e85e613346d86836ce40", null ],
     [ "recompose", "class_matrix_t.html#a546d14f4e7f773166f5bf5b9bf6b3fb5", null ],
+    [ "rotateX", "class_matrix_t.html#a9042982e94f8ba028aed3110c118d00b", null ],
+    [ "rotateY", "class_matrix_t.html#a94c86db5fee07309b26f11de790a08a8", null ],
+    [ "rotateZ", "class_matrix_t.html#ab1e628573e807e2f45f35ed959367585", null ],
     [ "row", "class_matrix_t.html#a53b081b8f9ee141035bd9329ec133627", null ],
     [ "rows", "class_matrix_t.html#a42590a28c9d35144aa294a1800a2864d", null ],
+    [ "scale", "class_matrix_t.html#a98917ab77a58647ec747286902842faa", null ],
     [ "sum", "class_matrix_t.html#aab492bd2733635d4df38b63634e1619a", null ],
     [ "trace", "class_matrix_t.html#a9615b11173a94d0f94926010e92eff0d", null ],
+    [ "translate", "class_matrix_t.html#ab21f3dbf91d00b181ee636a5e1eec22b", null ],
     [ "transpose", "class_matrix_t.html#aa577809b72ac17f5be3191e26df40221", null ],
     [ "transposed", "class_matrix_t.html#a0fcf34d972b3de171a8a687b06623af9", null ]
 ];
