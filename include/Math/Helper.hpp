@@ -10,14 +10,15 @@
 namespace detail
 {
 
+// C++ 23 后 std::abs 支持 constexpr
 template <typename T>
 	requires std::is_arithmetic_v<T>
 constexpr T abs(T x)
 {
-	return x >= 0 ? x : -x;
+	return (x >= T(0)) ? x : -x;
 }
 
-}
+} // namespace detail
 
 template <typename T>
 inline constexpr bool equal(const T& lhs, const T& rhs)
