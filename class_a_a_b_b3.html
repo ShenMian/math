@@ -158,7 +158,16 @@ Public 属性</h2></td></tr>
 <div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;a and b intersect&quot;</span>;</div>
 <div class="line"><span class="keywordflow">else</span>                     <span class="comment">// a 与 b 没有交集</span></div>
 <div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;a and b have no intersection&quot;</span>;</div>
+<div class="line"> </div>
+<div class="line"> <span class="comment">// 创建包含全部顶点的包围盒</span></div>
+<div class="line"> std::vector&lt;Vector3&gt; vertices = {</div>
+<div class="line">     {0, 1, 2}, {2, 0, 1}, {-1, 2, 3}</div>
+<div class="line"> };</div>
+<div class="line"> <a class="code hl_class" href="class_a_a_b_b3.html">AABB3</a> c;</div>
+<div class="line"> <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; vertex : vertices)</div>
+<div class="line">     c.<a class="code hl_function" href="class_a_a_b_b3.html#adeeea8b2a57837e5f8cd8996efae7c8f">expand</a>(vertex); <span class="comment">// 将包围盒 c 拓展到可以包围 vertex</span></div>
 <div class="ttc" id="aclass_a_a_b_b3_html"><div class="ttname"><a href="class_a_a_b_b3.html">AABB3</a></div><div class="ttdoc">3 维轴对齐包围盒.</div><div class="ttdef"><b>Definition:</b> AABB3.hpp:12</div></div>
+<div class="ttc" id="aclass_a_a_b_b3_html_adeeea8b2a57837e5f8cd8996efae7c8f"><div class="ttname"><a href="class_a_a_b_b3.html#adeeea8b2a57837e5f8cd8996efae7c8f">AABB3::expand</a></div><div class="ttdeci">void expand(const Vector3 &amp;point)</div><div class="ttdoc">拓展到包含指定点.</div><div class="ttdef"><b>Definition:</b> AABB3.inl:32</div></div>
 </div><!-- fragment --> </div><h2 class="groupheader">构造及析构函数说明</h2>
 <a id="a87462f4770d218e00c73fb230cdacfc4" name="a87462f4770d218e00c73fb230cdacfc4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a87462f4770d218e00c73fb230cdacfc4">&#9670;&nbsp;</a></span>AABB3()</h2>
@@ -233,7 +242,7 @@ Public 属性</h2></td></tr>
 <p>判断是否包含指定 AABB. </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">aabb</td><td>判断是否包含的 AABB. </td></tr>
+    <tr><td class="paramname">aabb</td><td>判断是否包含的 AABB.</td></tr>
   </table>
   </dd>
 </dl>
@@ -375,7 +384,7 @@ false 不包含. </dd></dl>
 <p>判断是否与 AABB 相交. </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">aabb</td><td>判断是否相交的 AABB. </td></tr>
+    <tr><td class="paramname">aabb</td><td>判断是否相交的 AABB.</td></tr>
   </table>
   </dd>
 </dl>
