@@ -132,9 +132,17 @@ constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>VectorT</b> (con
 constexpr T&#160;</td><td class="memItemRight" valign="bottom"><b>sum</b> () const</td></tr>
 <tr class="memdesc:a17592e2df9ea74fcfce1d1e87ca25f57"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取所有元素之和. <br /></td></tr>
 <tr class="separator:a17592e2df9ea74fcfce1d1e87ca25f57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98a4f6c3a94858ea7e75c42c6c535cd5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector_t.html#a98a4f6c3a94858ea7e75c42c6c535cd5">clamp</a> (const <a class="el" href="class_vector_t.html">VectorT</a> &amp;min, const <a class="el" href="class_vector_t.html">VectorT</a> &amp;max)</td></tr>
-<tr class="memdesc:a98a4f6c3a94858ea7e75c42c6c535cd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">裁剪到指定范围内.  <a href="class_vector_t.html#a98a4f6c3a94858ea7e75c42c6c535cd5">更多...</a><br /></td></tr>
-<tr class="separator:a98a4f6c3a94858ea7e75c42c6c535cd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97fd408425e1ae1bab16214224631e4a"><td class="memItemLeft" align="right" valign="top"><a id="a97fd408425e1ae1bab16214224631e4a" name="a97fd408425e1ae1bab16214224631e4a"></a>
+constexpr T&#160;</td><td class="memItemRight" valign="bottom"><b>minCoeff</b> () const</td></tr>
+<tr class="memdesc:a97fd408425e1ae1bab16214224631e4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取最小元素的值. <br /></td></tr>
+<tr class="separator:a97fd408425e1ae1bab16214224631e4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2febc11578aee414c172d6b8209533db"><td class="memItemLeft" align="right" valign="top"><a id="a2febc11578aee414c172d6b8209533db" name="a2febc11578aee414c172d6b8209533db"></a>
+constexpr T&#160;</td><td class="memItemRight" valign="bottom"><b>maxCoeff</b> () const</td></tr>
+<tr class="memdesc:a2febc11578aee414c172d6b8209533db"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取最大元素的值. <br /></td></tr>
+<tr class="separator:a2febc11578aee414c172d6b8209533db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08aaf7c021284dc59db4da70e24c542f"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector_t.html#a08aaf7c021284dc59db4da70e24c542f">clamp</a> (const <a class="el" href="class_vector_t.html">VectorT</a> &amp;min, const <a class="el" href="class_vector_t.html">VectorT</a> &amp;max)</td></tr>
+<tr class="memdesc:a08aaf7c021284dc59db4da70e24c542f"><td class="mdescLeft">&#160;</td><td class="mdescRight">裁剪到指定范围内.  <a href="class_vector_t.html#a08aaf7c021284dc59db4da70e24c542f">更多...</a><br /></td></tr>
+<tr class="separator:a08aaf7c021284dc59db4da70e24c542f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a597f760fb6b84e6fdc7d870f3779da43"><td class="memItemLeft" align="right" valign="top"><a id="a597f760fb6b84e6fdc7d870f3779da43" name="a597f760fb6b84e6fdc7d870f3779da43"></a>
 constexpr T *&#160;</td><td class="memItemRight" valign="bottom"><b>data</b> ()</td></tr>
 <tr class="memdesc:a597f760fb6b84e6fdc7d870f3779da43"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取原始数据. <br /></td></tr>
@@ -243,8 +251,8 @@ requires std::is_arithmetic_v&lt;T&gt;</div>
 </div>
 </div>
 <h2 class="groupheader">成员函数说明</h2>
-<a id="a98a4f6c3a94858ea7e75c42c6c535cd5" name="a98a4f6c3a94858ea7e75c42c6c535cd5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98a4f6c3a94858ea7e75c42c6c535cd5">&#9670;&nbsp;</a></span>clamp()</h2>
+<a id="a08aaf7c021284dc59db4da70e24c542f" name="a08aaf7c021284dc59db4da70e24c542f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08aaf7c021284dc59db4da70e24c542f">&#9670;&nbsp;</a></span>clamp()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -256,7 +264,7 @@ requires std::is_arithmetic_v&lt;T&gt;</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="class_vector_t.html">VectorT</a>&lt; T, N &gt;::clamp </td>
+          <td class="memname">constexpr void <a class="el" href="class_vector_t.html">VectorT</a>&lt; T, N &gt;::clamp </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="class_vector_t.html">VectorT</a>&lt; T, N &gt; &amp;&#160;</td>
           <td class="paramname"><em>min</em>, </td>
@@ -275,7 +283,7 @@ requires std::is_arithmetic_v&lt;T&gt;</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
