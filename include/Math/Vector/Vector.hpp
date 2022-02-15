@@ -99,7 +99,7 @@ public:
 	 * @param min 最小值.
 	 * @param max 最大值.
 	 */
-    constexpr void clamp(const VectorT& min, const VectorT& max);
+    constexpr const VectorT& clamp(const VectorT& min, const VectorT& max);
 
 	/**
 	 * @brief 获取原始数据.

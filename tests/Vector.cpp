@@ -55,6 +55,14 @@ TEST(Vector, maxCoeff)
     EXPECT_FLOAT_EQ(vec.maxCoeff(), 5.f);
 }
 
+TEST(Vector, clamp)
+{
+    Vectorf<5> vec({1.f, 2.f, 3.f, 4.f, 5.f});
+    Vectorf<5> min({2.f, 2.f, 2.f, 2.f, 2.f});
+    Vectorf<5> max({4.f, 4.f, 4.f, 4.f, 4.f});
+    EXPECT_EQ(vec.clamp(min, max), Vectorf<5>({2.f, 2.f, 3.f, 4.f, 4.f}));
+}
+
 TEST(Vector, equal)
 {
 	Vectorf<5> vec({1.f, 2.f, 3.f, 4.f, 5.f});

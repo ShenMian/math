@@ -80,10 +80,11 @@ inline constexpr T VectorT<T, N>::sum() const
 }
 
 template<typename T, size_t N> requires std::is_arithmetic_v<T>
-inline constexpr void VectorT<T, N>::clamp(const VectorT& min, const VectorT& max)
+inline constexpr const VectorT<T, N>& VectorT<T, N>::clamp(const VectorT& min, const VectorT& max)
 {
 	for(size_t i = 0; i < N; i++)
 		v_[i] = std::clamp(v_[i], min[i], max[i]);
+    return *this;
 }
 
 template <typename T, size_t N> requires std::is_arithmetic_v<T>
