@@ -34,25 +34,27 @@ public:
 	 * @return true  包含.
 	 * @return false 不包含.
 	 */
-	bool contains(const Vector3& point) const;
+    [[nodiscard]] bool contains(const Vector3& point) const;
 
 	/**
 	 * @brief 判断是否包含指定 AABB.
 	 *
 	 * @param aabb   判断是否包含的 AABB.
+	 *
 	 * @return true  包含.
 	 * @return false 不包含.
 	 */
-	bool contains(const AABB3& aabb) const;
+    [[nodiscard]] bool contains(const AABB3& aabb) const;
 
 	/**
 	 * @brief 判断是否与 AABB 相交.
 	 *
 	 * @param  aabb  判断是否相交的 AABB.
+	 *
 	 * @return true  相交.
 	 * @return false 不相交.
 	 */
-	bool intersects(const AABB3& aabb) const;
+    [[nodiscard]] bool intersects(const AABB3& aabb) const;
 
 	/**
 	 * @brief 拓展到包含指定点.
@@ -71,7 +73,7 @@ public:
 	/**
 	 * @brief 获取几何中心.
 	 */
-	Vector3 getCenter() const;
+    Vector3 getCenter() const;
 
 	/**
 	 * @brief 判断大小是否为空.
@@ -79,7 +81,7 @@ public:
 	 * @return true  空.
 	 * @return false 非空.
 	 */
-	bool isEmpty() const;
+	[[nodiscard]] bool isEmpty() const;
 
 	/**
 	 * @brief 判断是否有效.
@@ -87,7 +89,7 @@ public:
 	 * @return true  有效.
 	 * @return false 无效.
 	 */
-	bool isValid() const;
+    [[nodiscard]] bool isValid() const;
 
 	bool operator==(const AABB3& rhs) const = default;
 };
@@ -111,5 +113,13 @@ public:
  *   std::cout << "a and b intersect";
  * else                     // a 与 b 没有交集
  *   std::cout << "a and b have no intersection";
+ *
+ *  // 创建包含全部顶点的包围盒
+ *  std::vector<Vector3> vertices = {
+ *      {0, 1, 2}, {2, 0, 1}, {-1, 2, 3}
+ *  };
+ *  AABB3 c;
+ *  for(const auto& vertex : vertices)
+ *      c.expand(vertex); // 将包围盒 c 拓展到可以包围 vertex
  * ```
  */
