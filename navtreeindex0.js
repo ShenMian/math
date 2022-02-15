@@ -62,7 +62,7 @@ var NAVTREEINDEX0 =
 "class_quaternion_t.html#ad846d9fb0e950a3f58085d05647df028":[1,0,4,6],
 "class_quaternion_t.html#af0ba22737f08bc185577933d061a9742":[1,0,4,1],
 "class_vector_t.html":[1,0,5],
-"class_vector_t.html#a08aaf7c021284dc59db4da70e24c542f":[1,0,5,3],
+"class_vector_t.html#a0993a5dfb8103b34c88a8e14c48f238c":[1,0,5,3],
 "class_vector_t.html#a0b3bdf33a732e6790f0921203cf42a67":[1,0,5,12],
 "class_vector_t.html#a1217accf62086e82912502ceb2f6140c":[1,0,5,4],
 "class_vector_t.html#a17592e2df9ea74fcfce1d1e87ca25f57":[1,0,5,13],

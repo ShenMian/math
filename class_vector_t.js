@@ -3,7 +3,7 @@ var class_vector_t =
     [ "VectorT", "class_vector_t.html#a343a9320f718caa0e157ed4c37ad3c6b", null ],
     [ "VectorT", "class_vector_t.html#a9beced67bce258bfea693f95923aa341", null ],
     [ "VectorT", "class_vector_t.html#a76046b94f2dd68fd592ea28e03861199", null ],
-    [ "clamp", "class_vector_t.html#a08aaf7c021284dc59db4da70e24c542f", null ],
+    [ "clamp", "class_vector_t.html#a0993a5dfb8103b34c88a8e14c48f238c", null ],
     [ "cross", "class_vector_t.html#a1217accf62086e82912502ceb2f6140c", null ],
     [ "data", "class_vector_t.html#a597f760fb6b84e6fdc7d870f3779da43", null ],
     [ "dot", "class_vector_t.html#a7780628aedcb570c071fc1fe775c9aca", null ],
