@@ -11,7 +11,8 @@
 A simple linear algebra header-only library.
 
 ## Features
-- Some operations support SIMD.
+- Some operations support SIMD: SSE.
+- Some operations support compile-time computation: C++14 constexpr.
 
 ## Documentation
 - [API Reference](https://shenmian.github.io/Math/index.html)
