@@ -27,7 +27,8 @@ var NAVTREE =
   [ "Math", "index.html", [
     [ "Math 文档", "index.html", [
       [ "Math", "index.html#autotoc_md0", [
-        [ "概述", "index.html#autotoc_md1", null ]
+        [ "概述", "index.html#autotoc_md1", null ],
+        [ "特点", "index.html#autotoc_md2", null ]
       ] ]
     ] ],
     [ "类", "annotated.html", [
