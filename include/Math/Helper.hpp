@@ -26,12 +26,23 @@ inline constexpr bool equal(const T& lhs, const T& rhs)
 	return lhs == rhs;
 }
 
+#if __GNUC__
+inline constexpr bool equal(float lhs, float rhs, float error = std::numeric_limits<float>::epsilon())
+{
+    return detail::abs(lhs - rhs) <= error;
+}
+inline constexpr bool equal(double lhs, double rhs, double error = std::numeric_limits<double>::epsilon())
+{
+    return detail::abs(lhs - rhs) <= error;
+}
+#else
 template <typename T>
-	requires std::floating_point<T>
+    requires std::is_floating_point<T>
 inline constexpr bool equal(T lhs, T rhs, T error = std::numeric_limits<T>::epsilon())
 {
 	return detail::abs(lhs - rhs) <= error;
 }
+#endif
 
 
 /**
