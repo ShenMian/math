@@ -37,7 +37,7 @@ inline constexpr bool equal(double lhs, double rhs, double error = std::numeric_
 }
 #else
 template <typename T>
-    requires std::is_floating_point<T>
+    requires std::floating_point<T>
 inline constexpr bool equal(T lhs, T rhs, T error = std::numeric_limits<T>::epsilon())
 {
 	return detail::abs(lhs - rhs) <= error;
