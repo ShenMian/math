@@ -216,7 +216,7 @@ inline constexpr VectorT<T, 3> VectorT<T, 3>::operator-() const
 }
 
 
-template<typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 inline VectorT<T, 3> VectorT<T, 3>::lerp(const VectorT<T, 3>& from, const VectorT<T, 3>& to, T t)
 {
 	return from + (to - from) * t;
