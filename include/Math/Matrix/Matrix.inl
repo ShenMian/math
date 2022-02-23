@@ -25,7 +25,7 @@ inline MatrixT<T, R, C>::MatrixT(const std::initializer_list<T>& list)
 			m_[r][c] = *it++;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline MatrixT<T, R, C>& MatrixT<T, R, C>::inverse()
 {
 	// TODO
@@ -33,7 +33,7 @@ inline MatrixT<T, R, C>& MatrixT<T, R, C>::inverse()
 	return *this;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline MatrixT<T, R, C> MatrixT<T, R, C>::inversed() const
 {
 	return MatrixT(*this).inverse();
@@ -63,7 +63,7 @@ inline constexpr T MatrixT<T, R, C>::trace() const
 	return diagonal().sum();
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline constexpr T MatrixT<T, R, C>::sum() const
 {
 	const auto& mat = *this;
@@ -74,7 +74,7 @@ inline constexpr T MatrixT<T, R, C>::sum() const
 	return result;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline constexpr T MatrixT<T, R, C>::minCoeff() const
 {
 	const auto& mat = *this;
@@ -86,7 +86,7 @@ inline constexpr T MatrixT<T, R, C>::minCoeff() const
 	return min;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline constexpr T MatrixT<T, R, C>::maxCoeff() const
 {
 	const auto& mat = *this;
@@ -98,7 +98,7 @@ inline constexpr T MatrixT<T, R, C>::maxCoeff() const
 	return max;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline constexpr const VectorT<T, R> MatrixT<T, R, C>::diagonal() const
 {
 	static_assert(R == C, "only square matrix supports this operation");
@@ -108,7 +108,7 @@ inline constexpr const VectorT<T, R> MatrixT<T, R, C>::diagonal() const
 	return result;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline MatrixT<T, R, C>& MatrixT<T, R, C>::translate(const Vector3T<T>& v)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
@@ -120,7 +120,7 @@ inline MatrixT<T, R, C>& MatrixT<T, R, C>::translate(const Vector3T<T>& v)
 	return *this;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline MatrixT<T, R, C>& MatrixT<T, R, C>::rotateX(float angle)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
@@ -145,7 +145,7 @@ inline MatrixT<T, R, C>& MatrixT<T, R, C>::rotateX(float angle)
 	return *this;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline MatrixT<T, R, C>& MatrixT<T, R, C>::rotateY(float angle)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
@@ -170,7 +170,7 @@ inline MatrixT<T, R, C>& MatrixT<T, R, C>::rotateY(float angle)
 	return *this;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline MatrixT<T, R, C>& MatrixT<T, R, C>::rotateZ(float angle)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
@@ -195,7 +195,7 @@ inline MatrixT<T, R, C>& MatrixT<T, R, C>::rotateZ(float angle)
 	return *this;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 MatrixT<T, R, C> &MatrixT<T, R, C>::scale(const Vector3T<T> &scale)
 {
     auto& mat = *this;
@@ -214,7 +214,7 @@ inline void MatrixT<T, R, C>::decompose(Vector3T<T>* translation, Vector3T<T>* r
 	assert(false);
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline MatrixT<T, R, C>& MatrixT<T, R, C>::recompose(const Vector3T<T>& translation, const Vector3T<T>& rotation, const Vector3T<T>& scale)
 {
     static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
@@ -228,7 +228,7 @@ inline MatrixT<T, R, C>& MatrixT<T, R, C>::recompose(const Vector3T<T>& translat
 	return *this;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline constexpr VectorT<T, C> MatrixT<T, R, C>::row(size_t index) const
 {
 	assert(index < R);
@@ -239,7 +239,7 @@ inline constexpr VectorT<T, C> MatrixT<T, R, C>::row(size_t index) const
 	return vec;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline constexpr VectorT<T, R> MatrixT<T, R, C>::col(size_t index) const
 {
 	assert(index < C);
@@ -251,54 +251,54 @@ inline constexpr VectorT<T, R> MatrixT<T, R, C>::col(size_t index) const
 	return vec;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline constexpr size_t MatrixT<T, R, C>::rows() const
 {
 	return rows_;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline constexpr size_t MatrixT<T, R, C>::cols() const
 {
 	return cols_;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline Vector3T<T> MatrixT<T, R, C>::front() const
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 	return -back();
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline Vector3T<T> MatrixT<T, R, C>::back() const
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 	return {(*this)(2, 0), (*this)(2, 1), (*this)(2, 2)};
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline Vector3T<T> MatrixT<T, R, C>::left() const
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 	return -right();
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline Vector3T<T> MatrixT<T, R, C>::right() const
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 	return {(*this)(0, 0), (*this)(0, 1), (*this)(0, 2)};
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline Vector3T<T> MatrixT<T, R, C>::up() const
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 	return {(*this)(1, 0), (*this)(1, 1), (*this)(1, 2)};
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline Vector3T<T> MatrixT<T, R, C>::down() const
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
@@ -317,7 +317,7 @@ inline constexpr const T* MatrixT<T, R, C>::data() const
 	return &m_[0][0];
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline constexpr T& MatrixT<T, R, C>::operator()(size_t r, size_t c)
 {
 	assert(r < rows() && c < cols(), "subscript out of range");
@@ -328,7 +328,7 @@ inline constexpr T& MatrixT<T, R, C>::operator()(size_t r, size_t c)
 #endif
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline constexpr const T& MatrixT<T, R, C>::operator()(size_t r, size_t c) const
 {
 	assert(r < rows() && c < cols(), "subscript out of range");
@@ -349,7 +349,7 @@ inline constexpr bool MatrixT<T, R, C>::operator==(const MatrixT& rhs) const
 	return true;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline constexpr MatrixT<T, R, C>& MatrixT<T, R, C>::operator+=(const MatrixT& rhs)
 {
 	for(size_t r = 0; r < rows(); r++)
@@ -358,7 +358,7 @@ inline constexpr MatrixT<T, R, C>& MatrixT<T, R, C>::operator+=(const MatrixT& r
 	return *this;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline constexpr MatrixT<T, R, C>& MatrixT<T, R, C>::operator-=(const MatrixT& rhs)
 {
 	for(size_t r = 0; r < rows(); r++)
@@ -367,7 +367,7 @@ inline constexpr MatrixT<T, R, C>& MatrixT<T, R, C>::operator-=(const MatrixT& r
 	return *this;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline MatrixT<T, R, C>& MatrixT<T, R, C>::operator*=(const MatrixT& rhs)
 {
 	if constexpr(R == C && R == 4)
@@ -387,7 +387,7 @@ inline MatrixT<T, R, C>& MatrixT<T, R, C>::operator*=(const MatrixT& rhs)
 	return *this;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline MatrixT<T, R, C>& MatrixT<T, R, C>::operator/=(const MatrixT& rhs)
 {
 	// TODO
@@ -395,7 +395,7 @@ inline MatrixT<T, R, C>& MatrixT<T, R, C>::operator/=(const MatrixT& rhs)
 	return *this;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline constexpr MatrixT<T, R, C>& MatrixT<T, R, C>::operator*=(const T& v)
 {
 	for(size_t r = 0; r < rows(); r++)
@@ -404,7 +404,7 @@ inline constexpr MatrixT<T, R, C>& MatrixT<T, R, C>::operator*=(const T& v)
 	return *this;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline constexpr MatrixT<T, R, C>& MatrixT<T, R, C>::operator/=(const T& v)
 {
 	for(size_t r = 0; r < rows(); r++)
@@ -413,7 +413,7 @@ inline constexpr MatrixT<T, R, C>& MatrixT<T, R, C>::operator/=(const T& v)
 	return *this;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline constexpr MatrixT<T, R, C> MatrixT<T, R, C>::operator-()
 {
 	MatrixT result;
@@ -435,7 +435,7 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::createTranslate(const Vector3T<T>& v)
 	return mat;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline MatrixT<T, R, C> MatrixT<T, R, C>::createRotation(float angle, Vector3T<T> axis)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
@@ -474,7 +474,7 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::createRotation(float angle, Vector3T<T
 	return mat;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline MatrixT<T, R, C> MatrixT<T, R, C>::createRotationX(float angle)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
@@ -490,7 +490,7 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::createRotationX(float angle)
 	return mat;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline MatrixT<T, R, C> MatrixT<T, R, C>::createRotationY(float angle)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
@@ -506,7 +506,7 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::createRotationY(float angle)
 	return mat;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline MatrixT<T, R, C> MatrixT<T, R, C>::createRotationZ(float angle)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
@@ -522,7 +522,7 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::createRotationZ(float angle)
 	return mat;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline MatrixT<T, R, C> MatrixT<T, R, C>::createScale(const Vector3T<T>& scale)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
@@ -534,7 +534,7 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::createScale(const Vector3T<T>& scale)
 	return mat;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline MatrixT<T, 4, 4> MatrixT<T, R, C>::perspective(T vFOV, T aspect, T n, T f)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
@@ -553,7 +553,7 @@ inline MatrixT<T, 4, 4> MatrixT<T, R, C>::perspective(T vFOV, T aspect, T n, T f
 	return mat;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline MatrixT<T, 4, 4> MatrixT<T, R, C>::orthogonal(T w, T h, T n, T f)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
@@ -562,7 +562,7 @@ inline MatrixT<T, 4, 4> MatrixT<T, R, C>::orthogonal(T w, T h, T n, T f)
 	return orthogonal(-w / T(2), w / T(2), -h / T(2), h / T(2), n, f);
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline MatrixT<T, 4, 4> MatrixT<T, R, C>::orthogonal(T l, T r, T b, T t, T n, T f)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
@@ -580,7 +580,7 @@ inline MatrixT<T, 4, 4> MatrixT<T, R, C>::orthogonal(T l, T r, T b, T t, T n, T 
 	return mat;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline MatrixT<T, 4, 4> MatrixT<T, R, C>::lookAt(const Vector3T<T>& eye, const Vector3T<T>& center, const Vector3T<T>& up)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
@@ -612,7 +612,7 @@ inline MatrixT<T, 4, 4> MatrixT<T, R, C>::lookAt(const Vector3T<T>& eye, const V
 	return mat;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline MatrixT<T, R, C> MatrixT<T, R, C>::identity()
 {
 	static_assert(R == C, "only square matrix supports this operation");
@@ -620,7 +620,7 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::identity()
 	return mat;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 inline MatrixT<T, R, C> MatrixT<T, R, C>::zero()
 {
 	if constexpr(R == C)
