@@ -70,7 +70,7 @@ inline constexpr VectorT<T, N> VectorT<T, N>::cross(const VectorT& rhs) const
 	return VectorT<T, N>();
 }
 
-template<typename T, size_t N> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t N>
 inline constexpr T VectorT<T, N>::sum() const
 {
 	T sum = T(0);
@@ -79,7 +79,7 @@ inline constexpr T VectorT<T, N>::sum() const
 	return sum;
 }
 
-template<typename T, size_t N> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t N>
 inline constexpr const VectorT<T, N>& VectorT<T, N>::clamp(const VectorT& min, const VectorT& max)
 {
 	for(size_t i = 0; i < N; i++)
