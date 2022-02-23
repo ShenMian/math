@@ -1,11 +1,11 @@
 var class_matrix_t =
 [
-    [ "MatrixT", "class_matrix_t.html#ac6ddf9beb0c909bbad0245e8d97c27f2", null ],
-    [ "MatrixT", "class_matrix_t.html#ad2db3d095d584e7f7aad452f6662352c", null ],
+    [ "MatrixT", "class_matrix_t.html#ac0e3299067035a98063d30b0aefbbc23", null ],
+    [ "MatrixT", "class_matrix_t.html#ab1bc8ddcf5c685aee73bf0d23b3d5158", null ],
     [ "col", "class_matrix_t.html#aa6bd90328f4d415bbb9b74da5f9bf059", null ],
     [ "cols", "class_matrix_t.html#a2997ee7d6d61de0381af52e9b7ce8bf3", null ],
-    [ "data", "class_matrix_t.html#add724df1dcbd489cd29f62f782c8371e", null ],
-    [ "decompose", "class_matrix_t.html#ab7e276b4b2f35d1fb228bd3f779b7c28", null ],
+    [ "data", "class_matrix_t.html#a31299d5ea3393110d49299163a2ee97f", null ],
+    [ "decompose", "class_matrix_t.html#a9d9c679a883dae76670fd9256aad6eb3", null ],
     [ "determinant", "class_matrix_t.html#acac9f051752eceb2cd0896d2f50d0d3d", null ],
     [ "diagonal", "class_matrix_t.html#ab813f99ff322b4d73f47039baac4564b", null ],
     [ "inverse", "class_matrix_t.html#aec338842a8770e57f7ca4edce8822d64", null ],
@@ -21,8 +21,8 @@ var class_matrix_t =
     [ "rows", "class_matrix_t.html#a42590a28c9d35144aa294a1800a2864d", null ],
     [ "scale", "class_matrix_t.html#a98917ab77a58647ec747286902842faa", null ],
     [ "sum", "class_matrix_t.html#aab492bd2733635d4df38b63634e1619a", null ],
-    [ "trace", "class_matrix_t.html#a9615b11173a94d0f94926010e92eff0d", null ],
+    [ "trace", "class_matrix_t.html#af42a8e7c414a37b57255bb8b9352dc42", null ],
     [ "translate", "class_matrix_t.html#ab21f3dbf91d00b181ee636a5e1eec22b", null ],
-    [ "transpose", "class_matrix_t.html#aa577809b72ac17f5be3191e26df40221", null ],
-    [ "transposed", "class_matrix_t.html#a0fcf34d972b3de171a8a687b06623af9", null ]
+    [ "transpose", "class_matrix_t.html#ab3292617faa610b96cc388e034828f6b", null ],
+    [ "transposed", "class_matrix_t.html#abd0c2c125307330e102a82b5c8486b9a", null ]
 ];
