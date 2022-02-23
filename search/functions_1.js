@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['clamp_0',['clamp',['../class_vector_t.html#a0993a5dfb8103b34c88a8e14c48f238c',1,'VectorT']]],
+  ['clamp_0',['clamp',['../class_vector_t.html#a4d8e20385960a63a64d74eff222f3e76',1,'VectorT']]],
   ['col_1',['col',['../class_matrix_t.html#a5b0619a5380497cebb7eb8fc1e424d22',1,'MatrixT']]],
   ['cols_2',['cols',['../class_matrix_t.html#a31aec19b7a0d0a989abbcb7a5185f450',1,'MatrixT']]],
   ['contains_3',['contains',['../class_a_a_b_b3.html#afcd03cc85be2b64307c1ac6455871c8e',1,'AABB3::contains(const Vector3 &amp;point) const'],['../class_a_a_b_b3.html#a791887cad43dbfefc4f2317f03bf9df8',1,'AABB3::contains(const AABB3 &amp;aabb) const']]],
