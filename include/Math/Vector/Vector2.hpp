@@ -10,7 +10,7 @@
 /**
  * @brief 二维向量.
  */
-template <typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 class VectorT<T, 2>
 {
 public:

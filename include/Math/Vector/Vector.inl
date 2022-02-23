@@ -9,13 +9,13 @@
 #include <ranges>
 #include "Vector.hpp"
 
-template <typename T, size_t N> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t N>
 inline constexpr VectorT<T, N>::VectorT(const T& scalar)
 {
 	std::ranges::fill(v_, scalar);
 }
 
-template <typename T, size_t N> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t N>
 inline constexpr VectorT<T, N>::VectorT(const std::initializer_list<T>& list)
 {
 	assert(list.size() <= N, "Too many initializers");
@@ -24,13 +24,13 @@ inline constexpr VectorT<T, N>::VectorT(const std::initializer_list<T>& list)
 		v_[i] = *it++;
 }
 
-template <typename T, size_t N> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t N>
 inline T VectorT<T, N>::norm() const
 {
 	return static_cast<T>(std::sqrt(normSquared()));
 }
 
-template <typename T, size_t N> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t N>
 inline constexpr T VectorT<T, N>::normSquared() const
 {
 	T result = T();
@@ -39,7 +39,7 @@ inline constexpr T VectorT<T, N>::normSquared() const
 	return result;
 }
 
-template <typename T, size_t N> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t N>
 inline VectorT<T, N>& VectorT<T, N>::normalize()
 {
 	const auto len = norm();
@@ -48,13 +48,13 @@ inline VectorT<T, N>& VectorT<T, N>::normalize()
 	return *this *= 1.f / len;
 }
 
-template <typename T, size_t N> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t N>
 inline VectorT<T, N> VectorT<T, N>::normalized() const
 {
 	return VectorT(*this).normalize();
 }
 
-template <typename T, size_t N> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t N>
 inline constexpr T VectorT<T, N>::dot(const VectorT& rhs) const
 {
 	T result = T();
@@ -63,7 +63,7 @@ inline constexpr T VectorT<T, N>::dot(const VectorT& rhs) const
 	return result;
 }
 
-template <typename T, size_t N> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t N>
 inline constexpr VectorT<T, N> VectorT<T, N>::cross(const VectorT& rhs) const
 {
 	// TODO
@@ -87,33 +87,33 @@ inline constexpr const VectorT<T, N>& VectorT<T, N>::clamp(const VectorT& min, c
     return *this;
 }
 
-template <typename T, size_t N> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t N>
 inline constexpr T* VectorT<T, N>::data()
 {
 	return v_;
 }
 
-template <typename T, size_t N> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t N>
 inline constexpr const T* VectorT<T, N>::data() const
 {
 	return v_;
 }
 
-template <typename T, size_t N> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t N>
 inline constexpr T& VectorT<T, N>::operator[](size_t index)
 {
 	assert(index < components, "subscript out of range");
 	return *(v_ + index);
 }
 
-template <typename T, size_t N> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t N>
 inline constexpr const T& VectorT<T, N>::operator[](size_t index) const
 {
 	assert(index < components, "subscript out of range");
 	return *(v_ + index);
 }
 
-template <typename T, size_t N> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t N>
 inline constexpr bool VectorT<T, N>::operator==(const VectorT<T, N>& rhs) const
 {
 	for(size_t i = 0; i < N; i++)
@@ -122,7 +122,7 @@ inline constexpr bool VectorT<T, N>::operator==(const VectorT<T, N>& rhs) const
 	return true;
 }
 
-template <typename T, size_t N> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t N>
 inline constexpr VectorT<T, N>& VectorT<T, N>::operator+=(const VectorT<T, N>& rhs)
 {
 	for(size_t i = 0; i < N; i++)
@@ -130,7 +130,7 @@ inline constexpr VectorT<T, N>& VectorT<T, N>::operator+=(const VectorT<T, N>& r
 	return *this;
 }
 
-template <typename T, size_t N> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t N>
 inline constexpr VectorT<T, N>& VectorT<T, N>::operator-=(const VectorT<T, N>& rhs)
 {
 	for(size_t i = 0; i < N; i++)
@@ -138,7 +138,7 @@ inline constexpr VectorT<T, N>& VectorT<T, N>::operator-=(const VectorT<T, N>& r
 	return *this;
 }
 
-template <typename T, size_t N> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t N>
 inline constexpr VectorT<T, N>& VectorT<T, N>::operator*=(const T& rhs)
 {
 	for(size_t i = 0; i < N; i++)
@@ -146,7 +146,7 @@ inline constexpr VectorT<T, N>& VectorT<T, N>::operator*=(const T& rhs)
 	return *this;
 }
 
-template <typename T, size_t N> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t N>
 inline constexpr VectorT<T, N>& VectorT<T, N>::operator/=(const T& rhs)
 {
 	assert(rhs, "divisor cannot be zero");
@@ -155,7 +155,7 @@ inline constexpr VectorT<T, N>& VectorT<T, N>::operator/=(const T& rhs)
 	return *this;
 }
 
-template <typename T, size_t N> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t N>
 inline constexpr VectorT<T, N> VectorT<T, N>::operator-() const
 {
 	VectorT result;
@@ -164,7 +164,7 @@ inline constexpr VectorT<T, N> VectorT<T, N>::operator-() const
 	return result;
 }
 
-template <typename T, size_t N> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t N>
 constexpr T VectorT<T, N>::minCoeff() const
 {
     T min = std::numeric_limits<T>::max();
@@ -174,7 +174,7 @@ constexpr T VectorT<T, N>::minCoeff() const
     return min;
 }
 
-template <typename T, size_t N> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t N>
 constexpr T VectorT<T, N>::maxCoeff() const
 {
     T max = std::numeric_limits<T>::min();

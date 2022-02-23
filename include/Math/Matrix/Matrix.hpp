@@ -18,7 +18,7 @@
  * @tparam R 行数.
  * @tparam C 列数.
  */
-template <typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 class MatrixT
 {
 public:
@@ -365,25 +365,25 @@ inline constexpr MatrixT<T, R, C> operator/(const MatrixT<T, R, C>& lhs, const M
 	return MatrixT(lhs) /= rhs;
 }
 
-template <typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 MatrixT<T, R, C> constexpr operator*(const MatrixT<T, R, C>& lhs, const T& rhs)
 {
 	return MatrixT(lhs) *= rhs;
 }
 
-template <typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 MatrixT<T, R, C> constexpr operator/(const MatrixT<T, R, C>& lhs, const T& rhs)
 {
 	return MatrixT(lhs) /= rhs;
 }
 
-template <typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 MatrixT<T, R, C> constexpr operator*(const T& lhs, const MatrixT<T, R, C>& rhs)
 {
 	return rhs * lhs;
 }
 
-template <typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t R, size_t C>
 MatrixT<T, R, C> constexpr operator/(const T& lhs, const MatrixT<T, R, C>& rhs)
 {
 	return rhs / lhs;

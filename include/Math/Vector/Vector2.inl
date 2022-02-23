@@ -5,49 +5,49 @@
 #include <cmath>
 #include <concepts>
 
-template <typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 inline const VectorT<T, 2> VectorT<T, 2>::unit(1, 1);
 
-template <typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 inline const VectorT<T, 2> VectorT<T, 2>::unit_x(1, 0);
 
-template <typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 inline const VectorT<T, 2> VectorT<T, 2>::unit_y(0, 1);
 
-template <typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 inline const VectorT<T, 2> VectorT<T, 2>::zero(0, 0);
 
-template <typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 inline const VectorT<T, 2> VectorT<T, 2>::up(0, 1);
 
-template <typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 inline const VectorT<T, 2> VectorT<T, 2>::down(0, -1);
 
-template <typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 inline const VectorT<T, 2> VectorT<T, 2>::right(1, 0);
 
-template <typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 inline const VectorT<T, 2> VectorT<T, 2>::left(-1, 0);
 
-template <typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 inline VectorT<T, 2>::VectorT()
 	: x(0), y(0)
 {
 }
 
-template <typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 inline constexpr VectorT<T, 2>::VectorT(const T& scalar)
 	: x(scalar), y(scalar)
 {
 }
 
-template <typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 inline constexpr VectorT<T, 2>::VectorT(const T& x, const T& y)
 	: x(x), y(y)
 {
 }
 
-template <typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 inline constexpr VectorT<T, 2>::VectorT(const std::initializer_list<T>& list)
 {
 	assert(list.size() <= 2, "Too many initializers");
@@ -56,19 +56,19 @@ inline constexpr VectorT<T, 2>::VectorT(const std::initializer_list<T>& list)
 	y = *(++it);
 }
 
-template <typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 inline T VectorT<T, 2>::norm() const
 {
 	return static_cast<T>(std::sqrt(normSquared()));
 }
 
-template <typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 inline T constexpr VectorT<T, 2>::normSquared() const
 {
 	return x * x + y * y;
 }
 
-template <typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 inline VectorT<T, 2>& VectorT<T, 2>::normalize()
 {
 	const auto len = norm();
@@ -77,19 +77,19 @@ inline VectorT<T, 2>& VectorT<T, 2>::normalize()
 	return *this *= 1.f / len;
 }
 
-template <typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 inline VectorT<T, 2> VectorT<T, 2>::normalized() const
 {
 	return VectorT(*this).normalize();
 }
 
-template <typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 inline T VectorT<T, 2>::dot(const VectorT& rhs) const
 {
 	return x * rhs.x + y * rhs.y;
 }
 
-template <typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 inline VectorT<T, 2> VectorT<T, 2>::cross(const VectorT& rhs) const
 {
 	// TODO
@@ -97,7 +97,7 @@ inline VectorT<T, 2> VectorT<T, 2>::cross(const VectorT& rhs) const
 	return VectorT<T, 2>();
 }
 
-template <typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 inline constexpr T VectorT<T, 2>::sum() const
 {
 	T sum = T(0);
@@ -106,13 +106,13 @@ inline constexpr T VectorT<T, 2>::sum() const
 	return sum;
 }
 
-template <typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 inline T VectorT<T, 2>::angle() const
 {
 	return std::atan2(y, x);
 }
 
-template <typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 inline void VectorT<T, 2>::rotate(const VectorT<T, 2>& point, float angle)
 {
 	const auto sin = std::sin(angle);
@@ -134,13 +134,13 @@ inline void VectorT<T, 2>::rotate(const VectorT<T, 2>& point, float angle)
 	}
 }
 
-template <typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 inline T VectorT<T, 2>::distance(const VectorT& point) const
 {
 	return std::sqrt(distanceSquared());
 }
 
-template <typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 inline T VectorT<T, 2>::distanceSquared(const VectorT& point) const
 {
 	const auto dx = std::abs(x - point.x);
@@ -148,39 +148,39 @@ inline T VectorT<T, 2>::distanceSquared(const VectorT& point) const
 	return dx * dx + dy * dy;
 }
 
-template <typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 inline T* VectorT<T, 2>::data()
 {
 	return &x;
 }
 
-template <typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 inline const T* VectorT<T, 2>::data() const
 {
 	return &x;
 }
 
-template <typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 inline T& VectorT<T, 2>::operator[](size_t index)
 {
 	assert(index < components);
 	return *(&x + index);
 }
 
-template <typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 inline const T& VectorT<T, 2>::operator[](size_t index) const
 {
 	assert(index < components);
 	return *(&x + index);
 }
 
-template <typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 inline constexpr bool VectorT<T, 2>::operator==(const VectorT<T, 2>& rhs) const
 {
 	return equal(x, rhs.x) && equal(y, rhs.y);
 }
 
-template <typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 inline constexpr VectorT<T, 2>& VectorT<T, 2>::operator+=(const VectorT<T, 2>& rhs)
 {
 	x += rhs.x;
@@ -188,7 +188,7 @@ inline constexpr VectorT<T, 2>& VectorT<T, 2>::operator+=(const VectorT<T, 2>& r
 	return *this;
 }
 
-template <typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 inline constexpr VectorT<T, 2>& VectorT<T, 2>::operator-=(const VectorT<T, 2>& rhs)
 {
 	x -= rhs.x;
@@ -196,7 +196,7 @@ inline constexpr VectorT<T, 2>& VectorT<T, 2>::operator-=(const VectorT<T, 2>& r
 	return *this;
 }
 
-template <typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 inline constexpr VectorT<T, 2>& VectorT<T, 2>::operator*=(const T& rhs)
 {
 	x *= rhs;
@@ -204,7 +204,7 @@ inline constexpr VectorT<T, 2>& VectorT<T, 2>::operator*=(const T& rhs)
 	return *this;
 }
 
-template <typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 inline constexpr VectorT<T, 2>& VectorT<T, 2>::operator/=(const T& rhs)
 {
 	assert(rhs, "divisor cannot be zero");
@@ -213,7 +213,7 @@ inline constexpr VectorT<T, 2>& VectorT<T, 2>::operator/=(const T& rhs)
 	return *this;
 }
 
-template <typename T> requires std::is_arithmetic_v<T>
+template <arithmetic T>
 inline constexpr VectorT<T, 2> VectorT<T, 2>::operator-() const
 {
 	return {-x, -y};

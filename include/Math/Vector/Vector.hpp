@@ -3,11 +3,15 @@
 
 #pragma once
 
+#include <concepts>
 #include <cstddef>
 #include <initializer_list>
 #include <type_traits>
 #include <iostream>
 #include <iomanip>
+
+template<typename T>
+concept arithmetic = std::integral<T> || std::floating_point<T>;
 
 /**
  * @brief N 维向量.
@@ -15,7 +19,7 @@
  * @tparam T 数据类型.
  * @tparam N 维数.
  */
-template <typename T, size_t N> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t N>
 class VectorT
 {
 public:
