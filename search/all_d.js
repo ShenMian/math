@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['scale_0',['scale',['../class_matrix_t.html#aa0241078a08f59750d2d17beccf623dc',1,'MatrixT']]],
-  ['size_1',['size',['../class_quaternion_t.html#ac335103cebd1dc37050b37083bb6bd44',1,'QuaternionT']]],
-  ['sizesquared_2',['sizeSquared',['../class_quaternion_t.html#a990e02a04cdea6e36785f8406931cc67',1,'QuaternionT']]],
-  ['sum_3',['sum',['../class_matrix_t.html#acf3a7a12d37031b5f8d6ce599833b486',1,'MatrixT::sum()'],['../class_vector_t.html#aa9d9031e651e776c20254a06ae9cdd59',1,'VectorT::sum()'],['../class_vector_t_3_01_t_00_012_01_4.html#a823ce96d9fdd14fc47a958321f8390f4',1,'VectorT&lt; T, 2 &gt;::sum()'],['../class_vector_t_3_01_t_00_013_01_4.html#a1ab32b62765e5f6cc20030de677cee92',1,'VectorT&lt; T, 3 &gt;::sum()'],['../class_vector_t_3_01_t_00_014_01_4.html#a640580d557fe3f6ee880eaf1c15d38fe',1,'VectorT&lt; T, 4 &gt;::sum()']]]
+  ['trace_0',['trace',['../class_matrix_t.html#af42a8e7c414a37b57255bb8b9352dc42',1,'MatrixT']]],
+  ['translate_1',['translate',['../class_matrix_t.html#a2748b531cd6be3dbf19c665d5f0804a5',1,'MatrixT']]],
+  ['transpose_2',['transpose',['../class_matrix_t.html#ab3292617faa610b96cc388e034828f6b',1,'MatrixT']]],
+  ['transposed_3',['transposed',['../class_matrix_t.html#abd0c2c125307330e102a82b5c8486b9a',1,'MatrixT']]]
 ];

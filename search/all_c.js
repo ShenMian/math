@@ -1,10 +1,7 @@
 var searchData=
 [
-  ['recompose_0',['recompose',['../class_matrix_t.html#aaeeb17d31ea3fcdaf9c42403e7ec2fe7',1,'MatrixT']]],
-  ['rotate_1',['rotate',['../class_vector_t_3_01_t_00_012_01_4.html#a8767d9d9cfbc81ebee6ba43c49bc6fcc',1,'VectorT&lt; T, 2 &gt;']]],
-  ['rotatex_2',['rotateX',['../class_matrix_t.html#a3869f13f50160869c30d507d85708860',1,'MatrixT']]],
-  ['rotatey_3',['rotateY',['../class_matrix_t.html#a31ba19a188058273257f2a6217b4f658',1,'MatrixT']]],
-  ['rotatez_4',['rotateZ',['../class_matrix_t.html#a9647e0f9b7942935b05a78e9363e398b',1,'MatrixT']]],
-  ['row_5',['row',['../class_matrix_t.html#a903a3c2bf0309b922e9a9b5d571dc1df',1,'MatrixT']]],
-  ['rows_6',['rows',['../class_matrix_t.html#ae88068b21b659971332de5b63ea4b14b',1,'MatrixT']]]
+  ['scale_0',['scale',['../class_matrix_t.html#aa0241078a08f59750d2d17beccf623dc',1,'MatrixT']]],
+  ['size_1',['size',['../class_quaternion_t.html#ac335103cebd1dc37050b37083bb6bd44',1,'QuaternionT']]],
+  ['sizesquared_2',['sizeSquared',['../class_quaternion_t.html#a990e02a04cdea6e36785f8406931cc67',1,'QuaternionT']]],
+  ['sum_3',['sum',['../class_matrix_t.html#acf3a7a12d37031b5f8d6ce599833b486',1,'MatrixT::sum()'],['../class_vector_t.html#aa9d9031e651e776c20254a06ae9cdd59',1,'VectorT::sum()'],['../class_vector_t_3_01_t_00_012_01_4.html#a823ce96d9fdd14fc47a958321f8390f4',1,'VectorT&lt; T, 2 &gt;::sum()'],['../class_vector_t_3_01_t_00_013_01_4.html#a1ab32b62765e5f6cc20030de677cee92',1,'VectorT&lt; T, 3 &gt;::sum()'],['../class_vector_t_3_01_t_00_014_01_4.html#a640580d557fe3f6ee880eaf1c15d38fe',1,'VectorT&lt; T, 4 &gt;::sum()']]]
 ];
