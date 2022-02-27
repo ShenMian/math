@@ -2,6 +2,8 @@
 // License(Apache-2.0)
 
 #include "Assert.hpp"
+#include "AABB3.hpp"
+
 
 inline AABB3::AABB3(const Vector3& a, const Vector3& b)
 {
@@ -13,19 +15,19 @@ inline AABB3::AABB3(const Vector3& a, const Vector3& b)
 
 inline bool AABB3::contains(const Vector3& p) const
 {
-	assert(isValid());
+	assert(valid());
 	return (min.x <= p.x && p.x <= max.x) && (min.y <= p.y && p.y <= max.y);
 }
 
 inline bool AABB3::contains(const AABB3& aabb) const
 {
-	assert(isValid() && aabb.isValid());
+	assert(valid() && aabb.valid());
 	return contains(aabb.min) && contains(aabb.max);
 }
 
 inline bool AABB3::intersects(const AABB3& aabb) const
 {
-	assert(isValid() && aabb.isValid());
+	assert(valid() && aabb.valid());
 	return contains(aabb.min) || contains(aabb.max);
 }
 
@@ -42,22 +44,27 @@ inline void AABB3::expand(const Vector3& point)
 
 inline void AABB3::expand(const AABB3& aabb)
 {
-	assert(aabb.isValid());
+	assert(aabb.valid());
 	expand(aabb.min);
 	expand(aabb.max);
 }
 
-inline Vector3 AABB3::getCenter() const
+inline Vector3 AABB3::center() const
 {
 	return (min + max) / 2.f;
 }
 
-inline bool AABB3::isEmpty() const
+inline bool AABB3::empty() const
 {
 	return min == max;
 }
 
-inline bool AABB3::isValid() const
+inline bool AABB3::valid() const
 {
 	return min.x <= max.x && min.y <= max.y && min.z <= max.z;
+}
+
+inline void AABB3::clear()
+{
+    min = max = Vector3::zero;
 }

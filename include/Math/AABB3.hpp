@@ -73,7 +73,7 @@ public:
 	/**
 	 * @brief 获取几何中心.
 	 */
-    Vector3 getCenter() const;
+    Vector3 center() const;
 
 	/**
 	 * @brief 判断大小是否为空.
@@ -81,7 +81,7 @@ public:
 	 * @return true  空.
 	 * @return false 非空.
 	 */
-	[[nodiscard]] bool isEmpty() const;
+	[[nodiscard]] bool empty() const;
 
 	/**
 	 * @brief 判断是否有效.
@@ -89,7 +89,12 @@ public:
 	 * @return true  有效.
 	 * @return false 无效.
 	 */
-    [[nodiscard]] bool isValid() const;
+    [[nodiscard]] bool valid() const;
+
+    /**
+     * @brief 设置包围盒为空.
+     */
+    void clear();
 
 	bool operator==(const AABB3& rhs) const = default;
 };

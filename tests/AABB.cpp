@@ -54,13 +54,13 @@ TEST(AABB3, expand)
 
 TEST(AABB3, getCenter)
 {
-	EXPECT_EQ(AABB3({0, 0, 0}, {1, 1, 1}).getCenter(), Vector3(0.5, 0.5, 0.5));
-	EXPECT_EQ(AABB3({-2, -2, -2}, {2, 2, 2}).getCenter(), Vector3(0, 0, 0));
-	EXPECT_EQ(AABB3({-1, -1, -1}, {0, 0, 0}).getCenter(), Vector3(-0.5, -0.5, -0.5));
+	EXPECT_EQ(AABB3({0, 0, 0}, {1, 1, 1}).center(), Vector3(0.5, 0.5, 0.5));
+	EXPECT_EQ(AABB3({-2, -2, -2}, {2, 2, 2}).center(), Vector3(0, 0, 0));
+	EXPECT_EQ(AABB3({-1, -1, -1}, {0, 0, 0}).center(), Vector3(-0.5, -0.5, -0.5));
 }
 
 TEST(AABB3, isEmpty)
 {
-	EXPECT_TRUE(AABB3({3, 4, 5}, {3, 4, 5}).isEmpty());
-	EXPECT_FALSE(AABB3({3, 4, 5}, {3, 4, 6}).isEmpty());
+	EXPECT_TRUE(AABB3({3, 4, 5}, {3, 4, 5}).empty());
+	EXPECT_FALSE(AABB3({3, 4, 5}, {3, 4, 6}).empty());
 }
