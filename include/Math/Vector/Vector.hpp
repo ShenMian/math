@@ -6,9 +6,10 @@
 #include <concepts>
 #include <cstddef>
 #include <initializer_list>
-#include <type_traits>
 #include <iostream>
 #include <iomanip>
+#include <span>
+#include <type_traits>
 
 template<typename T>
 concept arithmetic = std::integral<T> || std::floating_point<T>;
@@ -38,7 +39,14 @@ public:
 	 *
 	 * @param list 初始化列表, 下标依次为 0 到 N-1.
 	 */
-	constexpr VectorT(const std::initializer_list<T>& list);
+    constexpr explicit VectorT(const T (&arr)[N]);
+
+    /**
+     * @brief 构造函数.
+     *
+     * @param span 范围.
+     */
+    constexpr explicit VectorT(const std::span<T, N>& span);
 
 	/**
 	 * @brief 获取模.

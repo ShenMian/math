@@ -16,12 +16,16 @@ inline constexpr VectorT<T, N>::VectorT(const T& scalar)
 }
 
 template <arithmetic T, size_t N>
-inline constexpr VectorT<T, N>::VectorT(const std::initializer_list<T>& list)
+constexpr VectorT<T, N>::VectorT(const T (&arr)[N])
 {
-	assert(list.size() <= N, "Too many initializers");
-	auto it = list.begin();
-	for(size_t i = 0; i < list.size(); i++)
-		v_[i] = *it++;
+    for(size_t i = 0; i < N; i++)
+        v_[i] = arr[i];
+}
+
+template <arithmetic T, size_t N>
+constexpr VectorT<T, N>::VectorT(const std::span<T, N>& span)
+{
+    std::ranges::copy(span, v_);
 }
 
 template <arithmetic T, size_t N>
