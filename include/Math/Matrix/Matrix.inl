@@ -26,6 +26,14 @@ inline MatrixT<T, R, C>::MatrixT(const std::initializer_list<T>& list)
 }
 
 template <arithmetic T, size_t R, size_t C>
+constexpr MatrixT<T, R, C>::MatrixT(const T (&arr)[R * C])
+{
+    for(size_t r = 0; r < rows(); r++)
+        for(size_t c = 0; c < cols(); c++)
+            m_[r][c] = arr[r * cols() + c];
+}
+
+template <arithmetic T, size_t R, size_t C>
 inline MatrixT<T, R, C>& MatrixT<T, R, C>::inverse()
 {
 	// TODO
@@ -634,7 +642,6 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::zero()
 	else
 		return MatrixT();
 }
-
 
 inline Vector4f operator*(const MatrixT<float, 4, 4>& mat, const Vector4f& vec)
 {

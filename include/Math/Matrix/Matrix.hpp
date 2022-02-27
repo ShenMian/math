@@ -32,7 +32,12 @@ public:
 	 *
 	 * @param list 初始化列表.
 	 */
-	MatrixT(const std::initializer_list<T>& list);
+    MatrixT(const std::initializer_list<T>& list);
+
+    /**
+     * @brief 构造函数.
+     */
+    constexpr explicit MatrixT(const T (&arr)[R * C]);
 
 	/**
 	 * @brief 求逆.
