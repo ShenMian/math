@@ -107,9 +107,12 @@ Public 成员函数</h2></td></tr>
 constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>VectorT</b> (const T &amp;scalar)</td></tr>
 <tr class="memdesc:aa71f732e9e7689b0172afc15ff4ab95b"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数. <br /></td></tr>
 <tr class="separator:aa71f732e9e7689b0172afc15ff4ab95b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8976656c570d8fa5b00d32071c1e7de6"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector_t.html#a8976656c570d8fa5b00d32071c1e7de6">VectorT</a> (const std::initializer_list&lt; T &gt; &amp;list)</td></tr>
-<tr class="memdesc:a8976656c570d8fa5b00d32071c1e7de6"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数.  <a href="class_vector_t.html#a8976656c570d8fa5b00d32071c1e7de6">更多...</a><br /></td></tr>
-<tr class="separator:a8976656c570d8fa5b00d32071c1e7de6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a01fd218f8531cf5912e148d82efcbc"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector_t.html#a2a01fd218f8531cf5912e148d82efcbc">VectorT</a> (const T(&amp;arr)[N])</td></tr>
+<tr class="memdesc:a2a01fd218f8531cf5912e148d82efcbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数.  <a href="class_vector_t.html#a2a01fd218f8531cf5912e148d82efcbc">更多...</a><br /></td></tr>
+<tr class="separator:a2a01fd218f8531cf5912e148d82efcbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a1c91e16c228869f76e8aad050911d0"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector_t.html#a6a1c91e16c228869f76e8aad050911d0">VectorT</a> (const std::span&lt; T, N &gt; &amp;span)</td></tr>
+<tr class="memdesc:a6a1c91e16c228869f76e8aad050911d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数.  <a href="class_vector_t.html#a6a1c91e16c228869f76e8aad050911d0">更多...</a><br /></td></tr>
+<tr class="separator:a6a1c91e16c228869f76e8aad050911d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a0ac9ff91767cb4b09a021191013e39"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector_t.html#a2a0ac9ff91767cb4b09a021191013e39">norm</a> () const</td></tr>
 <tr class="memdesc:a2a0ac9ff91767cb4b09a021191013e39"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取模.  <a href="class_vector_t.html#a2a0ac9ff91767cb4b09a021191013e39">更多...</a><br /></td></tr>
 <tr class="separator:a2a0ac9ff91767cb4b09a021191013e39"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -212,8 +215,8 @@ class VectorT&lt; T, N &gt;</div><p >N 维向量. </p>
 <div class="line">std::cout &lt;&lt; v.size() &lt;&lt; std::endl; <span class="comment">// 输出向量的长度, 结果为: 5</span></div>
 <div class="ttc" id="aclass_vector_t_3_01_t_00_012_01_4_html"><div class="ttname"><a href="class_vector_t_3_01_t_00_012_01_4.html">VectorT&lt; T, 2 &gt;</a></div><div class="ttdoc">二维向量.</div><div class="ttdef"><b>Definition:</b> Vector2.hpp:15</div></div>
 </div><!-- fragment --> </div><h2 class="groupheader">构造及析构函数说明</h2>
-<a id="a8976656c570d8fa5b00d32071c1e7de6" name="a8976656c570d8fa5b00d32071c1e7de6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8976656c570d8fa5b00d32071c1e7de6">&#9670;&nbsp;</a></span>VectorT()</h2>
+<a id="a2a01fd218f8531cf5912e148d82efcbc" name="a2a01fd218f8531cf5912e148d82efcbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a01fd218f8531cf5912e148d82efcbc">&#9670;&nbsp;</a></span>VectorT() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -226,14 +229,14 @@ template&lt;arithmetic T, size_t N&gt; </div>
         <tr>
           <td class="memname">constexpr <a class="el" href="class_vector_t.html">VectorT</a>&lt; T, N &gt;<a class="el" href="class_vector_t.html">::VectorT</a> </td>
           <td>(</td>
-          <td class="paramtype">const std::initializer_list&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>list</em></td><td>)</td>
+          <td class="paramtype">const T(&amp;)&#160;</td>
+          <td class="paramname"><em>arr</em>[N]</td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+<span class="mlabels"><span class="mlabel">explicit</span><span class="mlabel">constexpr</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -242,6 +245,42 @@ template&lt;arithmetic T, size_t N&gt; </div>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">list</td><td>初始化列表, 下标依次为 0 到 N-1. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6a1c91e16c228869f76e8aad050911d0" name="a6a1c91e16c228869f76e8aad050911d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a1c91e16c228869f76e8aad050911d0">&#9670;&nbsp;</a></span>VectorT() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;arithmetic T, size_t N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="class_vector_t.html">VectorT</a>&lt; T, N &gt;<a class="el" href="class_vector_t.html">::VectorT</a> </td>
+          <td>(</td>
+          <td class="paramtype">const std::span&lt; T, N &gt; &amp;&#160;</td>
+          <td class="paramname"><em>span</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>构造函数. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">span</td><td>范围. </td></tr>
   </table>
   </dd>
 </dl>

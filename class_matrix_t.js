@@ -2,6 +2,7 @@ var class_matrix_t =
 [
     [ "MatrixT", "class_matrix_t.html#ac0e3299067035a98063d30b0aefbbc23", null ],
     [ "MatrixT", "class_matrix_t.html#ab1bc8ddcf5c685aee73bf0d23b3d5158", null ],
+    [ "MatrixT", "class_matrix_t.html#a54564a449612d5e96eedffc15090bc42", null ],
     [ "col", "class_matrix_t.html#a5b0619a5380497cebb7eb8fc1e424d22", null ],
     [ "cols", "class_matrix_t.html#a31aec19b7a0d0a989abbcb7a5185f450", null ],
     [ "data", "class_matrix_t.html#a31299d5ea3393110d49299163a2ee97f", null ],
