@@ -12,6 +12,8 @@
 // #include "Matrix/MatrixNN.hpp"
 
 #include "Quaternion.hpp"
+
+#include "Transform.hpp"
 #include "AABB3.hpp"
 
 #include "SIMD.hpp"
