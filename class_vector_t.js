@@ -13,6 +13,6 @@ var class_vector_t =
     [ "norm", "class_vector_t.html#a2a0ac9ff91767cb4b09a021191013e39", null ],
     [ "normalize", "class_vector_t.html#aafae2237f0cc68af441c99c7aac5635b", null ],
     [ "normalized", "class_vector_t.html#a6e21dcfe641727a59ec3b7ac692b91b5", null ],
-    [ "normSquared", "class_vector_t.html#a1dbb180b22628b942e3c3b0a5f26d6ff", null ],
+    [ "normSq", "class_vector_t.html#ac1556fd46381275ca33ca5fda9ecc35a", null ],
     [ "sum", "class_vector_t.html#aa9d9031e651e776c20254a06ae9cdd59", null ]
 ];

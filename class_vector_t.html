@@ -114,11 +114,11 @@ constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>VectorT</b> (con
 <tr class="memdesc:a6a1c91e16c228869f76e8aad050911d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数.  <a href="class_vector_t.html#a6a1c91e16c228869f76e8aad050911d0">更多...</a><br /></td></tr>
 <tr class="separator:a6a1c91e16c228869f76e8aad050911d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a0ac9ff91767cb4b09a021191013e39"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector_t.html#a2a0ac9ff91767cb4b09a021191013e39">norm</a> () const</td></tr>
-<tr class="memdesc:a2a0ac9ff91767cb4b09a021191013e39"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取模.  <a href="class_vector_t.html#a2a0ac9ff91767cb4b09a021191013e39">更多...</a><br /></td></tr>
+<tr class="memdesc:a2a0ac9ff91767cb4b09a021191013e39"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取模, 即长度.  <a href="class_vector_t.html#a2a0ac9ff91767cb4b09a021191013e39">更多...</a><br /></td></tr>
 <tr class="separator:a2a0ac9ff91767cb4b09a021191013e39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1dbb180b22628b942e3c3b0a5f26d6ff"><td class="memItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector_t.html#a1dbb180b22628b942e3c3b0a5f26d6ff">normSquared</a> () const</td></tr>
-<tr class="memdesc:a1dbb180b22628b942e3c3b0a5f26d6ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取模的平方.  <a href="class_vector_t.html#a1dbb180b22628b942e3c3b0a5f26d6ff">更多...</a><br /></td></tr>
-<tr class="separator:a1dbb180b22628b942e3c3b0a5f26d6ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1556fd46381275ca33ca5fda9ecc35a"><td class="memItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector_t.html#ac1556fd46381275ca33ca5fda9ecc35a">normSq</a> () const</td></tr>
+<tr class="memdesc:ac1556fd46381275ca33ca5fda9ecc35a"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取模的平方.  <a href="class_vector_t.html#ac1556fd46381275ca33ca5fda9ecc35a">更多...</a><br /></td></tr>
+<tr class="separator:ac1556fd46381275ca33ca5fda9ecc35a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafae2237f0cc68af441c99c7aac5635b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector_t.html">VectorT</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector_t.html#aafae2237f0cc68af441c99c7aac5635b">normalize</a> ()</td></tr>
 <tr class="memdesc:aafae2237f0cc68af441c99c7aac5635b"><td class="mdescLeft">&#160;</td><td class="mdescRight">标准化成单位向量.  <a href="class_vector_t.html#aafae2237f0cc68af441c99c7aac5635b">更多...</a><br /></td></tr>
 <tr class="separator:aafae2237f0cc68af441c99c7aac5635b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -429,8 +429,8 @@ template&lt;arithmetic T, size_t N&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>获取模. </p>
-<dl class="section see"><dt>参见</dt><dd><a class="el" href="class_vector_t.html#a1dbb180b22628b942e3c3b0a5f26d6ff" title="获取模的平方.">normSquared</a> </dd></dl>
+<p>获取模, 即长度. </p>
+<dl class="section see"><dt>参见</dt><dd>normSquared </dd></dl>
 
 </div>
 </div>
@@ -488,8 +488,8 @@ template&lt;arithmetic T, size_t N&gt; </div>
 
 </div>
 </div>
-<a id="a1dbb180b22628b942e3c3b0a5f26d6ff" name="a1dbb180b22628b942e3c3b0a5f26d6ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1dbb180b22628b942e3c3b0a5f26d6ff">&#9670;&nbsp;</a></span>normSquared()</h2>
+<a id="ac1556fd46381275ca33ca5fda9ecc35a" name="ac1556fd46381275ca33ca5fda9ecc35a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1556fd46381275ca33ca5fda9ecc35a">&#9670;&nbsp;</a></span>normSq()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -500,7 +500,7 @@ template&lt;arithmetic T, size_t N&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr T <a class="el" href="class_vector_t.html">VectorT</a>&lt; T, N &gt;::normSquared</td>
+          <td class="memname">constexpr T <a class="el" href="class_vector_t.html">VectorT</a>&lt; T, N &gt;::normSq</td>
         </tr>
       </table>
   </td>
@@ -511,7 +511,7 @@ template&lt;arithmetic T, size_t N&gt; </div>
 </div><div class="memdoc">
 
 <p>获取模的平方. </p>
-<dl class="section see"><dt>参见</dt><dd><a class="el" href="class_vector_t.html#a2a0ac9ff91767cb4b09a021191013e39" title="获取模.">norm</a> </dd></dl>
+<dl class="section see"><dt>参见</dt><dd><a class="el" href="class_vector_t.html#a2a0ac9ff91767cb4b09a021191013e39" title="获取模, 即长度.">norm</a> </dd></dl>
 
 </div>
 </div>
