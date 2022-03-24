@@ -75,11 +75,11 @@ inline constexpr VectorT<T, 3>::VectorT(const std::initializer_list<T>& list)
 template <arithmetic T>
 inline T VectorT<T, 3>::norm() const
 {
-	return static_cast<T>(std::sqrt(normSquared()));
+	return static_cast<T>(std::sqrt(normSq()));
 }
 
 template <arithmetic T>
-inline constexpr T VectorT<T, 3>::normSquared() const
+inline constexpr T VectorT<T, 3>::normSq() const
 {
 	return x * x + y * y + z * z;
 }

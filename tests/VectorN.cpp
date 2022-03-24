@@ -18,7 +18,7 @@ TEST(Vector2, norm)
 
 TEST(Vector2, normSquared)
 {
-	EXPECT_FLOAT_EQ(Vector2(3, 4).normSquared(), (float)std::pow(5.f, 2));
+	EXPECT_FLOAT_EQ(Vector2(3, 4).normSq(), (float)std::pow(5.f, 2));
 }
 
 TEST(Vector2, normalize)
@@ -77,7 +77,7 @@ TEST(Vector3, norm)
 
 TEST(Vector3, normSquared)
 {
-	EXPECT_FLOAT_EQ(Vector3(3, 4, 5).normSquared(), (float)std::pow(5.f * std::sqrt(2.f), 2));
+	EXPECT_FLOAT_EQ(Vector3(3, 4, 5).normSq(), (float)std::pow(5.f * std::sqrt(2.f), 2));
 }
 
 TEST(Vector3, normalize)

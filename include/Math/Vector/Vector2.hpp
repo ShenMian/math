@@ -54,7 +54,7 @@ public:
 	 *
 	 * @see norm
 	 */
-	constexpr T normSquared() const;
+	constexpr T normSq() const;
 
 	/**
 	 * @brief 标准化成单位向量.

@@ -31,11 +31,11 @@ constexpr VectorT<T, N>::VectorT(const std::span<T, N>& span)
 template <arithmetic T, size_t N>
 inline T VectorT<T, N>::norm() const
 {
-	return static_cast<T>(std::sqrt(normSquared()));
+	return static_cast<T>(std::sqrt(normSq()));
 }
 
 template <arithmetic T, size_t N>
-inline constexpr T VectorT<T, N>::normSquared() const
+inline constexpr T VectorT<T, N>::normSq() const
 {
 	T result = T();
 	for(size_t i = 0; i < N; i++)

@@ -49,7 +49,7 @@ public:
     constexpr explicit VectorT(const std::span<T, N>& span);
 
 	/**
-	 * @brief 获取模.
+	 * @brief 获取模, 即长度.
 	 *
 	 * @see normSquared
 	 */
@@ -60,7 +60,7 @@ public:
 	 *
 	 * @see norm
 	 */
-	constexpr T normSquared() const;
+	constexpr T normSq() const;
 
 	/**
 	 * @brief 标准化成单位向量.
