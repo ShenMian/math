@@ -35,7 +35,7 @@ inline T VectorT<T, N>::norm() const
 }
 
 template <arithmetic T, size_t N>
-inline constexpr T VectorT<T, N>::normSq() const
+inline constexpr T VectorT<T, N>::normSq() const noexcept
 {
 	T result = T();
 	for(size_t i = 0; i < N; i++)
@@ -59,7 +59,7 @@ inline VectorT<T, N> VectorT<T, N>::normalized() const
 }
 
 template <arithmetic T, size_t N>
-inline constexpr T VectorT<T, N>::dot(const VectorT& rhs) const
+inline constexpr T VectorT<T, N>::dot(const VectorT& rhs) const  noexcept
 {
 	T result = T();
 	for(size_t i = 0; i < N; i++)
@@ -75,7 +75,7 @@ inline constexpr VectorT<T, N> VectorT<T, N>::cross(const VectorT& rhs) const
 }
 
 template <arithmetic T, size_t N>
-inline constexpr T VectorT<T, N>::sum() const
+inline constexpr T VectorT<T, N>::sum() const noexcept
 {
 	T sum = T(0);
 	for(size_t i = 0; i < N; i++)
@@ -84,7 +84,27 @@ inline constexpr T VectorT<T, N>::sum() const
 }
 
 template <arithmetic T, size_t N>
-inline constexpr const VectorT<T, N>& VectorT<T, N>::clamp(const VectorT& min, const VectorT& max)
+constexpr T VectorT<T, N>::minCoeff() const noexcept
+{
+    T min = std::numeric_limits<T>::max();
+    for(size_t i = 0; i < N; i++)
+        if(v_[i] < min)
+            min = v_[i];
+    return min;
+}
+
+template <arithmetic T, size_t N>
+constexpr T VectorT<T, N>::maxCoeff() const noexcept
+{
+    T max = std::numeric_limits<T>::min();
+    for(size_t i = 0; i < N; i++)
+        if(v_[i] > max)
+            max = v_[i];
+    return max;
+}
+
+template <arithmetic T, size_t N>
+inline constexpr const VectorT<T, N>& VectorT<T, N>::clamp(const VectorT& min, const VectorT& max) noexcept
 {
 	for(size_t i = 0; i < N; i++)
 		v_[i] = std::clamp(v_[i], min[i], max[i]);
@@ -166,24 +186,4 @@ inline constexpr VectorT<T, N> VectorT<T, N>::operator-() const
 	for(size_t i = 0; i < N; i++)
 		result.v_[i] = -v_[i];
 	return result;
-}
-
-template <arithmetic T, size_t N>
-constexpr T VectorT<T, N>::minCoeff() const
-{
-    T min = std::numeric_limits<T>::max();
-    for(size_t i = 0; i < N; i++)
-        if(v_[i] < min)
-            min = v_[i];
-    return min;
-}
-
-template <arithmetic T, size_t N>
-constexpr T VectorT<T, N>::maxCoeff() const
-{
-    T max = std::numeric_limits<T>::min();
-    for(size_t i = 0; i < N; i++)
-        if(v_[i] > max)
-            max = v_[i];
-    return max;
 }

@@ -10,7 +10,7 @@
 namespace simd
 {
 
-inline void matrixAdd(const __m128 m1[4], const __m128 m2[4], __m128 dst[4])
+inline void matrixAdd(const __m128 m1[4], const __m128 m2[4], __m128 dst[4]) noexcept
 {
 	dst[0] = _mm_add_ps(m1[0], m2[0]);
 	dst[1] = _mm_add_ps(m1[1], m2[1]);
@@ -18,7 +18,7 @@ inline void matrixAdd(const __m128 m1[4], const __m128 m2[4], __m128 dst[4])
 	dst[3] = _mm_add_ps(m1[3], m2[3]);
 }
 
-inline void matrixSub(const __m128 m1[4], const __m128 m2[4], __m128 dst[4])
+inline void matrixSub(const __m128 m1[4], const __m128 m2[4], __m128 dst[4]) noexcept
 {
 	dst[0] = _mm_sub_ps(m1[0], m2[0]);
 	dst[1] = _mm_sub_ps(m1[1], m2[1]);
@@ -26,7 +26,7 @@ inline void matrixSub(const __m128 m1[4], const __m128 m2[4], __m128 dst[4])
 	dst[3] = _mm_sub_ps(m1[3], m2[3]);
 }
 
-inline void matrixMul(const __m128 m1[4], const __m128 m2[4], __m128 dst[4])
+inline void matrixMul(const __m128 m1[4], const __m128 m2[4], __m128 dst[4]) noexcept
 {
 	__m128 tmp[4];
 	{
@@ -107,7 +107,7 @@ inline void matrixMul(const __m128 m1[4], const __m128 m2[4], __m128 dst[4])
 	dst[3] = tmp[3];
 }
 
-inline void matrixNegate(const __m128 m[4], __m128 dst[4])
+inline void matrixNegate(const __m128 m[4], __m128 dst[4]) noexcept
 {
 	__m128 z = _mm_setzero_ps();
 	dst[0] = _mm_sub_ps(z, m[0]);
@@ -116,7 +116,7 @@ inline void matrixNegate(const __m128 m[4], __m128 dst[4])
 	dst[3] = _mm_sub_ps(z, m[3]);
 }
 
-inline void matrixTranspose(const __m128 m[4], __m128 dst[4])
+inline void matrixTranspose(const __m128 m[4], __m128 dst[4]) noexcept
 {
 	__m128 tmp0 = _mm_shuffle_ps(m[0], m[1], 0x44);
 	__m128 tmp2 = _mm_shuffle_ps(m[0], m[1], 0xEE);
@@ -129,7 +129,7 @@ inline void matrixTranspose(const __m128 m[4], __m128 dst[4])
 	dst[3] = _mm_shuffle_ps(tmp2, tmp3, 0xDD);
 }
 
-inline void matrixMulVec(const __m128 m[4], const __m128& v, __m128& dst)
+inline void matrixMulVec(const __m128 m[4], const __m128& v, __m128& dst) noexcept
 {
 	__m128 col1 = _mm_shuffle_ps(v, v, _MM_SHUFFLE(0, 0, 0, 0));
 	__m128 col2 = _mm_shuffle_ps(v, v, _MM_SHUFFLE(1, 1, 1, 1));
@@ -142,12 +142,12 @@ inline void matrixMulVec(const __m128 m[4], const __m128& v, __m128& dst)
 	);
 }
 
-inline void vecMulMatrix(const __m128 v, const __m128 m1[4], __m128 dst[4])
+inline void vecMulMatrix(const __m128 v, const __m128 m1[4], __m128 dst[4]) noexcept
 {
 }
 
 
-inline void load(__m128 m[4], const float* mat)
+inline void load(__m128 m[4], const float* mat) noexcept
 {
 	m[0] = _mm_load_ps(&mat[0 * 4]);
 	m[1] = _mm_load_ps(&mat[1 * 4]);
@@ -155,7 +155,7 @@ inline void load(__m128 m[4], const float* mat)
 	m[3] = _mm_load_ps(&mat[3 * 4]);
 }
 
-inline void store(float* mat, const __m128 m[4])
+inline void store(float* mat, const __m128 m[4]) noexcept
 {
 	_mm_store_ps(&mat[0 * 4], m[0]);
 	_mm_store_ps(&mat[1 * 4], m[1]);
@@ -163,12 +163,12 @@ inline void store(float* mat, const __m128 m[4])
 	_mm_store_ps(&mat[3 * 4], m[3]);
 }
 
-inline void load(__m128& v, const float* vec)
+inline void load(__m128& v, const float* vec) noexcept
 {
 	v = _mm_load_ps(vec);
 }
 
-inline void store(float* vec, const __m128& v)
+inline void store(float* vec, const __m128& v) noexcept
 {
 	_mm_store_ps(vec, v);
 }

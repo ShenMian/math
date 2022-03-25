@@ -95,7 +95,7 @@ inline Vector3T<T> QuaternionT<T>::eular() const
 
 template <typename T>
 	requires std::floating_point<T>
-inline T QuaternionT<T>::sizeSquared() const
+inline T QuaternionT<T>::sizeSq() const
 {
 	return x * x + y * y + z * z + w * w;
 }
@@ -104,14 +104,14 @@ template <typename T>
 	requires std::floating_point<T>
 inline T QuaternionT<T>::size() const
 {
-	return static_cast<T>(std::sqrt(sizeSquared()));
+	return static_cast<T>(std::sqrt(sizeSq()));
 }
 
 template <typename T>
 	requires std::floating_point<T>
 inline QuaternionT<T>& QuaternionT<T>::inverse()
 {
-	const T n = sizeSquared();
+	const T n = sizeSq();
 	if(n == T(1))
 	{
 		x = -x;

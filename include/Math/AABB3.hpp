@@ -73,7 +73,7 @@ public:
 	/**
 	 * @brief 获取几何中心.
 	 */
-    Vector3 center() const;
+    Vector3 center() const noexcept;
 
 	/**
 	 * @brief 判断大小是否为空.
@@ -89,7 +89,7 @@ public:
 	 * @return true  有效.
 	 * @return false 无效.
 	 */
-    [[nodiscard]] bool valid() const;
+    [[nodiscard]] bool valid() const noexcept;
 
     /**
      * @brief 设置包围盒为空.

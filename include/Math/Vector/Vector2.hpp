@@ -54,7 +54,7 @@ public:
 	 *
 	 * @see norm
 	 */
-	constexpr T normSq() const;
+	constexpr T normSq() const noexcept;
 
 	/**
 	 * @brief 标准化成单位向量.
@@ -75,7 +75,7 @@ public:
 	 *
 	 * @param rhs 要点乘的向量.
 	 */
-	T dot(const VectorT& rhs) const;
+	T dot(const VectorT& rhs) const noexcept;
 
 	/**
 	 * @brief 计算向量叉积.
@@ -87,7 +87,7 @@ public:
 	/**
 	 * @brief 获取所有元素之和.
 	 */
-	constexpr T sum() const;
+	constexpr T sum() const noexcept;
 
 	/**
 	 * @brief 获取角度.
@@ -120,7 +120,7 @@ public:
 	 *
 	 * @see distance
 	 */
-	T distanceSquared(const VectorT& point) const;
+	T distanceSq(const VectorT& point) const;
 
 	/**
 	 * @brief 获取原始数据.

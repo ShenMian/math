@@ -49,7 +49,7 @@ inline void AABB3::expand(const AABB3& aabb)
 	expand(aabb.max);
 }
 
-inline Vector3 AABB3::center() const
+inline Vector3 AABB3::center() const noexcept
 {
 	return (min + max) / 2.f;
 }
@@ -59,7 +59,7 @@ inline bool AABB3::empty() const
 	return min == max;
 }
 
-inline bool AABB3::valid() const
+inline bool AABB3::valid() const noexcept
 {
 	return min.x <= max.x && min.y <= max.y && min.z <= max.z;
 }

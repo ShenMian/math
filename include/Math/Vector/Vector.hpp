@@ -60,7 +60,7 @@ public:
 	 *
 	 * @see norm
 	 */
-	constexpr T normSq() const;
+	constexpr T normSq() const noexcept;
 
 	/**
 	 * @brief 标准化成单位向量.
@@ -81,7 +81,7 @@ public:
 	 *
 	 * @param rhs 要点乘的向量.
 	 */
-	constexpr T dot(const VectorT& rhs) const;
+	constexpr T dot(const VectorT& rhs) const noexcept;
 
 	/**
 	 * @brief 计算向量叉积.
@@ -93,17 +93,17 @@ public:
 	/**
 	 * @brief 获取所有元素之和.
 	 */
-	constexpr T sum() const;
+	constexpr T sum() const noexcept;
 
     /**
      * @brief 获取最小元素的值.
      */
-    constexpr T minCoeff() const;
+    constexpr T minCoeff() const noexcept;
 
     /**
      * @brief 获取最大元素的值.
      */
-    constexpr T maxCoeff() const;
+    constexpr T maxCoeff() const noexcept;
 
 	/**
 	 * @brief 裁剪到指定范围内.
@@ -111,7 +111,7 @@ public:
 	 * @param min 最小值.
 	 * @param max 最大值.
 	 */
-    constexpr const VectorT& clamp(const VectorT& min, const VectorT& max);
+    constexpr const VectorT& clamp(const VectorT& min, const VectorT& max) noexcept;
 
 	/**
 	 * @brief 获取原始数据.

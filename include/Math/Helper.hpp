@@ -14,7 +14,7 @@ namespace detail
 // C++ 23 后 std::abs 支持 constexpr
 template <typename T>
 	requires std::is_arithmetic_v<T>
-constexpr T abs(T x)
+constexpr T abs(T x) noexcept
 {
 	return (x >= T(0)) ? x : -x;
 }
@@ -22,18 +22,18 @@ constexpr T abs(T x)
 } // namespace detail
 
 template <typename T>
-inline constexpr bool equal(const T& lhs, const T& rhs)
+inline constexpr bool equal(const T& lhs, const T& rhs) noexcept
 {
 	return lhs == rhs;
 }
 
 #if __GNUC__
-inline constexpr bool equal(float lhs, float rhs, float error = std::numeric_limits<float>::epsilon())
+inline constexpr bool equal(float lhs, float rhs, float error = std::numeric_limits<float>::epsilon()) noexcept
 {
     return detail::abs(lhs - rhs) <= error;
 }
 
-inline constexpr bool equal(double lhs, double rhs, double error = std::numeric_limits<double>::epsilon())
+inline constexpr bool equal(double lhs, double rhs, double error = std::numeric_limits<double>::epsilon()) noexcept
 {
     return detail::abs(lhs - rhs) <= error;
 }
@@ -53,7 +53,7 @@ inline constexpr bool equal(T lhs, T rhs, T error = std::numeric_limits<T>::epsi
  */
 template <typename T>
 	requires std::floating_point<T>
-inline constexpr T radians(T degrees)
+inline constexpr T radians(T degrees) noexcept
 {
 	return degrees * static_cast<T>(std::numbers::pi) / 180;
 }
@@ -65,7 +65,7 @@ inline constexpr T radians(T degrees)
  */
 template <typename T>
 	requires std::floating_point<T>
-inline constexpr T degrees(T radians)
+inline constexpr T degrees(T radians) noexcept
 {
 	return radians * 180 / static_cast<T>(std::numbers::pi);
 }

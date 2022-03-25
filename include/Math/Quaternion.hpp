@@ -74,7 +74,7 @@ public:
 	 *
 	 * @see size
 	 */
-	T sizeSquared() const;
+	T sizeSq() const;
 
 	/**
 	 * @brief 获取长度.

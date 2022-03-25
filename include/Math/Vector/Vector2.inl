@@ -63,7 +63,7 @@ inline T VectorT<T, 2>::norm() const
 }
 
 template <arithmetic T>
-inline T constexpr VectorT<T, 2>::normSq() const
+inline T constexpr VectorT<T, 2>::normSq() const noexcept
 {
 	return x * x + y * y;
 }
@@ -84,7 +84,7 @@ inline VectorT<T, 2> VectorT<T, 2>::normalized() const
 }
 
 template <arithmetic T>
-inline T VectorT<T, 2>::dot(const VectorT& rhs) const
+inline T VectorT<T, 2>::dot(const VectorT& rhs) const noexcept
 {
 	return x * rhs.x + y * rhs.y;
 }
@@ -98,7 +98,7 @@ inline VectorT<T, 2> VectorT<T, 2>::cross(const VectorT& rhs) const
 }
 
 template <arithmetic T>
-inline constexpr T VectorT<T, 2>::sum() const
+inline constexpr T VectorT<T, 2>::sum() const noexcept
 {
 	T sum = T(0);
 	sum += x;
@@ -137,11 +137,11 @@ inline void VectorT<T, 2>::rotate(const VectorT<T, 2>& point, float angle)
 template <arithmetic T>
 inline T VectorT<T, 2>::distance(const VectorT& point) const
 {
-	return std::sqrt(distanceSquared());
+	return std::sqrt(distanceSq());
 }
 
 template <arithmetic T>
-inline T VectorT<T, 2>::distanceSquared(const VectorT& point) const
+inline T VectorT<T, 2>::distanceSq(const VectorT& point) const
 {
 	const auto dx = std::abs(x - point.x);
 	const auto dy = std::abs(y - point.y);
