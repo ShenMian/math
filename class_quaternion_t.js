@@ -9,5 +9,5 @@ var class_quaternion_t =
     [ "inversed", "class_quaternion_t.html#ad846d9fb0e950a3f58085d05647df028", null ],
     [ "normalize", "class_quaternion_t.html#a0322ea427bef7cad4ed4bb8fd5e00c1b", null ],
     [ "size", "class_quaternion_t.html#ac335103cebd1dc37050b37083bb6bd44", null ],
-    [ "sizeSquared", "class_quaternion_t.html#a990e02a04cdea6e36785f8406931cc67", null ]
+    [ "sizeSq", "class_quaternion_t.html#a86d7b71d2ad0de8e7452f5596a859845", null ]
 ];
