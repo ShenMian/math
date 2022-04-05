@@ -39,6 +39,11 @@ public:
      */
     constexpr explicit MatrixT(const T (&arr)[R * C]);
 
+    /**
+     * @brief 构造函数.
+     */
+    constexpr explicit MatrixT(const T* data);
+
 	/**
 	 * @brief 求逆.
 	 */

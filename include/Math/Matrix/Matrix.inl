@@ -33,6 +33,14 @@ constexpr MatrixT<T, R, C>::MatrixT(const T (&arr)[R * C])
             m_[r][c] = arr[r * cols() + c];
 }
 
+template<arithmetic T, size_t R, size_t C>
+constexpr MatrixT<T, R, C>::MatrixT(const T *data)
+{
+    for(size_t r = 0; r < rows(); r++)
+        for(size_t c = 0; c < cols(); c++)
+            m_[r][c] = data[r * cols() + c];
+}
+
 template <arithmetic T, size_t R, size_t C>
 inline MatrixT<T, R, C>& MatrixT<T, R, C>::inverse()
 {
