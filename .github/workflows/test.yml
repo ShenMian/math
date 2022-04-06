@@ -44,9 +44,13 @@ jobs:
           choco install OpenCppCoverage -y
           echo "C:\Program Files\OpenCppCoverage" >> $env:GITHUB_PATH
 
+      - name: Generate coverage report (Linux)
+        if: matrix.os == 'ubuntu-latest'
+        run: gcovr -r $GITHUB_WORKSPACE -x $GITHUB_WORKSPACE/build/coverage.out -s -f "${{github.workspace}}\include" -f "${{github.workspace}}\tests" ${{ matrix.platform.gcovr_options }} $GITHUB_WORKSPACE
+
       - name: Generate coverage report (Windows)
         if: matrix.os == 'windows-latest'
-        run: OpenCppCoverage.exe --sources "${{github.workspace}}\Source" --export_type cobertura:report.xml -- "${{github.workspace}}/build/bin/${{env.BUILD_TYPE}}/unit_test.exe"
+        run: OpenCppCoverage.exe --sources "${{github.workspace}}" --export_type cobertura:report.xml -- "${{github.workspace}}/build/bin/${{env.BUILD_TYPE}}/unit_test.exe"
 
       - name: Upload coverage report to Codecov (Windows)
         if: matrix.os == 'windows-latest'
