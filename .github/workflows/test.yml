@@ -35,7 +35,7 @@ jobs:
         run: cd build && ctest -VV -C ${{env.BUILD_TYPE}}
 
       - name: Setup coverage report generator (Linux)
-        if: matrix.os == 'windows-latest'
+        if: matrix.os == 'ubuntu-latest'
         run: sudo apt-get install gcovr
 
       - name: Setup coverage report generator (Windows)
