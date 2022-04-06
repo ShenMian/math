@@ -1,20 +1,6 @@
 name: Test
 
-on:
-  push:
-    paths:
-      - '**.cpp'
-      - '**.hpp'
-      - '**.inl'
-      - '**.h'
-      - '.github/workflows/test.yml'
-  pull_request:
-    paths:
-      - '**.cpp'
-      - '**.hpp'
-      - '**.inl'
-      - '**.h'
-      - '.github/workflows/test.yml'
+on: [push, pull_request]
 
 env:
   BUILD_TYPE: Debug
