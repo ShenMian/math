@@ -17,7 +17,7 @@ on:
       - '.github/workflows/test.yml'
 
 env:
-  BUILD_TYPE: Release
+  BUILD_TYPE: Debug
 
 jobs:
   build:
@@ -48,17 +48,21 @@ jobs:
       - name: Test
         run: cd build && ctest -VV -C ${{env.BUILD_TYPE}}
 
-      - name: Setup OpenCppCoverage (Windows)
+      - name: Setup coverage report generator (Linux)
+        if: matrix.os == 'windows-latest'
+        run: sudo apt-get install gcovr
+
+      - name: Setup coverage report generator (Windows)
         if: matrix.os == 'windows-latest'
         run: |
           choco install OpenCppCoverage -y
           echo "C:\Program Files\OpenCppCoverage" >> $env:GITHUB_PATH
 
-      - name: Generate report (Windows)
+      - name: Generate coverage report (Windows)
         if: matrix.os == 'windows-latest'
         run: OpenCppCoverage.exe --sources "${{github.workspace}}\Source" --export_type cobertura:report.xml -- "${{github.workspace}}/build/bin/${{env.BUILD_TYPE}}/unit_test.exe"
 
-      - name: Upload report to Codecov (Windows)
+      - name: Upload coverage report to Codecov (Windows)
         if: matrix.os == 'windows-latest'
         uses: codecov/codecov-action@v2.1.0
         with:
