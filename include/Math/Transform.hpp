@@ -26,7 +26,7 @@ private:
     Vector3f scale_;
 
     mutable Matrix4f matrix_;
-    mutable bool dirty_;
+    mutable bool dirty_ = true;
 };
 
 #include "Transform.inl"
