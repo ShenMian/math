@@ -173,7 +173,7 @@ inline constexpr VectorT<T, N>& VectorT<T, N>::operator*=(const T& rhs)
 template <arithmetic T, size_t N>
 inline constexpr VectorT<T, N>& VectorT<T, N>::operator/=(const T& rhs)
 {
-	assert(rhs, "divisor cannot be zero");
+	assert(rhs, "divisor cannot be zero"); // TODO: 添加 T 为浮点数时的判断
 	for(size_t i = 0; i < N; i++)
 		v_[i] /= rhs;
 	return *this;
