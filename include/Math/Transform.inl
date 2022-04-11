@@ -1,58 +1,56 @@
 ﻿// Copyright 2021 SMS
 // License(Apache-2.0)
 
-inline Vector3f Transform::position() const
+#include "Transform.hpp"
+
+inline const Vector3f& Transform::position() const
 {
-    return Vector3f();
+    return position_;
 }
 
-inline Vector3f Transform::scale() const
+inline const Quaternionf& Transform::rotation() const
 {
-    return Vector3f();
+    return rotation_;
 }
 
-inline Quaternionf Transform::rotation() const
+inline const Vector3f& Transform::scale() const
 {
-    return Quaternionf();
+    return scale_;
 }
 
-inline Vector3f Transform::front() const
+inline Vector3f& Transform::position()
 {
-    return matrix.front();
+    dirty_ = true;
+    return position_;
 }
 
-inline Vector3f Transform::back() const
+inline Quaternionf& Transform::rotation()
 {
-    return matrix.back();
+    dirty_ = true;
+    return rotation_;
 }
 
-inline Vector3f Transform::left() const
+inline Vector3f& Transform::scale()
 {
-    return matrix.left();
+    dirty_ = true;
+    return position_;
 }
 
-inline Vector3f Transform::right() const
+inline Transform& Transform::operator+=(const Transform& rhs)
 {
-    return matrix.right();
-}
-
-inline Vector3f Transform::up() const
-{
-    return matrix.up();
-}
-
-inline Vector3f Transform::down() const
-{
-    return matrix.down();
-}
-
-inline Transform& Transform::operator*=(const Transform& rhs)
-{
-    matrix *= rhs.matrix;
+    dirty_ = true;
+    position_ += rhs.position_;
+    rotation_ += rhs.rotation_;
+    scale_ += rhs.scale_;
     return *this;
 }
 
-inline Transform::operator Matrix4f() const
+inline const Matrix4f& Transform::matrix() const
 {
-	return matrix;
+    if (dirty_)
+    {
+        // matrix_.recompose(position_, rotation_, scale_);
+        dirty_ = false;
+    }
+    return matrix_;
 }

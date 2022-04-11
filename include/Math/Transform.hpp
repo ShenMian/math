@@ -4,27 +4,29 @@
 #pragma once
 
 #include "Matrix/Matrix.hpp"
+#include "Quaternion.hpp"
 
 class Transform
 {
 public:
-    Vector3f position() const;
-    Quaternionf rotation() const;
-    Vector3f scale() const;
+    [[nodiscard]] const Vector3f& position() const;
+    [[nodiscard]] const Quaternionf& rotation() const;
+    [[nodiscard]] const Vector3f& scale() const;
+    [[nodiscard]] Vector3f& position();
+    [[nodiscard]] Quaternionf& rotation();
+    [[nodiscard]] Vector3f& scale();
 
-    Vector3f front() const;
-    Vector3f back() const;
-    Vector3f left() const;
-    Vector3f right() const;
-    Vector3f up() const;
-    Vector3f down() const;
+    [[nodiscard]] const Matrix4f& matrix() const;
 
-    Transform& operator*=(const Transform&);
-
-	operator Matrix4f() const;
+    Transform& operator+=(const Transform&);
 
 private:
-    Matrix4f matrix;
+    Vector3f position_;
+    Quaternionf rotation_;
+    Vector3f scale_;
+
+    mutable Matrix4f matrix_;
+    mutable bool dirty_;
 };
 
 #include "Transform.inl"
