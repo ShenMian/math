@@ -4,7 +4,6 @@
 #include "Assert.hpp"
 #include "AABB3.hpp"
 
-
 inline AABB3::AABB3(const Vector3& a, const Vector3& b)
 {
 	if(a.x < b.x && a.y < b.y && a.z < b.z)
@@ -31,7 +30,7 @@ inline bool AABB3::intersects(const AABB3& aabb) const
 	return contains(aabb.min) || contains(aabb.max);
 }
 
-inline void AABB3::expand(const Vector3& point)
+inline void AABB3::expand(const Vector3& point) noexcept
 {
 	min.x = std::min(min.x, point.x);
 	min.y = std::min(min.y, point.y);
@@ -54,7 +53,7 @@ inline Vector3 AABB3::center() const noexcept
 	return (min + max) / 2.f;
 }
 
-inline bool AABB3::empty() const
+inline bool AABB3::empty() const noexcept
 {
 	return min == max;
 }

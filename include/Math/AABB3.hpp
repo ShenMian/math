@@ -61,7 +61,7 @@ public:
 	 *
 	 * @param point 指定点.
 	 */
-	void expand(const Vector3& point);
+	void expand(const Vector3& point) noexcept;
 
 	/**
 	 * @brief 拓展到包含指定 AABB.
@@ -81,7 +81,7 @@ public:
 	 * @return true  空.
 	 * @return false 非空.
 	 */
-	[[nodiscard]] bool empty() const;
+	[[nodiscard]] bool empty() const noexcept;
 
 	/**
 	 * @brief 判断是否有效.
