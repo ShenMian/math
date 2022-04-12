@@ -23,7 +23,7 @@ public:
 private:
     Vector3f position_;
     Quaternionf rotation_;
-    Vector3f scale_;
+    Vector3f scale_ = Vector3f(1.f);
 
     mutable Matrix4f matrix_;
     mutable bool dirty_ = true;

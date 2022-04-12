@@ -33,7 +33,7 @@ inline Quaternionf& Transform::rotation()
 inline Vector3f& Transform::scale()
 {
     dirty_ = true;
-    return position_;
+    return scale_;
 }
 
 inline Transform& Transform::operator+=(const Transform& rhs)
@@ -47,9 +47,9 @@ inline Transform& Transform::operator+=(const Transform& rhs)
 
 inline const Matrix4f& Transform::matrix() const
 {
-    if (dirty_)
+    if(dirty_)
     {
-        // matrix_.recompose(position_, rotation_, scale_);
+        matrix_.recompose(position_, rotation_, scale_);
         dirty_ = false;
     }
     return matrix_;
