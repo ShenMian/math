@@ -136,6 +136,14 @@ inline MatrixT<T, R, C>& MatrixT<T, R, C>::translate(const Vector3T<T>& v)
 	return *this;
 }
 
+template<arithmetic T, size_t R, size_t C>
+inline MatrixT<T, R, C>& MatrixT<T, R, C>::rotate(const QuaternionT<T>& rotation)
+{
+	auto& mat = *this;
+	mat *= MatrixT::createRotation(rotation);
+	return *this;
+}
+
 template <arithmetic T, size_t R, size_t C>
 inline MatrixT<T, R, C>& MatrixT<T, R, C>::rotateX(float angle)
 {
@@ -222,7 +230,7 @@ MatrixT<T, R, C> &MatrixT<T, R, C>::scale(const Vector3T<T> &scale)
 }
 
 template <arithmetic T, size_t R, size_t C>
-inline void MatrixT<T, R, C>::decompose(Vector3T<T>* translation, Vector3T<T>* rotation, Vector3T<T>* scale) const
+inline void MatrixT<T, R, C>::decompose(Vector3T<T>& translation, QuaternionT<T>& rotation, Vector3T<T>& scale) const
 {
     static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 
@@ -231,15 +239,13 @@ inline void MatrixT<T, R, C>::decompose(Vector3T<T>* translation, Vector3T<T>* r
 }
 
 template <arithmetic T, size_t R, size_t C>
-inline MatrixT<T, R, C>& MatrixT<T, R, C>::recompose(const Vector3T<T>& translation, const Vector3T<T>& rotation, const Vector3T<T>& scale)
+inline MatrixT<T, R, C>& MatrixT<T, R, C>::recompose(const Vector3T<T>& translation, const QuaternionT<T>& rotation, const Vector3T<T>& scale)
 {
     static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 
-    MatrixT mat;
+	auto& mat = *this;
     mat.translate(translation);
-    mat.rotateX(rotation.x);
-    mat.rotateY(rotation.Y);
-    mat.rotateZ(rotation.Z);
+	mat.rotate(rotation);
     mat.scale(scale);
 	return *this;
 }
@@ -448,6 +454,38 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::createTranslate(const Vector3T<T>& v)
 	mat(3, 0) = v.x;
 	mat(3, 1) = v.y;
 	mat(3, 2) = v.z;
+	return mat;
+}
+
+template<arithmetic T, size_t R, size_t C>
+inline MatrixT<T, R, C> MatrixT<T, R, C>::createRotation(const QuaternionT<T>& q)
+{
+	float x2 = q.x + q.x;
+	float y2 = q.y + q.y;
+	float z2 = q.z + q.z;
+
+	float xx2 = q.x * x2;
+	float yy2 = q.y * y2;
+	float zz2 = q.z * z2;
+	float xy2 = q.x * y2;
+	float xz2 = q.x * z2;
+	float yz2 = q.y * z2;
+	float wx2 = q.w * x2;
+	float wy2 = q.w * y2;
+	float wz2 = q.w * z2;
+
+	MatrixT mat;
+	mat(0, 0) = 1.0f - yy2 - zz2;
+	mat(0, 1) = xy2 + wz2;
+	mat(0, 2) = xz2 - wy2;
+
+	mat(1, 0) = xy2 - wz2;
+	mat(1, 1) = 1.0f - xx2 - zz2;
+	mat(1, 2) = yz2 + wx2;
+
+	mat(2, 0) = xz2 + wy2;
+	mat(2, 1) = yz2 - wx2;
+	mat(2, 2) = 1.0f - xx2 - yy2;
 	return mat;
 }
 

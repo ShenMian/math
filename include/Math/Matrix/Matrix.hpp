@@ -11,6 +11,9 @@
 
 #define ROW_MANJOR true
 
+template <std::floating_point T>
+class QuaternionT;
+
 /**
  * @brief 矩阵.
  *
@@ -123,6 +126,15 @@ public:
      */
     MatrixT& translate(const Vector3T<T>& translation);
 
+	/**
+	 * @brief 旋转变换.
+	 *
+	 * @param rotation 四元数.
+	 *
+	 * @return *this.
+	 */
+	MatrixT& rotate(const QuaternionT<T>& rotation);
+
     /**
      * @brief 绕 X 轴旋转.
      *
@@ -162,12 +174,12 @@ public:
     /**
      * @brief 分解.
      */
-    void decompose(Vector3T<T>* translation, Vector3T<T>* rotation, Vector3T<T>* scale) const;
+    void decompose(Vector3T<T>& translation, QuaternionT<T>& rotation, Vector3T<T>& scale) const;
 
     /**
      * @brief 重组.
      */
-    MatrixT& recompose(const Vector3T<T>& translation, const Vector3T<T>& rotation, const Vector3T<T>& scale);
+    MatrixT& recompose(const Vector3T<T>& translation, const QuaternionT<T>& rotation, const Vector3T<T>& scale);
 
 	Vector3T<T> front() const;
 	Vector3T<T> back() const;
@@ -229,6 +241,13 @@ public:
 	 * @param translation 平移向量. 指定了三个轴的变化量.
 	 */
 	static MatrixT createTranslate(const Vector3T<T>& translation);
+
+	/**
+	 * @brief 生成旋转变换矩阵.
+	 *
+	 * @param rotation 四元数.
+	 */
+	static MatrixT createRotation(const QuaternionT<T>& rotation);
 
 	/**
 	 * @brief 生成旋转变换矩阵.
