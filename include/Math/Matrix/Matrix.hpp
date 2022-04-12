@@ -68,11 +68,6 @@ public:
 	MatrixT<T, R, C> transposed() const;
 
 	/**
-	 * @brief 计算行列式的值.
-	 */
-	T determinant() const;
-
-	/**
 	 * @brief 求迹.
 	 */
 	constexpr T trace() const;
@@ -91,6 +86,11 @@ public:
 	 * @brief 获取最大元素的值.
 	 */
 	constexpr T maxCoeff() const;
+
+    /**
+     * @brief 获取行列式的值.
+     */
+    constexpr T determinant() const;
 
 	/**
 	 * @brief 获取主对角线.
@@ -174,7 +174,7 @@ public:
     /**
      * @brief 分解.
      */
-    void decompose(Vector3T<T>& translation, QuaternionT<T>& rotation, Vector3T<T>& scale) const;
+    void decompose(Vector3T<T>* translation, QuaternionT<T>* rotation, Vector3T<T>* scale) const;
 
     /**
      * @brief 重组.
