@@ -4,15 +4,13 @@
 #include <algorithm>
 #include <cmath>
 
-template <typename T>
-	requires std::floating_point<T>
+template <std::floating_point T>
 QuaternionT<T>::QuaternionT(T x, T y, T z, T w)
 	: x(x), y(y), z(z), w(w)
 {
 }
 
-template <typename T>
-	requires std::floating_point<T>
+template <std::floating_point T>
 inline QuaternionT<T>::QuaternionT(const Matrix4T<T>& mat)
 {
 	const auto trace = mat[0][0] + mat[1][1] + mat[2][2] + T(1);
@@ -50,8 +48,7 @@ inline QuaternionT<T>::QuaternionT(const Matrix4T<T>& mat)
 	}
 }
 
-template <typename T>
-	requires std::floating_point<T>
+template <std::floating_point T>
 inline void QuaternionT<T>::eular(const Vector3T<T>& angles)
 {
 	const auto cr = std::cos(angles.x / T(2));
@@ -75,8 +72,7 @@ inline void QuaternionT<T>::eular(const Vector3T<T>& angles)
 	normalize();
 }
 
-template <typename T>
-	requires std::floating_point<T>
+template <std::floating_point T>
 inline Vector3T<T> QuaternionT<T>::eular() const
 {
 	Vector3T<T> angles;
@@ -93,22 +89,19 @@ inline Vector3T<T> QuaternionT<T>::eular() const
 	return angles;
 }
 
-template <typename T>
-	requires std::floating_point<T>
+template <std::floating_point T>
 inline T QuaternionT<T>::sizeSq() const
 {
 	return x * x + y * y + z * z + w * w;
 }
 
-template <typename T>
-	requires std::floating_point<T>
+template <std::floating_point T>
 inline T QuaternionT<T>::size() const
 {
 	return static_cast<T>(std::sqrt(sizeSq()));
 }
 
-template <typename T>
-	requires std::floating_point<T>
+template <std::floating_point T>
 inline QuaternionT<T>& QuaternionT<T>::inverse()
 {
 	const T n = sizeSq();
@@ -131,15 +124,13 @@ inline QuaternionT<T>& QuaternionT<T>::inverse()
 	return *this;
 }
 
-template <typename T>
-	requires std::floating_point<T>
+template <std::floating_point T>
 inline QuaternionT<T> QuaternionT<T>::inversed() const
 {
 	return QuaternionT(*this).inverse();
 }
 
-template <typename T>
-	requires std::floating_point<T>
+template <std::floating_point T>
 inline QuaternionT<T>& QuaternionT<T>::normalize()
 {
 	const auto len = size();
@@ -148,15 +139,13 @@ inline QuaternionT<T>& QuaternionT<T>::normalize()
 	return *this *= 1.f / len;
 }
 
-template <typename T>
-	requires std::floating_point<T>
+template <std::floating_point T>
 inline bool QuaternionT<T>::operator==(const QuaternionT& rhs) const
 {
 	return equal(x, rhs.x) && equal(y, rhs.y) && equal(z, rhs.z) && equal(w, rhs.w);
 }
 
-template <typename T>
-	requires std::floating_point<T>
+template <std::floating_point T>
 inline QuaternionT<T>& QuaternionT<T>::operator+=(const QuaternionT<T>& rhs)
 {
 	x += rhs.x;
@@ -166,8 +155,7 @@ inline QuaternionT<T>& QuaternionT<T>::operator+=(const QuaternionT<T>& rhs)
 	return *this;
 }
 
-template <typename T>
-	requires std::floating_point<T>
+template <std::floating_point T>
 inline QuaternionT<T>& QuaternionT<T>::operator-=(const QuaternionT<T>& rhs)
 {
 	x -= rhs.x;
@@ -177,8 +165,7 @@ inline QuaternionT<T>& QuaternionT<T>::operator-=(const QuaternionT<T>& rhs)
 	return *this;
 }
 
-template <typename T>
-	requires std::floating_point<T>
+template <std::floating_point T>
 inline QuaternionT<T>& QuaternionT<T>::operator*=(const QuaternionT<T>& rhs)
 {
 	*this = QuaternionT(
@@ -189,8 +176,7 @@ inline QuaternionT<T>& QuaternionT<T>::operator*=(const QuaternionT<T>& rhs)
 	return *this;
 }
 
-template <typename T>
-	requires std::floating_point<T>
+template <std::floating_point T>
 inline QuaternionT<T>& QuaternionT<T>::operator*=(T rhs)
 {
 	x *= rhs;
@@ -200,8 +186,7 @@ inline QuaternionT<T>& QuaternionT<T>::operator*=(T rhs)
 	return *this;
 }
 
-template <typename T>
-	requires std::floating_point<T>
+template <std::floating_point T>
 inline QuaternionT<T> QuaternionT<T>::operator-() const
 {
 	return {-x, -y, -z, w};

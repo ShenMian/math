@@ -10,8 +10,7 @@
 /**
  * @brief 四元数.
  */
-template <typename T>
-	requires std::floating_point<T>
+template <std::floating_point T>
 class QuaternionT
 {
 public:
