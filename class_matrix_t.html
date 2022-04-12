@@ -130,10 +130,6 @@ constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>MatrixT</b> (con
 <a class="el" href="class_matrix_t.html">MatrixT</a>&lt; T, R, C &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>transposed</b> () const</td></tr>
 <tr class="memdesc:abd0c2c125307330e102a82b5c8486b9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取转置后的矩阵. <br /></td></tr>
 <tr class="separator:abd0c2c125307330e102a82b5c8486b9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acac9f051752eceb2cd0896d2f50d0d3d"><td class="memItemLeft" align="right" valign="top"><a id="acac9f051752eceb2cd0896d2f50d0d3d" name="acac9f051752eceb2cd0896d2f50d0d3d"></a>
-T&#160;</td><td class="memItemRight" valign="bottom"><b>determinant</b> () const</td></tr>
-<tr class="memdesc:acac9f051752eceb2cd0896d2f50d0d3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算行列式的值. <br /></td></tr>
-<tr class="separator:acac9f051752eceb2cd0896d2f50d0d3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af42a8e7c414a37b57255bb8b9352dc42"><td class="memItemLeft" align="right" valign="top"><a id="af42a8e7c414a37b57255bb8b9352dc42" name="af42a8e7c414a37b57255bb8b9352dc42"></a>
 constexpr T&#160;</td><td class="memItemRight" valign="bottom"><b>trace</b> () const</td></tr>
 <tr class="memdesc:af42a8e7c414a37b57255bb8b9352dc42"><td class="mdescLeft">&#160;</td><td class="mdescRight">求迹. <br /></td></tr>
@@ -150,6 +146,10 @@ constexpr T&#160;</td><td class="memItemRight" valign="bottom"><b>minCoeff</b> (
 constexpr T&#160;</td><td class="memItemRight" valign="bottom"><b>maxCoeff</b> () const</td></tr>
 <tr class="memdesc:a070218b9ce7b5e7c9c0f50a91fc384b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取最大元素的值. <br /></td></tr>
 <tr class="separator:a070218b9ce7b5e7c9c0f50a91fc384b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0f7fc6f4ee472220768efef4b33d11a"><td class="memItemLeft" align="right" valign="top"><a id="ad0f7fc6f4ee472220768efef4b33d11a" name="ad0f7fc6f4ee472220768efef4b33d11a"></a>
+constexpr T&#160;</td><td class="memItemRight" valign="bottom"><b>determinant</b> () const</td></tr>
+<tr class="memdesc:ad0f7fc6f4ee472220768efef4b33d11a"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取行列式的值. <br /></td></tr>
+<tr class="separator:ad0f7fc6f4ee472220768efef4b33d11a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acaaf3661d96000ac152744a3c3f274d9"><td class="memItemLeft" align="right" valign="top"><a id="acaaf3661d96000ac152744a3c3f274d9" name="acaaf3661d96000ac152744a3c3f274d9"></a>
 constexpr const <a class="el" href="class_vector_t.html">VectorT</a>&lt; T, R &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>diagonal</b> () const</td></tr>
 <tr class="memdesc:acaaf3661d96000ac152744a3c3f274d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取主对角线. <br /></td></tr>
@@ -188,10 +188,10 @@ constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>cols</b> 
 <tr class="memitem:aa0241078a08f59750d2d17beccf623dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix_t.html">MatrixT</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#aa0241078a08f59750d2d17beccf623dc">scale</a> (const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;scale)</td></tr>
 <tr class="memdesc:aa0241078a08f59750d2d17beccf623dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">缩放变换.  <a href="class_matrix_t.html#aa0241078a08f59750d2d17beccf623dc">更多...</a><br /></td></tr>
 <tr class="separator:aa0241078a08f59750d2d17beccf623dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee7460bb519eb8a44b5dbf8863c31799"><td class="memItemLeft" align="right" valign="top"><a id="aee7460bb519eb8a44b5dbf8863c31799" name="aee7460bb519eb8a44b5dbf8863c31799"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>decompose</b> (<a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;translation, <a class="el" href="class_quaternion_t.html">QuaternionT</a>&lt; T &gt; &amp;rotation, <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;<a class="el" href="class_matrix_t.html#aa0241078a08f59750d2d17beccf623dc">scale</a>) const</td></tr>
-<tr class="memdesc:aee7460bb519eb8a44b5dbf8863c31799"><td class="mdescLeft">&#160;</td><td class="mdescRight">分解. <br /></td></tr>
-<tr class="separator:aee7460bb519eb8a44b5dbf8863c31799"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a0df83da0aa83ee4f27584725665346"><td class="memItemLeft" align="right" valign="top"><a id="a1a0df83da0aa83ee4f27584725665346" name="a1a0df83da0aa83ee4f27584725665346"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>decompose</b> (<a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; *translation, <a class="el" href="class_quaternion_t.html">QuaternionT</a>&lt; T &gt; *rotation, <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; *<a class="el" href="class_matrix_t.html#aa0241078a08f59750d2d17beccf623dc">scale</a>) const</td></tr>
+<tr class="memdesc:a1a0df83da0aa83ee4f27584725665346"><td class="mdescLeft">&#160;</td><td class="mdescRight">分解. <br /></td></tr>
+<tr class="separator:a1a0df83da0aa83ee4f27584725665346"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade5c92e3ace9a64548488473047ddb29"><td class="memItemLeft" align="right" valign="top"><a id="ade5c92e3ace9a64548488473047ddb29" name="ade5c92e3ace9a64548488473047ddb29"></a>
 <a class="el" href="class_matrix_t.html">MatrixT</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>recompose</b> (const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;translation, const <a class="el" href="class_quaternion_t.html">QuaternionT</a>&lt; T &gt; &amp;rotation, const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;<a class="el" href="class_matrix_t.html#aa0241078a08f59750d2d17beccf623dc">scale</a>)</td></tr>
 <tr class="memdesc:ade5c92e3ace9a64548488473047ddb29"><td class="mdescLeft">&#160;</td><td class="mdescRight">重组. <br /></td></tr>
