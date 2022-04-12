@@ -51,8 +51,7 @@ inline constexpr bool equal(T lhs, T rhs, T error = std::numeric_limits<T>::epsi
  *
  * @param degress 角度.
  */
-template <typename T>
-	requires std::floating_point<T>
+template <std::floating_point T>
 inline constexpr T radians(T degrees) noexcept
 {
 	return degrees * static_cast<T>(std::numbers::pi) / 180;
@@ -63,8 +62,7 @@ inline constexpr T radians(T degrees) noexcept
  *
  * @param radians 弧度.
  */
-template <typename T>
-	requires std::floating_point<T>
+template <std::floating_point T>
 inline constexpr T degrees(T radians) noexcept
 {
 	return radians * 180 / static_cast<T>(std::numbers::pi);
