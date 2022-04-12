@@ -1,13 +1,13 @@
 var class_quaternion_t =
 [
     [ "QuaternionT", "class_quaternion_t.html#aa7463b42972c45dd99f96ebf121766eb", null ],
-    [ "QuaternionT", "class_quaternion_t.html#af0ba22737f08bc185577933d061a9742", null ],
-    [ "QuaternionT", "class_quaternion_t.html#a590d8abadff8f3ccf3784d9c349c8052", null ],
-    [ "eular", "class_quaternion_t.html#a6bd8ac49fa344b81f32d3e19471140c2", null ],
-    [ "eular", "class_quaternion_t.html#a586cc5420d8b950520f299a91dde5c4a", null ],
-    [ "inverse", "class_quaternion_t.html#a2b6f0eb5085dc8001ddc62c97211a682", null ],
-    [ "inversed", "class_quaternion_t.html#ad846d9fb0e950a3f58085d05647df028", null ],
-    [ "normalize", "class_quaternion_t.html#a0322ea427bef7cad4ed4bb8fd5e00c1b", null ],
-    [ "size", "class_quaternion_t.html#ac335103cebd1dc37050b37083bb6bd44", null ],
-    [ "sizeSq", "class_quaternion_t.html#a86d7b71d2ad0de8e7452f5596a859845", null ]
+    [ "QuaternionT", "class_quaternion_t.html#a69b5157e3d9b3bbf9c4abdefc3eb46d2", null ],
+    [ "QuaternionT", "class_quaternion_t.html#a93fa3d39201786f122e27f5bbc34a9d1", null ],
+    [ "eular", "class_quaternion_t.html#ae4b92bb821007ddb34ab88220acfba22", null ],
+    [ "eular", "class_quaternion_t.html#aa13fe6d54f69361a4bdb9e5fb3180190", null ],
+    [ "inverse", "class_quaternion_t.html#a29257644768362cb52f26f3314cd297f", null ],
+    [ "inversed", "class_quaternion_t.html#aa0d053a351499f5d6737e462849da5b1", null ],
+    [ "normalize", "class_quaternion_t.html#a1cb09eeaa680ba17de322045044c6169", null ],
+    [ "size", "class_quaternion_t.html#aaefcb88a03abac68d8ba034603449a7c", null ],
+    [ "sizeSq", "class_quaternion_t.html#ad9b8233addc1af375f2d35c50e12e86e", null ]
 ];

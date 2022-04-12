@@ -6,7 +6,7 @@ var searchData=
   ['col_3',['col',['../class_matrix_t.html#a5b0619a5380497cebb7eb8fc1e424d22',1,'MatrixT']]],
   ['cols_4',['cols',['../class_matrix_t.html#a31aec19b7a0d0a989abbcb7a5185f450',1,'MatrixT']]],
   ['contains_5',['contains',['../class_a_a_b_b3.html#afcd03cc85be2b64307c1ac6455871c8e',1,'AABB3::contains(const Vector3 &amp;point) const'],['../class_a_a_b_b3.html#a791887cad43dbfefc4f2317f03bf9df8',1,'AABB3::contains(const AABB3 &amp;aabb) const']]],
-  ['createrotation_6',['createRotation',['../class_matrix_t.html#a2a611485cfd7159fdebb610d7e099d7c',1,'MatrixT']]],
+  ['createrotation_6',['createRotation',['../class_matrix_t.html#a4c85fe5e9d133ea32a0661cfda3888a6',1,'MatrixT::createRotation(const QuaternionT&lt; T &gt; &amp;rotation)'],['../class_matrix_t.html#a2a611485cfd7159fdebb610d7e099d7c',1,'MatrixT::createRotation(float angle, Vector3T&lt; T &gt; axis)']]],
   ['createrotationx_7',['createRotationX',['../class_matrix_t.html#ab395e20f67c003ac6fc08f9cb7cb6bb6',1,'MatrixT']]],
   ['createrotationy_8',['createRotationY',['../class_matrix_t.html#aa0c77d0fc09af2d34f1355cabb42e5cc',1,'MatrixT']]],
   ['createrotationz_9',['createRotationZ',['../class_matrix_t.html#aed21161cd6a5befe184d0657c735583a',1,'MatrixT']]],

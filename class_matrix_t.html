@@ -173,6 +173,9 @@ constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>cols</b> 
 <tr class="memitem:a2748b531cd6be3dbf19c665d5f0804a5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix_t.html">MatrixT</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#a2748b531cd6be3dbf19c665d5f0804a5">translate</a> (const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;translation)</td></tr>
 <tr class="memdesc:a2748b531cd6be3dbf19c665d5f0804a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">平移变换.  <a href="class_matrix_t.html#a2748b531cd6be3dbf19c665d5f0804a5">更多...</a><br /></td></tr>
 <tr class="separator:a2748b531cd6be3dbf19c665d5f0804a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7a91705bb6a61c63236b2e48617bc48"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix_t.html">MatrixT</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#ad7a91705bb6a61c63236b2e48617bc48">rotate</a> (const <a class="el" href="class_quaternion_t.html">QuaternionT</a>&lt; T &gt; &amp;rotation)</td></tr>
+<tr class="memdesc:ad7a91705bb6a61c63236b2e48617bc48"><td class="mdescLeft">&#160;</td><td class="mdescRight">旋转变换.  <a href="class_matrix_t.html#ad7a91705bb6a61c63236b2e48617bc48">更多...</a><br /></td></tr>
+<tr class="separator:ad7a91705bb6a61c63236b2e48617bc48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3869f13f50160869c30d507d85708860"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix_t.html">MatrixT</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#a3869f13f50160869c30d507d85708860">rotateX</a> (float angle)</td></tr>
 <tr class="memdesc:a3869f13f50160869c30d507d85708860"><td class="mdescLeft">&#160;</td><td class="mdescRight">绕 X 轴旋转.  <a href="class_matrix_t.html#a3869f13f50160869c30d507d85708860">更多...</a><br /></td></tr>
 <tr class="separator:a3869f13f50160869c30d507d85708860"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -185,14 +188,14 @@ constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>cols</b> 
 <tr class="memitem:aa0241078a08f59750d2d17beccf623dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix_t.html">MatrixT</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#aa0241078a08f59750d2d17beccf623dc">scale</a> (const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;scale)</td></tr>
 <tr class="memdesc:aa0241078a08f59750d2d17beccf623dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">缩放变换.  <a href="class_matrix_t.html#aa0241078a08f59750d2d17beccf623dc">更多...</a><br /></td></tr>
 <tr class="separator:aa0241078a08f59750d2d17beccf623dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d9c679a883dae76670fd9256aad6eb3"><td class="memItemLeft" align="right" valign="top"><a id="a9d9c679a883dae76670fd9256aad6eb3" name="a9d9c679a883dae76670fd9256aad6eb3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>decompose</b> (<a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; *translation, <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; *rotation, <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; *<a class="el" href="class_matrix_t.html#aa0241078a08f59750d2d17beccf623dc">scale</a>) const</td></tr>
-<tr class="memdesc:a9d9c679a883dae76670fd9256aad6eb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">分解. <br /></td></tr>
-<tr class="separator:a9d9c679a883dae76670fd9256aad6eb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaeeb17d31ea3fcdaf9c42403e7ec2fe7"><td class="memItemLeft" align="right" valign="top"><a id="aaeeb17d31ea3fcdaf9c42403e7ec2fe7" name="aaeeb17d31ea3fcdaf9c42403e7ec2fe7"></a>
-<a class="el" href="class_matrix_t.html">MatrixT</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>recompose</b> (const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;translation, const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;rotation, const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;<a class="el" href="class_matrix_t.html#aa0241078a08f59750d2d17beccf623dc">scale</a>)</td></tr>
-<tr class="memdesc:aaeeb17d31ea3fcdaf9c42403e7ec2fe7"><td class="mdescLeft">&#160;</td><td class="mdescRight">重组. <br /></td></tr>
-<tr class="separator:aaeeb17d31ea3fcdaf9c42403e7ec2fe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee7460bb519eb8a44b5dbf8863c31799"><td class="memItemLeft" align="right" valign="top"><a id="aee7460bb519eb8a44b5dbf8863c31799" name="aee7460bb519eb8a44b5dbf8863c31799"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>decompose</b> (<a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;translation, <a class="el" href="class_quaternion_t.html">QuaternionT</a>&lt; T &gt; &amp;rotation, <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;<a class="el" href="class_matrix_t.html#aa0241078a08f59750d2d17beccf623dc">scale</a>) const</td></tr>
+<tr class="memdesc:aee7460bb519eb8a44b5dbf8863c31799"><td class="mdescLeft">&#160;</td><td class="mdescRight">分解. <br /></td></tr>
+<tr class="separator:aee7460bb519eb8a44b5dbf8863c31799"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade5c92e3ace9a64548488473047ddb29"><td class="memItemLeft" align="right" valign="top"><a id="ade5c92e3ace9a64548488473047ddb29" name="ade5c92e3ace9a64548488473047ddb29"></a>
+<a class="el" href="class_matrix_t.html">MatrixT</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>recompose</b> (const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;translation, const <a class="el" href="class_quaternion_t.html">QuaternionT</a>&lt; T &gt; &amp;rotation, const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;<a class="el" href="class_matrix_t.html#aa0241078a08f59750d2d17beccf623dc">scale</a>)</td></tr>
+<tr class="memdesc:ade5c92e3ace9a64548488473047ddb29"><td class="mdescLeft">&#160;</td><td class="mdescRight">重组. <br /></td></tr>
+<tr class="separator:ade5c92e3ace9a64548488473047ddb29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad00b2a2e74c50a06d90fa92057ccfd1b"><td class="memItemLeft" align="right" valign="top"><a id="ad00b2a2e74c50a06d90fa92057ccfd1b" name="ad00b2a2e74c50a06d90fa92057ccfd1b"></a>
 <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>front</b> () const</td></tr>
 <tr class="separator:ad00b2a2e74c50a06d90fa92057ccfd1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -259,6 +262,9 @@ template&lt;typename T0 &gt; </td></tr>
 <tr class="memitem:a5f05219db855ca60431231b4b6edbf02"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_matrix_t.html">MatrixT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#a5f05219db855ca60431231b4b6edbf02">createTranslate</a> (const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; &amp;translation)</td></tr>
 <tr class="memdesc:a5f05219db855ca60431231b4b6edbf02"><td class="mdescLeft">&#160;</td><td class="mdescRight">生成平移变换矩阵.  <a href="class_matrix_t.html#a5f05219db855ca60431231b4b6edbf02">更多...</a><br /></td></tr>
 <tr class="separator:a5f05219db855ca60431231b4b6edbf02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c85fe5e9d133ea32a0661cfda3888a6"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_matrix_t.html">MatrixT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#a4c85fe5e9d133ea32a0661cfda3888a6">createRotation</a> (const <a class="el" href="class_quaternion_t.html">QuaternionT</a>&lt; T &gt; &amp;rotation)</td></tr>
+<tr class="memdesc:a4c85fe5e9d133ea32a0661cfda3888a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">生成旋转变换矩阵.  <a href="class_matrix_t.html#a4c85fe5e9d133ea32a0661cfda3888a6">更多...</a><br /></td></tr>
+<tr class="separator:a4c85fe5e9d133ea32a0661cfda3888a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a611485cfd7159fdebb610d7e099d7c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_matrix_t.html">MatrixT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#a2a611485cfd7159fdebb610d7e099d7c">createRotation</a> (float angle, <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T</a>&lt; T &gt; axis)</td></tr>
 <tr class="memdesc:a2a611485cfd7159fdebb610d7e099d7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">生成旋转变换矩阵.  <a href="class_matrix_t.html#a2a611485cfd7159fdebb610d7e099d7c">更多...</a><br /></td></tr>
 <tr class="separator:a2a611485cfd7159fdebb610d7e099d7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -361,8 +367,44 @@ template&lt;arithmetic T, size_t R, size_t C&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">成员函数说明</h2>
+<a id="a4c85fe5e9d133ea32a0661cfda3888a6" name="a4c85fe5e9d133ea32a0661cfda3888a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c85fe5e9d133ea32a0661cfda3888a6">&#9670;&nbsp;</a></span>createRotation() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;arithmetic T, size_t R, size_t C&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix_t.html">MatrixT</a>&lt; T, R, C &gt; <a class="el" href="class_matrix_t.html">MatrixT</a>&lt; T, R, C &gt;::createRotation </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_quaternion_t.html">QuaternionT</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rotation</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>生成旋转变换矩阵. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rotation</td><td>四元数. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a2a611485cfd7159fdebb610d7e099d7c" name="a2a611485cfd7159fdebb610d7e099d7c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a611485cfd7159fdebb610d7e099d7c">&#9670;&nbsp;</a></span>createRotation()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a611485cfd7159fdebb610d7e099d7c">&#9670;&nbsp;</a></span>createRotation() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -836,6 +878,43 @@ template&lt;arithmetic T, size_t R, size_t C&gt; </div>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ad7a91705bb6a61c63236b2e48617bc48" name="ad7a91705bb6a61c63236b2e48617bc48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7a91705bb6a61c63236b2e48617bc48">&#9670;&nbsp;</a></span>rotate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;arithmetic T, size_t R, size_t C&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix_t.html">MatrixT</a>&lt; T, R, C &gt; &amp; <a class="el" href="class_matrix_t.html">MatrixT</a>&lt; T, R, C &gt;::rotate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_quaternion_t.html">QuaternionT</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rotation</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>旋转变换. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rotation</td><td>四元数.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>*this. </dd></dl>
 
 </div>
 </div>
