@@ -9,10 +9,12 @@
 #include <ranges>
 #include "Vector.hpp"
 
+namespace rng = std::ranges;
+
 template <arithmetic T, size_t N>
 inline constexpr VectorT<T, N>::VectorT(const T& scalar)
 {
-	std::ranges::fill(v_, scalar);
+    rng::fill(v_, scalar);
 }
 
 template <arithmetic T, size_t N>
@@ -25,7 +27,7 @@ constexpr VectorT<T, N>::VectorT(const T (&arr)[N])
 template <arithmetic T, size_t N>
 constexpr VectorT<T, N>::VectorT(const std::span<T, N>& span)
 {
-    std::ranges::copy(span, v_);
+    rng::copy(span, v_);
 }
 
 template <arithmetic T, size_t N>
