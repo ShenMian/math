@@ -3,34 +3,34 @@
 
 #include "Transform.hpp"
 
-inline const Vector3f& Transform::position() const
+inline const Vector3f& Transform::position() const noexcept
 {
     return position_;
 }
 
-inline const Quaternionf& Transform::rotation() const
+inline const Quaternionf& Transform::rotation() const noexcept
 {
     return rotation_;
 }
 
-inline const Vector3f& Transform::scale() const
+inline const Vector3f& Transform::scale() const noexcept
 {
     return scale_;
 }
 
-inline Vector3f& Transform::position()
+inline Vector3f& Transform::position() noexcept
 {
     dirty_ = true;
     return position_;
 }
 
-inline Quaternionf& Transform::rotation()
+inline Quaternionf& Transform::rotation() noexcept
 {
     dirty_ = true;
     return rotation_;
 }
 
-inline Vector3f& Transform::scale()
+inline Vector3f& Transform::scale() noexcept
 {
     dirty_ = true;
     return scale_;
