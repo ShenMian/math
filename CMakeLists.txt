@@ -7,17 +7,28 @@ cmake_minimum_required(VERSION 3.16)
 # 指定项目名和版本号
 project(Math
   VERSION     0.0.0
-  DESCRIPTION "A simple linear algebra header-only library.")
-
-# 输出编译器信息
-message(STATUS "Compiler")
-message(STATUS "|- ID     : ${CMAKE_CXX_COMPILER_ID}")
-message(STATUS "`- Version: ${CMAKE_CXX_COMPILER_VERSION}")
+  DESCRIPTION "A simple linear algebra header-only library."
+  HOMEPAGE_URL "https://github.com/ShenMian/Math"
+  LANGUAGES    CXX C)
 
 # 指定默认编译类型
 if(NOT DEFINED CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Debug)
 endif()
+
+# 选项
+option(BUILD_TESTS "Build tests" ON)
+
+# 输出基本信息
+if(${CMAKE_VERSION} VERSION_GREATER_EQUAL "3.22.0")
+  cmake_host_system_information(RESULT OS_PRETTY_NAME QUERY DISTRIB_PRETTY_NAME)
+endif()
+message(STATUS "OS")
+message(STATUS "|- Name   : ${CMAKE_SYSTEM_NAME}(${OS_PRETTY_NAME})")
+message(STATUS "`- Version: ${CMAKE_SYSTEM_VERSION}")
+message(STATUS "Compiler")
+message(STATUS "|- ID     : ${CMAKE_CXX_COMPILER_ID}")
+message(STATUS "`- Version: ${CMAKE_CXX_COMPILER_VERSION}")
 
 # 指定构建目录
 set(CMAKE_BINARY_DIR               "${PROJECT_SOURCE_DIR}/build")
@@ -41,5 +52,7 @@ if(UNIX)
   add_link_options("-ldl")
 endif()
 
-enable_testing()
-add_subdirectory("tests")
+if(BUILD_TESTS)
+  enable_testing()
+  add_subdirectory("tests")
+endif()
