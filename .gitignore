@@ -9,6 +9,10 @@
 Makefile
 *.make
 
+# CMake
+.cache
+CMakeSettings.json
+
 # Visual Studio
 *.sln
 *.vcxproj
@@ -16,12 +20,15 @@ Makefile
 *.user
 /.vs
 /.vscode
+/out
 
-# CLion
+# IntelliJ IDEA
 /.idea
 
 # Doxygen
 /Docs/html
+/Docs/man
+/Docs/xml
 
 # Prerequisites
 *.d
