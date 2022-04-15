@@ -203,6 +203,16 @@ inline void multiply(const MatrixT<float, 4, 4>& a, const MatrixT<float, 4, 4>& 
     simd::store(dst.data(), m1);
 }
 
+inline void multiply(const MatrixT<float, 4, 4>& a, const VectorT<float, 4>& b, VectorT<float, 4>& dst) noexcept
+{
+    __m128 m[4];
+    __m128 v = {};
+    simd::load(m, a.data());
+    simd::load(v, b.data());
+    simd::matrixMulVec(m, v, v);
+    simd::store(dst.data(), v);
+}
+
 inline void transpose(const MatrixT<float, 4, 4>& a, MatrixT<float, 4, 4>& dst) noexcept
 {
     __m128 m[4];
