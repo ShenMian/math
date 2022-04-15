@@ -10,6 +10,32 @@
 namespace simd
 {
 
+inline void load(__m128 m[4], const float* mat) noexcept
+{
+    m[0] = _mm_load_ps(&mat[0 * 4]);
+    m[1] = _mm_load_ps(&mat[1 * 4]);
+    m[2] = _mm_load_ps(&mat[2 * 4]);
+    m[3] = _mm_load_ps(&mat[3 * 4]);
+}
+
+inline void store(float* mat, const __m128 m[4]) noexcept
+{
+    _mm_store_ps(&mat[0 * 4], m[0]);
+    _mm_store_ps(&mat[1 * 4], m[1]);
+    _mm_store_ps(&mat[2 * 4], m[2]);
+    _mm_store_ps(&mat[3 * 4], m[3]);
+}
+
+inline void load(__m128& v, const float* vec) noexcept
+{
+    v = _mm_load_ps(vec);
+}
+
+inline void store(float* vec, const __m128& v) noexcept
+{
+    _mm_store_ps(vec, v);
+}
+
 inline void matrixAdd(const __m128 m1[4], const __m128 m2[4], __m128 dst[4]) noexcept
 {
 	dst[0] = _mm_add_ps(m1[0], m2[0]);
@@ -142,35 +168,55 @@ inline void matrixMulVec(const __m128 m[4], const __m128& v, __m128& dst) noexce
 	);
 }
 
-inline void vecMulMatrix(const __m128 v, const __m128 m1[4], __m128 dst[4]) noexcept
+inline void vecMulMatrix(const __m128 v, const __m128 m[4], __m128 dst[4]) noexcept
 {
 }
 
 
-inline void load(__m128 m[4], const float* mat) noexcept
+inline void add(const MatrixT<float, 4, 4>& a, const MatrixT<float, 4, 4>& b, MatrixT<float, 4, 4>& dst) noexcept
 {
-	m[0] = _mm_load_ps(&mat[0 * 4]);
-	m[1] = _mm_load_ps(&mat[1 * 4]);
-	m[2] = _mm_load_ps(&mat[2 * 4]);
-	m[3] = _mm_load_ps(&mat[3 * 4]);
+    __m128 m1[4];
+    __m128 m2[4];
+    simd::load(m1, a.data());
+    simd::load(m2, b.data());
+    simd::matrixAdd(m1, m2, m1);
+    simd::store(dst.data(), m1);
 }
 
-inline void store(float* mat, const __m128 m[4]) noexcept
+inline void sub(const MatrixT<float, 4, 4>& a, const MatrixT<float, 4, 4>& b, MatrixT<float, 4, 4>& dst) noexcept
 {
-	_mm_store_ps(&mat[0 * 4], m[0]);
-	_mm_store_ps(&mat[1 * 4], m[1]);
-	_mm_store_ps(&mat[2 * 4], m[2]);
-	_mm_store_ps(&mat[3 * 4], m[3]);
+    __m128 m1[4];
+    __m128 m2[4];
+    simd::load(m1, a.data());
+    simd::load(m2, b.data());
+    simd::matrixSub(m1, m2, m1);
+    simd::store(dst.data(), m1);
 }
 
-inline void load(__m128& v, const float* vec) noexcept
+inline void multiply(const MatrixT<float, 4, 4>& a, const MatrixT<float, 4, 4>& b, MatrixT<float, 4, 4>& dst) noexcept
 {
-	v = _mm_load_ps(vec);
+    __m128 m1[4];
+    __m128 m2[4];
+    simd::load(m1, a.data());
+    simd::load(m2, b.data());
+    simd::matrixMul(m1, m2, m1);
+    simd::store(dst.data(), m1);
 }
 
-inline void store(float* vec, const __m128& v) noexcept
+inline void transpose(const MatrixT<float, 4, 4>& a, MatrixT<float, 4, 4>& dst) noexcept
 {
-	_mm_store_ps(vec, v);
+    __m128 m[4];
+    simd::load(m, a.data());
+    simd::matrixTranspose(m, m);
+    simd::store(dst.data(), m);
+}
+
+inline void negate(const MatrixT<float, 4, 4>& a, MatrixT<float, 4, 4>& dst) noexcept
+{
+    __m128 m[4];
+    simd::load(m, a.data());
+    simd::matrixNegate(m, m);
+    simd::store(dst.data(), m);
 }
 
 } // namespace simd
