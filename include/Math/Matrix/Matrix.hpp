@@ -35,17 +35,17 @@ public:
 	 *
 	 * @param list 初始化列表.
 	 */
-    MatrixT(const std::initializer_list<T>& list);
+	MatrixT(const std::initializer_list<T>& list);
 
-    /**
-     * @brief 构造函数.
-     */
-    constexpr explicit MatrixT(const T (&arr)[R * C]);
+	/**
+	 * @brief 构造函数.
+	 */
+	constexpr explicit MatrixT(const T(&arr)[R * C]);
 
-    /**
-     * @brief 构造函数.
-     */
-    constexpr explicit MatrixT(const T* data);
+	/**
+	 * @brief 构造函数.
+	 */
+	constexpr explicit MatrixT(const T* data);
 
 	/**
 	 * @brief 求逆.
@@ -87,10 +87,10 @@ public:
 	 */
 	constexpr T maxCoeff() const;
 
-    /**
-     * @brief 获取行列式的值.
-     */
-    constexpr T determinant() const;
+	/**
+	 * @brief 获取行列式的值.
+	 */
+	constexpr T determinant() const;
 
 	/**
 	 * @brief 获取主对角线.
@@ -117,14 +117,14 @@ public:
 	 */
 	constexpr size_t cols() const;
 
-    /**
-     * @brief 平移变换.
-     *
-     * @param translation 平移量.
-     *
-     * @return *this.
-     */
-    MatrixT& translate(const Vector3T<T>& translation);
+	/**
+	 * @brief 平移变换.
+	 *
+	 * @param translation 平移量.
+	 *
+	 * @return *this.
+	 */
+	MatrixT& translate(const Vector3T<T>& translation);
 
 	/**
 	 * @brief 旋转变换.
@@ -135,51 +135,51 @@ public:
 	 */
 	MatrixT& rotate(const QuaternionT<T>& rotation);
 
-    /**
-     * @brief 绕 X 轴旋转.
-     *
-     * @param angle 旋转角度, 单位: 弧度制.
-     *
-     * @return *this.
-     */
-    MatrixT& rotateX(float angle);
+	/**
+	 * @brief 绕 X 轴旋转.
+	 *
+	 * @param angle 旋转角度, 单位: 弧度制.
+	 *
+	 * @return *this.
+	 */
+	MatrixT& rotateX(float angle);
 
-    /**
-     * @brief 绕 Y 轴旋转.
-     *
-     * @param angle 旋转角度, 单位: 弧度制.
-     *
-     * @return *this.
-     */
-    MatrixT& rotateY(float angle);
+	/**
+	 * @brief 绕 Y 轴旋转.
+	 *
+	 * @param angle 旋转角度, 单位: 弧度制.
+	 *
+	 * @return *this.
+	 */
+	MatrixT& rotateY(float angle);
 
-    /**
-     * @brief 绕 Z 轴旋转.
-     *
-     * @param angle 旋转角度, 单位: 弧度制.
-     *
-     * @return *this.
-     */
-    MatrixT& rotateZ(float angle);
+	/**
+	 * @brief 绕 Z 轴旋转.
+	 *
+	 * @param angle 旋转角度, 单位: 弧度制.
+	 *
+	 * @return *this.
+	 */
+	MatrixT& rotateZ(float angle);
 
-    /**
-     * @brief 缩放变换.
-     *
-     * @param scale 缩放量.
-     *
-     * @return *this.
-     */
-    MatrixT& scale(const Vector3T<T>& scale);
+	/**
+	 * @brief 缩放变换.
+	 *
+	 * @param scale 缩放量.
+	 *
+	 * @return *this.
+	 */
+	MatrixT& scale(const Vector3T<T>& scale);
 
-    /**
-     * @brief 分解.
-     */
-    void decompose(Vector3T<T>* translation, QuaternionT<T>* rotation, Vector3T<T>* scale) const;
+	/**
+	 * @brief 分解.
+	 */
+	void decompose(Vector3T<T>* translation, QuaternionT<T>* rotation, Vector3T<T>* scale) const;
 
-    /**
-     * @brief 重组.
-     */
-    MatrixT& recompose(const Vector3T<T>& translation, const QuaternionT<T>& rotation, const Vector3T<T>& scale);
+	/**
+	 * @brief 重组.
+	 */
+	MatrixT& recompose(const Vector3T<T>& translation, const QuaternionT<T>& rotation, const Vector3T<T>& scale);
 
 	Vector3T<T> front() const;
 	Vector3T<T> back() const;
@@ -338,9 +338,9 @@ public:
 
 private:
 #if ROW_MANJOR
-		T m_[R][C] = {};
+	T m_[R][C] = {};
 #else
-		T m_[C][R] = {};
+	T m_[C][R] = {};
 #endif
 
 	inline static const size_t rows_ = R;

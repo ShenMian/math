@@ -1,4 +1,4 @@
-// Copyright 2021 SMS
+﻿// Copyright 2021 SMS
 // License(Apache-2.0)
 
 #pragma once
@@ -59,7 +59,7 @@ public:
 	static float easeInOutQuad(float t, float b, float c, float d)
 	{
 		t /= d / 2;
-		if (t < 1)
+		if(t < 1)
 			return c / 2 * t * t + b;
 		t--;
 		return -c / 2 * (t * (t - 2) - 1) + b;
@@ -103,7 +103,7 @@ public:
 	static float easeInOutCubic(float t, float b, float c, float d)
 	{
 		t /= d / 2;
-		if (t < 1)
+		if(t < 1)
 			return c / 2 * t * t * t + b;
 		t -= 2;
 		return c / 2 * (t * t * t + 2) + b;
@@ -148,7 +148,7 @@ public:
 	static float easeInOutQuart(float t, float b, float c, float d)
 	{
 		t /= d / 2;
-		if (t < 1)
+		if(t < 1)
 			return c / 2 * t * t * t * t + b;
 		t -= 2;
 		return -c / 2 * (t * t * t * t - 2) + b;
@@ -193,7 +193,7 @@ public:
 	static float easeInOutQuint(float t, float b, float c, float d)
 	{
 		t /= d / 2;
-		if (t < 1)
+		if(t < 1)
 			return c / 2 * t * t * t * t * t + b;
 		t -= 2;
 		return c / 2 * (t * t * t * t * t + 2) + b;
@@ -275,7 +275,7 @@ public:
 	static float easeInOutExpo(float t, float b, float c, float d)
 	{
 		t /= d / 2;
-		if (t < 1)
+		if(t < 1)
 			return c / 2 * pow(2, 10 * (t - 1)) + b;
 		t--;
 		return c / 2 * (-pow(2, -10 * t) + 2) + b;
@@ -320,7 +320,7 @@ public:
 	static float easeInOutCirc(float t, float b, float c, float d)
 	{
 		t /= d / 2;
-		if (t < 1)
+		if(t < 1)
 			return -c / 2 * (sqrt(1 - t * t) - 1) + b;
 		t -= 2;
 		return c / 2 * (sqrt(1 - t * t) + 1) + b;
@@ -331,13 +331,13 @@ public:
 		float s = 1.70158f;
 		float p = 0;
 		float a = c;
-		if (t == 0)
+		if(t == 0)
 			return b;
-		if ((t /= d) == 1)
+		if((t /= d) == 1)
 			return b + c;
-		if (!p)
+		if(!p)
 			p = d * .3f;
-		if (a < abs(c))
+		if(a < abs(c))
 		{
 			a = c;
 			s = p / 4;
@@ -352,13 +352,13 @@ public:
 		float s = 1.70158f;
 		float p = 0;
 		float a = c;
-		if (t == 0)
+		if(t == 0)
 			return b;
-		if ((t /= d) == 1)
+		if((t /= d) == 1)
 			return b + c;
-		if (!p)
+		if(!p)
 			p = d * .3f;
-		if (a < abs(c))
+		if(a < abs(c))
 		{
 			a = c;
 			s = p / 4;
@@ -373,43 +373,43 @@ public:
 		float s = 1.70158f;
 		float p = 0;
 		float a = c;
-		if (t == 0)
+		if(t == 0)
 			return b;
-		if ((t /= d / 2) == 2)
+		if((t /= d / 2) == 2)
 			return b + c;
-		if (!p)
+		if(!p)
 			p = d * (.3f * 1.5f);
-		if (a < abs(c))
+		if(a < abs(c))
 		{
 			a = c;
 			s = p / 4;
 		}
 		else
 			s = p / (2 * std::numbers::pi) * asin(c / a);
-		if (t < 1)
+		if(t < 1)
 			return -.5f * (a * pow(2, 10 * (t -= 1)) * sin((t * d - s) * (2 * std::numbers::pi) / p)) + b;
 		return a * pow(2, -10 * (t -= 1)) * sin((t * d - s) * (2 * std::numbers::pi) / p) * .5f + c + b;
 	}
 
 	static float easeInBack(float t, float b, float c, float d, float s)
 	{
-		if (s == 0)
+		if(s == 0)
 			s = 1.70158f;
 		return c * (t /= d) * t * ((s + 1) * t - s) + b;
 	}
 
 	static float easeOutBack(float t, float b, float c, float d, float s)
 	{
-		if (s == 0)
+		if(s == 0)
 			s = 1.70158f;
 		return c * ((t = t / d - 1) * t * ((s + 1) * t + s) + 1) + b;
 	}
 
 	static float easeInOutBack(float t, float b, float c, float d, float s)
 	{
-		if (s == 0)
+		if(s == 0)
 			s = 1.70158f;
-		if ((t /= d / 2) < 1)
+		if((t /= d / 2) < 1)
 			return c / 2 * (t * t * (((s *= (1.525f)) + 1) * t - s)) + b;
 		return c / 2 * ((t -= 2) * t * (((s *= (1.525f)) + 1) * t + s) + 2) + b;
 	}
@@ -421,11 +421,11 @@ public:
 
 	static float easeOutBounce(float t, float b, float c, float d)
 	{
-		if ((t /= d) < (1 / 2.75f))
+		if((t /= d) < (1 / 2.75f))
 			return c * (7.5625f * t * t) + b;
-		else if (t < (2 / 2.75f))
+		else if(t < (2 / 2.75f))
 			return c * (7.5625f * (t -= (1.5f / 2.75f)) * t + .75f) + b;
-		else if (t < (2.5f / 2.75f))
+		else if(t < (2.5f / 2.75f))
 			return c * (7.5625f * (t -= (2.25f / 2.75f)) * t + .9375f) + b;
 		else
 			return c * (7.5625f * (t -= (2.625f / 2.75f)) * t + .984375f) + b;
@@ -433,7 +433,7 @@ public:
 
 	static float easeInOutBounce(float t, float b, float c, float d)
 	{
-		if (t < d / 2)
+		if(t < d / 2)
 			return easeInBounce(t * 2, 0, c, d) * .5f + b;
 		return easeOutBounce(t * 2 - d, 0, c, d) * .5f + c * .5f + b;
 	}

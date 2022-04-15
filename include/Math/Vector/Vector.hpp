@@ -39,14 +39,14 @@ public:
 	 *
 	 * @param list 初始化列表, 下标依次为 0 到 N-1.
 	 */
-    constexpr explicit VectorT(const T (&arr)[N]);
+	constexpr explicit VectorT(const T(&arr)[N]);
 
-    /**
-     * @brief 构造函数.
-     *
-     * @param span 范围.
-     */
-    constexpr explicit VectorT(const std::span<T, N>& span);
+	/**
+	 * @brief 构造函数.
+	 *
+	 * @param span 范围.
+	 */
+	constexpr explicit VectorT(const std::span<T, N>& span);
 
 	/**
 	 * @brief 获取模, 即长度.
@@ -95,15 +95,15 @@ public:
 	 */
 	constexpr T sum() const noexcept;
 
-    /**
-     * @brief 获取最小元素的值.
-     */
-    constexpr T minCoeff() const noexcept;
+	/**
+	 * @brief 获取最小元素的值.
+	 */
+	constexpr T minCoeff() const noexcept;
 
-    /**
-     * @brief 获取最大元素的值.
-     */
-    constexpr T maxCoeff() const noexcept;
+	/**
+	 * @brief 获取最大元素的值.
+	 */
+	constexpr T maxCoeff() const noexcept;
 
 	/**
 	 * @brief 裁剪到指定范围内.
@@ -111,7 +111,7 @@ public:
 	 * @param min 最小值.
 	 * @param max 最大值.
 	 */
-    constexpr const VectorT& clamp(const VectorT& min, const VectorT& max) noexcept;
+	constexpr const VectorT& clamp(const VectorT& min, const VectorT& max) noexcept;
 
 	/**
 	 * @brief 获取原始数据.

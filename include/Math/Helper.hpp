@@ -12,9 +12,8 @@ namespace detail
 {
 
 // C++ 23 后 std::abs 支持 constexpr
-template <typename T>
-	requires std::is_arithmetic_v<T>
-constexpr T abs(T x) noexcept
+template <typename T> requires std::is_arithmetic_v<T>
+inline constexpr T abs(T x) noexcept
 {
 	return (x >= T(0)) ? x : -x;
 }
@@ -30,12 +29,12 @@ inline constexpr bool equal(const T& lhs, const T& rhs) noexcept
 #if __GNUC__
 inline constexpr bool equal(float lhs, float rhs, float error = std::numeric_limits<float>::epsilon()) noexcept
 {
-    return detail::abs(lhs - rhs) <= error;
+	return detail::abs(lhs - rhs) <= error;
 }
 
 inline constexpr bool equal(double lhs, double rhs, double error = std::numeric_limits<double>::epsilon()) noexcept
 {
-    return detail::abs(lhs - rhs) <= error;
+	return detail::abs(lhs - rhs) <= error;
 }
 #else
 template <std::floating_point T>

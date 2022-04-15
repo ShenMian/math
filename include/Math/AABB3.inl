@@ -65,5 +65,5 @@ inline bool AABB3::valid() const noexcept
 
 inline void AABB3::clear()
 {
-    min = max = Vector3::zero;
+	min = max = Vector3::zero;
 }

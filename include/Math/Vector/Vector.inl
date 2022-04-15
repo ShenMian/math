@@ -14,20 +14,20 @@ namespace rng = std::ranges;
 template <arithmetic T, size_t N>
 inline constexpr VectorT<T, N>::VectorT(const T& scalar)
 {
-    rng::fill(v_, scalar);
+	rng::fill(v_, scalar);
 }
 
 template <arithmetic T, size_t N>
-constexpr VectorT<T, N>::VectorT(const T (&arr)[N])
+constexpr VectorT<T, N>::VectorT(const T(&arr)[N])
 {
-    for(size_t i = 0; i < N; i++)
-        v_[i] = arr[i];
+	for(size_t i = 0; i < N; i++)
+		v_[i] = arr[i];
 }
 
 template <arithmetic T, size_t N>
 constexpr VectorT<T, N>::VectorT(const std::span<T, N>& span)
 {
-    rng::copy(span, v_);
+	rng::copy(span, v_);
 }
 
 template <arithmetic T, size_t N>
@@ -88,21 +88,21 @@ inline constexpr T VectorT<T, N>::sum() const noexcept
 template <arithmetic T, size_t N>
 constexpr T VectorT<T, N>::minCoeff() const noexcept
 {
-    T min = std::numeric_limits<T>::max();
-    for(size_t i = 0; i < N; i++)
-        if(v_[i] < min)
-            min = v_[i];
-    return min;
+	T min = std::numeric_limits<T>::max();
+	for(size_t i = 0; i < N; i++)
+		if(v_[i] < min)
+			min = v_[i];
+	return min;
 }
 
 template <arithmetic T, size_t N>
 constexpr T VectorT<T, N>::maxCoeff() const noexcept
 {
-    T max = std::numeric_limits<T>::min();
-    for(size_t i = 0; i < N; i++)
-        if(v_[i] > max)
-            max = v_[i];
-    return max;
+	T max = std::numeric_limits<T>::min();
+	for(size_t i = 0; i < N; i++)
+		if(v_[i] > max)
+			max = v_[i];
+	return max;
 }
 
 template <arithmetic T, size_t N>
@@ -110,7 +110,7 @@ inline constexpr const VectorT<T, N>& VectorT<T, N>::clamp(const VectorT& min, c
 {
 	for(size_t i = 0; i < N; i++)
 		v_[i] = std::clamp(v_[i], min[i], max[i]);
-    return *this;
+	return *this;
 }
 
 template <arithmetic T, size_t N>
