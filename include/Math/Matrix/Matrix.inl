@@ -269,9 +269,9 @@ inline void MatrixT<T, R, C>::decompose(Vector3T<T>* translation, QuaternionT<T>
 	auto axisX = Vector3T<T>(mat(0, 0), mat(0, 1), mat(0, 2));
 	auto axisY = Vector3T<T>(mat(1, 0), mat(1, 1), mat(1, 2));
 	auto axisZ = Vector3T<T>(mat(2, 0), mat(2, 1), mat(2, 2));
-	float scaleX = axisX.norm();
-	float scaleY = axisY.norm();
-	float scaleZ = axisZ.norm();
+	auto scaleX = axisX.norm();
+	auto scaleY = axisY.norm();
+	auto scaleZ = axisZ.norm();
 	if(determinant() < 0)
 		scaleZ = -scaleZ;
 
@@ -282,53 +282,53 @@ inline void MatrixT<T, R, C>::decompose(Vector3T<T>* translation, QuaternionT<T>
 		scale->z = scaleZ;
 	}
 
-	if(rotation) {
-        // 除数过于接近 0, 无法完成计算
-        if (scaleX < std::numeric_limits<T>::epsilon() ||
-            scaleY < std::numeric_limits<T>::epsilon() ||
-            scaleZ < std::numeric_limits<T>::epsilon())
-            return;
+	if(rotation)
+	{
+		if(scaleX < std::numeric_limits<T>::epsilon() ||
+			scaleY < std::numeric_limits<T>::epsilon() ||
+			scaleZ < std::numeric_limits<T>::epsilon())
+			return; // 除数过于接近 0, 无法完成计算
 
-        axisX.normalize();
-        axisY.normalize();
-        axisZ.normalize();
-        const float trace = axisX.x + axisY.y + axisZ.z + 1.0f;
+		axisX.normalize();
+		axisY.normalize();
+		axisZ.normalize();
+		const float trace = axisX.x + axisY.y + axisZ.z + 1.0f;
 
-        if (trace > std::numeric_limits<T>::epsilon())
-        {
-            const float s = 0.5f / std::sqrt(trace);
-            rotation->w = 0.25f / s;
-            rotation->x = (axisY.z - axisZ.y) * s;
-            rotation->y = (axisZ.x - axisX.z) * s;
-            rotation->z = (axisX.y - axisY.x) * s;
-        }
-        else
-        {
-            if (axisX.x > axisY.y && axisX.x > axisZ.z)
-            {
-                const float s = 0.5f / std::sqrt(1.0f + axisX.x - axisY.y - axisZ.z);
-                rotation->w = (axisY.z - axisZ.y) * s;
-                rotation->x = 0.25f / s;
-                rotation->y = (axisY.x + axisX.y) * s;
-                rotation->z = (axisZ.x + axisX.z) * s;
-            }
-            else if (axisY.y > axisZ.z)
-            {
-                const float s = 0.5f / std::sqrt(1.0f + axisY.y - axisX.x - axisZ.z);
-                rotation->w = (axisZ.x - axisX.z) * s;
-                rotation->x = (axisY.x + axisX.y) * s;
-                rotation->y = 0.25f / s;
-                rotation->z = (axisZ.y + axisY.z) * s;
-            }
-            else
-            {
-                const float s = 0.5f / std::sqrt(1.0f + axisZ.z - axisX.x - axisY.y);
-                rotation->w = (axisX.y - axisY.x ) * s;
-                rotation->x = (axisZ.x + axisX.z ) * s;
-                rotation->y = (axisZ.y + axisY.z ) * s;
-                rotation->z = 0.25f / s;
-            }
-        }
+		if(trace > std::numeric_limits<T>::epsilon())
+		{
+			const float s = 0.5f / std::sqrt(trace);
+			rotation->w = 0.25f / s;
+			rotation->x = (axisY.z - axisZ.y) * s;
+			rotation->y = (axisZ.x - axisX.z) * s;
+			rotation->z = (axisX.y - axisY.x) * s;
+		}
+		else
+		{
+			if(axisX.x > axisY.y && axisX.x > axisZ.z)
+			{
+				const float s = 0.5f / std::sqrt(1.0f + axisX.x - axisY.y - axisZ.z);
+				rotation->w = (axisY.z - axisZ.y) * s;
+				rotation->x = 0.25f / s;
+				rotation->y = (axisY.x + axisX.y) * s;
+				rotation->z = (axisZ.x + axisX.z) * s;
+			}
+			else if(axisY.y > axisZ.z)
+			{
+				const float s = 0.5f / std::sqrt(1.0f + axisY.y - axisX.x - axisZ.z);
+				rotation->w = (axisZ.x - axisX.z) * s;
+				rotation->x = (axisY.x + axisX.y) * s;
+				rotation->y = 0.25f / s;
+				rotation->z = (axisZ.y + axisY.z) * s;
+			}
+			else
+			{
+				const float s = 0.5f / std::sqrt(1.0f + axisZ.z - axisX.x - axisY.y);
+				rotation->w = (axisX.y - axisY.x) * s;
+				rotation->x = (axisZ.x + axisX.z) * s;
+				rotation->y = (axisZ.y + axisY.z) * s;
+				rotation->z = 0.25f / s;
+			}
+		}
 	}
 }
 
