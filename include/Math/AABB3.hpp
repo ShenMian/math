@@ -44,7 +44,7 @@ public:
 	 * @return true  包含.
 	 * @return false 不包含.
 	 */
-	[[nodiscard]] bool contains(const AABB3& aabb) const;
+	bool contains(const AABB3& aabb) const;
 
 	/**
 	 * @brief 判断是否与 AABB 相交.
@@ -54,7 +54,7 @@ public:
 	 * @return true  相交.
 	 * @return false 不相交.
 	 */
-	[[nodiscard]] bool intersects(const AABB3& aabb) const;
+	bool intersects(const AABB3& aabb) const;
 
 	/**
 	 * @brief 拓展到包含指定点.
@@ -81,7 +81,7 @@ public:
 	 * @return true  空.
 	 * @return false 非空.
 	 */
-	[[nodiscard]] bool empty() const noexcept;
+	bool empty() const noexcept;
 
 	/**
 	 * @brief 判断是否有效.
@@ -89,7 +89,7 @@ public:
 	 * @return true  有效.
 	 * @return false 无效.
 	 */
-	[[nodiscard]] bool valid() const noexcept;
+	bool valid() const noexcept;
 
 	/**
 	 * @brief 设置包围盒为空.

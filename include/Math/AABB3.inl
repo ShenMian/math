@@ -18,13 +18,13 @@ inline bool AABB3::contains(const Vector3& p) const
 	return (min.x <= p.x && p.x <= max.x) && (min.y <= p.y && p.y <= max.y);
 }
 
-inline bool AABB3::contains(const AABB3& aabb) const
+[[nodiscard]] inline bool AABB3::contains(const AABB3& aabb) const
 {
 	assert(valid() && aabb.valid());
 	return contains(aabb.min) && contains(aabb.max);
 }
 
-inline bool AABB3::intersects(const AABB3& aabb) const
+[[nodiscard]] inline bool AABB3::intersects(const AABB3& aabb) const
 {
 	assert(valid() && aabb.valid());
 	return contains(aabb.min) || contains(aabb.max);
@@ -53,12 +53,12 @@ inline Vector3 AABB3::center() const noexcept
 	return (min + max) / 2.f;
 }
 
-inline bool AABB3::empty() const noexcept
+[[nodiscard]] inline bool AABB3::empty() const noexcept
 {
 	return min == max;
 }
 
-inline bool AABB3::valid() const noexcept
+[[nodiscard]] inline bool AABB3::valid() const noexcept
 {
 	return min.x <= max.x && min.y <= max.y && min.z <= max.z;
 }
