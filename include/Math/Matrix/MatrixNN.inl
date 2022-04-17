@@ -1,7 +1,7 @@
 ﻿// Copyright 2021 SMS
 // License(Apache-2.0)
 
-template <typename T, size_t N> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t N>
 inline MatrixT<T, N, N>::MatrixT()
 {
 	for(size_t n = 0; n < N; n++)

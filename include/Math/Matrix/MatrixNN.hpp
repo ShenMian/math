@@ -4,12 +4,24 @@
 #pragma once
 
 #include "Matrix.hpp"
+#include "../Vector/Vector3.hpp"
 
-template <typename T, size_t N> requires std::is_arithmetic_v<T>
+template <arithmetic T, size_t N>
 class MatrixT<T, N, N>
 {
 public:
+    /**
+     * @brief 默认构造函数.
+     */
 	MatrixT();
+
+    /**
+     * @brief 转置.
+     */
+    MatrixT& transpose();
+
+private:
+    T m_[N][N] = {};
 };
 
 #include "MatrixNN.inl"
