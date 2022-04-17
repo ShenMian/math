@@ -9,7 +9,7 @@ var class_matrix_t =
     [ "data", "class_matrix_t.html#a31299d5ea3393110d49299163a2ee97f", null ],
     [ "decompose", "class_matrix_t.html#a1a0df83da0aa83ee4f27584725665346", null ],
     [ "determinant", "class_matrix_t.html#ad0f7fc6f4ee472220768efef4b33d11a", null ],
-    [ "diagonal", "class_matrix_t.html#acaaf3661d96000ac152744a3c3f274d9", null ],
+    [ "diagonal", "class_matrix_t.html#adbb92e2f5e54153757168b665fd7bb6d", null ],
     [ "inverse", "class_matrix_t.html#a479c80fdc56c011f08c77b4e76d45ddc", null ],
     [ "inversed", "class_matrix_t.html#aa875d742b852e5da2ab746eb587957f8", null ],
     [ "maxCoeff", "class_matrix_t.html#a070218b9ce7b5e7c9c0f50a91fc384b9", null ],
