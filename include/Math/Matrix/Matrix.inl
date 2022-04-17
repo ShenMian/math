@@ -29,7 +29,7 @@ inline MatrixT<T, R, C>::MatrixT()
 template <arithmetic T, size_t R, size_t C>
 inline MatrixT<T, R, C>::MatrixT(const std::initializer_list<T>& list)
 {
-	assert(list.size() == rows() * cols(), "Initializers number not correct");
+	assert(list.size() == rows() * cols(), "initializers number not correct");
 	auto it = list.begin();
 	for(size_t r = 0; r < rows(); r++)
 		for(size_t c = 0; c < cols(); c++)
@@ -133,9 +133,9 @@ inline constexpr T MatrixT<T, R, C>::maxCoeff() const
 template<arithmetic T, size_t R, size_t C>
 constexpr T MatrixT<T, R, C>::determinant() const
 {
-	static_assert(R == C, "only square matrix supports this operation");
+    static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 
-	auto& mat = *this;
+	const auto& mat = *this;
 	const float a0 = mat(0, 0) * mat(1, 1) - mat(0, 1) * mat(1, 0);
 	const float a1 = mat(0, 0) * mat(1, 2) - mat(0, 2) * mat(1, 0);
 	const float a2 = mat(0, 0) * mat(1, 3) - mat(0, 3) * mat(1, 0);
@@ -152,7 +152,7 @@ constexpr T MatrixT<T, R, C>::determinant() const
 }
 
 template <arithmetic T, size_t R, size_t C>
-inline constexpr const VectorT<T, R> MatrixT<T, R, C>::diagonal() const
+inline constexpr VectorT<T, R> MatrixT<T, R, C>::diagonal() const
 {
 	static_assert(R == C, "only square matrix supports this operation");
 	VectorT<T, R> result;
@@ -406,7 +406,8 @@ template <arithmetic T, size_t R, size_t C>
 inline Vector3T<T> MatrixT<T, R, C>::back() const
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
-	return {(*this)(2, 0), (*this)(2, 1), (*this)(2, 2)};
+    const auto& mat = *this;
+	return {mat(2, 0), mat(2, 1), mat(2, 2)};
 }
 
 template <arithmetic T, size_t R, size_t C>
@@ -420,14 +421,16 @@ template <arithmetic T, size_t R, size_t C>
 inline Vector3T<T> MatrixT<T, R, C>::right() const
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
-	return {(*this)(0, 0), (*this)(0, 1), (*this)(0, 2)};
+    const auto& mat = *this;
+	return {mat(0, 0), mat(0, 1), mat(0, 2)};
 }
 
 template <arithmetic T, size_t R, size_t C>
 inline Vector3T<T> MatrixT<T, R, C>::up() const
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
-	return {(*this)(1, 0), (*this)(1, 1), (*this)(1, 2)};
+    const auto& mat = *this;
+	return {mat(1, 0), mat(1, 1), mat(1, 2)};
 }
 
 template <arithmetic T, size_t R, size_t C>
@@ -514,11 +517,8 @@ inline MatrixT<T, R, C>& MatrixT<T, R, C>::operator*=(const MatrixT& rhs)
 {
     if constexpr(R == C && R == 4)
         simd::multiply(*this, rhs, *this);
-	else
-	{
-		// TODO
-		assert(false);
-	}
+    else
+        assert(false);
 	return *this;
 }
 

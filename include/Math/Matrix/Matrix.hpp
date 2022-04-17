@@ -95,7 +95,7 @@ public:
 	/**
 	 * @brief 获取主对角线.
 	 */
-	constexpr const VectorT<T, R> diagonal() const;
+	constexpr VectorT<T, R> diagonal() const;
 
 	/**
 	 * @brief 获取指定行.
