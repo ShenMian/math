@@ -34,7 +34,7 @@ public:
 	 * @return true  包含.
 	 * @return false 不包含.
 	 */
-	[[nodiscard]] bool contains(const Vector3& point) const;
+	bool contains(const Vector3& point) const;
 
 	/**
 	 * @brief 判断是否包含指定 AABB.

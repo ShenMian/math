@@ -9,14 +9,14 @@
 class Transform
 {
 public:
-	[[nodiscard]] const Vector3f& position() const noexcept;
-	[[nodiscard]] const Quaternionf& rotation() const noexcept;
-	[[nodiscard]] const Vector3f& scale() const noexcept;
-	[[nodiscard]] Vector3f& position() noexcept;
-	[[nodiscard]] Quaternionf& rotation() noexcept;
-	[[nodiscard]] Vector3f& scale() noexcept;
+	const Vector3f& position() const noexcept;
+	const Quaternionf& rotation() const noexcept;
+	const Vector3f& scale() const noexcept;
+	Vector3f& position() noexcept;
+	Quaternionf& rotation() noexcept;
+	Vector3f& scale() noexcept;
 
-	[[nodiscard]] const Matrix4f& matrix() const;
+	const Matrix4f& matrix() const;
 
 	Transform& operator+=(const Transform&);
 
