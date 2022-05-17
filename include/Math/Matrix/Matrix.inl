@@ -11,8 +11,8 @@ namespace simd
 
 void add(const MatrixT<float, 4, 4>&, const MatrixT<float, 4, 4>&, MatrixT<float, 4, 4>&) noexcept;
 void sub(const MatrixT<float, 4, 4>&, const MatrixT<float, 4, 4>&, MatrixT<float, 4, 4>&) noexcept;
-void multiply(const MatrixT<float, 4, 4>&, const MatrixT<float, 4, 4>&, MatrixT<float, 4, 4>&) noexcept;
-void multiply(const MatrixT<float, 4, 4>&, const VectorT<float, 4>&, VectorT<float, 4>&) noexcept;
+void mul(const MatrixT<float, 4, 4>&, const MatrixT<float, 4, 4>&, MatrixT<float, 4, 4>&) noexcept;
+void mul(const MatrixT<float, 4, 4>&, const VectorT<float, 4>&, VectorT<float, 4>&) noexcept;
 void transpose(const MatrixT<float, 4, 4>&, MatrixT<float, 4, 4>&) noexcept;
 void negate(const MatrixT<float, 4, 4>&, MatrixT<float, 4, 4>&) noexcept;
 
@@ -516,7 +516,7 @@ template <arithmetic T, size_t R, size_t C>
 inline MatrixT<T, R, C>& MatrixT<T, R, C>::operator*=(const MatrixT& rhs)
 {
     if constexpr(R == C && R == 4)
-        simd::multiply(*this, rhs, *this);
+        simd::mul(*this, rhs, *this);
     else
         assert(false);
 	return *this;
@@ -810,7 +810,7 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::zero()
 inline Vector4f operator*(const MatrixT<float, 4, 4>& mat, const Vector4f& vec)
 {
 	Vector4f result;
-    simd::multiply(mat, vec, result);
+    simd::mul(mat, vec, result);
 	return result;
 }
 

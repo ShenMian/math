@@ -193,7 +193,7 @@ inline void sub(const MatrixT<float, 4, 4>& a, const MatrixT<float, 4, 4>& b, Ma
     simd::store(dst.data(), m1);
 }
 
-inline void multiply(const MatrixT<float, 4, 4>& a, const MatrixT<float, 4, 4>& b, MatrixT<float, 4, 4>& dst) noexcept
+inline void mul(const MatrixT<float, 4, 4>& a, const MatrixT<float, 4, 4>& b, MatrixT<float, 4, 4>& dst) noexcept
 {
     __m128 m1[4];
     __m128 m2[4];
@@ -203,7 +203,7 @@ inline void multiply(const MatrixT<float, 4, 4>& a, const MatrixT<float, 4, 4>& 
     simd::store(dst.data(), m1);
 }
 
-inline void multiply(const MatrixT<float, 4, 4>& a, const VectorT<float, 4>& b, VectorT<float, 4>& dst) noexcept
+inline void mul(const MatrixT<float, 4, 4>& a, const VectorT<float, 4>& b, VectorT<float, 4>& dst) noexcept
 {
     __m128 m[4];
     __m128 v = {};
