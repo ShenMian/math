@@ -5,6 +5,7 @@
 #include "../Assert.hpp"
 #include "../Helper.hpp"
 #include <algorithm>
+#include <cstring>
 
 namespace simd
 {
@@ -561,6 +562,15 @@ inline constexpr MatrixT<T, R, C> MatrixT<T, R, C>::operator-()
                 result[r][c] = -m_[r][c];
     }
 	return result;
+}
+
+template <arithmetic T, size_t R, size_t C>
+inline constexpr MatrixT<T, R, C>& MatrixT<T, R, C>::operator=(const MatrixT& rhs)
+{
+	if(rhs == *this)
+		return *this;
+	std::memcpy(m_, rhs.m_, sizeof(m_));
+	return *this;
 }
 
 template <arithmetic T, size_t R, size_t C>

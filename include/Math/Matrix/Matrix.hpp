@@ -209,6 +209,8 @@ public:
 	constexpr MatrixT& operator/=(const T&);
 	constexpr MatrixT  operator-();
 
+	constexpr MatrixT& operator=(const MatrixT&);
+
 	template <typename T0>
 	operator MatrixT<T0, R, C>()
 	{
