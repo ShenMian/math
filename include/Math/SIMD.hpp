@@ -7,8 +7,12 @@
 #include "Vector/Vector.hpp"
 #include <xmmintrin.h>
 
+#define USE_SSE
+
 namespace simd
 {
+
+#ifdef USE_SSE
 
 inline void load(__m128 m[4], const float* mat) noexcept
 {
@@ -228,5 +232,7 @@ inline void negate(const MatrixT<float, 4, 4>& a, MatrixT<float, 4, 4>& dst) noe
     simd::matrixNegate(m, m);
     simd::store(dst.data(), m);
 }
+
+#endif
 
 } // namespace simd
