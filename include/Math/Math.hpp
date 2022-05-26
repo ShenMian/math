@@ -18,6 +18,8 @@
 
 #include "SIMD.hpp"
 
+#include "Easing.hpp"
+
 /**
  * @mainpage Math 文档
  *
