@@ -7,7 +7,15 @@
 #include "Vector/Vector.hpp"
 #include <xmmintrin.h>
 
-#define USE_SSE
+#if defined(_MSC_VER) && (defined(_M_X64) || defined(_M_IX86))
+	#define USE_SSE
+#elif defined(__clang__) && (defined(__i386__) || defined(__x86_64__)
+	#define USE_SSE
+#elif defined(__GNUC__) && (defined(__i386__) || defined(__x86_64__))
+	#define USE_SSE
+#else
+	#error "Do not support SSE"
+#endif
 
 namespace simd
 {
