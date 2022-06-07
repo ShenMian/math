@@ -52,7 +52,13 @@ inline void AABB3::expand(const AABB3& aabb)
 
 inline Vector3 AABB3::center() const noexcept
 {
-	return (min + max) / 2.f;
+	return (min + max) * .5f;
+}
+
+inline float AABB3::volume() const noexcept
+{
+	const auto extent = max - min;
+	return extent.x * extent.y * extent.z;
 }
 
 [[nodiscard]]

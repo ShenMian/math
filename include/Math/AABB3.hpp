@@ -77,6 +77,11 @@ public:
 	Vector3 center() const noexcept;
 
 	/**
+	 * @brief 获取体积.
+	 */
+	float volume() const noexcept;
+
+	/**
 	 * @brief 判断大小是否为空.
 	 *
 	 * @return true  空.
