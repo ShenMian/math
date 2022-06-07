@@ -3,6 +3,7 @@
 
 #pragma once
 
+#include "../HashCombine.hpp"
 #include <concepts>
 #include <cstddef>
 #include <initializer_list>
@@ -214,6 +215,23 @@ template <typename T, size_t N>
 VectorT<T, N> constexpr operator/(const T& lhs, const VectorT<T, N>& rhs)
 {
 	return rhs / lhs;
+}
+
+namespace std
+{
+
+template <arithmetic T, size_t N>
+struct hash<VectorT<T, N>>
+{
+	std::size_t operator()(const VectorT<T, N>& v) const
+	{
+		std::size_t ret = 0;
+		for(size_t i = 0; i < N; i++)
+			hash_combine(ret, v[i]);
+		return ret;
+	}
+};
+
 }
 
 /**

@@ -5,6 +5,7 @@
 
 #include "Vector/Vector3.hpp"
 #include "Matrix/Matrix.hpp"
+#include "HashCombine.hpp"
 #include <type_traits>
 
 /**
@@ -101,3 +102,20 @@ public:
 using Quaternionf = QuaternionT<float>;
 using Quaterniond = QuaternionT<double>;
 using Quaternion = Quaternionf;
+
+
+namespace std
+{
+
+template <std::floating_point T>
+struct hash<QuaternionT<T>>
+{
+	std::size_t operator()(const QuaternionT<T>& v) const
+	{
+		std::size_t ret = 0;
+		hash_combine(ret, v.x, v.y, v.z, v.w);
+		return ret;
+	}
+};
+
+}

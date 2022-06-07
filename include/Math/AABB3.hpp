@@ -4,6 +4,7 @@
 #pragma once
 
 #include "Vector/Vector3.hpp"
+#include "HashCombine.hpp"
 
 /**
  * @brief 3 维轴对齐包围盒.
@@ -100,6 +101,8 @@ public:
 };
 
 #include "AABB3.inl"
+
+MAKE_HASHABLE(AABB3, t.min, t.max)
 
 /**
  * @class AABB3
