@@ -1,5 +1,9 @@
 var annotated_dup =
 [
+    [ "std", null, [
+      [ "hash< QuaternionT< T > >", "structstd_1_1hash_3_01_quaternion_t_3_01_t_01_4_01_4.html", null ],
+      [ "hash< VectorT< T, N > >", "structstd_1_1hash_3_01_vector_t_3_01_t_00_01_n_01_4_01_4.html", null ]
+    ] ],
     [ "AABB3", "class_a_a_b_b3.html", "class_a_a_b_b3" ],
     [ "Easing", "class_easing.html", null ],
     [ "MatrixT", "class_matrix_t.html", "class_matrix_t" ],
