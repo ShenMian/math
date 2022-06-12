@@ -1,9 +1,10 @@
-# Build
-[Bb]uild/
-[Bb]in/
-[Oo]bj/
-[Ll]ib/
-!deps/premake/bin/
+﻿# Build
+[Bb]in
+[Oo]bj
+[Ll]ib
+/[Bb]uild
+!/Deps/premake/bin
+!/Deps/VulkanSDK/Lib
 
 # Makefile
 Makefile
@@ -12,6 +13,9 @@ Makefile
 # CMake
 .cache
 CMakeSettings.json
+
+# Vcpkg
+vcpkg_installed
 
 # Visual Studio
 *.sln
@@ -25,10 +29,19 @@ CMakeSettings.json
 # IntelliJ IDEA
 /.idea
 
+# Ctags
+tags
+
 # Doxygen
 /Docs/html
 /Docs/man
 /Docs/xml
+
+# SPIR-V
+*.spv
+
+# ImGui configure files
+imgui.ini
 
 # Prerequisites
 *.d
@@ -56,7 +69,7 @@ CMakeSettings.json
 *.lai
 *.la
 *.a
-*.lib
+# *.lib
 
 # Executables
 *.out
