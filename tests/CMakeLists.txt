@@ -1,14 +1,5 @@
-# Copyright 2021 SMS
+﻿# Copyright 2021 SMS
 # License(Apache-2.0)
-
-find_package(GTest QUIET)
-if(GTEST_FOUND)
-    list(APPEND LIBS ${GTEST_LIBRARY})
-else()
-    add_subdirectory("${PROJECT_SOURCE_DIR}/deps/googletest" "googletest")
-    list(APPEND LIBS gtest gtest_main)
-endif()
-list(APPEND INCS "${PROJECT_SOURCE_DIR}/deps/googletest/googletest/include")
 
 file(GLOB_RECURSE SOURCES "*.cpp")
 
@@ -16,7 +7,7 @@ file(GLOB_RECURSE SOURCES "*.cpp")
 add_executable(unit_test ${SOURCES})
 
 # 指定头文件目录
-target_include_directories(unit_test PUBLIC ${INCS} "${PROJECT_SOURCE_DIR}/include")
+target_include_directories(unit_test PUBLIC "${PROJECT_SOURCE_DIR}/include" "${PROJECT_SOURCE_DIR}/deps/doctest")
 
 # 指定库文件目录
 target_link_libraries(unit_test PRIVATE ${LIBS})

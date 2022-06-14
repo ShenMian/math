@@ -2,9 +2,9 @@
 // License(Apache-2.0)
 
 #include <Math/Math.hpp>
-#include <gtest/gtest.h>
+#include <doctest/doctest.h>
 
-TEST(Quaternion, eular)
+TEST_CASE("Quaternion::eular")
 {
 	Quaternion    quat;
 	const Vector3 angles(1, 2, 3);

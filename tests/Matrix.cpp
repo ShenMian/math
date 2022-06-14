@@ -2,28 +2,29 @@
 // License(Apache-2.0)
 
 #include <Math/Math.hpp>
-#include <gtest/gtest.h>
+#include <doctest/doctest.h>
+#include <sstream>
 
-TEST(Matrix, element)
+TEST_CASE("Matrix::operator()")
 {
 	Matrix2f a;
 	a(0, 0) = 3;
 	a(1, 0) = 2.5;
 	a(0, 1) = -1;
 	a(1, 1) = a(1, 0) + a(0, 1);
-	EXPECT_EQ(a, Matrix2f({3, -1, 2.5, 1.5}));
-	EXPECT_FLOAT_EQ(a(0, 0), 3.f);
-	EXPECT_FLOAT_EQ(a(0, 1), -1.f);
-	EXPECT_FLOAT_EQ(a(1, 0), 2.5f);
-	EXPECT_FLOAT_EQ(a(1, 1), 1.5f);
+	CHECK_EQ(a, Matrix2f({3, -1, 2.5, 1.5}));
+	CHECK_EQ(a(0, 0), doctest::Approx(3.f));
+	CHECK_EQ(a(0, 1), doctest::Approx(-1.f));
+	CHECK_EQ(a(1, 0), doctest::Approx(2.5f));
+	CHECK_EQ(a(1, 1), doctest::Approx(1.5f));
 }
 
-TEST(Matrix, inverse)
+TEST_CASE("Matrix::inverse")
 {
 	// TODO
 }
 
-TEST(Matrix, transpose)
+TEST_CASE("Matrix::transpose")
 {
 	Matrix3f a = {
 		1, 2, 3,
@@ -35,57 +36,57 @@ TEST(Matrix, transpose)
 		2, 5, 8,
 		3, 6, 9
 	};
-	EXPECT_EQ(a.transpose(), b);
+	CHECK_EQ(a.transpose(), b);
 }
 
-TEST(Matrix, determinant)
+TEST_CASE("Matrix::determinant")
 {
 }
 
-TEST(Matrix, trace)
+TEST_CASE("Matrix::trace")
 {
-	EXPECT_FLOAT_EQ((Matrixf<3, 3>().trace()), 3);
-	EXPECT_FLOAT_EQ((Matrixf<4, 4>().trace()), 4);
-	EXPECT_FLOAT_EQ((Matrixf<5, 5>().trace()), 5);
+	CHECK_EQ((Matrixf<3, 3>().trace()), doctest::Approx(3.f));
+	CHECK_EQ((Matrixf<4, 4>().trace()), doctest::Approx(4.f));
+	CHECK_EQ((Matrixf<5, 5>().trace()), doctest::Approx(5.f));
 }
 
-TEST(Matrix, sum)
-{
-	Matrix2f a = {
-		1, 2,
-		3, 4
-	};
-	EXPECT_FLOAT_EQ(a.sum(), 10.f);
-}
-
-TEST(Matrix, minCoeff)
+TEST_CASE("Matrix::sum")
 {
 	Matrix2f a = {
 		1, 2,
 		3, 4
 	};
-	EXPECT_FLOAT_EQ(a.minCoeff(), 1.f);
+	CHECK_EQ(a.sum(), doctest::Approx(10.f));
 }
 
-TEST(Matrix, maxCoeff)
+TEST_CASE("Matrix::minCoeff")
 {
 	Matrix2f a = {
 		1, 2,
 		3, 4
 	};
-	EXPECT_FLOAT_EQ(a.maxCoeff(), 4.f);
+	CHECK_EQ(a.minCoeff(), doctest::Approx(1.f));
 }
 
-TEST(Matrix, diagonal)
+TEST_CASE("Matrix::maxCoeff")
 {
 	Matrix2f a = {
 		1, 2,
 		3, 4
 	};
-	EXPECT_EQ(a.diagonal(), Vector2f(1, 4));
+	CHECK_EQ(a.maxCoeff(), doctest::Approx(4.f));
 }
 
-TEST(Matrix, translate)
+TEST_CASE("Matrix::diagonal")
+{
+	Matrix2f a = {
+		1, 2,
+		3, 4
+	};
+	CHECK_EQ(a.diagonal(), Vector2f(1, 4));
+}
+
+TEST_CASE("Matrix::translate")
 {
 	auto a = Matrix4f::identity();
 	Matrix4f b = {
@@ -94,25 +95,25 @@ TEST(Matrix, translate)
 		0, 0, 1, 0,
 		2, 2, 2, 1
 	};
-	EXPECT_EQ(a.translate(Vector3f(2.f)), b);
+	CHECK_EQ(a.translate(Vector3f(2.f)), b);
 }
 
-TEST(Matrix, scale)
+TEST_CASE("Matrix::scale")
 {
 }
 
-TEST(Matrix, front_back_right_left_up_down)
+TEST_CASE("Matrix::front/back/right/left/up/down")
 {
     auto a = Matrix4f::lookAt(Vector3f::unit, Vector3f::unit - Vector3f::unit_z, Vector3f::up);
-    EXPECT_EQ(a.front(), -Vector3f::unit_z);
-    EXPECT_EQ(a.back(), Vector3f::unit_z);
-    EXPECT_EQ(a.right(), Vector3f::unit_x);
-    EXPECT_EQ(a.left(), -Vector3f::unit_x);
-    EXPECT_EQ(a.up(), Vector3f::up);
-    EXPECT_EQ(a.down(), -Vector3f::up);
+    CHECK_EQ(a.front(), -Vector3f::unit_z);
+    CHECK_EQ(a.back(), Vector3f::unit_z);
+    CHECK_EQ(a.right(), Vector3f::unit_x);
+    CHECK_EQ(a.left(), -Vector3f::unit_x);
+    CHECK_EQ(a.up(), Vector3f::up);
+    CHECK_EQ(a.down(), -Vector3f::up);
 }
 
-TEST(Matrix, createTranslate)
+TEST_CASE("Matrix::createTranslate")
 {
 	auto a = Matrix4f::identity();
 	Matrix4f b = {
@@ -121,16 +122,16 @@ TEST(Matrix, createTranslate)
 		0, 0, 1, 0,
 		2, 2, 2, 1
 	};
-	EXPECT_EQ(a.createTranslate(Vector3f(2.f)), b);
+	CHECK_EQ(a.createTranslate(Vector3f(2.f)), b);
 }
 
-TEST(Matrix, createRotation)
+TEST_CASE("Matrix::createRotation")
 {
 	auto a = Matrix4f::createRotation(radians(90.f), Vector3f::unit_z);
-	EXPECT_EQ(a * Vector4f({1.f, 0.f, 0.f, 1.f}), Vector4f({0.f, 1.f, 0.f, 1.f}));
+	CHECK_EQ(a * Vector4f({1.f, 0.f, 0.f, 1.f}), Vector4f({0.f, 1.f, 0.f, 1.f}));
 }
 
-TEST(Matrix, createScale)
+TEST_CASE("Matrix::createScale")
 {
 	auto a = Matrix4f::identity();
 	Matrix4f b = {
@@ -139,37 +140,37 @@ TEST(Matrix, createScale)
 		0, 0, 2, 0,
 		0, 0, 0, 1
 	};
-	EXPECT_EQ(a.createScale(Vector3f(2.f)), b);
+	CHECK_EQ(a.createScale(Vector3f(2.f)), b);
 }
 
-TEST(Matrix, perspective)
+TEST_CASE("Matrix::perspective")
 {
 	// TODO
 	Matrix4f::perspective(radians(60.f), 1 / 1, -1, 1);
 }
 
-TEST(Matrix, orthographic)
+TEST_CASE("Matrix::orthographic")
 {
 	// TODO
 	Matrix4f::orthogonal(-1, 1, -1, 1, -1, 1);
 }
 
-TEST(Matrix, lookAt)
+TEST_CASE("Matrix::lookAt")
 {
 	// TODO
 	Matrix4f::lookAt(Vector3f(1.f), Vector3f(0.f), Vector3f(0.f, 1.f, 0.f));
 }
 
-TEST(Matrix, identity)
+TEST_CASE("Matrix::identity")
 {
 	Matrix2f a = {
 		1, 0,
 		0, 1
 	};
-	EXPECT_EQ(Matrix2f::identity(), a);
+	CHECK_EQ(Matrix2f::identity(), a);
 }
 
-TEST(Matrix, zero)
+TEST_CASE("Matrix::zero")
 {
 	Matrix2f a = {
 		0, 0,
@@ -180,11 +181,11 @@ TEST(Matrix, zero)
 		0, 0, 0, 0,
 		0, 0, 0, 0
 	};
-	EXPECT_EQ(Matrix2f::zero(), a);
-	EXPECT_EQ((Matrixf<3, 4>::zero()), b);
+	CHECK_EQ(Matrix2f::zero(), a);
+	CHECK_EQ((Matrixf<3, 4>::zero()), b);
 }
 
-TEST(Matrix, addition)
+TEST_CASE("Matrix::addition")
 {
     Matrix2d a = {
             1, 2,
@@ -199,10 +200,10 @@ TEST(Matrix, addition)
             3, 5,
             4, 8
     };
-    EXPECT_EQ(a + b, c);
+    CHECK_EQ(a + b, c);
 }
 
-TEST(Matrix, subtraction)
+TEST_CASE("Matrix::subtraction")
 {
     Matrix2d a = {
             1, 2,
@@ -217,10 +218,10 @@ TEST(Matrix, subtraction)
             -1, -1,
             2, 0
     };
-    EXPECT_EQ(a - b, c);
+    CHECK_EQ(a - b, c);
 }
 
-TEST(Matrix, multiplication)
+TEST_CASE("Matrix::multiplication")
 {
     Matrix2f a = {
             1, 2,
@@ -232,7 +233,7 @@ TEST(Matrix, multiplication)
                 2.5, 5,
                 7.5, 10
         };
-        EXPECT_EQ(2.5f * a, b);
+        CHECK_EQ(2.5f * a, b);
     }
     /*
     {
@@ -240,12 +241,12 @@ TEST(Matrix, multiplication)
             7, 10,
             15, 22
         };
-        EXPECT_EQ(a * a, b);
+        CHECK_EQ(a * a, b);
     }
     */
 }
 
-TEST(Matrix, division)
+TEST_CASE("Matrix::division")
 {
     Matrix2f a = {
             1, 2,
@@ -255,10 +256,10 @@ TEST(Matrix, division)
             0.5, 1,
             1.5, 2
     };
-    EXPECT_EQ(a / 2.f, b);
+    CHECK_EQ(a / 2.f, b);
 }
 
-TEST(Matrix, io)
+TEST_CASE("Matrix::io")
 {
 	Matrix2f a = {
 		1, 2,
@@ -266,5 +267,5 @@ TEST(Matrix, io)
 	};
 	std::ostringstream stream;
 	stream << a;
-	EXPECT_EQ(stream.str(), " 1.00  2.00\n 3.00  4.00\n");
+	CHECK_EQ(stream.str(), " 1.00  2.00\n 3.00  4.00\n");
 }

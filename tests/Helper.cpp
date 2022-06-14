@@ -2,17 +2,17 @@
 // License(Apache-2.0)
 
 #include <Math/Math.hpp>
-#include <gtest/gtest.h>
+#include <doctest/doctest.h>
 #include <numbers>
 
-TEST(Math, degrees)
+TEST_CASE("Math::degrees")
 {
-	EXPECT_FLOAT_EQ((float)degrees(std::numbers::pi), 180.f);
-	EXPECT_FLOAT_EQ(degrees(0.f), 0.f);
+	CHECK_EQ(degrees((float)std::numbers::pi), doctest::Approx(180.f));
+	CHECK_EQ(degrees(0.f), doctest::Approx(0.f));
 }
 
-TEST(Math, radians)
+TEST_CASE("Math::radians")
 {
-	EXPECT_FLOAT_EQ(radians(180.f), (float)std::numbers::pi);
-	EXPECT_FLOAT_EQ(radians(0.f), 0.f);
+	CHECK_EQ(radians(180.f), (float)std::numbers::pi);
+	CHECK_EQ(radians(0.f), 0.f);
 }

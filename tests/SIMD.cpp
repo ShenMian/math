@@ -3,9 +3,9 @@
 
 
 #include <Math/Math.hpp>
-#include <gtest/gtest.h>
+#include <doctest/doctest.h>
 
-TEST(SIMD, matrixMul)
+TEST_CASE("SIMD::matrixMul")
 {
 	Matrix4f a = {
 		1,  2,  3,  4,
@@ -20,5 +20,5 @@ TEST(SIMD, matrixMul)
 		426, 484, 542, 600
 	};
 
-	EXPECT_EQ(a * a, b);
+	CHECK_EQ(a * a, b);
 }

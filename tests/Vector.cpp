@@ -2,83 +2,84 @@
 // License(Apache-2.0)
 
 #include <Math/Math.hpp>
-#include <gtest/gtest.h>
+#include <doctest/doctest.h>
+#include <sstream>
 
-TEST(Vector, subscript)
+TEST_CASE("Vector::subscript")
 {
 	Vectorf<5> vec({1.f, 2.f, 3.f, 4.f, 5.f});
-	EXPECT_FLOAT_EQ(vec[0], 1.f);
-	EXPECT_FLOAT_EQ(vec[1], 2.f);
-	EXPECT_FLOAT_EQ(vec[2], 3.f);
-	EXPECT_FLOAT_EQ(vec[3], 4.f);
-	EXPECT_FLOAT_EQ(vec[4], 5.f);
+	CHECK_EQ(vec[0], doctest::Approx(1.f));
+	CHECK_EQ(vec[1], doctest::Approx(2.f));
+	CHECK_EQ(vec[2], doctest::Approx(3.f));
+	CHECK_EQ(vec[3], doctest::Approx(4.f));
+	CHECK_EQ(vec[4], doctest::Approx(5.f));
 }
 
-TEST(Vector, norm)
+TEST_CASE("Vector::norm")
 {
 	// TODO: 以下代码目前测试的是 VectorT<T, 2>的实现
-	EXPECT_FLOAT_EQ(Vectorf<2>({3.f, 4.f}).norm(), 5.f);
-	EXPECT_FLOAT_EQ(Vectorf<2>({6.f, 8.f}).norm(), 10.f);
-	EXPECT_FLOAT_EQ(Vectorf<2>({7.f, 24.f}).norm(), 25.f);
-	EXPECT_FLOAT_EQ(Vectorf<2>({8.f, 15.f}).norm(), 17.f);
-	EXPECT_FLOAT_EQ(Vectorf<2>({9.f, 40.f}).norm(), 41.f);
+	CHECK_EQ(Vectorf<2>({3.f, 4.f}).norm(), doctest::Approx(5.f));
+	CHECK_EQ(Vectorf<2>({6.f, 8.f}).norm(), doctest::Approx(10.f));
+	CHECK_EQ(Vectorf<2>({7.f, 24.f}).norm(), doctest::Approx(25.f));
+	CHECK_EQ(Vectorf<2>({8.f, 15.f}).norm(), doctest::Approx(17.f));
+	CHECK_EQ(Vectorf<2>({9.f, 40.f}).norm(), doctest::Approx(41.f));
 }
 
-TEST(Vector, normalize)
+TEST_CASE("Vector::normalize")
 {
-	EXPECT_FLOAT_EQ(Vectorf<5>({1.f, 2.f, 3.f, 4.f, 5.f}).normalize().norm(), 1.f);
-	EXPECT_EQ(Vectorf<5>({2.f, 3.f, 4.f, 5.f, 6.f}).normalize(), Vectorf<5>({4.f, 6.f, 8.f, 10.f, 12.f}).normalize());
-    EXPECT_EQ(Vectorf<5>(0.f).normalize(), Vectorf<5>(0.f));
+	CHECK_EQ(Vectorf<5>({1.f, 2.f, 3.f, 4.f, 5.f}).normalize().norm(), doctest::Approx(1.f));
+	CHECK_EQ(Vectorf<5>({2.f, 3.f, 4.f, 5.f, 6.f}).normalize(), Vectorf<5>({4.f, 6.f, 8.f, 10.f, 12.f}).normalize());
+    CHECK_EQ(Vectorf<5>(0.f).normalize(), Vectorf<5>(0.f));
 }
 
-TEST(Vector, dot)
+TEST_CASE("Vector::dot")
 {
 	Vectorf<5> vec({1.f, 2.f, 3.f, 4.f, 5.f});
-	EXPECT_FLOAT_EQ(vec.normalized().dot(vec.normalized()), 1.f);
-	EXPECT_FLOAT_EQ(vec.normalized().dot(-vec.normalized()), -1.f);
+	CHECK_EQ(vec.normalized().dot(vec.normalized()), doctest::Approx(1.f));
+	CHECK_EQ(vec.normalized().dot(-vec.normalized()), doctest::Approx(-1.f));
 }
 
-TEST(Vector, sum)
+TEST_CASE("Vector::sum")
 {
     Vectorf<5> vec({1.f, 2.f, 3.f, 4.f, 5.f});
-    EXPECT_FLOAT_EQ(vec.sum(), 15.f);
+    CHECK_EQ(vec.sum(), doctest::Approx(15.f));
 }
 
-TEST(Vector, minCoeff)
+TEST_CASE("Vector::minCoeff")
 {
-    Vectorf<5> vec({1.f, 2.f, 3.f, 4.f, 5.f});
-    EXPECT_FLOAT_EQ(vec.minCoeff(), 1.f);
+	Vectorf<5> vec({1.f, 2.f, 3.f, 4.f, 5.f});
+	CHECK_EQ(vec.minCoeff(), doctest::Approx(1.f));
 }
 
-TEST(Vector, maxCoeff)
+TEST_CASE("Vector::maxCoeff")
 {
-    Vectorf<5> vec({1.f, 2.f, 3.f, 4.f, 5.f});
-    EXPECT_FLOAT_EQ(vec.maxCoeff(), 5.f);
+	Vectorf<5> vec({1.f, 2.f, 3.f, 4.f, 5.f});
+	CHECK_EQ(vec.maxCoeff(), doctest::Approx(5.f));
 }
 
-TEST(Vector, clamp)
+TEST_CASE("Vector::clamp")
 {
     Vectorf<5> vec({1.f, 2.f, 3.f, 4.f, 5.f});
     Vectorf<5> min({2.f, 2.f, 2.f, 2.f, 2.f});
     Vectorf<5> max({4.f, 4.f, 4.f, 4.f, 4.f});
-    EXPECT_EQ(vec.clamp(min, max), Vectorf<5>({2.f, 2.f, 3.f, 4.f, 4.f}));
+    CHECK_EQ(vec.clamp(min, max), Vectorf<5>({2.f, 2.f, 3.f, 4.f, 4.f}));
 }
 
-TEST(Vector, equal)
+TEST_CASE("Vector::equal")
 {
 	Vectorf<5> vec({1.f, 2.f, 3.f, 4.f, 5.f});
-	EXPECT_EQ(vec, Vectorf<5>({1.f, 2.f, 3.f, 4.f, 5.f}));
-	EXPECT_NE(vec, Vectorf<5>({0.f, 2.f, 3.f, 4.f, 5.f}));
-	EXPECT_NE(vec, Vectorf<5>({1.f, 0.f, 3.f, 4.f, 5.f}));
-	EXPECT_NE(vec, Vectorf<5>({1.f, 2.f, 0.f, 4.f, 5.f}));
-	EXPECT_NE(vec, Vectorf<5>({1.f, 2.f, 3.f, 0.f, 5.f}));
-	EXPECT_NE(vec, Vectorf<5>({1.f, 2.f, 3.f, 4.f, 0.f}));
+	CHECK_EQ(vec, Vectorf<5>({1.f, 2.f, 3.f, 4.f, 5.f}));
+	CHECK_NE(vec, Vectorf<5>({0.f, 2.f, 3.f, 4.f, 5.f}));
+	CHECK_NE(vec, Vectorf<5>({1.f, 0.f, 3.f, 4.f, 5.f}));
+	CHECK_NE(vec, Vectorf<5>({1.f, 2.f, 0.f, 4.f, 5.f}));
+	CHECK_NE(vec, Vectorf<5>({1.f, 2.f, 3.f, 0.f, 5.f}));
+	CHECK_NE(vec, Vectorf<5>({1.f, 2.f, 3.f, 4.f, 0.f}));
 }
 
-TEST(Vector, io)
+TEST_CASE("Vector::io")
 {
 	Vectorf<5> vec({1.f, 2.f, 3.f, 4.f, 5.f});
 	std::ostringstream stream;
 	stream << vec;
-	EXPECT_EQ(stream.str(), " 1.00  2.00  3.00  4.00  5.00");
+	CHECK_EQ(stream.str(), " 1.00  2.00  3.00  4.00  5.00");
 }

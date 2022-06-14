@@ -1,10 +1,13 @@
 ﻿// Copyright 2021 SMS
 // License(Apache-2.0)
 
-#include <gtest/gtest.h>
+#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+#include <doctest/doctest.h>
 
+/*
 int main(int argc, char* argv[])
 {
-	testing::InitGoogleTest(&argc, argv);
-	return RUN_ALL_TESTS();
+	doctest::Context context(argc, argv);
+	return context.run();
 }
+*/
