@@ -13,7 +13,7 @@ var class_vector_t_3_01_t_00_012_01_4 =
     [ "norm", "class_vector_t_3_01_t_00_012_01_4.html#a0cfe2dfd434a58b1358df2fba1eae9aa", null ],
     [ "normalize", "class_vector_t_3_01_t_00_012_01_4.html#ae3bb456cee07408628391801f98bcc98", null ],
     [ "normalized", "class_vector_t_3_01_t_00_012_01_4.html#a2351a7b3b5e429b4fbf3802d8081af75", null ],
-    [ "normSq", "class_vector_t_3_01_t_00_012_01_4.html#a6a533a827fe99291cd90d507a5676367", null ],
+    [ "normSq", "class_vector_t_3_01_t_00_012_01_4.html#ac453fed8af771125e88f2ad081a58f78", null ],
     [ "rotate", "class_vector_t_3_01_t_00_012_01_4.html#a8767d9d9cfbc81ebee6ba43c49bc6fcc", null ],
     [ "sum", "class_vector_t_3_01_t_00_012_01_4.html#a2e9b6df03ee9ea19a49b2960156201a1", null ]
 ];
