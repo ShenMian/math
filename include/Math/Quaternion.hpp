@@ -104,11 +104,8 @@ using Quaterniond = QuaternionT<double>;
 using Quaternion = Quaternionf;
 
 
-namespace std
-{
-
 template <std::floating_point T>
-struct hash<QuaternionT<T>>
+struct std::hash<QuaternionT<T>>
 {
 	std::size_t operator()(const QuaternionT<T>& v) const
 	{
@@ -117,5 +114,3 @@ struct hash<QuaternionT<T>>
 		return ret;
 	}
 };
-
-}

@@ -217,11 +217,8 @@ VectorT<T, N> constexpr operator/(const T& lhs, const VectorT<T, N>& rhs)
 	return rhs / lhs;
 }
 
-namespace std
-{
-
 template <arithmetic T, size_t N>
-struct hash<VectorT<T, N>>
+struct std::hash<VectorT<T, N>>
 {
 	std::size_t operator()(const VectorT<T, N>& v) const
 	{
@@ -231,8 +228,6 @@ struct hash<VectorT<T, N>>
 		return ret;
 	}
 };
-
-}
 
 /**
  * @class VectorT
