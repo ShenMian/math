@@ -22,7 +22,7 @@ class QuaternionT;
  * @tparam C 列数.
  */
 template <arithmetic T, size_t R, size_t C>
-class alignas(16) MatrixT
+class alignas(32) MatrixT
 {
 public:
 	/**

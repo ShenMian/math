@@ -22,7 +22,7 @@ concept arithmetic = std::integral<T> || std::floating_point<T>;
  * @tparam N 维数.
  */
 template <arithmetic T, size_t N>
-class alignas(16) VectorT
+class alignas(32) VectorT
 {
 public:
 	/**
