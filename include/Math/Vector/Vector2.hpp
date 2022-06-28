@@ -11,7 +11,7 @@
  * @brief 二维向量.
  */
 template <arithmetic T>
-class alignas(32) VectorT<T, 2>
+class alignas(sizeof(T)) VectorT<T, 2>
 {
 public:
 	T x = T();
