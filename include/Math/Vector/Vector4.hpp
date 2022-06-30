@@ -57,7 +57,7 @@ public:
 	 * @param v 三维向量.
 	 * @param w w 分量.
 	 */
-	constexpr VectorT(const Vector3T<T>& v, const T& w);
+	constexpr VectorT(const Vector3T<T>& v, const T& w = T());
 
 	/**
 	 * @brief 构造函数.
@@ -66,7 +66,7 @@ public:
 	 * @param z z 分量.
 	 * @param w w 分量.
 	 */
-	constexpr VectorT(const Vector2T<T>& v, const T& z, const T& w);
+	constexpr VectorT(const Vector2T<T>& v, const T& z = T(), const T& w = T());
 
 	/**
 	 * @brief 构造函数.

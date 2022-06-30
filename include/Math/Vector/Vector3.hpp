@@ -54,7 +54,7 @@ public:
 	 * @param v 二维向量.
 	 * @param z z 分量.
 	 */
-	constexpr VectorT(const Vector2T<T>& v, const T& z);
+	constexpr VectorT(const Vector2T<T>& v, const T& z = T());
 
 	/**
 	 * @brief 构造函数.
