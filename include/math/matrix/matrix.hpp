@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include "../Vector/Vector3.hpp"
+#include "../vector/vector3.hpp"
 #include <cstddef>
 #include <iostream>
 #include <iomanip>
@@ -349,7 +349,7 @@ private:
 	inline static const size_t cols_ = C;
 };
 
-#include "Matrix.inl"
+#include "matrix.inl"
 
 template <size_t R, size_t C>
 using Matrixf = MatrixT<float, R, C>;

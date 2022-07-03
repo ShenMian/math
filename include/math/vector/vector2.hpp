@@ -3,31 +3,19 @@
 
 #pragma once
 
-#include "Vector2.hpp"
+#include "vector.hpp"
 #include <cstddef>
+#include <cstdint>
 
 /**
- * @brief 三维向量.
+ * @brief 二维向量.
  */
 template <arithmetic T>
-class alignas(sizeof(T)) VectorT<T, 3>
+class alignas(sizeof(T)) VectorT<T, 2>
 {
 public:
-	union
-	{
-		struct
-		{
-			T x;
-			T y;
-			T z;
-		};
-		struct
-		{
-			T r;
-			T g;
-			T b;
-		};
-	};
+	T x = T();
+	T y = T();
 
 	/**
 	 * @brief 默认构造函数.
@@ -44,17 +32,8 @@ public:
 	 *
 	 * @param x x 分量.
 	 * @param y y 分量.
-	 * @param z z 分量.
 	 */
-	constexpr VectorT(const T& x, const T& y, const T& z);
-
-	/**
-	 * @brief 构造函数.
-	 *
-	 * @param v 二维向量.
-	 * @param z z 分量.
-	 */
-	constexpr VectorT(const Vector2T<T>& v, const T& z = T());
+	constexpr explicit VectorT(const T& x, const T& y);
 
 	/**
 	 * @brief 构造函数.
@@ -75,7 +54,7 @@ public:
 	 *
 	 * @see norm
 	 */
-	constexpr T normSq() const;
+	constexpr T normSq() const noexcept;
 
 	/**
 	 * @brief 标准化成单位向量.
@@ -96,7 +75,7 @@ public:
 	 *
 	 * @param rhs 要点乘的向量.
 	 */
-	T dot(const VectorT& rhs) const;
+	T dot(const VectorT& rhs) const noexcept;
 
 	/**
 	 * @brief 计算向量叉积.
@@ -108,7 +87,22 @@ public:
 	/**
 	 * @brief 获取所有元素之和.
 	 */
-	constexpr T sum() const;
+	constexpr T sum() const noexcept;
+
+	/**
+	 * @brief 获取角度.
+	 *
+	 * @return 角度, 单位: 弧度. 范围: [2π, -2π)
+	 */
+	T angle() const;
+
+	/**
+	 * @brief 围绕指定点旋转指定弧度.
+	 *
+	 * @param point 点.
+	 * @param angle 旋转角度, 单位: 弧度.
+	 */
+	void rotate(const VectorT& point, float angle);
 
 	/**
 	 * @brief 获取两点之间的距离.
@@ -126,7 +120,7 @@ public:
 	 *
 	 * @see distance
 	 */
-	T distanceSquared(const VectorT& point) const;
+	T distanceSq(const VectorT& point) const;
 
 	/**
 	 * @brief 获取原始数据.
@@ -145,41 +139,37 @@ public:
 	constexpr VectorT  operator-() const;
 
 	template <typename C>
-	operator VectorT<C, 3>()
+	operator VectorT<C, 2>()
 	{
-		return VectorT<C, 3>(static_cast<C>(x), static_cast<C>(y), static_cast<C>(z));
+		return VectorT<C, 2>(static_cast<C>(x), static_cast<C>(y));
 	}
 
 	friend std::ostream& operator<<(std::ostream& stream, const VectorT& vec)
 	{
-		stream << vec.x << ' ' << vec.y << ' ' << vec.z;
+		stream << vec.x << ' ' << vec.y;
 		return stream;
 	}
 
-	static VectorT lerp(const VectorT& from, const VectorT& to, T t);
+	static constexpr size_t components = 2;
 
-	static constexpr size_t components = 3;
+	static const VectorT unit;   // (1, 1)
+	static const VectorT unit_x; // (1, 0)
+	static const VectorT unit_y; // (0, 1)
+	static const VectorT zero;   // (0, 0)
 
-	static const VectorT unit;   // (1, 1, 1)
-	static const VectorT unit_x; // (1, 0, 0)
-	static const VectorT unit_y; // (0, 1, 0)
-	static const VectorT unit_z; // (0, 0, 1)
-	static const VectorT zero;   // (0, 0, 0)
-
-	static const VectorT up;    // (0,  1,  0)
-	static const VectorT down;  // (0,  -1, 0)
-	static const VectorT right; // (1,  0,  0)
-	static const VectorT left;  // (-1, 0,  0)
-	static const VectorT front; // (0,  0,  1)
-	static const VectorT back;  // (0,  0,  -1)
+	static const VectorT up;    // (0, 1)
+	static const VectorT down;  // (0, -1)
+	static const VectorT right; // (1, 0)
+	static const VectorT left;  // (-1, 0)
 };
 
-#include "Vector3.inl"
+#include "vector2.inl"
 
 template <typename T>
-using Vector3T = VectorT<T, 3>;
+using Vector2T = VectorT<T, 2>;
 
-using Vector3f = Vector3T<float>;
-using Vector3d = Vector3T<double>;
-using Vector3i = Vector3T<int32_t>;
-using Vector3 = Vector3f;
+using Vector2f = Vector2T<float>;
+using Vector2d = Vector2T<double>;
+using Vector2i = Vector2T<int32_t>;
+using Vector2 = Vector2f;
+using Size2 = Vector2T<size_t>;

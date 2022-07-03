@@ -1,8 +1,7 @@
 ﻿// Copyright 2021 SMS
 // License(Apache-2.0)
 
-#include "Assert.hpp"
-#include "AABB3.hpp"
+#include "assert.hpp"
 
 inline AABB3::AABB3(const Vector3& a, const Vector3& b)
 {

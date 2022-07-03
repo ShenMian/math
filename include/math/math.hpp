@@ -3,22 +3,22 @@
 
 #pragma once
 
-#include "Vector/Vector.hpp"
-#include "Vector/Vector2.hpp"
-#include "Vector/Vector3.hpp"
-#include "Vector/Vector4.hpp"
+#include "vector/vector.hpp"
+#include "vector/vector2.hpp"
+#include "vector/vector3.hpp"
+#include "vector/vector4.hpp"
 
-#include "Matrix/Matrix.hpp"
+#include "matrix/matrix.hpp"
 // #include "Matrix/MatrixNN.hpp"
 
-#include "Quaternion.hpp"
+#include "quaternion.hpp"
 
-#include "Transform.hpp"
-#include "AABB3.hpp"
+#include "transform.hpp"
+#include "aabb3.hpp"
 
-#include "SIMD.hpp"
+#include "simd.hpp"
 
-#include "Easing.hpp"
+#include "easing.hpp"
 
 /**
  * @mainpage Math 文档

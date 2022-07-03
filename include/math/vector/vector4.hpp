@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include "Vector3.hpp"
+#include "vector3.hpp"
 #include <cstddef>
 
 /**
@@ -160,7 +160,7 @@ public:
 	static const VectorT zero;   // (0, 0, 0, 0)
 };
 
-#include "Vector4.inl"
+#include "vector4.inl"
 
 template <typename T>
 using Vector4T = VectorT<T, 4>;

@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include "../HashCombine.hpp"
+#include "../hash_combine.hpp"
 #include <concepts>
 #include <cstddef>
 #include <initializer_list>
@@ -158,7 +158,7 @@ private:
 	T v_[N] = {};
 };
 
-#include "Vector.inl"
+#include "vector.inl"
 
 template <size_t N>
 using Vectorf = VectorT<float, N>;

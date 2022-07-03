@@ -3,8 +3,8 @@
 
 #pragma once
 
-#include "Matrix/Matrix.hpp"
-#include "Vector/Vector.hpp"
+#include "matrix/matrix.hpp"
+#include "vector/vector.hpp"
 #include <xmmintrin.h>
 
 #if defined(_MSC_VER) && (defined(_M_X64) || defined(_M_IX86))

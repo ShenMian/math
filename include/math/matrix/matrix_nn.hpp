@@ -3,8 +3,8 @@
 
 #pragma once
 
-#include "Matrix.hpp"
-#include "../Vector/Vector3.hpp"
+#include "matrix.hpp"
+#include "../Vector/vector3.hpp"
 
 template <arithmetic T, size_t N>
 class alignas(sizeof(T)) MatrixT<T, N, N>

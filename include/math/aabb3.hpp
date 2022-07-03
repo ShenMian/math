@@ -3,8 +3,8 @@
 
 #pragma once
 
-#include "Vector/Vector3.hpp"
-#include "HashCombine.hpp"
+#include "vector/vector3.hpp"
+#include "hash_combine.hpp"
 
 /**
  * @brief 3 维轴对齐包围盒.
@@ -105,7 +105,7 @@ public:
 	bool operator==(const AABB3& rhs) const = default;
 };
 
-#include "AABB3.inl"
+#include "aabb3.inl"
 
 MAKE_HASHABLE(AABB3, t.min, t.max)
 

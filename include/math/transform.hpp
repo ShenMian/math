@@ -3,9 +3,9 @@
 
 #pragma once
 
-#include "Matrix/Matrix.hpp"
-#include "Quaternion.hpp"
-#include "HashCombine.hpp"
+#include "matrix/matrix.hpp"
+#include "quaternion.hpp"
+#include "hash_combine.hpp"
 
 class Transform
 {
@@ -30,6 +30,6 @@ private:
 	mutable bool     dirty_ = true;
 };
 
-#include "Transform.inl"
+#include "transform.inl"
 
 MAKE_HASHABLE(Transform, t.position(), t.rotation(), t.scale())

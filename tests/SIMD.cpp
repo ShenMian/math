@@ -2,7 +2,7 @@
 // License(Apache-2.0)
 
 
-#include <Math/Math.hpp>
+#include <math/math.hpp>
 #include <doctest/doctest.h>
 
 TEST_CASE("SIMD::matrixMul")

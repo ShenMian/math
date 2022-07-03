@@ -3,9 +3,9 @@
 
 #pragma once
 
-#include "Vector/Vector3.hpp"
-#include "Matrix/Matrix.hpp"
-#include "HashCombine.hpp"
+#include "vector/vector3.hpp"
+#include "matrix/matrix.hpp"
+#include "hash_combine.hpp"
 #include <type_traits>
 
 /**
@@ -97,7 +97,7 @@ public:
 	QuaternionT  operator-() const;
 };
 
-#include "Quaternion.inl"
+#include "quaternion.inl"
 
 using Quaternionf = QuaternionT<float>;
 using Quaterniond = QuaternionT<double>;

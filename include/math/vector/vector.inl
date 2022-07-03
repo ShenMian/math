@@ -1,13 +1,13 @@
 ﻿// Copyright 2021 SMS
 // License(Apache-2.0)
 
-#include "../Helper.hpp"
-#include "../Assert.hpp"
+#include "../helper.hpp"
+#include "../assert.hpp"
 #include <algorithm>
 #include <cmath>
 #include <concepts>
 #include <ranges>
-#include "Vector.hpp"
+#include "vector.hpp"
 
 namespace rng = std::ranges;
 

@@ -1,8 +1,6 @@
 ﻿// Copyright 2021 SMS
 // License(Apache-2.0)
 
-#include "Transform.hpp"
-
 [[nodiscard]]
 inline const Vector3f& Transform::position() const noexcept
 {

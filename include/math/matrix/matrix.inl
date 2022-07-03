@@ -1,9 +1,9 @@
 ﻿// Copyright 2021 SMS
 // License(Apache-2.0)
 
-#include "Matrix.hpp"
-#include "../Assert.hpp"
-#include "../Helper.hpp"
+#include "matrix.hpp"
+#include "../assert.hpp"
+#include "../helper.hpp"
 #include <algorithm>
 #include <cstring>
 
