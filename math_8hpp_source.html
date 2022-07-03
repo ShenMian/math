@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Math: /github/workspace/include/Math/Matrix/MatrixNN.hpp 源文件</title>
+<title>Math: /github/workspace/include/math/math.hpp 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -64,7 +64,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('_matrix_n_n_8hpp_source.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('math_8hpp_source.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -83,7 +83,7 @@ $(document).ready(function(){initNavTree('_matrix_n_n_8hpp_source.html',''); ini
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">MatrixNN.hpp</div></div>
+  <div class="headertitle"><div class="title">math.hpp</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright 2021 SMS</span></div>
@@ -91,31 +91,29 @@ $(document).ready(function(){initNavTree('_matrix_n_n_8hpp_source.html',''); ini
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;Matrix.hpp&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;../Vector/Vector3.hpp&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">template</span> &lt;arithmetic T, <span class="keywordtype">size_t</span> N&gt;</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_matrix_t_3_01_t_00_01_n_00_01_n_01_4.html">   10</a></span><span class="keyword">class </span><span class="keyword">alignas</span>(sizeof(T)) <a class="code hl_class" href="class_matrix_t.html">MatrixT</a>&lt;T, N, N&gt;</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_function" href="class_matrix_t.html#ac0e3299067035a98063d30b0aefbbc23">MatrixT</a>();</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="class_matrix_t_3_01_t_00_01_n_00_01_n_01_4.html#a6ad3425b15f39adb12a07bc629d641f6">   21</a></span>    <a class="code hl_class" href="class_matrix_t.html">MatrixT</a>&amp; <a class="code hl_function" href="class_matrix_t_3_01_t_00_01_n_00_01_n_01_4.html#a6ad3425b15f39adb12a07bc629d641f6">transpose</a>();</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;vector/vector.hpp&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;vector/vector2.hpp&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;vector/vector3.hpp&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;vector/vector4.hpp&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;matrix/matrix.hpp&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">// #include &quot;Matrix/MatrixNN.hpp&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;quaternion.hpp&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;transform.hpp&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;aabb3.hpp&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;simd.hpp&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;easing.hpp&quot;</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    T m_[N][N] = {};</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>};</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;MatrixNN.inl&quot;</span></div>
-<div class="ttc" id="aclass_matrix_t_3_01_t_00_01_n_00_01_n_01_4_html_a6ad3425b15f39adb12a07bc629d641f6"><div class="ttname"><a href="class_matrix_t_3_01_t_00_01_n_00_01_n_01_4.html#a6ad3425b15f39adb12a07bc629d641f6">MatrixT&lt; T, N, N &gt;::transpose</a></div><div class="ttdeci">MatrixT &amp; transpose()</div><div class="ttdoc">转置.</div></div>
-<div class="ttc" id="aclass_matrix_t_html"><div class="ttname"><a href="class_matrix_t.html">MatrixT</a></div><div class="ttdoc">矩阵.</div><div class="ttdef"><b>Definition:</b> Matrix.hpp:26</div></div>
-<div class="ttc" id="aclass_matrix_t_html_ac0e3299067035a98063d30b0aefbbc23"><div class="ttname"><a href="class_matrix_t.html#ac0e3299067035a98063d30b0aefbbc23">MatrixT::MatrixT</a></div><div class="ttdeci">MatrixT()</div><div class="ttdoc">默认构造函数.</div><div class="ttdef"><b>Definition:</b> Matrix.inl:23</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_6169d17290d9404be5262c21e04fa2c7.html">Math</a></li><li class="navelem"><a class="el" href="dir_e2d21908a5675ad59a664796548252ad.html">Matrix</a></li><li class="navelem"><b>MatrixNN.hpp</b></li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_fba38f648377aa56ae5d69782adf9e53.html">math</a></li><li class="navelem"><b>math.hpp</b></li>
     <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>

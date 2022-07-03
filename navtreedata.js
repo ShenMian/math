@@ -48,7 +48,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_a_a_b_b3_8hpp_source.html"
+"aabb3_8hpp_source.html"
 ];
 
 var SYNCONMSG = '点击 关闭 面板同步';
