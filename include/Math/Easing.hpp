@@ -344,7 +344,7 @@ public:
 		}
 		else
 			s = p / (2 * std::numbers::pi) * asin(c / a);
-		return -(a * pow(2, 10 * (t -= 1)) * sin((t * d - s) * (2 * std::numbers::pi) / p)) + b;
+		return -(a * pow(2, 10 * (--t)) * sin((t * d - s) * (2 * std::numbers::pi) / p)) + b;
 	}
 
 	static float easeOutElastic(float t, float b, float c, float d)
@@ -387,8 +387,8 @@ public:
 		else
 			s = p / (2 * std::numbers::pi) * asin(c / a);
 		if(t < 1)
-			return -.5f * (a * pow(2, 10 * (t -= 1)) * sin((t * d - s) * (2 * std::numbers::pi) / p)) + b;
-		return a * pow(2, -10 * (t -= 1)) * sin((t * d - s) * (2 * std::numbers::pi) / p) * .5f + c + b;
+			return -.5f * (a * pow(2, 10 * (--t)) * sin((t * d - s) * (2 * std::numbers::pi) / p)) + b;
+		return a * pow(2, -10 * (--t)) * sin((t * d - s) * (2 * std::numbers::pi) / p) * .5f + c + b;
 	}
 
 	static float easeInBack(float t, float b, float c, float d, float s)
