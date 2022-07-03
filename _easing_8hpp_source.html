@@ -256,7 +256,7 @@ $(document).ready(function(){initNavTree('_easing_8hpp_source.html',''); initRes
 <div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>        }</div>
 <div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>        <span class="keywordflow">else</span></div>
 <div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>            s = p / (2 * std::numbers::pi) * asin(c / a);</div>
-<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>        <span class="keywordflow">return</span> -(a * pow(2, 10 * (t -= 1)) * sin((t * d - s) * (2 * std::numbers::pi) / p)) + b;</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>        <span class="keywordflow">return</span> -(a * pow(2, 10 * (--t)) * sin((t * d - s) * (2 * std::numbers::pi) / p)) + b;</div>
 <div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>    }</div>
 <div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span> </div>
 <div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>    <span class="keyword">static</span> <span class="keywordtype">float</span> easeOutElastic(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> c, <span class="keywordtype">float</span> d)</div>
@@ -299,8 +299,8 @@ $(document).ready(function(){initNavTree('_easing_8hpp_source.html',''); initRes
 <div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>        <span class="keywordflow">else</span></div>
 <div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>            s = p / (2 * std::numbers::pi) * asin(c / a);</div>
 <div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>        <span class="keywordflow">if</span>(t &lt; 1)</div>
-<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>            <span class="keywordflow">return</span> -.5f * (a * pow(2, 10 * (t -= 1)) * sin((t * d - s) * (2 * std::numbers::pi) / p)) + b;</div>
-<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>        <span class="keywordflow">return</span> a * pow(2, -10 * (t -= 1)) * sin((t * d - s) * (2 * std::numbers::pi) / p) * .5f + c + b;</div>
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>            <span class="keywordflow">return</span> -.5f * (a * pow(2, 10 * (--t)) * sin((t * d - s) * (2 * std::numbers::pi) / p)) + b;</div>
+<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>        <span class="keywordflow">return</span> a * pow(2, -10 * (--t)) * sin((t * d - s) * (2 * std::numbers::pi) / p) * .5f + c + b;</div>
 <div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>    }</div>
 <div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span> </div>
 <div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>    <span class="keyword">static</span> <span class="keywordtype">float</span> easeInBack(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> c, <span class="keywordtype">float</span> d, <span class="keywordtype">float</span> s)</div>
