@@ -1,38 +1,43 @@
-name: Test
+﻿name: Test
 
 on: [push, pull_request]
-
-env:
-  BUILD_TYPE: Release
 
 jobs:
   build:
     strategy:
       matrix:
         os: [windows-latest, ubuntu-latest]
+        arch: [x64, x86]
+        type: [Debug, Release]
 
-    name: ${{matrix.os}}
+    name: ${{matrix.os}}-${{matrix.arch}}-${{matrix.type}}
     runs-on: ${{matrix.os}}
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Checkout dependencies
         run: git submodule update --init
 
-      - name: Install Clang
+      # 安装最新版本的 clang, 以支持 C++20
+      - name: Install clang
+        if: matrix.os == 'windows-latest' || matrix.os == 'ubuntu-latest'
         uses: egor-tensin/setup-clang@v1
         with:
           version: 13
 
+      - name: Setup clang (Windows)
+        if: matrix.os == 'windows-latest'
+        run: echo "PATH=$PATH:C:\msys64\mingw64\bin" >> $GITHUB_ENV
+
       - name: Configure CMake
-        run: cmake -B "${{github.workspace}}/build" -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+        run: cmake -B "${{github.workspace}}/build" -DCMAKE_GENERATOR_PLATFORM=${{matrix.arch}} -DCMAKE_BUILD_TYPE=${{matrix.type}}
 
       - name: Build
-        run: cmake --build "${{github.workspace}}/build" --config ${{env.BUILD_TYPE}}
+        run: cmake --build "${{github.workspace}}/build" --config ${{matrix.type}}
 
       - name: Test
-        run: cd build && ctest -VV -C ${{env.BUILD_TYPE}}
+        run: cd build && ctest -VV -C ${{matrix.type}}
 
       - name: Setup coverage report generator (Linux)
         if: matrix.os == 'ubuntu-latest'
@@ -50,7 +55,7 @@ jobs:
 
       - name: Generate coverage report (Windows)
         if: matrix.os == 'windows-latest'
-        run: OpenCppCoverage.exe --sources "${{github.workspace}}" --export_type cobertura:report.xml -- "${{github.workspace}}/build/bin/${{env.BUILD_TYPE}}/unit_test.exe"
+        run: OpenCppCoverage.exe --sources "${{github.workspace}}" --export_type cobertura:report.xml -- "${{github.workspace}}/build/bin/${{matrix.build_type}}/unit_test.exe"
 
       - name: Upload coverage report to Codecov (Windows)
         if: matrix.os == 'windows-latest'
