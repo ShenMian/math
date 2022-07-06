@@ -228,7 +228,6 @@ public:
 		{
 			for(size_t c = 0; c < C; c++)
 			{
-
 				std::ostringstream stm;
 				stm << mat(r, c);
 				const auto size = stm.str().size();
