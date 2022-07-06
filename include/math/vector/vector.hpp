@@ -157,6 +157,8 @@ public:
 		return stream;
 	}
 
+	static constexpr VectorT lerp(const VectorT& from, const VectorT& to, T t);
+
 private:
 	T v_[N] = {};
 

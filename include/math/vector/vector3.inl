@@ -221,9 +221,12 @@ inline constexpr VectorT<T, 3> VectorT<T, 3>::operator-() const
 	return {-x, -y, -z};
 }
 
-
 template <arithmetic T>
 inline VectorT<T, 3> VectorT<T, 3>::lerp(const VectorT<T, 3>& from, const VectorT<T, 3>& to, T t)
 {
-	return from + (to - from) * t;
+	VectorT result;
+	result.x = std::lerp(from.x, to.x, t);
+	result.y = std::lerp(from.y, to.y, t);
+	result.z = std::lerp(from.z, to.z, t);
+	return result;
 }
