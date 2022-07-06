@@ -4,6 +4,7 @@
 [![Codacy](https://app.codacy.com/project/badge/Grade/c527e3f77b3e498a97ac955e9447537c)](https://www.codacy.com/gh/ShenMian/Math/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ShenMian/Math&amp;utm_campaign=Badge_Grade)
 [![CodeQL](https://github.com/ShenMian/Math/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/ShenMian/Math/actions/workflows/codeql.yml)
 [![Test](https://github.com/ShenMian/Math/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/ShenMian/Math/actions/workflows/test.yml)
+[![Codecov](https://codecov.io/gh/ShenMian/Math/branch/main/graph/badge.svg?token=RSX6SNWN6P)](https://codecov.io/gh/ShenMian/Math)
 
 <sub>(This project is still in the early stages of development and do not reflect the final quality)</sub>  
 
