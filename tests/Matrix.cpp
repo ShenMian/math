@@ -104,13 +104,13 @@ TEST_CASE("Matrix::scale")
 
 TEST_CASE("Matrix::front/back/right/left/up/down")
 {
-    auto a = Matrix4f::lookAt(Vector3f::unit, Vector3f::unit - Vector3f::unit_z, Vector3f::up);
-    CHECK_EQ(a.front(), -Vector3f::unit_z);
-    CHECK_EQ(a.back(), Vector3f::unit_z);
-    CHECK_EQ(a.right(), Vector3f::unit_x);
-    CHECK_EQ(a.left(), -Vector3f::unit_x);
-    CHECK_EQ(a.up(), Vector3f::up);
-    CHECK_EQ(a.down(), -Vector3f::up);
+	auto a = Matrix4f::lookAt(Vector3f::unit, Vector3f::unit - Vector3f::unit_z, Vector3f::up);
+	CHECK_EQ(a.front(), -Vector3f::unit_z);
+	CHECK_EQ(a.back(), Vector3f::unit_z);
+	CHECK_EQ(a.right(), Vector3f::unit_x);
+	CHECK_EQ(a.left(), -Vector3f::unit_x);
+	CHECK_EQ(a.up(), Vector3f::up);
+	CHECK_EQ(a.down(), -Vector3f::up);
 }
 
 TEST_CASE("Matrix::createTranslate")
@@ -187,76 +187,76 @@ TEST_CASE("Matrix::zero")
 
 TEST_CASE("Matrix::addition")
 {
-    Matrix2d a = {
-            1, 2,
-            3, 4
-    };
-    Matrix2d b = {
-            2, 3,
-            1, 4
-    };
+	Matrix2d a = {
+			1, 2,
+			3, 4
+	};
+	Matrix2d b = {
+			2, 3,
+			1, 4
+	};
 
-    Matrix2d c = {
-            3, 5,
-            4, 8
-    };
-    CHECK_EQ(a + b, c);
+	Matrix2d c = {
+			3, 5,
+			4, 8
+	};
+	CHECK_EQ(a + b, c);
 }
 
 TEST_CASE("Matrix::subtraction")
 {
-    Matrix2d a = {
-            1, 2,
-            3, 4
-    };
-    Matrix2d b = {
-            2, 3,
-            1, 4
-    };
+	Matrix2d a = {
+			1, 2,
+			3, 4
+	};
+	Matrix2d b = {
+			2, 3,
+			1, 4
+	};
 
-    Matrix2d c = {
-            -1, -1,
-            2, 0
-    };
-    CHECK_EQ(a - b, c);
+	Matrix2d c = {
+			-1, -1,
+			2, 0
+	};
+	CHECK_EQ(a - b, c);
 }
 
 TEST_CASE("Matrix::multiplication")
 {
-    Matrix2f a = {
-            1, 2,
-            3, 4
-    };
+	Matrix2f a = {
+			1, 2,
+			3, 4
+	};
 
-    {
-        Matrix2f b = {
-                2.5, 5,
-                7.5, 10
-        };
-        CHECK_EQ(2.5f * a, b);
-    }
-    /*
-    {
-        Matrix2f b = {
-            7, 10,
-            15, 22
-        };
-        CHECK_EQ(a * a, b);
-    }
-    */
+	{
+		Matrix2f b = {
+				2.5, 5,
+				7.5, 10
+		};
+		CHECK_EQ(2.5f * a, b);
+	}
+	/*
+	{
+		Matrix2f b = {
+			7, 10,
+			15, 22
+		};
+		CHECK_EQ(a * a, b);
+	}
+	*/
 }
 
 TEST_CASE("Matrix::division")
 {
-    Matrix2f a = {
-            1, 2,
-            3, 4
-    };
-    Matrix2f b = {
-            0.5, 1,
-            1.5, 2
-    };
-    CHECK_EQ(a / 2.f, b);
+	Matrix2f a = {
+			1, 2,
+			3, 4
+	};
+	Matrix2f b = {
+			0.5, 1,
+			1.5, 2
+	};
+	CHECK_EQ(a / 2.f, b);
 }
 
 TEST_CASE("Matrix::io")

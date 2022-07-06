@@ -73,14 +73,14 @@ inline MatrixT<T, R, C>& MatrixT<T, R, C>::transpose()
 {
 	static_assert(R == C, "only square matrix supports this operation");
 
-    if constexpr(R == C && R == 4)
-        simd::transpose(*this, *this);
-    else
-    {
-        for(size_t r = 0; r < rows(); r++)
-            for(size_t c = r; c < cols(); c++)
-                std::swap(m_[r][c], m_[c][r]);
-    }
+	if constexpr(R == C && R == 4)
+		simd::transpose(*this, *this);
+	else
+	{
+		for(size_t r = 0; r < rows(); r++)
+			for(size_t c = r; c < cols(); c++)
+				std::swap(m_[r][c], m_[c][r]);
+	}
 	return *this;
 }
 
@@ -141,7 +141,7 @@ template<arithmetic T, size_t R, size_t C>
 [[nodiscard]]
 constexpr T MatrixT<T, R, C>::determinant() const
 {
-    static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
+	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 
 	const auto& mat = *this;
 	const float a0 = mat(0, 0) * mat(1, 1) - mat(0, 1) * mat(1, 0);
@@ -421,7 +421,7 @@ template <arithmetic T, size_t R, size_t C>
 inline Vector3T<T> MatrixT<T, R, C>::back() const
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
-    const auto& mat = *this;
+	const auto& mat = *this;
 	return {mat(2, 0), mat(2, 1), mat(2, 2)};
 }
 
@@ -438,7 +438,7 @@ template <arithmetic T, size_t R, size_t C>
 inline Vector3T<T> MatrixT<T, R, C>::right() const
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
-    const auto& mat = *this;
+	const auto& mat = *this;
 	return {mat(0, 0), mat(0, 1), mat(0, 2)};
 }
 
@@ -447,7 +447,7 @@ template <arithmetic T, size_t R, size_t C>
 inline Vector3T<T> MatrixT<T, R, C>::up() const
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
-    const auto& mat = *this;
+	const auto& mat = *this;
 	return {mat(1, 0), mat(1, 1), mat(1, 2)};
 }
 
@@ -508,38 +508,38 @@ inline constexpr bool MatrixT<T, R, C>::operator==(const MatrixT& rhs) const
 template <arithmetic T, size_t R, size_t C>
 inline constexpr MatrixT<T, R, C>& MatrixT<T, R, C>::operator+=(const MatrixT& rhs)
 {
-    if constexpr(R == C && R == 4)
-        simd::add(*this, rhs, *this);
-    else
-    {
-        for(size_t r = 0; r < rows(); r++)
-            for(size_t c = 0; c < cols(); c++)
-                (*this)(r, c) += rhs(r, c);
-    }
+	if constexpr(R == C && R == 4)
+		simd::add(*this, rhs, *this);
+	else
+	{
+		for(size_t r = 0; r < rows(); r++)
+			for(size_t c = 0; c < cols(); c++)
+				(*this)(r, c) += rhs(r, c);
+	}
 	return *this;
 }
 
 template <arithmetic T, size_t R, size_t C>
 inline constexpr MatrixT<T, R, C>& MatrixT<T, R, C>::operator-=(const MatrixT& rhs)
 {
-    if constexpr(R == C && R == 4)
-        simd::sub(*this, rhs, *this);
-    else
-    {
-        for(size_t r = 0; r < rows(); r++)
-            for(size_t c = 0; c < cols(); c++)
-                (*this)(r, c) -= rhs(r, c);
-    }
+	if constexpr(R == C && R == 4)
+		simd::sub(*this, rhs, *this);
+	else
+	{
+		for(size_t r = 0; r < rows(); r++)
+			for(size_t c = 0; c < cols(); c++)
+				(*this)(r, c) -= rhs(r, c);
+	}
 	return *this;
 }
 
 template <arithmetic T, size_t R, size_t C>
 inline MatrixT<T, R, C>& MatrixT<T, R, C>::operator*=(const MatrixT& rhs)
 {
-    if constexpr(R == C && R == 4)
-        simd::mul(*this, rhs, *this);
-    else
-        assert(false);
+	if constexpr(R == C && R == 4)
+		simd::mul(*this, rhs, *this);
+	else
+		assert(false);
 	return *this;
 }
 
@@ -573,14 +573,14 @@ template <arithmetic T, size_t R, size_t C>
 inline constexpr MatrixT<T, R, C> MatrixT<T, R, C>::operator-()
 {
 	MatrixT result;
-    if constexpr(R == C && R == 4)
-        simd::negate(*this, result);
-    else
-    {
-        for(size_t r = 0; r < rows(); r++)
-            for(size_t c = 0; c < cols(); c++)
-                result[r][c] = -m_[r][c];
-    }
+	if constexpr(R == C && R == 4)
+		simd::negate(*this, result);
+	else
+	{
+		for(size_t r = 0; r < rows(); r++)
+			for(size_t c = 0; c < cols(); c++)
+				result[r][c] = -m_[r][c];
+	}
 	return result;
 }
 
@@ -840,7 +840,7 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::zero()
 inline Vector4f operator*(const MatrixT<float, 4, 4>& mat, const Vector4f& vec)
 {
 	Vector4f result;
-    simd::mul(mat, vec, result);
+	simd::mul(mat, vec, result);
 	return result;
 }
 

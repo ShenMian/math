@@ -28,7 +28,7 @@ TEST_CASE("Vector::normalize")
 {
 	CHECK_EQ(Vectorf<5>({1.f, 2.f, 3.f, 4.f, 5.f}).normalize().norm(), doctest::Approx(1.f));
 	CHECK_EQ(Vectorf<5>({2.f, 3.f, 4.f, 5.f, 6.f}).normalize(), Vectorf<5>({4.f, 6.f, 8.f, 10.f, 12.f}).normalize());
-    CHECK_EQ(Vectorf<5>(0.f).normalize(), Vectorf<5>(0.f));
+	CHECK_EQ(Vectorf<5>(0.f).normalize(), Vectorf<5>(0.f));
 }
 
 TEST_CASE("Vector::dot")
@@ -40,8 +40,8 @@ TEST_CASE("Vector::dot")
 
 TEST_CASE("Vector::sum")
 {
-    Vectorf<5> vec({1.f, 2.f, 3.f, 4.f, 5.f});
-    CHECK_EQ(vec.sum(), doctest::Approx(15.f));
+	Vectorf<5> vec({1.f, 2.f, 3.f, 4.f, 5.f});
+	CHECK_EQ(vec.sum(), doctest::Approx(15.f));
 }
 
 TEST_CASE("Vector::minCoeff")
@@ -58,10 +58,10 @@ TEST_CASE("Vector::maxCoeff")
 
 TEST_CASE("Vector::clamp")
 {
-    Vectorf<5> vec({1.f, 2.f, 3.f, 4.f, 5.f});
-    Vectorf<5> min({2.f, 2.f, 2.f, 2.f, 2.f});
-    Vectorf<5> max({4.f, 4.f, 4.f, 4.f, 4.f});
-    CHECK_EQ(vec.clamp(min, max), Vectorf<5>({2.f, 2.f, 3.f, 4.f, 4.f}));
+	Vectorf<5> vec({1.f, 2.f, 3.f, 4.f, 5.f});
+	Vectorf<5> min({2.f, 2.f, 2.f, 2.f, 2.f});
+	Vectorf<5> max({4.f, 4.f, 4.f, 4.f, 4.f});
+	CHECK_EQ(vec.clamp(min, max), Vectorf<5>({2.f, 2.f, 3.f, 4.f, 4.f}));
 }
 
 TEST_CASE("Vector::equal")

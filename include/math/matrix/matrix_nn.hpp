@@ -10,18 +10,18 @@ template <arithmetic T, size_t N>
 class MatrixT<T, N, N>
 {
 public:
-    /**
-     * @brief 默认构造函数.
-     */
+	/**
+	 * @brief 默认构造函数.
+	 */
 	MatrixT();
 
-    /**
-     * @brief 转置.
-     */
-    MatrixT& transpose();
+	/**
+	 * @brief 转置.
+	 */
+	MatrixT& transpose();
 
 private:
-    T m_[N][N] = {};
+	T m_[N][N] = {};
 };
 
 #include "MatrixNN.inl"
