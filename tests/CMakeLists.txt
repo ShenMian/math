@@ -18,14 +18,14 @@ target_compile_definitions(unit_test PUBLIC ${MATH_DEFINES})
 # 指定 C++ 标准
 if(MSVC)
     set_property(TARGET unit_test PROPERTY
-            CXX_STANDARD          23
-            CXX_STANDARD_REQUIRED ON) # MSVC
+        CXX_STANDARD          23
+        CXX_STANDARD_REQUIRED ON) # MSVC
 elseif(APPLE)
     target_compile_options(unit_test PRIVATE -std=c++2a) # AppleClang
 else()
     set_property(TARGET unit_test PROPERTY
-            CXX_STANDARD          20
-            CXX_STANDARD_REQUIRED ON) # GCC/Clang
+        CXX_STANDARD          20
+        CXX_STANDARD_REQUIRED ON) # GCC/Clang
 endif()
 
 # 添加测试
