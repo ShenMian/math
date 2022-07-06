@@ -2,6 +2,10 @@
 # Copyright 2021 ShenMian
 # License(Apache-2.0)
 
+# 切换到主目录
+cd "$( cd "$( dirname "$0"  )" && pwd  )" || exit
+cd ..
+
 # 签出第三方库
 echo Checkout third-party libraries...
 if ! git submodule update --init >/dev/null
@@ -9,10 +13,6 @@ then
     echo Failed to checkout third-party libraries.
     exit 1
 fi
-
-# 切换到主目录
-cd "$( cd "$( dirname "$0"  )" && pwd  )" || exit
-cd ..
 
 # 生成 CMake 緩存
 echo Generating CMake cache...
@@ -23,7 +23,7 @@ then
     exit 1
 fi
 
-# 構建
+# 构建
 echo Building...
 if ! cmake --build build >/dev/null
 then
