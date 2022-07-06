@@ -261,11 +261,24 @@ TEST_CASE("Matrix::division")
 
 TEST_CASE("Matrix::io")
 {
-	Matrix2f a = {
-		1, 2,
-		3, 4
-	};
-	std::ostringstream stream;
-	stream << a;
-	CHECK_EQ(stream.str(), "1 2 \n3 4 \n");
+	{
+		Matrix2f a = {
+			1, 2,
+			3, 4
+		};
+		std::ostringstream stream;
+		stream << a;
+		CHECK_EQ(stream.str(), "1 2 \n3 4 \n");
+	}
+
+	{
+		Matrix3f a = {
+			1.11, 2,    3.33,
+			4,    5,    6,
+			7,    8.89, 9
+		};
+		std::ostringstream stream;
+		stream << a;
+		CHECK_EQ(stream.str(), "1.11    2 3.33 \n   4    5    6 \n   7 8.89    9 \n");
+	}
 }
