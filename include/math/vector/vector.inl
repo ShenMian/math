@@ -31,12 +31,14 @@ constexpr VectorT<T, N>::VectorT(const std::span<T, N>& span)
 }
 
 template <arithmetic T, size_t N>
+[[nodiscard]]
 inline T VectorT<T, N>::norm() const
 {
 	return static_cast<T>(std::sqrt(normSq()));
 }
 
 template <arithmetic T, size_t N>
+[[nodiscard]]
 inline constexpr T VectorT<T, N>::normSq() const noexcept
 {
 	T result = T();
@@ -55,12 +57,14 @@ inline VectorT<T, N>& VectorT<T, N>::normalize()
 }
 
 template <arithmetic T, size_t N>
+[[nodiscard]]
 inline VectorT<T, N> VectorT<T, N>::normalized() const
 {
 	return VectorT(*this).normalize();
 }
 
 template <arithmetic T, size_t N>
+[[nodiscard]]
 inline constexpr T VectorT<T, N>::dot(const VectorT& rhs) const  noexcept
 {
 	T result = T();
@@ -70,6 +74,7 @@ inline constexpr T VectorT<T, N>::dot(const VectorT& rhs) const  noexcept
 }
 
 template <arithmetic T, size_t N>
+[[nodiscard]]
 inline constexpr VectorT<T, N> VectorT<T, N>::cross(const VectorT& rhs) const
 {
 	// TODO
@@ -77,6 +82,7 @@ inline constexpr VectorT<T, N> VectorT<T, N>::cross(const VectorT& rhs) const
 }
 
 template <arithmetic T, size_t N>
+[[nodiscard]]
 inline constexpr T VectorT<T, N>::sum() const noexcept
 {
 	T sum = T(0);
@@ -86,6 +92,7 @@ inline constexpr T VectorT<T, N>::sum() const noexcept
 }
 
 template <arithmetic T, size_t N>
+[[nodiscard]]
 constexpr T VectorT<T, N>::minCoeff() const noexcept
 {
 	T min = std::numeric_limits<T>::max();
@@ -96,6 +103,7 @@ constexpr T VectorT<T, N>::minCoeff() const noexcept
 }
 
 template <arithmetic T, size_t N>
+[[nodiscard]]
 constexpr T VectorT<T, N>::maxCoeff() const noexcept
 {
 	T max = std::numeric_limits<T>::min();
@@ -114,12 +122,21 @@ inline constexpr const VectorT<T, N>& VectorT<T, N>::clamp(const VectorT& min, c
 }
 
 template <arithmetic T, size_t N>
+[[nodiscard]]
+inline constexpr size_t VectorT<T, N>::components() const
+{
+	return components_;
+}
+
+template <arithmetic T, size_t N>
+[[nodiscard]]
 inline constexpr T* VectorT<T, N>::data()
 {
 	return v_;
 }
 
 template <arithmetic T, size_t N>
+[[nodiscard]]
 inline constexpr const T* VectorT<T, N>::data() const
 {
 	return v_;
@@ -128,14 +145,14 @@ inline constexpr const T* VectorT<T, N>::data() const
 template <arithmetic T, size_t N>
 inline constexpr T& VectorT<T, N>::operator[](size_t index)
 {
-	assert(index < components, "subscript out of range");
+	assert(index < components(), "subscript out of range");
 	return *(v_ + index);
 }
 
 template <arithmetic T, size_t N>
 inline constexpr const T& VectorT<T, N>::operator[](size_t index) const
 {
-	assert(index < components, "subscript out of range");
+	assert(index < components(), "subscript out of range");
 	return *(v_ + index);
 }
 

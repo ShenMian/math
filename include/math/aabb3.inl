@@ -11,6 +11,7 @@ inline AABB3::AABB3(const Vector3& a, const Vector3& b)
 		min = b, max = a;
 }
 
+[[nodiscard]]
 inline bool AABB3::contains(const Vector3& p) const
 {
 	assert(valid());
@@ -49,11 +50,13 @@ inline void AABB3::expand(const AABB3& aabb)
 	expand(aabb.max);
 }
 
+[[nodiscard]]
 inline Vector3 AABB3::center() const noexcept
 {
 	return (min + max) * .5f;
 }
 
+[[nodiscard]]
 inline float AABB3::volume() const noexcept
 {
 	const auto extent = max - min;

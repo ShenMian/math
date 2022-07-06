@@ -62,6 +62,7 @@ inline MatrixT<T, R, C>& MatrixT<T, R, C>::inverse()
 }
 
 template <arithmetic T, size_t R, size_t C>
+[[nodiscard]]
 inline MatrixT<T, R, C> MatrixT<T, R, C>::inversed() const
 {
 	return MatrixT(*this).inverse();
@@ -84,12 +85,14 @@ inline MatrixT<T, R, C>& MatrixT<T, R, C>::transpose()
 }
 
 template <arithmetic T, size_t R, size_t C>
+[[nodiscard]]
 inline MatrixT<T, R, C> MatrixT<T, R, C>::transposed() const
 {
 	return MatrixT(*this).transpose();
 }
 
 template <arithmetic T, size_t R, size_t C>
+[[nodiscard]]
 inline constexpr T MatrixT<T, R, C>::trace() const
 {
 	static_assert(R == C, "only square matrix supports this operation");
@@ -97,6 +100,7 @@ inline constexpr T MatrixT<T, R, C>::trace() const
 }
 
 template <arithmetic T, size_t R, size_t C>
+[[nodiscard]]
 inline constexpr T MatrixT<T, R, C>::sum() const
 {
 	const auto& mat = *this;
@@ -108,6 +112,7 @@ inline constexpr T MatrixT<T, R, C>::sum() const
 }
 
 template <arithmetic T, size_t R, size_t C>
+[[nodiscard]]
 inline constexpr T MatrixT<T, R, C>::minCoeff() const
 {
 	const auto& mat = *this;
@@ -120,6 +125,7 @@ inline constexpr T MatrixT<T, R, C>::minCoeff() const
 }
 
 template <arithmetic T, size_t R, size_t C>
+[[nodiscard]]
 inline constexpr T MatrixT<T, R, C>::maxCoeff() const
 {
 	const auto& mat = *this;
@@ -132,6 +138,7 @@ inline constexpr T MatrixT<T, R, C>::maxCoeff() const
 }
 
 template<arithmetic T, size_t R, size_t C>
+[[nodiscard]]
 constexpr T MatrixT<T, R, C>::determinant() const
 {
     static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
@@ -153,6 +160,7 @@ constexpr T MatrixT<T, R, C>::determinant() const
 }
 
 template <arithmetic T, size_t R, size_t C>
+[[nodiscard]]
 inline constexpr VectorT<T, R> MatrixT<T, R, C>::diagonal() const
 {
 	static_assert(R == C, "only square matrix supports this operation");
@@ -362,6 +370,7 @@ inline MatrixT<T, R, C>& MatrixT<T, R, C>::recompose(const Vector3T<T>& translat
 }
 
 template <arithmetic T, size_t R, size_t C>
+[[nodiscard]]
 inline constexpr VectorT<T, C> MatrixT<T, R, C>::row(size_t index) const
 {
 	assert(index < R);
@@ -373,6 +382,7 @@ inline constexpr VectorT<T, C> MatrixT<T, R, C>::row(size_t index) const
 }
 
 template <arithmetic T, size_t R, size_t C>
+[[nodiscard]]
 inline constexpr VectorT<T, R> MatrixT<T, R, C>::col(size_t index) const
 {
 	assert(index < C);
@@ -385,18 +395,21 @@ inline constexpr VectorT<T, R> MatrixT<T, R, C>::col(size_t index) const
 }
 
 template <arithmetic T, size_t R, size_t C>
+[[nodiscard]]
 inline constexpr size_t MatrixT<T, R, C>::rows() const
 {
 	return rows_;
 }
 
 template <arithmetic T, size_t R, size_t C>
+[[nodiscard]]
 inline constexpr size_t MatrixT<T, R, C>::cols() const
 {
 	return cols_;
 }
 
 template <arithmetic T, size_t R, size_t C>
+[[nodiscard]]
 inline Vector3T<T> MatrixT<T, R, C>::front() const
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
@@ -404,6 +417,7 @@ inline Vector3T<T> MatrixT<T, R, C>::front() const
 }
 
 template <arithmetic T, size_t R, size_t C>
+[[nodiscard]]
 inline Vector3T<T> MatrixT<T, R, C>::back() const
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
@@ -412,6 +426,7 @@ inline Vector3T<T> MatrixT<T, R, C>::back() const
 }
 
 template <arithmetic T, size_t R, size_t C>
+[[nodiscard]]
 inline Vector3T<T> MatrixT<T, R, C>::left() const
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
@@ -419,6 +434,7 @@ inline Vector3T<T> MatrixT<T, R, C>::left() const
 }
 
 template <arithmetic T, size_t R, size_t C>
+[[nodiscard]]
 inline Vector3T<T> MatrixT<T, R, C>::right() const
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
@@ -427,6 +443,7 @@ inline Vector3T<T> MatrixT<T, R, C>::right() const
 }
 
 template <arithmetic T, size_t R, size_t C>
+[[nodiscard]]
 inline Vector3T<T> MatrixT<T, R, C>::up() const
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
@@ -435,6 +452,7 @@ inline Vector3T<T> MatrixT<T, R, C>::up() const
 }
 
 template <arithmetic T, size_t R, size_t C>
+[[nodiscard]]
 inline Vector3T<T> MatrixT<T, R, C>::down() const
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
@@ -442,12 +460,14 @@ inline Vector3T<T> MatrixT<T, R, C>::down() const
 }
 
 template <arithmetic T, size_t R, size_t C>
+[[nodiscard]]
 inline constexpr T* MatrixT<T, R, C>::data()
 {
 	return &m_[0][0];
 }
 
 template <arithmetic T, size_t R, size_t C>
+[[nodiscard]]
 inline constexpr const T* MatrixT<T, R, C>::data() const
 {
 	return &m_[0][0];
