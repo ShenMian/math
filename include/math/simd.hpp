@@ -5,7 +5,6 @@
 
 #include "matrix/matrix.hpp"
 #include "vector/vector.hpp"
-#include <xmmintrin.h>
 
 #if defined(_MSC_VER) && (defined(_M_X64) || defined(_M_IX86))
 	#define USE_SSE
@@ -17,30 +16,60 @@
 	#error "Do not support SSE"
 #endif
 
+#ifdef USE_SSE
+	#include <xmmintrin.h>
+#endif
+
 namespace simd
 {
 
 #ifdef USE_SSE
 
+inline void loadu(__m128 m[4], const float* mat) noexcept
+{
+	m[0] = _mm_loadu_ps(&mat[0 * 4]);
+	m[1] = _mm_loadu_ps(&mat[1 * 4]);
+	m[2] = _mm_loadu_ps(&mat[2 * 4]);
+	m[3] = _mm_loadu_ps(&mat[3 * 4]);
+}
+
 inline void load(__m128 m[4], const float* mat) noexcept
 {
-    m[0] = _mm_load_ps(&mat[0 * 4]);
+	m[0] = _mm_load_ps(&mat[0 * 4]);
     m[1] = _mm_load_ps(&mat[1 * 4]);
     m[2] = _mm_load_ps(&mat[2 * 4]);
     m[3] = _mm_load_ps(&mat[3 * 4]);
 }
 
+inline void storeu(float* mat, const __m128 m[4]) noexcept
+{
+	_mm_storeu_ps(&mat[0 * 4], m[0]);
+	_mm_storeu_ps(&mat[1 * 4], m[1]);
+	_mm_storeu_ps(&mat[2 * 4], m[2]);
+	_mm_storeu_ps(&mat[3 * 4], m[3]);
+}
+
 inline void store(float* mat, const __m128 m[4]) noexcept
 {
-    _mm_store_ps(&mat[0 * 4], m[0]);
+	_mm_store_ps(&mat[0 * 4], m[0]);
     _mm_store_ps(&mat[1 * 4], m[1]);
     _mm_store_ps(&mat[2 * 4], m[2]);
     _mm_store_ps(&mat[3 * 4], m[3]);
 }
 
+inline void loadu(__m128& v, const float* vec) noexcept
+{
+	v = _mm_loadu_ps(vec);
+}
+
 inline void load(__m128& v, const float* vec) noexcept
 {
     v = _mm_load_ps(vec);
+}
+
+inline void storeu(float* vec, const __m128& v) noexcept
+{
+	_mm_storeu_ps(vec, v);
 }
 
 inline void store(float* vec, const __m128& v) noexcept
@@ -185,60 +214,60 @@ inline void vecMulMatrix(const __m128 v, const __m128 m[4], __m128 dst[4]) noexc
 }
 
 
-inline void add(const MatrixT<float, 4, 4>& a, const MatrixT<float, 4, 4>& b, MatrixT<float, 4, 4>& dst) noexcept
+inline void add(const Matrix4f& a, const Matrix4f& b, Matrix4f& dst) noexcept
 {
     __m128 m1[4];
     __m128 m2[4];
-    simd::load(m1, a.data());
-    simd::load(m2, b.data());
-    simd::matrixAdd(m1, m2, m1);
-    simd::store(dst.data(), m1);
+    loadu(m1, a.data());
+    loadu(m2, b.data());
+    matrixAdd(m1, m2, m1);
+    storeu(dst.data(), m1);
 }
 
-inline void sub(const MatrixT<float, 4, 4>& a, const MatrixT<float, 4, 4>& b, MatrixT<float, 4, 4>& dst) noexcept
+inline void sub(const Matrix4f& a, const Matrix4f& b, Matrix4f& dst) noexcept
 {
     __m128 m1[4];
     __m128 m2[4];
-    simd::load(m1, a.data());
-    simd::load(m2, b.data());
-    simd::matrixSub(m1, m2, m1);
-    simd::store(dst.data(), m1);
+    loadu(m1, a.data());
+    loadu(m2, b.data());
+    matrixSub(m1, m2, m1);
+    storeu(dst.data(), m1);
 }
 
-inline void mul(const MatrixT<float, 4, 4>& a, const MatrixT<float, 4, 4>& b, MatrixT<float, 4, 4>& dst) noexcept
+inline void mul(const Matrix4f& a, const Matrix4f& b, Matrix4f& dst) noexcept
 {
     __m128 m1[4];
     __m128 m2[4];
-    simd::load(m1, a.data());
-    simd::load(m2, b.data());
-    simd::matrixMul(m1, m2, m1);
-    simd::store(dst.data(), m1);
+    loadu(m1, a.data());
+    loadu(m2, b.data());
+    matrixMul(m1, m2, m1);
+    storeu(dst.data(), m1);
 }
 
-inline void mul(const MatrixT<float, 4, 4>& a, const VectorT<float, 4>& b, VectorT<float, 4>& dst) noexcept
+inline void mul(const Matrix4f& a, const VectorT<float, 4>& b, VectorT<float, 4>& dst) noexcept
 {
     __m128 m[4];
     __m128 v = {};
-    simd::load(m, a.data());
-    simd::load(v, b.data());
-    simd::matrixMulVec(m, v, v);
-    simd::store(dst.data(), v);
+    loadu(m, a.data());
+    loadu(v, b.data());
+    matrixMulVec(m, v, v);
+    storeu(dst.data(), v);
 }
 
-inline void transpose(const MatrixT<float, 4, 4>& a, MatrixT<float, 4, 4>& dst) noexcept
+inline void transpose(const Matrix4f& a, Matrix4f& dst) noexcept
 {
     __m128 m[4];
-    simd::load(m, a.data());
-    simd::matrixTranspose(m, m);
-    simd::store(dst.data(), m);
+    loadu(m, a.data());
+    matrixTranspose(m, m);
+    storeu(dst.data(), m);
 }
 
-inline void negate(const MatrixT<float, 4, 4>& a, MatrixT<float, 4, 4>& dst) noexcept
+inline void negate(const Matrix4f& a, Matrix4f& dst) noexcept
 {
     __m128 m[4];
-    simd::load(m, a.data());
-    simd::matrixNegate(m, m);
-    simd::store(dst.data(), m);
+    loadu(m, a.data());
+    matrixNegate(m, m);
+    storeu(dst.data(), m);
 }
 
 #endif
