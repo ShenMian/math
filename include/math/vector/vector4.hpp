@@ -123,6 +123,11 @@ public:
 	constexpr T sum() const;
 
 	/**
+	 * @brief 获取分量数.
+	 */
+	constexpr size_t components() const;
+
+	/**
 	 * @brief 获取原始数据.
 	 */
 	constexpr T* data();
@@ -149,8 +154,6 @@ public:
 		stream << vec.x << ' ' << vec.y << ' ' << vec.z << ' ' << vec.w;
 		return stream;
 	}
-
-	static constexpr size_t components = 4;
 
 	static const VectorT unit;   // (1, 1, 1, 1)
 	static const VectorT unit_x; // (1, 0, 0, 0)

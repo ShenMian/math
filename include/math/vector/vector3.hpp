@@ -129,6 +129,11 @@ public:
 	T distanceSquared(const VectorT& point) const;
 
 	/**
+	 * @brief 获取分量数.
+	 */
+	constexpr size_t components() const;
+
+	/**
 	 * @brief 获取原始数据.
 	 */
 	T* data();
@@ -157,8 +162,6 @@ public:
 	}
 
 	static VectorT lerp(const VectorT& from, const VectorT& to, T t);
-
-	static constexpr size_t components = 3;
 
 	static const VectorT unit;   // (1, 1, 1)
 	static const VectorT unit_x; // (1, 0, 0)

@@ -149,6 +149,12 @@ inline T VectorT<T, 2>::distanceSq(const VectorT& point) const
 }
 
 template <arithmetic T>
+constexpr size_t VectorT<T, 2>::components() const
+{
+	return 2;
+}
+
+template <arithmetic T>
 inline T* VectorT<T, 2>::data()
 {
 	return &x;
@@ -163,14 +169,14 @@ inline const T* VectorT<T, 2>::data() const
 template <arithmetic T>
 inline T& VectorT<T, 2>::operator[](size_t index)
 {
-	assert(index < components);
+	assert(index < components());
 	return *(&x + index);
 }
 
 template <arithmetic T>
 inline const T& VectorT<T, 2>::operator[](size_t index) const
 {
-	assert(index < components);
+	assert(index < components());
 	return *(&x + index);
 }
 

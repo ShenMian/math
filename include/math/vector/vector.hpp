@@ -115,6 +115,11 @@ public:
 	constexpr const VectorT& clamp(const VectorT& min, const VectorT& max) noexcept;
 
 	/**
+	 * @brief 获取分量数.
+	 */
+	constexpr size_t components() const;
+
+	/**
 	 * @brief 获取原始数据.
 	 */
 	constexpr T* data();
@@ -152,10 +157,10 @@ public:
 		return stream;
 	}
 
-	static constexpr size_t components = N;
-
 private:
 	T v_[N] = {};
+
+	static constexpr size_t components_ = N;
 };
 
 #include "vector.inl"

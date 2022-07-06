@@ -117,6 +117,12 @@ inline constexpr T VectorT<T, 4>::sum() const
 }
 
 template <arithmetic T>
+constexpr size_t VectorT<T, 4>::components() const
+{
+	return 4;
+}
+
+template <arithmetic T>
 inline constexpr T* VectorT<T, 4>::data()
 {
 	return &x;
@@ -131,14 +137,14 @@ inline constexpr const T* VectorT<T, 4>::data() const
 template <arithmetic T>
 inline T& VectorT<T, 4>::operator[](size_t index)
 {
-	assert(index < components, "subscript out of range");
+	assert(index < components(), "subscript out of range");
 	return *(&x + index);
 }
 
 template <arithmetic T>
 inline const T& VectorT<T, 4>::operator[](size_t index) const
 {
-	assert(index < components, "subscript out of range");
+	assert(index < components(), "subscript out of range");
 	return *(&x + index);
 }
 
