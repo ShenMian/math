@@ -211,7 +211,7 @@ template <arithmetic T, size_t N>
 inline constexpr VectorT<T, N> VectorT<T, N>::lerp(const VectorT& from, const VectorT& to, T t)
 {
 	VectorT result;
-	for(size_t i = 0; i < components(); i++)
+	for(size_t i = 0; i < N; i++)
 		result[i] = std::lerp(from[i], to[i], t);
 	return result;
 }
