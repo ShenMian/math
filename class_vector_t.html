@@ -85,7 +85,7 @@ $(document).ready(function(){initNavTree('class_vector_t.html',''); initResizabl
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public 成员函数</a> &#124;
-<a href="#pub-static-attribs">静态 Public 属性</a> &#124;
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
 <a href="#friends">友元</a> &#124;
 <a href="class_vector_t-members.html">所有成员列表</a>  </div>
   <div class="headertitle"><div class="title">VectorT&lt; T, N &gt; 模板类 参考</div></div>
@@ -146,6 +146,10 @@ constexpr T&#160;</td><td class="memItemRight" valign="bottom"><b>maxCoeff</b> (
 <tr class="memitem:af30ae6ce8330f149cc98d1b287f94843"><td class="memItemLeft" align="right" valign="top">constexpr const <a class="el" href="class_vector_t.html">VectorT</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector_t.html#af30ae6ce8330f149cc98d1b287f94843">clamp</a> (const <a class="el" href="class_vector_t.html">VectorT</a> &amp;min, const <a class="el" href="class_vector_t.html">VectorT</a> &amp;max) noexcept</td></tr>
 <tr class="memdesc:af30ae6ce8330f149cc98d1b287f94843"><td class="mdescLeft">&#160;</td><td class="mdescRight">裁剪到指定范围内.  <a href="class_vector_t.html#af30ae6ce8330f149cc98d1b287f94843">更多...</a><br /></td></tr>
 <tr class="separator:af30ae6ce8330f149cc98d1b287f94843"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a563f20e9cdbbe3c20b5dacdcc921f235"><td class="memItemLeft" align="right" valign="top"><a id="a563f20e9cdbbe3c20b5dacdcc921f235" name="a563f20e9cdbbe3c20b5dacdcc921f235"></a>
+constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>components</b> () const</td></tr>
+<tr class="memdesc:a563f20e9cdbbe3c20b5dacdcc921f235"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取分量数. <br /></td></tr>
+<tr class="separator:a563f20e9cdbbe3c20b5dacdcc921f235"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a567566fc0f96a87e0d3854d57e148b91"><td class="memItemLeft" align="right" valign="top"><a id="a567566fc0f96a87e0d3854d57e148b91" name="a567566fc0f96a87e0d3854d57e148b91"></a>
 constexpr T *&#160;</td><td class="memItemRight" valign="bottom"><b>data</b> ()</td></tr>
 <tr class="memdesc:a567566fc0f96a87e0d3854d57e148b91"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取原始数据. <br /></td></tr>
@@ -182,11 +186,11 @@ template&lt;typename C &gt; </td></tr>
 <tr class="memitem:abe32b8188886bd6b55dbc167fadb45de"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator VectorT&lt; C, N &gt;</b> ()</td></tr>
 <tr class="separator:abe32b8188886bd6b55dbc167fadb45de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
-静态 Public 属性</h2></td></tr>
-<tr class="memitem:aa4dbae3d8cfb4e4fef78885ddbca68b8"><td class="memItemLeft" align="right" valign="top"><a id="aa4dbae3d8cfb4e4fef78885ddbca68b8" name="aa4dbae3d8cfb4e4fef78885ddbca68b8"></a>
-static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>components</b> = N</td></tr>
-<tr class="separator:aa4dbae3d8cfb4e4fef78885ddbca68b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:a4b13de440c9e00b868999b3b446bf053"><td class="memItemLeft" align="right" valign="top"><a id="a4b13de440c9e00b868999b3b446bf053" name="a4b13de440c9e00b868999b3b446bf053"></a>
+static constexpr <a class="el" href="class_vector_t.html">VectorT</a>&#160;</td><td class="memItemRight" valign="bottom"><b>lerp</b> (const <a class="el" href="class_vector_t.html">VectorT</a> &amp;from, const <a class="el" href="class_vector_t.html">VectorT</a> &amp;to, T t)</td></tr>
+<tr class="separator:a4b13de440c9e00b868999b3b446bf053"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 友元</h2></td></tr>
