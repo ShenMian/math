@@ -3,7 +3,6 @@
 
 #include <math/math.hpp>
 #include <doctest/doctest.h>
-#include <sstream>
 
 TEST_CASE("Vector::subscript")
 {
@@ -81,5 +80,5 @@ TEST_CASE("Vector::io")
 	Vectorf<5> vec({1.f, 2.f, 3.f, 4.f, 5.f});
 	std::ostringstream stream;
 	stream << vec;
-	CHECK_EQ(stream.str(), " 1.00  2.00  3.00  4.00  5.00");
+	CHECK_EQ(stream.str(), "1 2 3 4 5 ");
 }

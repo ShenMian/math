@@ -267,5 +267,5 @@ TEST_CASE("Matrix::io")
 	};
 	std::ostringstream stream;
 	stream << a;
-	CHECK_EQ(stream.str(), " 1.00  2.00\n 3.00  4.00\n");
+	CHECK_EQ(stream.str(), "1 2 \n3 4 \n");
 }

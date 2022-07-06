@@ -151,7 +151,28 @@ public:
 
 	friend std::ostream& operator<<(std::ostream& stream, const VectorT& vec)
 	{
-		stream << vec.x << ' ' << vec.y << ' ' << vec.z << ' ' << vec.w;
+		size_t max = 0;
+		for(size_t i = 0; i < 4; i++)
+		{
+			std::ostringstream stm;
+			stm << vec[i];
+			const auto size = stm.str().size();
+			max = std::max(max, size);
+		}
+		max = std::min<size_t>(max, 6);
+		for(size_t i = 0; i < 4; i++)
+		{
+			std::ostringstream stm;
+			stm.setf(std::ios::fixed);
+			stm.precision(6);
+			stm << vec[i];
+			auto str = stm.str();
+			str.erase(str.find_last_not_of('0') + 1);
+			if(str.back() == '.')
+				str.pop_back();
+			stream.width(max);
+			stream << str << ' ';
+		}
 		return stream;
 	}
 

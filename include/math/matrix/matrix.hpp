@@ -223,16 +223,36 @@ public:
 
 	friend std::ostream& operator<<(std::ostream& stream, const MatrixT& mat)
 	{
-		stream << std::setiosflags(std::ios::fixed) << std::setprecision(2);
+		size_t max = 0;
 		for(size_t r = 0; r < R; r++)
 		{
-			for(size_t c = 0; c < C - 1; c++)
+			for(size_t c = 0; c < C; c++)
 			{
-				stream.width(5);
-				stream << mat(r, c) << ' ';
+
+				std::ostringstream stm;
+				stm << mat(r, c);
+				const auto size = stm.str().size();
+				max = std::max(max, size);
 			}
-			stream.width(5);
-			stream << mat(r, C - 1) << '\n';
+		}
+		max = std::min<size_t>(max, 6);
+
+		for(size_t r = 0; r < R; r++)
+		{
+			for(size_t c = 0; c < C; c++)
+			{
+				std::ostringstream stm;
+				stm.setf(std::ios::fixed);
+				stm.precision(6);
+				stm << mat(r, c);
+				auto str = stm.str();
+				str.erase(str.find_last_not_of('0') + 1);
+				if(str.back() == '.')
+					str.pop_back();
+				stream.width(max);
+				stream << str << ' ';
+			}
+			stream << '\n';
 		}
 		return stream;
 	}
