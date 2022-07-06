@@ -7,10 +7,9 @@ jobs:
     strategy:
       matrix:
         os: [windows-latest, ubuntu-latest]
-        arch: [x64, x86]
         type: [Debug, Release]
 
-    name: ${{matrix.os}}-${{matrix.arch}}-${{matrix.type}}
+    name: ${{matrix.os}}-${{matrix.type}}
     runs-on: ${{matrix.os}}
 
     steps:
@@ -31,7 +30,7 @@ jobs:
         run: echo "PATH=$PATH:C:\msys64\mingw64\bin" >> $GITHUB_ENV
 
       - name: Configure CMake
-        run: cmake -B "${{github.workspace}}/build" -DCMAKE_GENERATOR_PLATFORM=${{matrix.arch}} -DCMAKE_BUILD_TYPE=${{matrix.type}}
+        run: cmake -B "${{github.workspace}}/build" -DCMAKE_BUILD_TYPE=${{matrix.type}}
 
       - name: Build
         run: cmake --build "${{github.workspace}}/build" --config ${{matrix.type}}
