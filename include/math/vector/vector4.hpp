@@ -10,7 +10,7 @@
  * @brief 三维向量.
  */
 template <arithmetic T>
-class alignas(sizeof(T)) VectorT<T, 4>
+class VectorT<T, 4>
 {
 public:
 	union

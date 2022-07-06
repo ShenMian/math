@@ -7,7 +7,7 @@
 #include "../Vector/vector3.hpp"
 
 template <arithmetic T, size_t N>
-class alignas(sizeof(T)) MatrixT<T, N, N>
+class MatrixT<T, N, N>
 {
 public:
     /**

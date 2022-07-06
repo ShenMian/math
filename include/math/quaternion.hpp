@@ -12,7 +12,7 @@
  * @brief 四元数.
  */
 template <std::floating_point T>
-class alignas(sizeof(T)) QuaternionT
+class QuaternionT
 {
 public:
 	T x = T();
