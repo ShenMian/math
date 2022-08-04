@@ -11,3 +11,9 @@ TEST_CASE("Quaternion::eular")
 	quat.eular(angles);
 	// EXPECT_EQ(quat.eular(), angles);
 }
+
+TEST_CASE("Quaternion::normalize")
+{
+	Quaternion quat(0.f, 0.f, 0.f, 0.f);
+	CHECK_EQ(quat.normalize(), quat);
+}
