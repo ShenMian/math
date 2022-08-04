@@ -5,6 +5,25 @@
 #include <doctest/doctest.h>
 #include <sstream>
 
+TEST_CASE("Matrix::operator==")
+{
+	Matrix2f a = {
+		1, 2,
+		3, 4
+	};
+	Matrix2f b = {
+		1, 2,
+		3, 4
+	};
+	Matrix2f c = {
+		0, 2,
+		3, 4
+	};
+
+	CHECK_EQ(a, b);
+	CHECK_NE(a, c);
+}
+
 TEST_CASE("Matrix::operator()")
 {
 	Matrix2f a;
