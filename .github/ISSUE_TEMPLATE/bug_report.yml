@@ -1,0 +1,38 @@
+name: 'Bug Report'
+description: 'Report a bug, something does not work as it supposed to'
+title: 'SHORT DESCRIPTION'
+labels: bug
+body:
+- type: markdown
+  attributes:
+    value: |
+      Please don't forget to update the issue title.
+      Include all applicable information to help us reproduce your problem.
+
+- type: textarea
+  attributes:
+    label: Environment
+    description: include every applicable attribute
+    value: |
+     - Version/HEAD commit id: **d7691a2ebaa95f9c5317fe9a5a723b24c0a3268e**
+     - Operating System+version: **Linux Ubuntu 18.04**
+     - Compiler+version: **Clang 14**
+  validations:
+    required: true
+
+- type: textarea
+  attributes:
+    label: Description
+    description: Description of the problem
+
+- type: textarea
+  attributes:
+    label: Steps to reproduce
+    description: Include if applicable
+  validations:
+    required: true
+
+- type: textarea
+  attributes:
+    label: Additional
+    description: Include if applicable. Such as logs / screenshots / files, etc
