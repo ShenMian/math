@@ -36,7 +36,17 @@ jobs:
         run: cmake --build "${{github.workspace}}/build" --config ${{matrix.type}}
 
       - name: Test
-        run: cd build && ctest -VV -C ${{matrix.type}}
+        working-directory: ${{github.workspace}}/build/bin
+        run: ./unit_test --reporters=junit --out=report.xml
+
+      - name: Test Reporter
+        uses: dorny/test-reporter@v1.5.0
+        if: success() || failure()
+        with:
+          name: tests report (${{matrix.os}}-${{matrix.type}})
+          path: report.xml
+          working-directory: ${{github.workspace}}/build/bin
+          reporter: java-junit
 
       - name: Setup coverage report generator (Linux)
         if: matrix.os == 'ubuntu-latest'
@@ -54,11 +64,11 @@ jobs:
 
       - name: Generate coverage report (Windows)
         if: matrix.os == 'windows-latest'
-        run: OpenCppCoverage.exe --sources "${{github.workspace}}" --export_type cobertura:report.xml -- "${{github.workspace}}/build/bin/${{matrix.build_type}}/unit_test.exe"
+        run: OpenCppCoverage.exe --sources "${{github.workspace}}" --export_type cobertura:coverage_report.xml -- "${{github.workspace}}/build/bin/${{matrix.build_type}}/unit_test.exe"
 
       - name: Upload coverage report to Codecov (Windows)
         if: matrix.os == 'windows-latest'
         uses: codecov/codecov-action@v2.1.0
         with:
-          files: ./report.xml
+          files: ./coverage_report.xml
           fail_ci_if_error: true
