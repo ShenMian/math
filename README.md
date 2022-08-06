@@ -12,8 +12,10 @@ A simple linear algebra header-only library.
 
 ## Features
 
-- Some operations support SIMD: SSE.
-- Some operations support compile-time computation: C++14 constexpr.
+Some operations support:  
+
+- SIMD: SSE.
+- Compile-time computation: C++14 constexpr.
 
 ## Documentation
 
