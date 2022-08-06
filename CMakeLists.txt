@@ -16,6 +16,11 @@ if(NOT DEFINED CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Debug)
 endif()
 
+# 默认生成 compiler database
+if(NOT DEFINED CMAKE_BUILD_TYPE)
+    set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+endif()
+
 # 选项
 option(BUILD_TESTS "Build tests" ON)
 
