@@ -238,118 +238,118 @@ $(document).ready(function(){initNavTree('easing_8hpp_source.html',''); initResi
 <div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>        <span class="keywordflow">return</span> c / 2 * (sqrt(1 - t * t) + 1) + b;</div>
 <div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>    }</div>
 <div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span> </div>
-<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>    <span class="keyword">static</span> <span class="keywordtype">float</span> easeInElastic(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> c, <span class="keywordtype">float</span> d)</div>
-<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>    {</div>
-<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>        <span class="keywordtype">float</span> s = 1.70158f;</div>
-<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>        <span class="keywordtype">float</span> p = 0;</div>
-<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>        <span class="keywordtype">float</span> a = c;</div>
-<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>        <span class="keywordflow">if</span>(t == 0)</div>
-<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>            <span class="keywordflow">return</span> b;</div>
-<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>        <span class="keywordflow">if</span>((t /= d) == 1)</div>
-<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>            <span class="keywordflow">return</span> b + c;</div>
-<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>        <span class="keywordflow">if</span>(!p)</div>
-<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>            p = d * .3f;</div>
-<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>        <span class="keywordflow">if</span>(a &lt; abs(c))</div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>        {</div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>            a = c;</div>
-<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>            s = p / 4;</div>
-<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>        }</div>
-<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>            s = p / (2 * std::numbers::pi) * asin(c / a);</div>
-<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>        <span class="keywordflow">return</span> -(a * pow(2, 10 * (--t)) * sin((t * d - s) * (2 * std::numbers::pi) / p)) + b;</div>
-<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>    }</div>
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span> </div>
-<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>    <span class="keyword">static</span> <span class="keywordtype">float</span> easeOutElastic(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> c, <span class="keywordtype">float</span> d)</div>
-<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>    {</div>
-<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>        <span class="keywordtype">float</span> s = 1.70158f;</div>
-<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>        <span class="keywordtype">float</span> p = 0;</div>
-<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>        <span class="keywordtype">float</span> a = c;</div>
-<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>        <span class="keywordflow">if</span>(t == 0)</div>
-<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>            <span class="keywordflow">return</span> b;</div>
-<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>        <span class="keywordflow">if</span>((t /= d) == 1)</div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>            <span class="keywordflow">return</span> b + c;</div>
-<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>        <span class="keywordflow">if</span>(!p)</div>
-<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>            p = d * .3f;</div>
-<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>        <span class="keywordflow">if</span>(a &lt; abs(c))</div>
-<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>        {</div>
-<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>            a = c;</div>
-<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>            s = p / 4;</div>
-<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>        }</div>
-<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>            s = p / (2 * std::numbers::pi) * asin(c / a);</div>
-<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>        <span class="keywordflow">return</span> a * pow(2, -10 * t) * sin((t * d - s) * (2 * std::numbers::pi) / p) + c + b;</div>
-<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>    }</div>
-<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span> </div>
-<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>    <span class="keyword">static</span> <span class="keywordtype">float</span> easeInOutElastic(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> c, <span class="keywordtype">float</span> d)</div>
-<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>    {</div>
-<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>        <span class="keywordtype">float</span> s = 1.70158f;</div>
-<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>        <span class="keywordtype">float</span> p = 0;</div>
-<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>        <span class="keywordtype">float</span> a = c;</div>
-<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>        <span class="keywordflow">if</span>(t == 0)</div>
-<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>            <span class="keywordflow">return</span> b;</div>
-<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>        <span class="keywordflow">if</span>((t /= d / 2) == 2)</div>
-<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>            <span class="keywordflow">return</span> b + c;</div>
-<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>        <span class="keywordflow">if</span>(!p)</div>
-<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>            p = d * (.3f * 1.5f);</div>
-<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span>        <span class="keywordflow">if</span>(a &lt; abs(c))</div>
-<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>        {</div>
-<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span>            a = c;</div>
-<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>            s = p / 4;</div>
-<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>        }</div>
-<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>            s = p / (2 * std::numbers::pi) * asin(c / a);</div>
-<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>        <span class="keywordflow">if</span>(t &lt; 1)</div>
-<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>            <span class="keywordflow">return</span> -.5f * (a * pow(2, 10 * (--t)) * sin((t * d - s) * (2 * std::numbers::pi) / p)) + b;</div>
-<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>        <span class="keywordflow">return</span> a * pow(2, -10 * (--t)) * sin((t * d - s) * (2 * std::numbers::pi) / p) * .5f + c + b;</div>
-<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>    }</div>
-<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span> </div>
-<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>    <span class="keyword">static</span> <span class="keywordtype">float</span> easeInBack(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> c, <span class="keywordtype">float</span> d, <span class="keywordtype">float</span> s)</div>
-<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>    {</div>
-<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>        <span class="keywordflow">if</span>(s == 0)</div>
-<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>            s = 1.70158f;</div>
-<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>        <span class="keywordflow">return</span> c * (t /= d) * t * ((s + 1) * t - s) + b;</div>
-<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>    }</div>
-<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span> </div>
-<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>    <span class="keyword">static</span> <span class="keywordtype">float</span> easeOutBack(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> c, <span class="keywordtype">float</span> d, <span class="keywordtype">float</span> s)</div>
-<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>    {</div>
-<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>        <span class="keywordflow">if</span>(s == 0)</div>
-<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>            s = 1.70158f;</div>
-<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>        <span class="keywordflow">return</span> c * ((t = t / d - 1) * t * ((s + 1) * t + s) + 1) + b;</div>
-<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>    }</div>
-<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span> </div>
-<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span>    <span class="keyword">static</span> <span class="keywordtype">float</span> easeInOutBack(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> c, <span class="keywordtype">float</span> d, <span class="keywordtype">float</span> s)</div>
-<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>    {</div>
-<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>        <span class="keywordflow">if</span>(s == 0)</div>
-<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>            s = 1.70158f;</div>
-<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>        <span class="keywordflow">if</span>((t /= d / 2) &lt; 1)</div>
-<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>            <span class="keywordflow">return</span> c / 2 * (t * t * (((s *= (1.525f)) + 1) * t - s)) + b;</div>
-<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>        <span class="keywordflow">return</span> c / 2 * ((t -= 2) * t * (((s *= (1.525f)) + 1) * t + s) + 2) + b;</div>
-<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>    }</div>
-<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span> </div>
-<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>    <span class="keyword">static</span> <span class="keywordtype">float</span> easeInBounce(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> c, <span class="keywordtype">float</span> d)</div>
-<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>    {</div>
-<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>        <span class="keywordflow">return</span> c - easeOutBounce(d - t, 0, c, d) + b;</div>
-<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>    }</div>
-<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span> </div>
-<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>    <span class="keyword">static</span> <span class="keywordtype">float</span> easeOutBounce(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> c, <span class="keywordtype">float</span> d)</div>
-<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span>    {</div>
-<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span>        <span class="keywordflow">if</span>((t /= d) &lt; (1 / 2.75f))</div>
-<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>            <span class="keywordflow">return</span> c * (7.5625f * t * t) + b;</div>
-<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(t &lt; (2 / 2.75f))</div>
-<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>            <span class="keywordflow">return</span> c * (7.5625f * (t -= (1.5f / 2.75f)) * t + .75f) + b;</div>
-<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(t &lt; (2.5f / 2.75f))</div>
-<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span>            <span class="keywordflow">return</span> c * (7.5625f * (t -= (2.25f / 2.75f)) * t + .9375f) + b;</div>
-<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span>            <span class="keywordflow">return</span> c * (7.5625f * (t -= (2.625f / 2.75f)) * t + .984375f) + b;</div>
-<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span>    }</div>
-<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span> </div>
-<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span>    <span class="keyword">static</span> <span class="keywordtype">float</span> easeInOutBounce(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> c, <span class="keywordtype">float</span> d)</div>
-<div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span>    {</div>
-<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span>        <span class="keywordflow">if</span>(t &lt; d / 2)</div>
-<div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span>            <span class="keywordflow">return</span> easeInBounce(t * 2, 0, c, d) * .5f + b;</div>
-<div class="line"><a id="l00438" name="l00438"></a><span class="lineno">  438</span>        <span class="keywordflow">return</span> easeOutBounce(t * 2 - d, 0, c, d) * .5f + c * .5f + b;</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno"><a class="line" href="class_easing.html#aeb0a15b41578d353c59cd289e62822e1">  337</a></span>    <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_function" href="class_easing.html#aeb0a15b41578d353c59cd289e62822e1">easeInElastic</a>(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> c, <span class="keywordtype">float</span> d)</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>    {</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>        <span class="keywordtype">float</span> s = 1.70158f;</div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>        <span class="keywordtype">float</span> p = 0;</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>        <span class="keywordtype">float</span> a = c;</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>        <span class="keywordflow">if</span>(t == 0)</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>            <span class="keywordflow">return</span> b;</div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>        <span class="keywordflow">if</span>((t /= d) == 1)</div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>            <span class="keywordflow">return</span> b + c;</div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>        <span class="keywordflow">if</span>(!p)</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>            p = d * .3f;</div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>        <span class="keywordflow">if</span>(a &lt; abs(c))</div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>        {</div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>            a = c;</div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>            s = p / 4;</div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>        }</div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>            s = p / (2 * std::numbers::pi) * asin(c / a);</div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>        <span class="keywordflow">return</span> -(a * pow(2, 10 * (--t)) * sin((t * d - s) * (2 * std::numbers::pi) / p)) + b;</div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>    }</div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span> </div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno"><a class="line" href="class_easing.html#aa6a82fb82b78348bc1b15820425dfd24">  366</a></span>    <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_function" href="class_easing.html#aa6a82fb82b78348bc1b15820425dfd24">easeOutElastic</a>(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> c, <span class="keywordtype">float</span> d)</div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>    {</div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>        <span class="keywordtype">float</span> s = 1.70158f;</div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>        <span class="keywordtype">float</span> p = 0;</div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>        <span class="keywordtype">float</span> a = c;</div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>        <span class="keywordflow">if</span>(t == 0)</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>            <span class="keywordflow">return</span> b;</div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>        <span class="keywordflow">if</span>((t /= d) == 1)</div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>            <span class="keywordflow">return</span> b + c;</div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>        <span class="keywordflow">if</span>(!p)</div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>            p = d * .3f;</div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>        <span class="keywordflow">if</span>(a &lt; abs(c))</div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>        {</div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>            a = c;</div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>            s = p / 4;</div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>        }</div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>            s = p / (2 * std::numbers::pi) * asin(c / a);</div>
+<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span>        <span class="keywordflow">return</span> a * pow(2, -10 * t) * sin((t * d - s) * (2 * std::numbers::pi) / p) + c + b;</div>
+<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>    }</div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span> </div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno"><a class="line" href="class_easing.html#a9a7c4f42edae10e43c8f31d7e8121cf4">  395</a></span>    <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_function" href="class_easing.html#a9a7c4f42edae10e43c8f31d7e8121cf4">easeInOutElastic</a>(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> c, <span class="keywordtype">float</span> d)</div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>    {</div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>        <span class="keywordtype">float</span> s = 1.70158f;</div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>        <span class="keywordtype">float</span> p = 0;</div>
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>        <span class="keywordtype">float</span> a = c;</div>
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>        <span class="keywordflow">if</span>(t == 0)</div>
+<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>            <span class="keywordflow">return</span> b;</div>
+<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>        <span class="keywordflow">if</span>((t /= d / 2) == 2)</div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>            <span class="keywordflow">return</span> b + c;</div>
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>        <span class="keywordflow">if</span>(!p)</div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>            p = d * (.3f * 1.5f);</div>
+<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>        <span class="keywordflow">if</span>(a &lt; abs(c))</div>
+<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>        {</div>
+<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span>            a = c;</div>
+<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>            s = p / 4;</div>
+<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>        }</div>
+<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>            s = p / (2 * std::numbers::pi) * asin(c / a);</div>
+<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>        <span class="keywordflow">if</span>(t &lt; 1)</div>
+<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>            <span class="keywordflow">return</span> -.5f * (a * pow(2, 10 * (--t)) * sin((t * d - s) * (2 * std::numbers::pi) / p)) + b;</div>
+<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>        <span class="keywordflow">return</span> a * pow(2, -10 * (--t)) * sin((t * d - s) * (2 * std::numbers::pi) / p) * .5f + c + b;</div>
+<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>    }</div>
+<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span> </div>
+<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>    <span class="keyword">static</span> <span class="keywordtype">float</span> easeInBack(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> c, <span class="keywordtype">float</span> d, <span class="keywordtype">float</span> s)</div>
+<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>    {</div>
+<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>        <span class="keywordflow">if</span>(s == 0)</div>
+<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>            s = 1.70158f;</div>
+<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>        <span class="keywordflow">return</span> c * (t /= d) * t * ((s + 1) * t - s) + b;</div>
+<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span>    }</div>
+<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span> </div>
+<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>    <span class="keyword">static</span> <span class="keywordtype">float</span> easeOutBack(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> c, <span class="keywordtype">float</span> d, <span class="keywordtype">float</span> s)</div>
+<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>    {</div>
+<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>        <span class="keywordflow">if</span>(s == 0)</div>
+<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>            s = 1.70158f;</div>
+<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span>        <span class="keywordflow">return</span> c * ((t = t / d - 1) * t * ((s + 1) * t + s) + 1) + b;</div>
+<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span>    }</div>
+<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span> </div>
+<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span>    <span class="keyword">static</span> <span class="keywordtype">float</span> easeInOutBack(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> c, <span class="keywordtype">float</span> d, <span class="keywordtype">float</span> s)</div>
+<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span>    {</div>
+<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span>        <span class="keywordflow">if</span>(s == 0)</div>
+<div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span>            s = 1.70158f;</div>
+<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span>        <span class="keywordflow">if</span>((t /= d / 2) &lt; 1)</div>
+<div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span>            <span class="keywordflow">return</span> c / 2 * (t * t * (((s *= (1.525f)) + 1) * t - s)) + b;</div>
+<div class="line"><a id="l00438" name="l00438"></a><span class="lineno">  438</span>        <span class="keywordflow">return</span> c / 2 * ((t -= 2) * t * (((s *= (1.525f)) + 1) * t + s) + 2) + b;</div>
 <div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span>    }</div>
-<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span>};</div>
+<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span> </div>
+<div class="line"><a id="l00449" name="l00449"></a><span class="lineno"><a class="line" href="class_easing.html#a5fa30553c101a0a8613c1b09fe660040">  449</a></span>    <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_function" href="class_easing.html#a5fa30553c101a0a8613c1b09fe660040">easeInBounce</a>(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> c, <span class="keywordtype">float</span> d)</div>
+<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span>    {</div>
+<div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span>        <span class="keywordflow">return</span> c - <a class="code hl_function" href="class_easing.html#ac39c17b9753b00d9c87060b82f815422">easeOutBounce</a>(d - t, 0, c, d) + b;</div>
+<div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span>    }</div>
+<div class="line"><a id="l00453" name="l00453"></a><span class="lineno">  453</span> </div>
+<div class="line"><a id="l00462" name="l00462"></a><span class="lineno"><a class="line" href="class_easing.html#ac39c17b9753b00d9c87060b82f815422">  462</a></span>    <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_function" href="class_easing.html#ac39c17b9753b00d9c87060b82f815422">easeOutBounce</a>(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> c, <span class="keywordtype">float</span> d)</div>
+<div class="line"><a id="l00463" name="l00463"></a><span class="lineno">  463</span>    {</div>
+<div class="line"><a id="l00464" name="l00464"></a><span class="lineno">  464</span>        <span class="keywordflow">if</span>((t /= d) &lt; (1 / 2.75f))</div>
+<div class="line"><a id="l00465" name="l00465"></a><span class="lineno">  465</span>            <span class="keywordflow">return</span> c * (7.5625f * t * t) + b;</div>
+<div class="line"><a id="l00466" name="l00466"></a><span class="lineno">  466</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(t &lt; (2 / 2.75f))</div>
+<div class="line"><a id="l00467" name="l00467"></a><span class="lineno">  467</span>            <span class="keywordflow">return</span> c * (7.5625f * (t -= (1.5f / 2.75f)) * t + .75f) + b;</div>
+<div class="line"><a id="l00468" name="l00468"></a><span class="lineno">  468</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(t &lt; (2.5f / 2.75f))</div>
+<div class="line"><a id="l00469" name="l00469"></a><span class="lineno">  469</span>            <span class="keywordflow">return</span> c * (7.5625f * (t -= (2.25f / 2.75f)) * t + .9375f) + b;</div>
+<div class="line"><a id="l00470" name="l00470"></a><span class="lineno">  470</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00471" name="l00471"></a><span class="lineno">  471</span>            <span class="keywordflow">return</span> c * (7.5625f * (t -= (2.625f / 2.75f)) * t + .984375f) + b;</div>
+<div class="line"><a id="l00472" name="l00472"></a><span class="lineno">  472</span>    }</div>
+<div class="line"><a id="l00473" name="l00473"></a><span class="lineno">  473</span> </div>
+<div class="line"><a id="l00482" name="l00482"></a><span class="lineno"><a class="line" href="class_easing.html#ac192a63dcf10a98346f21f752b305ad9">  482</a></span>    <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_function" href="class_easing.html#ac192a63dcf10a98346f21f752b305ad9">easeInOutBounce</a>(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> c, <span class="keywordtype">float</span> d)</div>
+<div class="line"><a id="l00483" name="l00483"></a><span class="lineno">  483</span>    {</div>
+<div class="line"><a id="l00484" name="l00484"></a><span class="lineno">  484</span>        <span class="keywordflow">if</span>(t &lt; d / 2)</div>
+<div class="line"><a id="l00485" name="l00485"></a><span class="lineno">  485</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="class_easing.html#a5fa30553c101a0a8613c1b09fe660040">easeInBounce</a>(t * 2, 0, c, d) * .5f + b;</div>
+<div class="line"><a id="l00486" name="l00486"></a><span class="lineno">  486</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="class_easing.html#ac39c17b9753b00d9c87060b82f815422">easeOutBounce</a>(t * 2 - d, 0, c, d) * .5f + c * .5f + b;</div>
+<div class="line"><a id="l00487" name="l00487"></a><span class="lineno">  487</span>    }</div>
+<div class="line"><a id="l00488" name="l00488"></a><span class="lineno">  488</span>};</div>
 <div class="ttc" id="aclass_easing_html"><div class="ttname"><a href="class_easing.html">Easing</a></div><div class="ttdef"><b>Definition:</b> easing.hpp:10</div></div>
 <div class="ttc" id="aclass_easing_html_a05c66a14c31281cbb689f5a1b85b35bd"><div class="ttname"><a href="class_easing.html#a05c66a14c31281cbb689f5a1b85b35bd">Easing::easeInOutQuad</a></div><div class="ttdeci">static float easeInOutQuad(float t, float b, float c, float d)</div><div class="ttdoc">二次方淡入并淡出.</div><div class="ttdef"><b>Definition:</b> easing.hpp:59</div></div>
 <div class="ttc" id="aclass_easing_html_a12afa8744b27be960b255c6fa780c2e3"><div class="ttname"><a href="class_easing.html#a12afa8744b27be960b255c6fa780c2e3">Easing::easeInExpo</a></div><div class="ttdeci">static float easeInExpo(float t, float b, float c, float d)</div><div class="ttdoc">指数淡入.</div><div class="ttdef"><b>Definition:</b> easing.hpp:249</div></div>
@@ -360,15 +360,21 @@ $(document).ready(function(){initNavTree('easing_8hpp_source.html',''); initResi
 <div class="ttc" id="aclass_easing_html_a56d70c09aebea6fb1d0b890f5d00d351"><div class="ttname"><a href="class_easing.html#a56d70c09aebea6fb1d0b890f5d00d351">Easing::easeOutCirc</a></div><div class="ttdeci">static float easeOutCirc(float t, float b, float c, float d)</div><div class="ttdoc">圆形淡出.</div><div class="ttdef"><b>Definition:</b> easing.hpp:306</div></div>
 <div class="ttc" id="aclass_easing_html_a5c8c00f0d94dfd635820f96f9cdc1121"><div class="ttname"><a href="class_easing.html#a5c8c00f0d94dfd635820f96f9cdc1121">Easing::easeInQuart</a></div><div class="ttdeci">static float easeInQuart(float t, float b, float c, float d)</div><div class="ttdoc">四次方淡入.</div><div class="ttdef"><b>Definition:</b> easing.hpp:120</div></div>
 <div class="ttc" id="aclass_easing_html_a5ca8b2e9eac3b6391ae9445f8a637280"><div class="ttname"><a href="class_easing.html#a5ca8b2e9eac3b6391ae9445f8a637280">Easing::easeInOutCirc</a></div><div class="ttdeci">static float easeInOutCirc(float t, float b, float c, float d)</div><div class="ttdoc">圆形淡入并淡出.</div><div class="ttdef"><b>Definition:</b> easing.hpp:320</div></div>
+<div class="ttc" id="aclass_easing_html_a5fa30553c101a0a8613c1b09fe660040"><div class="ttname"><a href="class_easing.html#a5fa30553c101a0a8613c1b09fe660040">Easing::easeInBounce</a></div><div class="ttdeci">static float easeInBounce(float t, float b, float c, float d)</div><div class="ttdoc">反弹淡入.</div><div class="ttdef"><b>Definition:</b> easing.hpp:449</div></div>
 <div class="ttc" id="aclass_easing_html_a7c8ac8340191380eff310b19094a8517"><div class="ttname"><a href="class_easing.html#a7c8ac8340191380eff310b19094a8517">Easing::easeInCirc</a></div><div class="ttdeci">static float easeInCirc(float t, float b, float c, float d)</div><div class="ttdoc">圆形淡入.</div><div class="ttdef"><b>Definition:</b> easing.hpp:292</div></div>
 <div class="ttc" id="aclass_easing_html_a873d1c66ec8092a6337290e35c6766f5"><div class="ttname"><a href="class_easing.html#a873d1c66ec8092a6337290e35c6766f5">Easing::easeInCubic</a></div><div class="ttdeci">static float easeInCubic(float t, float b, float c, float d)</div><div class="ttdoc">三次方淡入.</div><div class="ttdef"><b>Definition:</b> easing.hpp:76</div></div>
 <div class="ttc" id="aclass_easing_html_a90355edef57be6ef8e4693741d0e7f7a"><div class="ttname"><a href="class_easing.html#a90355edef57be6ef8e4693741d0e7f7a">Easing::easeOutCubic</a></div><div class="ttdeci">static float easeOutCubic(float t, float b, float c, float d)</div><div class="ttdoc">三次方淡出.</div><div class="ttdef"><b>Definition:</b> easing.hpp:89</div></div>
+<div class="ttc" id="aclass_easing_html_a9a7c4f42edae10e43c8f31d7e8121cf4"><div class="ttname"><a href="class_easing.html#a9a7c4f42edae10e43c8f31d7e8121cf4">Easing::easeInOutElastic</a></div><div class="ttdeci">static float easeInOutElastic(float t, float b, float c, float d)</div><div class="ttdoc">弹性淡入并淡出.</div><div class="ttdef"><b>Definition:</b> easing.hpp:395</div></div>
 <div class="ttc" id="aclass_easing_html_a9d52dd45bb98675186f7e5fd670493a9"><div class="ttname"><a href="class_easing.html#a9d52dd45bb98675186f7e5fd670493a9">Easing::easeInSine</a></div><div class="ttdeci">static float easeInSine(float t, float b, float c, float d)</div><div class="ttdoc">正弦淡入.</div><div class="ttdef"><b>Definition:</b> easing.hpp:210</div></div>
 <div class="ttc" id="aclass_easing_html_aa0ac32803bda093d7b97b33f97b7f14e"><div class="ttname"><a href="class_easing.html#aa0ac32803bda093d7b97b33f97b7f14e">Easing::easeOutQuart</a></div><div class="ttdeci">static float easeOutQuart(float t, float b, float c, float d)</div><div class="ttdoc">四次方淡出.</div><div class="ttdef"><b>Definition:</b> easing.hpp:134</div></div>
+<div class="ttc" id="aclass_easing_html_aa6a82fb82b78348bc1b15820425dfd24"><div class="ttname"><a href="class_easing.html#aa6a82fb82b78348bc1b15820425dfd24">Easing::easeOutElastic</a></div><div class="ttdeci">static float easeOutElastic(float t, float b, float c, float d)</div><div class="ttdoc">弹性淡出.</div><div class="ttdef"><b>Definition:</b> easing.hpp:366</div></div>
 <div class="ttc" id="aclass_easing_html_ab1f9af476fc14bec85182b8e295bed4f"><div class="ttname"><a href="class_easing.html#ab1f9af476fc14bec85182b8e295bed4f">Easing::easeOutSine</a></div><div class="ttdeci">static float easeOutSine(float t, float b, float c, float d)</div><div class="ttdoc">正弦淡出.</div><div class="ttdef"><b>Definition:</b> easing.hpp:223</div></div>
+<div class="ttc" id="aclass_easing_html_ac192a63dcf10a98346f21f752b305ad9"><div class="ttname"><a href="class_easing.html#ac192a63dcf10a98346f21f752b305ad9">Easing::easeInOutBounce</a></div><div class="ttdeci">static float easeInOutBounce(float t, float b, float c, float d)</div><div class="ttdoc">反弹淡入并淡出.</div><div class="ttdef"><b>Definition:</b> easing.hpp:482</div></div>
+<div class="ttc" id="aclass_easing_html_ac39c17b9753b00d9c87060b82f815422"><div class="ttname"><a href="class_easing.html#ac39c17b9753b00d9c87060b82f815422">Easing::easeOutBounce</a></div><div class="ttdeci">static float easeOutBounce(float t, float b, float c, float d)</div><div class="ttdoc">反弹淡出.</div><div class="ttdef"><b>Definition:</b> easing.hpp:462</div></div>
 <div class="ttc" id="aclass_easing_html_ada86df398477fcf48f64828d23d6f5af"><div class="ttname"><a href="class_easing.html#ada86df398477fcf48f64828d23d6f5af">Easing::linearTween</a></div><div class="ttdeci">static float linearTween(float t, float b, float c, float d)</div><div class="ttdoc">简单线性补间.</div><div class="ttdef"><b>Definition:</b> easing.hpp:20</div></div>
 <div class="ttc" id="aclass_easing_html_adb80a61e088c5c8e9a1396bf19af0ae7"><div class="ttname"><a href="class_easing.html#adb80a61e088c5c8e9a1396bf19af0ae7">Easing::easeOutExpo</a></div><div class="ttdeci">static float easeOutExpo(float t, float b, float c, float d)</div><div class="ttdoc">指数淡出.</div><div class="ttdef"><b>Definition:</b> easing.hpp:262</div></div>
 <div class="ttc" id="aclass_easing_html_ae9abfaf9487e64cf0d8190a705bf9a46"><div class="ttname"><a href="class_easing.html#ae9abfaf9487e64cf0d8190a705bf9a46">Easing::easeInOutQuint</a></div><div class="ttdeci">static float easeInOutQuint(float t, float b, float c, float d)</div><div class="ttdoc">五次方淡入并淡出.</div><div class="ttdef"><b>Definition:</b> easing.hpp:193</div></div>
+<div class="ttc" id="aclass_easing_html_aeb0a15b41578d353c59cd289e62822e1"><div class="ttname"><a href="class_easing.html#aeb0a15b41578d353c59cd289e62822e1">Easing::easeInElastic</a></div><div class="ttdeci">static float easeInElastic(float t, float b, float c, float d)</div><div class="ttdoc">弹性淡入.</div><div class="ttdef"><b>Definition:</b> easing.hpp:337</div></div>
 <div class="ttc" id="aclass_easing_html_af0b556377e6512c4d1811ac3cf0aa8fe"><div class="ttname"><a href="class_easing.html#af0b556377e6512c4d1811ac3cf0aa8fe">Easing::easeInQuint</a></div><div class="ttdeci">static float easeInQuint(float t, float b, float c, float d)</div><div class="ttdoc">五次方淡入.</div><div class="ttdef"><b>Definition:</b> easing.hpp:165</div></div>
 <div class="ttc" id="aclass_easing_html_af9584eceab13a19f9b02b9004190d3c9"><div class="ttname"><a href="class_easing.html#af9584eceab13a19f9b02b9004190d3c9">Easing::easeInOutExpo</a></div><div class="ttdeci">static float easeInOutExpo(float t, float b, float c, float d)</div><div class="ttdoc">指数淡入并淡出.</div><div class="ttdef"><b>Definition:</b> easing.hpp:275</div></div>
 <div class="ttc" id="aclass_easing_html_afa4a072facc8f16333ee6d20f5c154dd"><div class="ttname"><a href="class_easing.html#afa4a072facc8f16333ee6d20f5c154dd">Easing::easeOutQuad</a></div><div class="ttdeci">static float easeOutQuad(float t, float b, float c, float d)</div><div class="ttdoc">二次方淡出.</div><div class="ttdef"><b>Definition:</b> easing.hpp:46</div></div>
