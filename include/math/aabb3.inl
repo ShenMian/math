@@ -75,7 +75,7 @@ inline bool AABB3::valid() const noexcept
 	return min.x <= max.x && min.y <= max.y && min.z <= max.z;
 }
 
-inline void AABB3::clear()
+inline void AABB3::clear() noexcept
 {
 	min = max = Vector3::zero;
 }

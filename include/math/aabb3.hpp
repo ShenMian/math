@@ -100,7 +100,7 @@ public:
 	/**
 	 * @brief 设置包围盒为空.
 	 */
-	void clear();
+	void clear() noexcept;
 
 	bool operator==(const AABB3& rhs) const = default;
 };
