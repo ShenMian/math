@@ -326,6 +326,14 @@ public:
 		return c / 2 * (sqrt(1 - t * t) + 1) + b;
 	}
 
+	/**
+	 * @brief 弹性淡入.
+	 *
+	 * @param t 当前时间.
+	 * @param b 起始值.
+	 * @param c 总变化量.
+	 * @param d 持续时间.
+	 */
 	static float easeInElastic(float t, float b, float c, float d)
 	{
 		float s = 1.70158f;
@@ -347,6 +355,14 @@ public:
 		return -(a * pow(2, 10 * (--t)) * sin((t * d - s) * (2 * std::numbers::pi) / p)) + b;
 	}
 
+	/**
+	 * @brief 弹性淡出.
+	 *
+	 * @param t 当前时间.
+	 * @param b 起始值.
+	 * @param c 总变化量.
+	 * @param d 持续时间.
+	 */
 	static float easeOutElastic(float t, float b, float c, float d)
 	{
 		float s = 1.70158f;
@@ -368,6 +384,14 @@ public:
 		return a * pow(2, -10 * t) * sin((t * d - s) * (2 * std::numbers::pi) / p) + c + b;
 	}
 
+	/**
+	 * @brief 弹性淡入并淡出.
+	 *
+	 * @param t 当前时间.
+	 * @param b 起始值.
+	 * @param c 总变化量.
+	 * @param d 持续时间.
+	 */
 	static float easeInOutElastic(float t, float b, float c, float d)
 	{
 		float s = 1.70158f;
@@ -414,11 +438,27 @@ public:
 		return c / 2 * ((t -= 2) * t * (((s *= (1.525f)) + 1) * t + s) + 2) + b;
 	}
 
+	/**
+	 * @brief 反弹淡入.
+	 *
+	 * @param t 当前时间.
+	 * @param b 起始值.
+	 * @param c 总变化量.
+	 * @param d 持续时间.
+	 */
 	static float easeInBounce(float t, float b, float c, float d)
 	{
 		return c - easeOutBounce(d - t, 0, c, d) + b;
 	}
 
+	/**
+	 * @brief 反弹淡出.
+	 *
+	 * @param t 当前时间.
+	 * @param b 起始值.
+	 * @param c 总变化量.
+	 * @param d 持续时间.
+	 */
 	static float easeOutBounce(float t, float b, float c, float d)
 	{
 		if((t /= d) < (1 / 2.75f))
@@ -431,6 +471,14 @@ public:
 			return c * (7.5625f * (t -= (2.625f / 2.75f)) * t + .984375f) + b;
 	}
 
+	/**
+	 * @brief 反弹淡入并淡出.
+	 *
+	 * @param t 当前时间.
+	 * @param b 起始值.
+	 * @param c 总变化量.
+	 * @param d 持续时间.
+	 */
 	static float easeInOutBounce(float t, float b, float c, float d)
 	{
 		if(t < d / 2)
