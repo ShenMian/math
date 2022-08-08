@@ -3,7 +3,7 @@
 
 #include "../helper.hpp"
 #include "../assert.hpp"
-#include "gcem.hpp"
+#include "../../deps/gcem/include/gcem.hpp"
 #include <algorithm>
 #include <cmath>
 #include <concepts>
