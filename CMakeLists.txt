@@ -6,8 +6,8 @@ cmake_minimum_required(VERSION 3.16)
 
 # 指定项目名和版本号
 project(Math
-    VERSION     0.0.0
-    DESCRIPTION "A simple linear algebra header-only library."
+    VERSION      0.0.0
+    DESCRIPTION  "A simple linear algebra header-only library."
     HOMEPAGE_URL "https://github.com/ShenMian/Math"
     LANGUAGES    CXX C)
 
