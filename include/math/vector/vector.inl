@@ -3,12 +3,13 @@
 
 #include "../helper.hpp"
 #include "../assert.hpp"
+#include "gcem.hpp"
 #include <algorithm>
 #include <cmath>
 #include <concepts>
 #include <ranges>
-#include "vector.hpp"
 
+using gcem::sqrt;
 namespace rng = std::ranges;
 
 template <arithmetic T, size_t N>
@@ -32,9 +33,9 @@ constexpr VectorT<T, N>::VectorT(const std::span<T, N>& span)
 
 template <arithmetic T, size_t N>
 [[nodiscard]]
-inline T VectorT<T, N>::norm() const
+inline constexpr T VectorT<T, N>::norm() const
 {
-	return static_cast<T>(std::sqrt(normSq()));
+	return static_cast<T>(sqrt(normSq()));
 }
 
 template <arithmetic T, size_t N>
@@ -48,7 +49,7 @@ inline constexpr T VectorT<T, N>::normSq() const noexcept
 }
 
 template <arithmetic T, size_t N>
-inline VectorT<T, N>& VectorT<T, N>::normalize()
+inline constexpr VectorT<T, N>& VectorT<T, N>::normalize()
 {
 	const auto len = norm();
 	if(len < std::numeric_limits<T>::epsilon())
@@ -58,7 +59,7 @@ inline VectorT<T, N>& VectorT<T, N>::normalize()
 
 template <arithmetic T, size_t N>
 [[nodiscard]]
-inline VectorT<T, N> VectorT<T, N>::normalized() const
+inline constexpr VectorT<T, N> VectorT<T, N>::normalized() const
 {
 	return VectorT(*this).normalize();
 }

@@ -29,7 +29,7 @@ public:
 	/**
 	 * @brief 默认构造函数.
 	 */
-	VectorT() = default;
+	constexpr VectorT() = default;
 
 	/**
 	 * @brief 构造函数.
@@ -55,7 +55,7 @@ public:
 	 *
 	 * @see normSquared
 	 */
-	T norm() const;
+	constexpr T norm() const;
 
 	/**
 	 * @brief 获取模的平方.
@@ -69,14 +69,14 @@ public:
 	 *
 	 * @warning 当向量大小太小时, 将会不进行标准化.
 	 */
-	VectorT& normalize();
+	constexpr VectorT& normalize();
 
 	/**
 	 * @brief 获取标准化单位向量.
 	 *
 	 * @warning 当向量大小太小时, 将会不进行标准化.
 	 */
-	VectorT normalized() const;
+	constexpr VectorT normalized() const;
 
 	/**
 	 * @brief 计算向量点积.
