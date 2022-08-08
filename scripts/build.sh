@@ -1,35 +1,50 @@
+# 签出第三方库
 #!/bin/bash
 # Copyright 2021 ShenMian
 # License(Apache-2.0)
 
-# 切换到主目录
-cd "$( cd "$( dirname "$0"  )" && pwd  )" || exit
-cd ..
+if ! hash "cmake" &>/dev/null; then
+    echo "=== Need cmake."
+    exit 1
+fi
 
-# 签出第三方库
-echo Checkout third-party libraries...
+if [ $# -eq 0 ]; then
+  BUILD_TYPE="Debug"
+else
+  BUILD_TYPE=$1
+fi
+
+if [ ! -z "$2" ] && [ ! -z "$3" ]; then
+  CONAN_ARGS="-s build_type=${BUILD_TYPE} -s compiler=$2 -s compiler.version=$3"
+fi
+
+cd "$( cd "$( dirname "$0"  )" && pwd  )" || exit
+cd .. || exit
+
+mkdir build 2>/dev/null
+
+echo "=== Checkout third-party libraries..."
 if ! git submodule update --init >/dev/null
 then
     echo Failed to checkout third-party libraries.
     exit 1
 fi
 
-# 生成 CMake 緩存
-echo Generating CMake cache...
-if ! cmake -B build >/dev/null
+echo "=== Generating CMake cache..."
+if ! cmake -B build -Wno-dev >/dev/null
 then
-    echo Failed to generate CMake cache.
-    cmake -B build
+    echo "=== Failed to generate CMake cache."
     exit 1
 fi
 
-# 构建
-echo Building...
-if ! cmake --build build >/dev/null
+echo "=== Generating 'compile_commands.json'..."
+cp build/compile_commands.json .
+
+echo "=== Building..."
+if ! cmake --build build --config ${BUILD_TYPE} -j16 >/dev/null
 then
-    echo Failed to build.
-    cmake --build build
+    echo "=== Failed to build."
     exit 1
 fi
 
-echo Done.
+echo "=== Done."
