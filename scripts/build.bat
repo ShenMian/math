@@ -7,8 +7,7 @@ cmake --version >nul 2>&1 || (
     exit /b 1
 )
 
-if "%~1"=="" (set "BUILD_TYPE=Debug") else (set "BUILD_TYPE=%~1")
-if "%BUILD_TYPE%"=="Debug" (set "VS_ARGS=MTd") else (set "VS_ARGS=MT")
+if "%~1"=="" (set "build_type=Debug") else (set "build_type=%~1")
 
 cd %~dp0\.. || exit /b 1
 
@@ -31,7 +30,7 @@ echo === Generating 'compile_commands.json'...
 xcopy "build/compile_commands.json" "."
 
 echo === Building...
-cmake --build build --config %BUILD_TYPE% -j16 >nul || (
+cmake --build build --config %build_type% -j16 >nul || (
     echo === Failed to build.
     exit /b 1
 )

@@ -9,13 +9,9 @@ if ! hash "cmake" &>/dev/null; then
 fi
 
 if [ $# -eq 0 ]; then
-  BUILD_TYPE="Debug"
+  build_type="Debug"
 else
-  BUILD_TYPE=$1
-fi
-
-if [ ! -z "$2" ] && [ ! -z "$3" ]; then
-  CONAN_ARGS="-s build_type=${BUILD_TYPE} -s compiler=$2 -s compiler.version=$3"
+  build_type=$1
 fi
 
 cd "$( cd "$( dirname "$0"  )" && pwd  )" || exit
@@ -41,7 +37,7 @@ echo "=== Generating 'compile_commands.json'..."
 cp build/compile_commands.json .
 
 echo "=== Building..."
-if ! cmake --build build --config ${BUILD_TYPE} -j16 >/dev/null
+if ! cmake --build build --config ${build_type} -j16 >/dev/null
 then
     echo "=== Failed to build."
     exit 1
