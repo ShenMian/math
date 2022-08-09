@@ -1,4 +1,3 @@
-# 签出第三方库
 #!/bin/bash
 # Copyright 2021 ShenMian
 # License(Apache-2.0)
@@ -37,7 +36,7 @@ echo "=== Generating 'compile_commands.json'..."
 cp build/compile_commands.json .
 
 echo "=== Building..."
-if ! cmake --build build --config ${build_type} -- -j$(nproc) >/dev/null
+if ! cmake --build build --config "${build_type}" -- -j$(nproc) >/dev/null
 then
     echo "=== Failed to build."
     exit 1
