@@ -1,0 +1,15 @@
+name: Commitlint
+
+on: [pull_request]
+
+jobs:
+  commitlint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Check with Conventional Commits
+        uses: wagoid/commitlint-github-action@v5
