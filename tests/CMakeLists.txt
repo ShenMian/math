@@ -9,7 +9,8 @@ add_executable(unit_test ${SOURCES})
 # 指定头文件目录
 target_include_directories(unit_test PUBLIC
     "${PROJECT_SOURCE_DIR}/include"
-    "${PROJECT_SOURCE_DIR}/deps/doctest")
+    "${PROJECT_SOURCE_DIR}/deps/doctest"
+    "${PROJECT_SOURCE_DIR}/deps/gcem/include")
 
 # 指定库文件目录
 target_link_libraries(unit_test PRIVATE ${LIBS})
