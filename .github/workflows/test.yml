@@ -13,10 +13,10 @@ jobs:
     runs-on: ${{matrix.os}}
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        submodules: recursive
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
 
       # 安装最新版本的 clang, 以支持 C++20
       - name: Install clang
