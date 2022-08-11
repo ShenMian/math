@@ -19,27 +19,24 @@ cd .. || exit
 mkdir build 2>/dev/null
 
 echo "=== Checkout third-party libraries..."
-if ! git submodule update --init >/dev/null
-then
+git submodule update --init >/dev/null || {
     echo Failed to checkout third-party libraries.
     exit 1
-fi
+}
 
 echo "=== Generating CMake cache..."
-if ! cmake -B build -Wno-dev >/dev/null
-then
+cmake -B build -Wno-dev >/dev/null || {
     echo "=== Failed to generate CMake cache."
     exit 1
-fi
+}
 
 echo "=== Generating 'compile_commands.json'..."
 cp build/compile_commands.json . &>/dev/null || echo "No 'compile_commands.json' was generated."
 
 echo "=== Building..."
-if ! cmake --build build --config "${build_type}" -- -j$(nproc) >/dev/null
-then
+cmake --build build --config "${build_type}" -- -j$(nproc) >/dev/null || {
     echo "=== Failed to build."
     exit 1
-fi
+}
 
 echo "=== Done."
