@@ -33,7 +33,7 @@ then
 fi
 
 echo "=== Generating 'compile_commands.json'..."
-cp build/compile_commands.json .
+cp build/compile_commands.json . &>/dev/null || echo "No 'compile_commands.json' was generated."
 
 echo "=== Building..."
 if ! cmake --build build --config "${build_type}" -- -j$(nproc) >/dev/null

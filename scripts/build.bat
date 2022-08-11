@@ -14,23 +14,22 @@ cd %~dp0\.. || exit /b 1
 mkdir build 2>nul
 
 echo === Checkout third-party libraries...
-if ! git submodule update --init >/dev/null
-then
+git submodule update --init >nul || (
     echo Failed to checkout third-party libraries.
-    exit 1
-fi
+    exit /b 1
+)
 
 echo === Generating CMake cache...
-cmake -B build -Wno-dev >nul || (
+cmake -Wno-dev -B build >nul || (
     echo === Failed to generate CMake cache.
     exit /b 1
 )
 
 echo === Generating 'compile_commands.json'...
-xcopy "build/compile_commands.json" "."
+xcopy build/compile_commands.json . 2>nul || echo No 'compile_commands.json' was generated.
 
 echo === Building...
-cmake --build build --config %build_type% -j16 >nul || (
+cmake --build build --config "%build_type%" -j16 >nul || (
     echo === Failed to build.
     exit /b 1
 )
