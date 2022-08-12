@@ -5,7 +5,7 @@
 
 #include <cstdio>
 #include <string_view>
-#include <source_location>
+// #include <source_location>
 #include <type_traits>
 
 #if _MSC_VER
@@ -14,9 +14,10 @@
 #    define breakpoint() __builtin_trap()
 #endif
 
+// TODO: clang 暂时不支持 std::source_location.
+
 #ifndef assert
 
-/*
 inline constexpr void assert(bool condition)
 {
 	if(condition)
@@ -31,9 +32,15 @@ inline constexpr void assert(bool condition, std::string_view message)
 	std::puts(message.data());
 	breakpoint();
 }
-*/
 
-inline constexpr void assert(bool condition, const std::source_location& loc = std::source_location::current())
+template <bool condition>
+inline constexpr void assert(std::integral_constant<bool, condition>, std::string_view message)
+{
+	static_assert(condition);
+}
+
+/*
+inline void assert(bool condition, const std::source_location& loc = std::source_location::current())
 {
 	if(condition)
 		return;
@@ -43,7 +50,7 @@ inline constexpr void assert(bool condition, const std::source_location& loc = s
 	breakpoint();
 }
 
-inline constexpr void assert(bool condition, std::string_view message, const std::source_location& loc = std::source_location::current())
+inline void assert(bool condition, std::string_view message, const std::source_location& loc = std::source_location::current())
 {
 	if(condition)
 		return;
@@ -52,5 +59,6 @@ inline constexpr void assert(bool condition, std::string_view message, const std
 		loc.file_name(), loc.function_name(), loc.line(), loc.column(), message.data());
 	breakpoint();
 }
+*/
 
 #endif
