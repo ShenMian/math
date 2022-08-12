@@ -33,12 +33,6 @@ inline constexpr void assert(bool condition, std::string_view message)
 	breakpoint();
 }
 
-template <bool condition>
-inline constexpr void assert(std::integral_constant<bool, condition>, std::string_view message)
-{
-	static_assert(condition);
-}
-
 /*
 inline void assert(bool condition, const std::source_location& loc = std::source_location::current())
 {
