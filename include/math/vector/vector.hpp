@@ -7,13 +7,13 @@
 #include <concepts>
 #include <cstddef>
 #include <initializer_list>
-#include <iostream>
 #include <iomanip>
-#include <sstream>
+#include <iostream>
 #include <span>
+#include <sstream>
 #include <type_traits>
 
-template<typename T>
+template <typename T>
 concept arithmetic = std::integral<T> || std::floating_point<T>;
 
 /**
@@ -41,7 +41,7 @@ public:
 	 *
 	 * @param list 初始化列表, 下标依次为 0 到 N-1.
 	 */
-	constexpr explicit VectorT(const T(&arr)[N]);
+	constexpr explicit VectorT(const T (&arr)[N]);
 
 	/**
 	 * @brief 构造函数.
@@ -123,10 +123,10 @@ public:
 	/**
 	 * @brief 获取原始数据.
 	 */
-	constexpr T* data();
+	constexpr T*       data();
 	constexpr const T* data() const;
 
-	constexpr T& operator[](size_t index);
+	constexpr T&       operator[](size_t index);
 	constexpr const T& operator[](size_t index) const;
 
 	constexpr bool     operator==(const VectorT&) const;
@@ -153,7 +153,7 @@ public:
 			std::ostringstream stm;
 			stm << vec[i];
 			const auto size = stm.str().size();
-			max = std::max(max, size);
+			max             = std::max(max, size);
 		}
 		max = std::min<size_t>(max, 6);
 		for(size_t i = 0; i < N; i++)

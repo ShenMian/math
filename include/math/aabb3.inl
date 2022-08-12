@@ -11,22 +11,19 @@ inline AABB3::AABB3(const Vector3& a, const Vector3& b)
 		min = b, max = a;
 }
 
-[[nodiscard]]
-inline bool AABB3::contains(const Vector3& p) const
+[[nodiscard]] inline bool AABB3::contains(const Vector3& p) const
 {
 	assert(valid());
 	return (min.x <= p.x && p.x <= max.x) && (min.y <= p.y && p.y <= max.y);
 }
 
-[[nodiscard]]
-inline bool AABB3::contains(const AABB3& aabb) const
+[[nodiscard]] inline bool AABB3::contains(const AABB3& aabb) const
 {
 	assert(valid() && aabb.valid());
 	return contains(aabb.min) && contains(aabb.max);
 }
 
-[[nodiscard]]
-inline bool AABB3::intersects(const AABB3& aabb) const
+[[nodiscard]] inline bool AABB3::intersects(const AABB3& aabb) const
 {
 	assert(valid() && aabb.valid());
 	return contains(aabb.min) || contains(aabb.max);
@@ -50,27 +47,23 @@ inline void AABB3::expand(const AABB3& aabb)
 	expand(aabb.max);
 }
 
-[[nodiscard]]
-inline Vector3 AABB3::center() const noexcept
+[[nodiscard]] inline Vector3 AABB3::center() const noexcept
 {
 	return (min + max) * .5f;
 }
 
-[[nodiscard]]
-inline float AABB3::volume() const noexcept
+[[nodiscard]] inline float AABB3::volume() const noexcept
 {
 	const auto extent = max - min;
 	return extent.x * extent.y * extent.z;
 }
 
-[[nodiscard]]
-inline bool AABB3::empty() const noexcept
+[[nodiscard]] inline bool AABB3::empty() const noexcept
 {
 	return min == max;
 }
 
-[[nodiscard]]
-inline bool AABB3::valid() const noexcept
+[[nodiscard]] inline bool AABB3::valid() const noexcept
 {
 	return min.x <= max.x && min.y <= max.y && min.z <= max.z;
 }

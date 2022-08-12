@@ -3,19 +3,19 @@
 
 #pragma once
 
+#include "hash_combine.hpp"
 #include "matrix/matrix.hpp"
 #include "quaternion.hpp"
-#include "hash_combine.hpp"
 
 class Transform
 {
 public:
-	const Vector3& position() const noexcept;
+	const Vector3&    position() const noexcept;
 	const Quaternion& rotation() const noexcept;
-	const Vector3& scale() const noexcept;
-	Vector3& position() noexcept;
-	Quaternion& rotation() noexcept;
-	Vector3& scale() noexcept;
+	const Vector3&    scale() const noexcept;
+	Vector3&          position() noexcept;
+	Quaternion&       rotation() noexcept;
+	Vector3&          scale() noexcept;
 
 	const Matrix4f& matrix() const;
 

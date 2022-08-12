@@ -3,8 +3,8 @@
 
 #pragma once
 
-#include "matrix.hpp"
 #include "../Vector/vector3.hpp"
+#include "matrix.hpp"
 
 template <arithmetic T, size_t N>
 class MatrixT<T, N, N>

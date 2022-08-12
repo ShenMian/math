@@ -30,20 +30,17 @@ template <arithmetic T>
 inline const VectorT<T, 2> VectorT<T, 2>::left(-1, 0);
 
 template <arithmetic T>
-inline VectorT<T, 2>::VectorT()
-	: x(0), y(0)
+inline VectorT<T, 2>::VectorT() : x(0), y(0)
 {
 }
 
 template <arithmetic T>
-inline constexpr VectorT<T, 2>::VectorT(const T& scalar)
-	: x(scalar), y(scalar)
+inline constexpr VectorT<T, 2>::VectorT(const T& scalar) : x(scalar), y(scalar)
 {
 }
 
 template <arithmetic T>
-inline constexpr VectorT<T, 2>::VectorT(const T& x, const T& y)
-	: x(x), y(y)
+inline constexpr VectorT<T, 2>::VectorT(const T& x, const T& y) : x(x), y(y)
 {
 }
 
@@ -52,8 +49,8 @@ inline constexpr VectorT<T, 2>::VectorT(const std::initializer_list<T>& list)
 {
 	assert(list.size() <= 2, "Too many initializers");
 	auto it = list.begin();
-	x = *it;
-	y = *(++it);
+	x       = *it;
+	y       = *(++it);
 }
 
 template <arithmetic T>
@@ -121,8 +118,8 @@ inline void VectorT<T, 2>::rotate(const VectorT<T, 2>& point, float angle)
 	if(point == VectorT::zero)
 	{
 		const auto tmpX = x * cos - y * sin;
-		y = y * cos + x * sin;
-		x = tmpX;
+		y               = y * cos + x * sin;
+		x               = tmpX;
 	}
 	else
 	{

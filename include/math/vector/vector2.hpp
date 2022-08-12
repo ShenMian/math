@@ -130,10 +130,10 @@ public:
 	/**
 	 * @brief 获取原始数据.
 	 */
-	T* data();
+	T*       data();
 	const T* data() const;
 
-	T& operator[](size_t index);
+	T&       operator[](size_t index);
 	const T& operator[](size_t index) const;
 
 	constexpr bool     operator==(const VectorT&) const;
@@ -157,7 +157,7 @@ public:
 			std::ostringstream stm;
 			stm << vec[i];
 			const auto size = stm.str().size();
-			max = std::max(max, size);
+			max             = std::max(max, size);
 		}
 		max = std::min<size_t>(max, 6);
 		for(size_t i = 0; i < 2; i++)
@@ -195,5 +195,5 @@ using Vector2T = VectorT<T, 2>;
 using Vector2f = Vector2T<float>;
 using Vector2d = Vector2T<double>;
 using Vector2i = Vector2T<int32_t>;
-using Vector2 = Vector2f;
-using Size2 = Vector2T<size_t>;
+using Vector2  = Vector2f;
+using Size2    = Vector2T<size_t>;

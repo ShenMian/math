@@ -12,7 +12,8 @@ namespace detail
 {
 
 // C++ 23 后 std::abs 支持 constexpr
-template <typename T> requires std::is_arithmetic_v<T>
+template <typename T>
+requires std::is_arithmetic_v<T>
 inline constexpr T abs(T x) noexcept
 {
 	return (x >= T(0)) ? x : -x;
@@ -43,7 +44,6 @@ inline constexpr bool equal(T lhs, T rhs, T error = std::numeric_limits<T>::epsi
 	return detail::abs(lhs - rhs) <= error;
 }
 #endif
-
 
 /**
  * @brief 角度转弧度.

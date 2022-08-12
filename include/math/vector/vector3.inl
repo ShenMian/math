@@ -39,26 +39,22 @@ template <arithmetic T>
 inline const VectorT<T, 3> VectorT<T, 3>::back(0, 0, -1);
 
 template <arithmetic T>
-inline VectorT<T, 3>::VectorT()
-	: x(0), y(0), z(0)
+inline VectorT<T, 3>::VectorT() : x(0), y(0), z(0)
 {
 }
 
 template <arithmetic T>
-inline constexpr VectorT<T, 3>::VectorT(const T& scalar)
-	: x(scalar), y(scalar), z(scalar)
+inline constexpr VectorT<T, 3>::VectorT(const T& scalar) : x(scalar), y(scalar), z(scalar)
 {
 }
 
 template <arithmetic T>
-inline constexpr VectorT<T, 3>::VectorT(const T& x, const T& y, const T& z)
-	: x(x), y(y), z(z)
+inline constexpr VectorT<T, 3>::VectorT(const T& x, const T& y, const T& z) : x(x), y(y), z(z)
 {
 }
 
 template <arithmetic T>
-inline constexpr VectorT<T, 3>::VectorT(const Vector2T<T>& v, const T& z)
-	: x(v.x), y(v.y), z(z)
+inline constexpr VectorT<T, 3>::VectorT(const Vector2T<T>& v, const T& z) : x(v.x), y(v.y), z(z)
 {
 }
 
@@ -67,9 +63,9 @@ inline constexpr VectorT<T, 3>::VectorT(const std::initializer_list<T>& list)
 {
 	assert(list.size() <= 3, "Too many initializers");
 	auto it = list.begin();
-	x = *it;
-	y = *(++it);
-	z = *(++it);
+	x       = *it;
+	y       = *(++it);
+	z       = *(++it);
 }
 
 template <arithmetic T>

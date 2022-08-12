@@ -5,8 +5,7 @@
 #include <cmath>
 
 template <std::floating_point T>
-QuaternionT<T>::QuaternionT(T x, T y, T z, T w)
-	: x(x), y(y), z(z), w(w)
+QuaternionT<T>::QuaternionT(T x, T y, T z, T w) : x(x), y(y), z(z), w(w)
 {
 }
 
@@ -17,34 +16,34 @@ inline QuaternionT<T>::QuaternionT(const Matrix4T<T>& mat)
 	if(trace > T(0))
 	{
 		const auto s = T(2) * std::sqrt(trace);
-		x = (mat[2][1] - mat[1][2]) / s;
-		y = (mat[0][2] - mat[2][0]) / s;
-		z = (mat[1][0] - mat[0][1]) / s;
-		w = T(0.25) * s;
+		x            = (mat[2][1] - mat[1][2]) / s;
+		y            = (mat[0][2] - mat[2][0]) / s;
+		z            = (mat[1][0] - mat[0][1]) / s;
+		w            = T(0.25) * s;
 	}
 	else if(mat[0][0] > mat[1][1] && mat[0][0] > mat[2][2])
 	{
 		const auto s = T(2) * std::sqrt(T(1) + mat[0][0] - mat[1][1] - mat[2][2]);
-		x = T(0.25) * s;
-		y = (mat[0][1] + mat[1][0]) / s;
-		z = (mat[2][0] + mat[0][2]) / s;
-		w = (mat[2][1] - mat[1][2]) / s;
+		x            = T(0.25) * s;
+		y            = (mat[0][1] + mat[1][0]) / s;
+		z            = (mat[2][0] + mat[0][2]) / s;
+		w            = (mat[2][1] - mat[1][2]) / s;
 	}
 	else if(mat[1][1] > mat[2][2])
 	{
 		const auto s = T(2) * std::sqrt(T(1) + mat[1][1] - mat[0][0] - mat[2][2]);
-		x = (mat[0][1] + mat[1][0]) / s;
-		y = T(0.25) * s;
-		z = (mat[1][2] + mat[2][1]) / s;
-		w = (mat[0][2] - mat[2][0]) / s;
+		x            = (mat[0][1] + mat[1][0]) / s;
+		y            = T(0.25) * s;
+		z            = (mat[1][2] + mat[2][1]) / s;
+		w            = (mat[0][2] - mat[2][0]) / s;
 	}
 	else
 	{
 		const auto s = T(2) * std::sqrt(T(1) + mat[2][2] - mat[0][0] - mat[1][1]);
-		x = (mat[0][2] + mat[2][0]) / s;
-		y = (mat[1][2] + mat[2][1]) / s;
-		z = T(0.25) * s;
-		w = (mat[1][0] - mat[0][1]) / s;
+		x            = (mat[0][2] + mat[2][0]) / s;
+		y            = (mat[1][2] + mat[2][1]) / s;
+		z            = T(0.25) * s;
+		w            = (mat[1][0] - mat[0][1]) / s;
 	}
 }
 
@@ -168,11 +167,10 @@ inline QuaternionT<T>& QuaternionT<T>::operator-=(const QuaternionT<T>& rhs)
 template <std::floating_point T>
 inline QuaternionT<T>& QuaternionT<T>::operator*=(const QuaternionT<T>& rhs)
 {
-	*this = QuaternionT(
-		((x * rhs.w) + (w * rhs.x) + (z * rhs.y) - (y * rhs.z)),
-		((y * rhs.w) - (z * rhs.x) + (w * rhs.y) + (x * rhs.z)),
-		((z * rhs.w) + (y * rhs.x) - (x * rhs.y) + (w * rhs.z)),
-		((w * rhs.w) - (x * rhs.x) - (y * rhs.y) - (z * rhs.z)));
+	*this = QuaternionT(((x * rhs.w) + (w * rhs.x) + (z * rhs.y) - (y * rhs.z)),
+	                    ((y * rhs.w) - (z * rhs.x) + (w * rhs.y) + (x * rhs.z)),
+	                    ((z * rhs.w) + (y * rhs.x) - (x * rhs.y) + (w * rhs.z)),
+	                    ((w * rhs.w) - (x * rhs.x) - (y * rhs.y) - (z * rhs.z)));
 	return *this;
 }
 

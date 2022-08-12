@@ -9,9 +9,9 @@
 #include <type_traits>
 
 #if _MSC_VER
-#    define breakpoint() __debugbreak()
+#define breakpoint() __debugbreak()
 #else
-#    define breakpoint() __builtin_trap()
+#define breakpoint() __builtin_trap()
 #endif
 
 // TODO: clang 暂时不支持 std::source_location.
@@ -34,24 +34,26 @@ inline constexpr void assert(bool condition, std::string_view message)
 }
 
 /*
-inline void assert(bool condition, const std::source_location& loc = std::source_location::current())
+inline void assert(bool condition, const std::source_location& loc =
+std::source_location::current())
 {
-	if(condition)
-		return;
+        if(condition)
+                return;
 
-	std::printf("Assertion failed %s:%s(%u:%u)\n",
-		loc.file_name(), loc.function_name(), loc.line(), loc.column());
-	breakpoint();
+        std::printf("Assertion failed %s:%s(%u:%u)\n",
+                loc.file_name(), loc.function_name(), loc.line(), loc.column());
+        breakpoint();
 }
 
-inline void assert(bool condition, std::string_view message, const std::source_location& loc = std::source_location::current())
+inline void assert(bool condition, std::string_view message, const
+std::source_location& loc = std::source_location::current())
 {
-	if(condition)
-		return;
+        if(condition)
+                return;
 
-	std::printf("Assertion failed %s:%s(%u:%u): %s\n",
-		loc.file_name(), loc.function_name(), loc.line(), loc.column(), message.data());
-	breakpoint();
+        std::printf("Assertion failed %s:%s(%u:%u): %s\n",
+                loc.file_name(), loc.function_name(), loc.line(), loc.column(),
+message.data()); breakpoint();
 }
 */
 

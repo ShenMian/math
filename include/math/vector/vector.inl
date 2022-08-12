@@ -1,9 +1,9 @@
 ﻿// Copyright 2021 SMS
 // License(Apache-2.0)
 
-#include "../helper.hpp"
-#include "../assert.hpp"
 #include "../../../deps/gcem/include/gcem.hpp"
+#include "../assert.hpp"
+#include "../helper.hpp"
 #include <algorithm>
 #include <cmath>
 #include <concepts>
@@ -19,7 +19,7 @@ inline constexpr VectorT<T, N>::VectorT(const T& scalar)
 }
 
 template <arithmetic T, size_t N>
-constexpr VectorT<T, N>::VectorT(const T(&arr)[N])
+constexpr VectorT<T, N>::VectorT(const T (&arr)[N])
 {
 	for(size_t i = 0; i < N; i++)
 		v_[i] = arr[i];
@@ -32,15 +32,13 @@ constexpr VectorT<T, N>::VectorT(const std::span<T, N>& span)
 }
 
 template <arithmetic T, size_t N>
-[[nodiscard]]
-inline constexpr T VectorT<T, N>::norm() const
+[[nodiscard]] inline constexpr T VectorT<T, N>::norm() const
 {
 	return static_cast<T>(sqrt(normSq()));
 }
 
 template <arithmetic T, size_t N>
-[[nodiscard]]
-inline constexpr T VectorT<T, N>::normSq() const noexcept
+[[nodiscard]] inline constexpr T VectorT<T, N>::normSq() const noexcept
 {
 	T result = T();
 	for(size_t i = 0; i < N; i++)
@@ -58,15 +56,13 @@ inline constexpr VectorT<T, N>& VectorT<T, N>::normalize()
 }
 
 template <arithmetic T, size_t N>
-[[nodiscard]]
-inline constexpr VectorT<T, N> VectorT<T, N>::normalized() const
+[[nodiscard]] inline constexpr VectorT<T, N> VectorT<T, N>::normalized() const
 {
 	return VectorT(*this).normalize();
 }
 
 template <arithmetic T, size_t N>
-[[nodiscard]]
-inline constexpr T VectorT<T, N>::dot(const VectorT& rhs) const  noexcept
+[[nodiscard]] inline constexpr T VectorT<T, N>::dot(const VectorT& rhs) const noexcept
 {
 	T result = T();
 	for(size_t i = 0; i < N; i++)
@@ -75,16 +71,14 @@ inline constexpr T VectorT<T, N>::dot(const VectorT& rhs) const  noexcept
 }
 
 template <arithmetic T, size_t N>
-[[nodiscard]]
-inline constexpr VectorT<T, N> VectorT<T, N>::cross(const VectorT& rhs) const
+[[nodiscard]] inline constexpr VectorT<T, N> VectorT<T, N>::cross(const VectorT& rhs) const
 {
 	// TODO
 	return VectorT<T, N>();
 }
 
 template <arithmetic T, size_t N>
-[[nodiscard]]
-inline constexpr T VectorT<T, N>::sum() const noexcept
+[[nodiscard]] inline constexpr T VectorT<T, N>::sum() const noexcept
 {
 	T sum = T(0);
 	for(size_t i = 0; i < N; i++)
@@ -93,8 +87,7 @@ inline constexpr T VectorT<T, N>::sum() const noexcept
 }
 
 template <arithmetic T, size_t N>
-[[nodiscard]]
-constexpr T VectorT<T, N>::minCoeff() const noexcept
+[[nodiscard]] constexpr T VectorT<T, N>::minCoeff() const noexcept
 {
 	T min = std::numeric_limits<T>::max();
 	for(size_t i = 0; i < N; i++)
@@ -104,8 +97,7 @@ constexpr T VectorT<T, N>::minCoeff() const noexcept
 }
 
 template <arithmetic T, size_t N>
-[[nodiscard]]
-constexpr T VectorT<T, N>::maxCoeff() const noexcept
+[[nodiscard]] constexpr T VectorT<T, N>::maxCoeff() const noexcept
 {
 	T max = std::numeric_limits<T>::min();
 	for(size_t i = 0; i < N; i++)
@@ -123,22 +115,19 @@ inline constexpr const VectorT<T, N>& VectorT<T, N>::clamp(const VectorT& min, c
 }
 
 template <arithmetic T, size_t N>
-[[nodiscard]]
-inline constexpr size_t VectorT<T, N>::components() const
+[[nodiscard]] inline constexpr size_t VectorT<T, N>::components() const
 {
 	return components_;
 }
 
 template <arithmetic T, size_t N>
-[[nodiscard]]
-inline constexpr T* VectorT<T, N>::data()
+[[nodiscard]] inline constexpr T* VectorT<T, N>::data()
 {
 	return v_;
 }
 
 template <arithmetic T, size_t N>
-[[nodiscard]]
-inline constexpr const T* VectorT<T, N>::data() const
+[[nodiscard]] inline constexpr const T* VectorT<T, N>::data() const
 {
 	return v_;
 }

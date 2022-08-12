@@ -5,8 +5,8 @@
 
 #include "../vector/vector3.hpp"
 #include <cstddef>
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 #include <type_traits>
 
 #define ROW_MANJOR true
@@ -40,7 +40,7 @@ public:
 	/**
 	 * @brief 构造函数.
 	 */
-	constexpr explicit MatrixT(const T(&arr)[R * C]);
+	constexpr explicit MatrixT(const T (&arr)[R * C]);
 
 	/**
 	 * @brief 构造函数.
@@ -191,20 +191,20 @@ public:
 	/**
 	 * @brief 获取原始数据.
 	 */
-	constexpr T* data();
+	constexpr T*       data();
 	constexpr const T* data() const;
 
 	/**
 	 * @brief 获取指定元素.
 	 */
-	constexpr T& operator()(size_t r, size_t c);
+	constexpr T&       operator()(size_t r, size_t c);
 	constexpr const T& operator()(size_t r, size_t c) const;
 
 	constexpr bool     operator==(const MatrixT&) const;
 	constexpr MatrixT& operator+=(const MatrixT&);
 	constexpr MatrixT& operator-=(const MatrixT&);
-	MatrixT& operator*=(const MatrixT&);
-	MatrixT& operator/=(const MatrixT&);
+	MatrixT&           operator*=(const MatrixT&);
+	MatrixT&           operator/=(const MatrixT&);
 	constexpr MatrixT& operator*=(const T&);
 	constexpr MatrixT& operator/=(const T&);
 	constexpr MatrixT  operator-();
@@ -231,7 +231,7 @@ public:
 				std::ostringstream stm;
 				stm << mat(r, c);
 				const auto size = stm.str().size();
-				max = std::max(max, size);
+				max             = std::max(max, size);
 			}
 		}
 		max = std::min<size_t>(max, 6);
@@ -345,7 +345,8 @@ public:
 	 * @param target 目标的位置.
 	 * @param up     观察者向上的方向.
 	 */
-	static MatrixT<T, 4, 4> lookAt(const Vector3T<T>& eye, const Vector3T<T>& target, const Vector3T<T>& up = Vector3T<T>::up);
+	static MatrixT<T, 4, 4> lookAt(const Vector3T<T>& eye, const Vector3T<T>& target,
+	                               const Vector3T<T>& up = Vector3T<T>::up);
 
 	/**
 	 * @brief 获取单位矩阵.
@@ -379,11 +380,12 @@ using Matrixd = MatrixT<double, R, C>;
 template <size_t R, size_t C>
 using Matrixi = MatrixT<int32_t, R, C>;
 
-#define DEF_MATRIX_NxN(n)                                        \
-    template <typename T> using Matrix##n##T = MatrixT<T, n, n>; \
-    using Matrix##n     = Matrix##n##T<float>;                   \
-    using Matrix##n##f  = Matrix##n##T<float>;                   \
-    using Matrix##n##d  = Matrix##n##T<double>;                  \
+#define DEF_MATRIX_NxN(n)                                                                                              \
+	template <typename T>                                                                                              \
+	using Matrix##n##T = MatrixT<T, n, n>;                                                                             \
+	using Matrix##n    = Matrix##n##T<float>;                                                                          \
+	using Matrix##n##f = Matrix##n##T<float>;                                                                          \
+	using Matrix##n##d = Matrix##n##T<double>;
 
 DEF_MATRIX_NxN(2);
 DEF_MATRIX_NxN(3);
@@ -391,25 +393,29 @@ DEF_MATRIX_NxN(4);
 
 #undef DEF_MATRIX_NxN
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <typename T, size_t R, size_t C>
+requires std::is_arithmetic_v<T>
 inline constexpr MatrixT<T, R, C> operator+(const MatrixT<T, R, C>& lhs, const MatrixT<T, R, C>& rhs)
 {
 	return MatrixT(lhs) += rhs;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <typename T, size_t R, size_t C>
+requires std::is_arithmetic_v<T>
 inline constexpr MatrixT<T, R, C> operator-(const MatrixT<T, R, C>& lhs, const MatrixT<T, R, C>& rhs)
 {
 	return MatrixT(lhs) -= rhs;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <typename T, size_t R, size_t C>
+requires std::is_arithmetic_v<T>
 inline constexpr MatrixT<T, R, C> operator*(const MatrixT<T, R, C>& lhs, const MatrixT<T, R, C>& rhs)
 {
 	return MatrixT(lhs) *= rhs;
 }
 
-template<typename T, size_t R, size_t C> requires std::is_arithmetic_v<T>
+template <typename T, size_t R, size_t C>
+requires std::is_arithmetic_v<T>
 inline constexpr MatrixT<T, R, C> operator/(const MatrixT<T, R, C>& lhs, const MatrixT<T, R, C>& rhs)
 {
 	return MatrixT(lhs) /= rhs;

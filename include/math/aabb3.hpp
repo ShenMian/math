@@ -3,8 +3,8 @@
 
 #pragma once
 
-#include "vector/vector3.hpp"
 #include "hash_combine.hpp"
+#include "vector/vector3.hpp"
 
 /**
  * @brief 3 维轴对齐包围盒.
@@ -112,7 +112,8 @@ MAKE_HASHABLE(AABB3, t.min, t.max)
 /**
  * @class AABB3
  *
- * @details 在碰撞检测中用于简化物体外形. 包围盒的边都与坐标轴平行, 因此可以利用分离轴定理快速进行碰撞检测.
+ * @details 在碰撞检测中用于简化物体外形. 包围盒的边都与坐标轴平行,
+ * 因此可以利用分离轴定理快速进行碰撞检测.
  *
  * 例子:
  *

@@ -3,8 +3,8 @@
 
 #pragma once
 
-#include <type_traits>
 #include <numbers>
+#include <type_traits>
 
 class Easing
 {

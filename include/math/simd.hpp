@@ -177,10 +177,10 @@ inline void matrixMul(const __m128 m1[4], const __m128 m2[4], __m128 dst[4]) noe
 inline void matrixNegate(const __m128 m[4], __m128 dst[4]) noexcept
 {
 	__m128 z = _mm_setzero_ps();
-	dst[0] = _mm_sub_ps(z, m[0]);
-	dst[1] = _mm_sub_ps(z, m[1]);
-	dst[2] = _mm_sub_ps(z, m[2]);
-	dst[3] = _mm_sub_ps(z, m[3]);
+	dst[0]   = _mm_sub_ps(z, m[0]);
+	dst[1]   = _mm_sub_ps(z, m[1]);
+	dst[2]   = _mm_sub_ps(z, m[2]);
+	dst[3]   = _mm_sub_ps(z, m[3]);
 }
 
 inline void matrixTranspose(const __m128 m[4], __m128 dst[4]) noexcept
@@ -203,16 +203,13 @@ inline void matrixMulVec(const __m128 m[4], const __m128& v, __m128& dst) noexce
 	__m128 col3 = _mm_shuffle_ps(v, v, _MM_SHUFFLE(2, 2, 2, 2));
 	__m128 col4 = _mm_shuffle_ps(v, v, _MM_SHUFFLE(3, 3, 3, 3));
 
-	dst = _mm_add_ps(
-		_mm_add_ps(_mm_mul_ps(m[0], col1), _mm_mul_ps(m[1], col2)),
-		_mm_add_ps(_mm_mul_ps(m[2], col3), _mm_mul_ps(m[3], col4))
-	);
+	dst = _mm_add_ps(_mm_add_ps(_mm_mul_ps(m[0], col1), _mm_mul_ps(m[1], col2)),
+	                 _mm_add_ps(_mm_mul_ps(m[2], col3), _mm_mul_ps(m[3], col4)));
 }
 
 inline void vecMulMatrix(const __m128 v, const __m128 m[4], __m128 dst[4]) noexcept
 {
 }
-
 
 inline void add(const Matrix4f& a, const Matrix4f& b, Matrix4f& dst) noexcept
 {

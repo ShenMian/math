@@ -3,9 +3,9 @@
 
 #pragma once
 
-#include "vector/vector3.hpp"
-#include "matrix/matrix.hpp"
 #include "hash_combine.hpp"
+#include "matrix/matrix.hpp"
+#include "vector/vector3.hpp"
 #include <type_traits>
 
 /**
@@ -101,8 +101,7 @@ public:
 
 using Quaternionf = QuaternionT<float>;
 using Quaterniond = QuaternionT<double>;
-using Quaternion = Quaternionf;
-
+using Quaternion  = Quaternionf;
 
 template <std::floating_point T>
 struct std::hash<QuaternionT<T>>

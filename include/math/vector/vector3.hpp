@@ -13,8 +13,7 @@ template <arithmetic T>
 class VectorT<T, 3>
 {
 public:
-	union
-	{
+	union {
 		struct
 		{
 			T x;
@@ -136,10 +135,10 @@ public:
 	/**
 	 * @brief 获取原始数据.
 	 */
-	T* data();
+	T*       data();
 	const T* data() const;
 
-	T& operator[](size_t index);
+	T&       operator[](size_t index);
 	const T& operator[](size_t index) const;
 
 	constexpr bool     operator==(const VectorT&) const;
@@ -163,7 +162,7 @@ public:
 			std::ostringstream stm;
 			stm << vec[i];
 			const auto size = stm.str().size();
-			max = std::max(max, size);
+			max             = std::max(max, size);
 		}
 		max = std::min<size_t>(max, 6);
 		for(size_t i = 0; i < 3; i++)
@@ -206,4 +205,4 @@ using Vector3T = VectorT<T, 3>;
 using Vector3f = Vector3T<float>;
 using Vector3d = Vector3T<double>;
 using Vector3i = Vector3T<int32_t>;
-using Vector3 = Vector3f;
+using Vector3  = Vector3f;

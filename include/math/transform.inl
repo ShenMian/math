@@ -1,40 +1,34 @@
 ﻿// Copyright 2021 SMS
 // License(Apache-2.0)
 
-[[nodiscard]]
-inline const Vector3f& Transform::position() const noexcept
+[[nodiscard]] inline const Vector3f& Transform::position() const noexcept
 {
 	return position_;
 }
 
-[[nodiscard]]
-inline const Quaternionf& Transform::rotation() const noexcept
+[[nodiscard]] inline const Quaternionf& Transform::rotation() const noexcept
 {
 	return rotation_;
 }
 
-[[nodiscard]]
-inline const Vector3f& Transform::scale() const noexcept
+[[nodiscard]] inline const Vector3f& Transform::scale() const noexcept
 {
 	return scale_;
 }
 
-[[nodiscard]]
-inline Vector3f& Transform::position() noexcept
+[[nodiscard]] inline Vector3f& Transform::position() noexcept
 {
 	dirty_ = true;
 	return position_;
 }
 
-[[nodiscard]]
-inline Quaternionf& Transform::rotation() noexcept
+[[nodiscard]] inline Quaternionf& Transform::rotation() noexcept
 {
 	dirty_ = true;
 	return rotation_;
 }
 
-[[nodiscard]]
-inline Vector3f& Transform::scale() noexcept
+[[nodiscard]] inline Vector3f& Transform::scale() noexcept
 {
 	dirty_ = true;
 	return scale_;
