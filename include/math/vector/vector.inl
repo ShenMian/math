@@ -1,9 +1,9 @@
 ﻿// Copyright 2021 SMS
 // License(Apache-2.0)
 
-#include "../../../deps/gcem/include/gcem.hpp"
 #include "../assert.hpp"
 #include "../helper.hpp"
+#include "gcem.hpp"
 #include <algorithm>
 #include <cmath>
 #include <concepts>
