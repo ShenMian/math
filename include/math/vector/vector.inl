@@ -1,7 +1,7 @@
 ﻿// Copyright 2021 SMS
 // License(Apache-2.0)
 
-#include "../assert.hpp"
+#include "../check.hpp"
 #include "../helper.hpp"
 #include "gcem.hpp"
 #include <algorithm>
@@ -135,14 +135,14 @@ template <arithmetic T, size_t N>
 template <arithmetic T, size_t N>
 inline constexpr T& VectorT<T, N>::operator[](size_t index)
 {
-	assert(index < components(), "subscript out of range");
+	check(index < components(), "subscript out of range");
 	return *(v_ + index);
 }
 
 template <arithmetic T, size_t N>
 inline constexpr const T& VectorT<T, N>::operator[](size_t index) const
 {
-	assert(index < components(), "subscript out of range");
+	check(index < components(), "subscript out of range");
 	return *(v_ + index);
 }
 
@@ -182,7 +182,7 @@ inline constexpr VectorT<T, N>& VectorT<T, N>::operator*=(const T& rhs)
 template <arithmetic T, size_t N>
 inline constexpr VectorT<T, N>& VectorT<T, N>::operator/=(const T& rhs)
 {
-	assert(rhs, "divisor cannot be zero"); // TODO: 添加 T 为浮点数时的判断
+	check(rhs, "divisor cannot be zero"); // TODO: 添加 T 为浮点数时的判断
 	for(size_t i = 0; i < N; i++)
 		v_[i] /= rhs;
 	return *this;

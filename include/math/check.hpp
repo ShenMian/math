@@ -5,8 +5,8 @@
 
 #include <cstdio>
 #include <string_view>
-// #include <source_location>
 #include <type_traits>
+// #include <source_location>
 
 #if _MSC_VER
 #define breakpoint() __debugbreak()
@@ -16,16 +16,14 @@
 
 // TODO: clang 暂时不支持 std::source_location.
 
-#ifndef assert
-
-inline constexpr void assert(bool condition)
+inline constexpr void check(bool condition)
 {
 	if(condition)
 		return;
 	breakpoint();
 }
 
-inline constexpr void assert(bool condition, std::string_view message)
+inline constexpr void check(bool condition, std::string_view message)
 {
 	if(condition)
 		return;
@@ -34,7 +32,7 @@ inline constexpr void assert(bool condition, std::string_view message)
 }
 
 /*
-inline void assert(bool condition, const std::source_location& loc =
+inline void check(bool condition, const std::source_location& loc =
 std::source_location::current())
 {
         if(condition)
@@ -45,7 +43,7 @@ std::source_location::current())
         breakpoint();
 }
 
-inline void assert(bool condition, std::string_view message, const
+inline void check(bool condition, std::string_view message, const
 std::source_location& loc = std::source_location::current())
 {
         if(condition)
@@ -56,5 +54,3 @@ std::source_location& loc = std::source_location::current())
 message.data()); breakpoint();
 }
 */
-
-#endif

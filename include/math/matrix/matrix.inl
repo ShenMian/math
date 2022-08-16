@@ -1,7 +1,7 @@
 ﻿// Copyright 2021 SMS
 // License(Apache-2.0)
 
-#include "../assert.hpp"
+#include "../check.hpp"
 #include "../helper.hpp"
 #include "matrix.hpp"
 #include <algorithm>
@@ -30,7 +30,7 @@ inline MatrixT<T, R, C>::MatrixT()
 template <arithmetic T, size_t R, size_t C>
 inline MatrixT<T, R, C>::MatrixT(const std::initializer_list<T>& list)
 {
-	assert(list.size() == rows() * cols(), "initializers number not correct");
+	check(list.size() == rows() * cols(), "initializers number not correct");
 	auto it = list.begin();
 	for(size_t r = 0; r < rows(); r++)
 		for(size_t c = 0; c < cols(); c++)
@@ -57,7 +57,7 @@ template <arithmetic T, size_t R, size_t C>
 inline MatrixT<T, R, C>& MatrixT<T, R, C>::inverse()
 {
 	// TODO
-	assert(false);
+	check(false);
 	return *this;
 }
 
@@ -364,7 +364,7 @@ inline MatrixT<T, R, C>& MatrixT<T, R, C>::recompose(const Vector3T<T>& translat
 template <arithmetic T, size_t R, size_t C>
 [[nodiscard]] inline constexpr VectorT<T, C> MatrixT<T, R, C>::row(size_t index) const
 {
-	assert(index < R);
+	check(index < R);
 
 	VectorT<T, C> vec;
 	for(size_t i = 0; i < C; i++)
@@ -375,7 +375,7 @@ template <arithmetic T, size_t R, size_t C>
 template <arithmetic T, size_t R, size_t C>
 [[nodiscard]] inline constexpr VectorT<T, R> MatrixT<T, R, C>::col(size_t index) const
 {
-	assert(index < C);
+	check(index < C);
 
 	auto&         mat = *this;
 	VectorT<T, R> vec;
@@ -456,7 +456,7 @@ template <arithmetic T, size_t R, size_t C>
 template <arithmetic T, size_t R, size_t C>
 inline constexpr T& MatrixT<T, R, C>::operator()(size_t r, size_t c)
 {
-	assert(r < rows() && c < cols(), "subscript out of range");
+	check(r < rows() && c < cols(), "subscript out of range");
 #if ROW_MANJOR
 	return m_[r][c];
 #else
@@ -467,7 +467,7 @@ inline constexpr T& MatrixT<T, R, C>::operator()(size_t r, size_t c)
 template <arithmetic T, size_t R, size_t C>
 inline constexpr const T& MatrixT<T, R, C>::operator()(size_t r, size_t c) const
 {
-	assert(r < rows() && c < cols(), "subscript out of range");
+	check(r < rows() && c < cols(), "subscript out of range");
 #if ROW_MANJOR
 	return m_[r][c];
 #else
@@ -519,7 +519,7 @@ inline MatrixT<T, R, C>& MatrixT<T, R, C>::operator*=(const MatrixT& rhs)
 	if constexpr(R == C && R == 4)
 		simd::mul(*this, rhs, *this);
 	else
-		assert(false);
+		check(false);
 	return *this;
 }
 
@@ -527,7 +527,7 @@ template <arithmetic T, size_t R, size_t C>
 inline MatrixT<T, R, C>& MatrixT<T, R, C>::operator/=(const MatrixT& rhs)
 {
 	// TODO
-	assert(false);
+	check(false);
 	return *this;
 }
 
@@ -621,7 +621,7 @@ template <arithmetic T, size_t R, size_t C>
 inline MatrixT<T, R, C> MatrixT<T, R, C>::createRotation(float angle, Vector3T<T> axis)
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
-	assert(axis == Vector3T<T>::unit_x || axis == Vector3T<T>::unit_y || axis == Vector3T<T>::unit_z);
+	check(axis == Vector3T<T>::unit_x || axis == Vector3T<T>::unit_y || axis == Vector3T<T>::unit_z);
 
 	axis.normalize();
 	const float x = axis.x;
@@ -721,8 +721,8 @@ inline MatrixT<T, 4, 4> MatrixT<T, R, C>::perspective(T vFOV, T aspect, T n, T f
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 	static_assert(std::is_floating_point_v<T>);
-	assert(!equal(aspect, 0.f));
-	assert(n != f);
+	check(!equal(aspect, 0.f));
+	check(n != f);
 
 	const auto tanHalfFOV = std::tan(vFOV / 2.f);
 
@@ -749,7 +749,7 @@ inline MatrixT<T, 4, 4> MatrixT<T, R, C>::orthogonal(T l, T r, T b, T t, T n, T 
 {
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 	static_assert(std::is_floating_point_v<T>);
-	assert(!equal(l, r) && !equal(b, t) && !equal(n, f));
+	check(!equal(l, r) && !equal(b, t) && !equal(n, f));
 
 	auto mat  = MatrixT::zero();
 	mat(0, 0) = T(2) / (r - l);

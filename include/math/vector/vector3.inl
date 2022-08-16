@@ -1,7 +1,7 @@
 ﻿// Copyright 2021 SMS
 // License(Apache-2.0)
 
-#include "../assert.hpp"
+#include "../check.hpp"
 #include <cmath>
 #include <concepts>
 
@@ -61,7 +61,7 @@ inline constexpr VectorT<T, 3>::VectorT(const Vector2T<T>& v, const T& z) : x(v.
 template <arithmetic T>
 inline constexpr VectorT<T, 3>::VectorT(const std::initializer_list<T>& list)
 {
-	assert(list.size() <= 3, "Too many initializers");
+	check(list.size() <= 3, "Too many initializers");
 	auto it = list.begin();
 	x       = *it;
 	y       = *(++it);
@@ -157,14 +157,14 @@ inline const T* VectorT<T, 3>::data() const
 template <arithmetic T>
 inline T& VectorT<T, 3>::operator[](size_t index)
 {
-	assert(index < components());
+	check(index < components());
 	return *(&x + index);
 }
 
 template <arithmetic T>
 inline const T& VectorT<T, 3>::operator[](size_t index) const
 {
-	assert(index < components());
+	check(index < components());
 	return *(&x + index);
 }
 
@@ -204,7 +204,7 @@ inline constexpr VectorT<T, 3>& VectorT<T, 3>::operator*=(const T& rhs)
 template <arithmetic T>
 inline constexpr VectorT<T, 3>& VectorT<T, 3>::operator/=(const T& rhs)
 {
-	assert(rhs, "divisor cannot be zero");
+	check(rhs, "divisor cannot be zero");
 	x /= rhs;
 	y /= rhs;
 	z /= rhs;

@@ -1,7 +1,7 @@
 ﻿// Copyright 2021 SMS
 // License(Apache-2.0)
 
-#include "assert.hpp"
+#include "check.hpp"
 
 inline AABB3::AABB3(const Vector3& a, const Vector3& b)
 {
@@ -13,19 +13,19 @@ inline AABB3::AABB3(const Vector3& a, const Vector3& b)
 
 [[nodiscard]] inline bool AABB3::contains(const Vector3& p) const
 {
-	assert(valid());
+	check(valid());
 	return (min.x <= p.x && p.x <= max.x) && (min.y <= p.y && p.y <= max.y);
 }
 
 [[nodiscard]] inline bool AABB3::contains(const AABB3& aabb) const
 {
-	assert(valid() && aabb.valid());
+	check(valid() && aabb.valid());
 	return contains(aabb.min) && contains(aabb.max);
 }
 
 [[nodiscard]] inline bool AABB3::intersects(const AABB3& aabb) const
 {
-	assert(valid() && aabb.valid());
+	check(valid() && aabb.valid());
 	return contains(aabb.min) || contains(aabb.max);
 }
 
@@ -42,7 +42,7 @@ inline void AABB3::expand(const Vector3& point) noexcept
 
 inline void AABB3::expand(const AABB3& aabb)
 {
-	assert(aabb.valid());
+	check(aabb.valid());
 	expand(aabb.min);
 	expand(aabb.max);
 }
