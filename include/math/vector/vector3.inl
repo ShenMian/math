@@ -124,7 +124,7 @@ inline constexpr T VectorT<T, 3>::sum() const
 template <arithmetic T>
 inline T VectorT<T, 3>::distance(const VectorT& point) const
 {
-	return std::sqrt(distanceSquared());
+	return std::sqrt(distanceSquared(point));
 }
 
 template <arithmetic T>

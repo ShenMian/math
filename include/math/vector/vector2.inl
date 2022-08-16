@@ -134,7 +134,7 @@ inline void VectorT<T, 2>::rotate(const VectorT<T, 2>& point, float angle)
 template <arithmetic T>
 inline T VectorT<T, 2>::distance(const VectorT& point) const
 {
-	return std::sqrt(distanceSq());
+	return std::sqrt(distanceSq(point));
 }
 
 template <arithmetic T>
