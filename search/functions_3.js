@@ -28,6 +28,6 @@ var searchData=
   ['easeoutquint_25',['easeOutQuint',['../class_easing.html#affb932718d08162b35bfb967e9820715',1,'Easing']]],
   ['easeoutsine_26',['easeOutSine',['../class_easing.html#ab1f9af476fc14bec85182b8e295bed4f',1,'Easing']]],
   ['empty_27',['empty',['../class_a_a_b_b3.html#a97d604e3682c54176703be50c90d8d18',1,'AABB3']]],
-  ['eular_28',['eular',['../class_quaternion_t.html#aa13fe6d54f69361a4bdb9e5fb3180190',1,'QuaternionT::eular(const Vector3T&lt; T &gt; &amp;angles)'],['../class_quaternion_t.html#ae4b92bb821007ddb34ab88220acfba22',1,'QuaternionT::eular() const']]],
+  ['eular_28',['eular',['../class_quaternion_t.html#a9d56de9e17a4342fda25a3146ab3839c',1,'QuaternionT::eular(const Vector3T&lt; T &gt; &amp;angles) noexcept'],['../class_quaternion_t.html#a75cb8bbd9feebe6c8a77163c79027018',1,'QuaternionT::eular() const noexcept']]],
   ['expand_29',['expand',['../class_a_a_b_b3.html#aa90bae76456f16437022d649cf021ed2',1,'AABB3::expand(const Vector3 &amp;point) noexcept'],['../class_a_a_b_b3.html#a1e642705281236962d947cdf946fe397',1,'AABB3::expand(const AABB3 &amp;aabb)']]]
 ];
