@@ -7,9 +7,12 @@
 TEST_CASE("Quaternion::eular")
 {
 	Quaternion    quat;
-	const Vector3 angles(1, 2, 3);
+	const Vector3 angles(radians(30.f), radians(60.f), radians(90.f));
 	quat.eular(angles);
-	// EXPECT_EQ(quat.eular(), angles);
+	CHECK_EQ(quat.eular(), angles);
+
+	quat.eular(quat.eular());
+	CHECK_EQ(quat.eular(), angles);
 }
 
 TEST_CASE("Quaternion::normalize")

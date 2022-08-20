@@ -12,43 +12,43 @@ QuaternionT<T>::QuaternionT(T x, T y, T z, T w) : x(x), y(y), z(z), w(w)
 template <std::floating_point T>
 inline QuaternionT<T>::QuaternionT(const Matrix4T<T>& mat)
 {
-	const auto trace = mat[0][0] + mat[1][1] + mat[2][2] + T(1);
+	const auto trace = mat(0, 0) + mat(1, 1) + mat(2, 2) + T(1);
 	if(trace > T(0))
 	{
 		const auto s = T(2) * std::sqrt(trace);
-		x            = (mat[2][1] - mat[1][2]) / s;
-		y            = (mat[0][2] - mat[2][0]) / s;
-		z            = (mat[1][0] - mat[0][1]) / s;
+		x            = (mat(2, 1) - mat(1, 2)) / s;
+		y            = (mat(0, 2) - mat(2, 0)) / s;
+		z            = (mat(1, 0) - mat(0, 1)) / s;
 		w            = T(0.25) * s;
 	}
-	else if(mat[0][0] > mat[1][1] && mat[0][0] > mat[2][2])
+	else if(mat(0, 0) > mat(1, 1) && mat(0, 0) > mat(2, 2))
 	{
-		const auto s = T(2) * std::sqrt(T(1) + mat[0][0] - mat[1][1] - mat[2][2]);
+		const auto s = T(2) * std::sqrt(T(1) + mat(0, 0) - mat(1, 1) - mat(2, 2));
 		x            = T(0.25) * s;
-		y            = (mat[0][1] + mat[1][0]) / s;
-		z            = (mat[2][0] + mat[0][2]) / s;
-		w            = (mat[2][1] - mat[1][2]) / s;
+		y            = (mat(0, 1) + mat(1, 0)) / s;
+		z            = (mat(2, 0) + mat(0, 2)) / s;
+		w            = (mat(2, 1) - mat(1, 2)) / s;
 	}
-	else if(mat[1][1] > mat[2][2])
+	else if(mat(1, 1) > mat(2, 2))
 	{
-		const auto s = T(2) * std::sqrt(T(1) + mat[1][1] - mat[0][0] - mat[2][2]);
-		x            = (mat[0][1] + mat[1][0]) / s;
+		const auto s = T(2) * std::sqrt(T(1) + mat(1, 1) - mat(0, 0) - mat(2, 2));
+		x            = (mat(0, 1) + mat(1, 0)) / s;
 		y            = T(0.25) * s;
-		z            = (mat[1][2] + mat[2][1]) / s;
-		w            = (mat[0][2] - mat[2][0]) / s;
+		z            = (mat(1, 2) + mat(2, 1)) / s;
+		w            = (mat(0, 2) - mat(2, 0)) / s;
 	}
 	else
 	{
-		const auto s = T(2) * std::sqrt(T(1) + mat[2][2] - mat[0][0] - mat[1][1]);
-		x            = (mat[0][2] + mat[2][0]) / s;
-		y            = (mat[1][2] + mat[2][1]) / s;
+		const auto s = T(2) * std::sqrt(T(1) + mat(2, 2) - mat(0, 0) - mat(1, 1));
+		x            = (mat(0, 2) + mat(2, 0)) / s;
+		y            = (mat(1, 2) + mat(2, 1)) / s;
 		z            = T(0.25) * s;
-		w            = (mat[1][0] - mat[0][1]) / s;
+		w            = (mat(1, 0) - mat(0, 1)) / s;
 	}
 }
 
 template <std::floating_point T>
-inline void QuaternionT<T>::eular(const Vector3T<T>& angles)
+inline void QuaternionT<T>::eular(const Vector3T<T>& angles) noexcept
 {
 	const auto cr = std::cos(angles.x / T(2));
 	const auto cp = std::cos(angles.y / T(2));
@@ -72,7 +72,7 @@ inline void QuaternionT<T>::eular(const Vector3T<T>& angles)
 }
 
 template <std::floating_point T>
-inline Vector3T<T> QuaternionT<T>::eular() const
+inline Vector3T<T> QuaternionT<T>::eular() const noexcept
 {
 	Vector3T<T> angles;
 
@@ -89,7 +89,7 @@ inline Vector3T<T> QuaternionT<T>::eular() const
 }
 
 template <std::floating_point T>
-inline T QuaternionT<T>::sizeSq() const
+inline T QuaternionT<T>::sizeSq() const noexcept
 {
 	return x * x + y * y + z * z + w * w;
 }

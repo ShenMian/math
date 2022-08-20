@@ -47,12 +47,14 @@ public:
 	 *
 	 * @param angles 三个轴的角度, 单位: 弧度.
 	 */
-	void eular(const Vector3T<T>& angles);
+	void eular(const Vector3T<T>& angles) noexcept;
 
 	/**
 	 * @brief 获取欧拉角.
+	 * 
+	 * 单位: 弧度.
 	 */
-	Vector3T<T> eular() const;
+	Vector3T<T> eular() const noexcept;
 
 	/**
 	 * @brief 求逆.
@@ -74,7 +76,7 @@ public:
 	 *
 	 * @see size
 	 */
-	T sizeSq() const;
+	T sizeSq() const noexcept;
 
 	/**
 	 * @brief 获取长度.
