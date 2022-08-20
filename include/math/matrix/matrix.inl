@@ -355,6 +355,7 @@ inline MatrixT<T, R, C>& MatrixT<T, R, C>::recompose(const Vector3T<T>& translat
 	static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 
 	auto& mat = *this;
+	mat       = MatrixT::identity();
 	mat.translate(translation);
 	mat.rotate(rotation);
 	mat.scale(scale);

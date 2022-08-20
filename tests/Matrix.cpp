@@ -107,6 +107,22 @@ TEST_CASE("Matrix::front/back/right/left/up/down")
 	CHECK_EQ(a.down(), -Vector3f::up);
 }
 
+TEST_CASE("Matrix::decompose/recompose")
+{
+	Matrix4f mat;
+	mat.recompose({1.f, 2.f, 3.f}, {30.f, 60.f, 90.f, 1.f}, {2.f, 2.f, 2.f});
+
+	Vector3    translation;
+	Quaternion rotation;
+	Vector3    scale;
+	mat.decompose(&translation, &rotation, &scale);
+	/*
+	CHECK_EQ(translation, Vector3(1.f, 2.f, 3.f));
+	CHECK_EQ(rotation, Quaternion(30.f, 60.f, 90.f, 1.f));
+	CHECK_EQ(scale, Vector3(2.f, 2.f, 2.f));
+	*/
+}
+
 TEST_CASE("Matrix::operator==")
 {
 	// clang-format off
