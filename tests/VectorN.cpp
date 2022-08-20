@@ -1,8 +1,8 @@
 ﻿// Copyright 2021 SMS
 // License(Apache-2.0)
 
-#include <math/math.hpp>
 #include <doctest/doctest.h>
+#include <math/math.hpp>
 #include <sstream>
 
 TEST_CASE("Vector2::operator[]")
@@ -64,7 +64,7 @@ TEST_CASE("Vector2::equal")
 
 TEST_CASE("Vector2::io")
 {
-	Vector2 vec(1, 2);
+	Vector2            vec(1, 2);
 	std::ostringstream stream;
 	stream << vec;
 	CHECK_EQ(stream.str(), "1 2 ");
@@ -125,7 +125,7 @@ TEST_CASE("Vector3::lerp")
 
 TEST_CASE("Vector3::io")
 {
-	Vector3 vec(1, 2, 3);
+	Vector3            vec(1, 2, 3);
 	std::ostringstream stream;
 	stream << vec;
 	CHECK_EQ(stream.str(), "1 2 3 ");
@@ -166,7 +166,7 @@ TEST_CASE("Vector4::equal")
 
 TEST_CASE("Vector4::io")
 {
-	Vector4 vec(1, 2, 3, 4);
+	Vector4            vec(1, 2, 3, 4);
 	std::ostringstream stream;
 	stream << vec;
 	CHECK_EQ(stream.str(), "1 2 3 4 ");

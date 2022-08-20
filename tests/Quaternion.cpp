@@ -1,13 +1,13 @@
 ﻿// Copyright 2021 SMS
 // License(Apache-2.0)
 
-#include <math/math.hpp>
 #include <doctest/doctest.h>
+#include <math/math.hpp>
 
 TEST_CASE("Quaternion::eular")
 {
-	Quaternion    quat;
-	const Vector3 angles(radians(30.f), radians(60.f), radians(90.f));
+	Quaternion quat;
+	Vector3    angles(radians(30.f), radians(60.f), radians(90.f));
 	quat.eular(angles);
 	CHECK_EQ(quat.eular(), angles);
 

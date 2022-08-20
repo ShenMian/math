@@ -1,8 +1,8 @@
 ﻿// Copyright 2021 SMS
 // License(Apache-2.0)
 
-#include <math/math.hpp>
 #include <doctest/doctest.h>
+#include <math/math.hpp>
 
 TEST_CASE("Vector::subscript")
 {
@@ -77,7 +77,7 @@ TEST_CASE("Vector::equal")
 
 TEST_CASE("Vector::io")
 {
-	Vectorf<5> vec({1.f, 2.f, 3.f, 4.f, 5.f});
+	Vectorf<5>         vec({1.f, 2.f, 3.f, 4.f, 5.f});
 	std::ostringstream stream;
 	stream << vec;
 	CHECK_EQ(stream.str(), "1 2 3 4 5 ");

@@ -2,11 +2,12 @@
 // License(Apache-2.0)
 
 
-#include <math/math.hpp>
 #include <doctest/doctest.h>
+#include <math/math.hpp>
 
 TEST_CASE("SIMD::matrixMul")
 {
+	// clang-format off
 	Matrix4f a = {
 		1,  2,  3,  4,
 		5,  6,  7,  8,
@@ -19,6 +20,7 @@ TEST_CASE("SIMD::matrixMul")
 		314, 356, 398, 440,
 		426, 484, 542, 600
 	};
+	// clang-format on
 
 	CHECK_EQ(a * a, b);
 }
