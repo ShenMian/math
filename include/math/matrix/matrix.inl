@@ -726,7 +726,7 @@ inline MatrixT<T, 4, 4> MatrixT<T, R, C>::perspective(T vFOV, T aspect, T n, T f
 
 	const auto tanHalfFOV = std::tan(vFOV / 2.f);
 
-	auto mat  = MatrixT::zero();
+	auto mat  = MatrixT::identity();
 	mat(0, 0) = T(1) / (aspect * tanHalfFOV);
 	mat(1, 1) = T(1) / tanHalfFOV;
 	mat(2, 2) = f / (f - n);
