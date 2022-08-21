@@ -122,10 +122,16 @@ Public 成员函数</h2></td></tr>
 <a class="el" href="class_quaternion_t.html">QuaternionT</a>&#160;</td><td class="memItemRight" valign="bottom"><b>inversed</b> () const</td></tr>
 <tr class="memdesc:aa0d053a351499f5d6737e462849da5b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取求逆结果. <br /></td></tr>
 <tr class="separator:aa0d053a351499f5d6737e462849da5b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1cb09eeaa680ba17de322045044c6169"><td class="memItemLeft" align="right" valign="top"><a id="a1cb09eeaa680ba17de322045044c6169" name="a1cb09eeaa680ba17de322045044c6169"></a>
-<a class="el" href="class_quaternion_t.html">QuaternionT</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>normalize</b> ()</td></tr>
-<tr class="memdesc:a1cb09eeaa680ba17de322045044c6169"><td class="mdescLeft">&#160;</td><td class="mdescRight">标准化. <br /></td></tr>
+<tr class="memitem:a1cb09eeaa680ba17de322045044c6169"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_quaternion_t.html">QuaternionT</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quaternion_t.html#a1cb09eeaa680ba17de322045044c6169">normalize</a> ()</td></tr>
+<tr class="memdesc:a1cb09eeaa680ba17de322045044c6169"><td class="mdescLeft">&#160;</td><td class="mdescRight">标准化成单位四元数.  <a href="class_quaternion_t.html#a1cb09eeaa680ba17de322045044c6169">更多...</a><br /></td></tr>
 <tr class="separator:a1cb09eeaa680ba17de322045044c6169"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70073ccf159899bcc15a3eb1c4e38c5f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_quaternion_t.html">QuaternionT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quaternion_t.html#a70073ccf159899bcc15a3eb1c4e38c5f">normalized</a> () const</td></tr>
+<tr class="memdesc:a70073ccf159899bcc15a3eb1c4e38c5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取单位四元数.  <a href="class_quaternion_t.html#a70073ccf159899bcc15a3eb1c4e38c5f">更多...</a><br /></td></tr>
+<tr class="separator:a70073ccf159899bcc15a3eb1c4e38c5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46e9c05d998bb7267b0ceef73b32cc75"><td class="memItemLeft" align="right" valign="top"><a id="a46e9c05d998bb7267b0ceef73b32cc75" name="a46e9c05d998bb7267b0ceef73b32cc75"></a>
+<a class="el" href="class_quaternion_t.html">QuaternionT</a>&#160;</td><td class="memItemRight" valign="bottom"><b>conjugate</b> () const</td></tr>
+<tr class="memdesc:a46e9c05d998bb7267b0ceef73b32cc75"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取共轭四元数. <br /></td></tr>
+<tr class="separator:a46e9c05d998bb7267b0ceef73b32cc75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1031a294f20fc4b29b820ac2dd33181"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quaternion_t.html#af1031a294f20fc4b29b820ac2dd33181">sizeSq</a> () const noexcept</td></tr>
 <tr class="memdesc:af1031a294f20fc4b29b820ac2dd33181"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取长度平方.  <a href="class_quaternion_t.html#af1031a294f20fc4b29b820ac2dd33181">更多...</a><br /></td></tr>
 <tr class="separator:af1031a294f20fc4b29b820ac2dd33181"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -324,6 +330,60 @@ template&lt;std::floating_point T&gt; </div>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a1cb09eeaa680ba17de322045044c6169" name="a1cb09eeaa680ba17de322045044c6169"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cb09eeaa680ba17de322045044c6169">&#9670;&nbsp;</a></span>normalize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::floating_point T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_quaternion_t.html">QuaternionT</a>&lt; T &gt; &amp; <a class="el" href="class_quaternion_t.html">QuaternionT</a>&lt; T &gt;::normalize</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>标准化成单位四元数. </p>
+<dl class="section warning"><dt>警告</dt><dd>当向量大小太小时, 将会不进行标准化. </dd></dl>
+
+</div>
+</div>
+<a id="a70073ccf159899bcc15a3eb1c4e38c5f" name="a70073ccf159899bcc15a3eb1c4e38c5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70073ccf159899bcc15a3eb1c4e38c5f">&#9670;&nbsp;</a></span>normalized()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::floating_point T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_quaternion_t.html">QuaternionT</a>&lt; T &gt; <a class="el" href="class_quaternion_t.html">QuaternionT</a>&lt; T &gt;::normalized</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取单位四元数. </p>
+<dl class="section warning"><dt>警告</dt><dd>当向量大小太小时, 将会不进行标准化. </dd></dl>
 
 </div>
 </div>
