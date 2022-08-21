@@ -51,7 +51,7 @@ public:
 
 	/**
 	 * @brief 获取欧拉角.
-	 * 
+	 *
 	 * 单位: 弧度.
 	 */
 	Vector3T<T> eular() const noexcept;
@@ -67,9 +67,23 @@ public:
 	QuaternionT inversed() const;
 
 	/**
-	 * @brief 标准化.
+	 * @brief 标准化成单位四元数.
+	 *
+	 * @warning 当向量大小太小时, 将会不进行标准化.
 	 */
 	QuaternionT& normalize();
+
+	/**
+	 * @brief 获取单位四元数.
+	 *
+	 * @warning 当向量大小太小时, 将会不进行标准化.
+	 */
+	QuaternionT normalized() const;
+
+	/**
+	 * @brief 获取共轭四元数.
+	 */
+	QuaternionT conjugate() const;
 
 	/**
 	 * @brief 获取长度平方.

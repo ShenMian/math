@@ -72,7 +72,7 @@ public:
 	constexpr VectorT& normalize();
 
 	/**
-	 * @brief 获取标准化单位向量.
+	 * @brief 获取单位向量.
 	 *
 	 * @warning 当向量大小太小时, 将会不进行标准化.
 	 */

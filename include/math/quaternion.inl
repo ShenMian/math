@@ -139,6 +139,18 @@ inline QuaternionT<T>& QuaternionT<T>::normalize()
 }
 
 template <std::floating_point T>
+inline QuaternionT<T> QuaternionT<T>::normalized() const
+{
+	return QuaternionT(*this).normalized();
+}
+
+template <std::floating_point T>
+inline QuaternionT<T> QuaternionT<T>::conjugate() const
+{
+	return {-x, -y, -z, w};
+}
+
+template <std::floating_point T>
 inline bool QuaternionT<T>::operator==(const QuaternionT& rhs) const
 {
 	return equal(x, rhs.x) && equal(y, rhs.y) && equal(z, rhs.z) && equal(w, rhs.w);
