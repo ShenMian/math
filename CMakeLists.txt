@@ -1,10 +1,8 @@
 ﻿# Copyright 2021 SMS
 # License(Apache-2.0)
 
-# 指定最小版本号
 cmake_minimum_required(VERSION 3.16)
 
-# 指定项目名和版本号
 project(math
     VERSION      0.0.0
     DESCRIPTION  "A simple linear algebra header-only library."
