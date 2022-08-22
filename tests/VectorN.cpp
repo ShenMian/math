@@ -14,7 +14,11 @@ TEST_CASE("Vector2::operator[]")
 
 TEST_CASE("Vector2::norm")
 {
-	CHECK_EQ(Vector2(3, 4).norm(), doctest::Approx(5.f));
+	CHECK_EQ(Vector2(3.f, 4.f).norm(), doctest::Approx(5.f));
+	CHECK_EQ(Vector2(6.f, 8.f).norm(), doctest::Approx(10.f));
+	CHECK_EQ(Vector2(7.f, 24.f).norm(), doctest::Approx(25.f));
+	CHECK_EQ(Vector2(8.f, 15.f).norm(), doctest::Approx(17.f));
+	CHECK_EQ(Vector2(9.f, 40.f).norm(), doctest::Approx(41.f));
 }
 
 TEST_CASE("Vector2::normSquared")

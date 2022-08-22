@@ -29,6 +29,7 @@ TEST_CASE("Matrix::transpose")
 
 TEST_CASE("Matrix::determinant")
 {
+	// TODO
 }
 
 TEST_CASE("Matrix::trace")
