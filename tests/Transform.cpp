@@ -4,12 +4,12 @@
 #include <doctest/doctest.h>
 #include <math/math.hpp>
 
-TEST_CASE("Transform::position")
+TEST_CASE("Transform::translation")
 {
 	Vector3f a = {1, 2, 3};
 
 	Transform trans;
-	trans.position() = a;
+	trans.translation() = a;
 
 	Vector3f b;
 	trans.matrix().decompose(&b, nullptr, nullptr);

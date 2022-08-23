@@ -117,6 +117,7 @@ TEST_CASE("Matrix::decompose/recompose")
 	Quaternion rotation;
 	Vector3    scale;
 	mat.decompose(&translation, &rotation, &scale);
+	// TODO
 	/*
 	CHECK_EQ(translation, Vector3(1.f, 2.f, 3.f));
 	CHECK_EQ(rotation, Quaternion(30.f, 60.f, 90.f, 1.f));

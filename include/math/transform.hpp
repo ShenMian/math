@@ -10,10 +10,13 @@
 class Transform
 {
 public:
-	const Vector3&    position() const noexcept;
+	Transform() = default;
+	Transform(const Matrix4& mat);
+
+	const Vector3&    translation() const noexcept;
 	const Quaternion& rotation() const noexcept;
 	const Vector3&    scale() const noexcept;
-	Vector3&          position() noexcept;
+	Vector3&          translation() noexcept;
 	Quaternion&       rotation() noexcept;
 	Vector3&          scale() noexcept;
 
@@ -22,7 +25,7 @@ public:
 	Transform& operator+=(const Transform&);
 
 private:
-	Vector3    position_;
+	Vector3    translation_;
 	Quaternion rotation_;
 	Vector3    scale_ = Vector3(1.f);
 
@@ -32,4 +35,4 @@ private:
 
 #include "transform.inl"
 
-MAKE_HASHABLE(Transform, t.position(), t.rotation(), t.scale())
+MAKE_HASHABLE(Transform, t.translation(), t.rotation(), t.scale())

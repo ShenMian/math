@@ -1,9 +1,14 @@
 ﻿// Copyright 2021 SMS
 // License(Apache-2.0)
 
-[[nodiscard]] inline const Vector3f& Transform::position() const noexcept
+inline Transform::Transform(const Matrix4& mat)
 {
-	return position_;
+	mat.decompose(&translation_, &rotation_, &scale_);
+}
+
+[[nodiscard]] inline const Vector3f& Transform::translation() const noexcept
+{
+	return translation_;
 }
 
 [[nodiscard]] inline const Quaternionf& Transform::rotation() const noexcept
@@ -16,10 +21,10 @@
 	return scale_;
 }
 
-[[nodiscard]] inline Vector3f& Transform::position() noexcept
+[[nodiscard]] inline Vector3f& Transform::translation() noexcept
 {
 	dirty_ = true;
-	return position_;
+	return translation_;
 }
 
 [[nodiscard]] inline Quaternionf& Transform::rotation() noexcept
@@ -37,7 +42,7 @@
 inline Transform& Transform::operator+=(const Transform& rhs)
 {
 	dirty_ = true;
-	position_ += rhs.position_;
+	translation_ += rhs.translation_;
 	rotation_ += rhs.rotation_;
 	scale_ += rhs.scale_;
 	return *this;
@@ -47,7 +52,7 @@ inline const Matrix4f& Transform::matrix() const
 {
 	if(dirty_)
 	{
-		matrix_.recompose(position_, rotation_, scale_);
+		matrix_.recompose(translation_, rotation_, scale_);
 		dirty_ = false;
 	}
 	return matrix_;
