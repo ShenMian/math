@@ -3,23 +3,23 @@
 
 cmake_minimum_required(VERSION 3.16)
 
-project(math
-    VERSION      0.0.0
-    DESCRIPTION  "A simple linear algebra header-only library."
-    HOMEPAGE_URL "https://github.com/ShenMian/Math"
-    LANGUAGES    CXX C)
+# 默认生成 compilation databases
+if(NOT DEFINED CMAKE_EXPORT_COMPILE_COMMANDS)
+    set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+endif()
 
 # 指定默认编译类型
 if(NOT DEFINED CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Debug)
 endif()
 
-# 默认生成 compilation databases
-if(NOT DEFINED CMAKE_EXPORT_COMPILE_COMMANDS)
-    set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-endif()
+project(math
+    VERSION      0.0.0
+    DESCRIPTION  "A simple linear algebra header-only library."
+    HOMEPAGE_URL "https://github.com/ShenMian/Math"
+    LANGUAGES    CXX C)
 
-# 选项
+  # 选项
 option(MATH_BUILD_TESTS "Build tests" ON)
 
 include(scripts/display_info.cmake)
