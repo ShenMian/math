@@ -14,8 +14,6 @@
 #define breakpoint() __builtin_trap()
 #endif
 
-// TODO: clang 暂时不支持 std::source_location.
-
 inline constexpr void check(bool condition)
 {
 	if(condition)
@@ -31,6 +29,7 @@ inline constexpr void check(bool condition, std::string_view message)
 	breakpoint();
 }
 
+// TODO: clang 暂时不支持 std::source_location.
 /*
 inline void check(bool condition, const std::source_location& loc =
 std::source_location::current())
