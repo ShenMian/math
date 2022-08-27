@@ -3,6 +3,7 @@
 
 #pragma once
 
+#include <cmath>
 #include <numbers>
 #include <type_traits>
 
@@ -17,10 +18,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float linearTween(float t, float b, float c, float d)
-	{
-		return c * t / d + b;
-	}
+	static float linearTween(float t, float b, float c, float d) { return c * t / d + b; }
 
 	/**
 	 * @brief 二次方淡入.
@@ -30,10 +28,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float easeInQuad(float t, float b, float c, float d)
-	{
-		return c * t * t / d + b;
-	}
+	static float easeInQuad(float t, float b, float c, float d) { return c * t * t / d + b; }
 
 	/**
 	 * @brief 二次方淡出.
@@ -43,10 +38,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float easeOutQuad(float t, float b, float c, float d)
-	{
-		return -c * t * (t - 2) / d + b;
-	}
+	static float easeOutQuad(float t, float b, float c, float d) { return -c * t * (t - 2) / d + b; }
 
 	/**
 	 * @brief 二次方淡入并淡出.
@@ -73,10 +65,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float easeInCubic(float t, float b, float c, float d)
-	{
-		return c * t * t * t / d + b;
-	}
+	static float easeInCubic(float t, float b, float c, float d) { return c * t * t * t / d + b; }
 
 	/**
 	 * @brief 三次方淡出.
@@ -220,10 +209,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float easeOutSine(float t, float b, float c, float d)
-	{
-		return c * sin(t / d * (std::numbers::pi / 2)) + b;
-	}
+	static float easeOutSine(float t, float b, float c, float d) { return c * sin(t / d * (std::numbers::pi / 2)) + b; }
 
 	/**
 	 * @brief 正弦淡入并淡出.
@@ -246,10 +232,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float easeInExpo(float t, float b, float c, float d)
-	{
-		return c * pow(2, 10 * (t / d - 1)) + b;
-	}
+	static float easeInExpo(float t, float b, float c, float d) { return c * pow(2, 10 * (t / d - 1)) + b; }
 
 	/**
 	 * @brief 指数淡出.
@@ -259,10 +242,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float easeOutExpo(float t, float b, float c, float d)
-	{
-		return c * (-pow(2, -10 * t / d) + 1) + b;
-	}
+	static float easeOutExpo(float t, float b, float c, float d) { return c * (-pow(2, -10 * t / d) + 1) + b; }
 
 	/**
 	 * @brief 指数淡入并淡出.
@@ -374,7 +354,7 @@ public:
 			return b + c;
 		if(!p)
 			p = d * .3f;
-		if(a < abs(c))
+		if(a < std::abs(c))
 		{
 			a = c;
 			s = p / 4;
@@ -403,7 +383,7 @@ public:
 			return b + c;
 		if(!p)
 			p = d * (.3f * 1.5f);
-		if(a < abs(c))
+		if(a < std::abs(c))
 		{
 			a = c;
 			s = p / 4;
@@ -446,10 +426,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float easeInBounce(float t, float b, float c, float d)
-	{
-		return c - easeOutBounce(d - t, 0, c, d) + b;
-	}
+	static float easeInBounce(float t, float b, float c, float d) { return c - easeOutBounce(d - t, 0, c, d) + b; }
 
 	/**
 	 * @brief 反弹淡出.

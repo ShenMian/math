@@ -1,8 +1,8 @@
 ﻿// Copyright 2021 SMS
 // License(Apache-2.0)
 
-#include <math/math.hpp>
 #include <doctest/doctest.h>
+#include <math/math.hpp>
 #include <numbers>
 
 TEST_CASE("Math::degrees")
