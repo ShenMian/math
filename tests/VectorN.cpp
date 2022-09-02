@@ -66,7 +66,7 @@ TEST_CASE("Vector2::equal")
 	CHECK_NE(vec, Vector2(1, 0));
 }
 
-TEST_CASE("Vector2::io")
+TEST_CASE("Vector2::operator<<")
 {
 	Vector2            vec(1, 2);
 	std::ostringstream stream;
@@ -127,7 +127,7 @@ TEST_CASE("Vector3::lerp")
 	CHECK_EQ(Vector3::lerp(Vector3(0), Vector3(1), 0.5f), Vector3(0.5));
 }
 
-TEST_CASE("Vector3::io")
+TEST_CASE("Vector3::operator<<")
 {
 	Vector3            vec(1, 2, 3);
 	std::ostringstream stream;
@@ -168,7 +168,7 @@ TEST_CASE("Vector4::equal")
 	CHECK_NE(vec, Vector4(1, 2, 3, 0));
 }
 
-TEST_CASE("Vector4::io")
+TEST_CASE("Vector4::operator<<")
 {
 	Vector4            vec(1, 2, 3, 4);
 	std::ostringstream stream;

@@ -324,7 +324,7 @@ TEST_CASE("Matrix::division")
 	CHECK_EQ(a / 2.f, b);
 }
 
-TEST_CASE("Matrix::io")
+TEST_CASE("Matrix::operator<<")
 {
 	{
 		// clang-format off
