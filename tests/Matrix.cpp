@@ -5,11 +5,6 @@
 #include <math/math.hpp>
 #include <sstream>
 
-TEST_CASE("Matrix::inverse")
-{
-	// TODO
-}
-
 TEST_CASE("Matrix::transpose")
 {
 	// clang-format off
@@ -25,11 +20,6 @@ TEST_CASE("Matrix::transpose")
 	};
 	// clang-format on
 	CHECK_EQ(a.transpose(), b);
-}
-
-TEST_CASE("Matrix::determinant")
-{
-	// TODO
 }
 
 TEST_CASE("Matrix::trace")
