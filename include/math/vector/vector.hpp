@@ -14,7 +14,7 @@
 #include <type_traits>
 
 template <typename T>
-concept arithmetic = std::integral<T> || std::floating_point<T>;
+concept arithmetic = std::is_arithmetic_v<T>;
 
 /**
  * @brief N 维向量.
