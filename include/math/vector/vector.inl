@@ -133,6 +133,30 @@ template <arithmetic T, size_t N>
 }
 
 template <arithmetic T, size_t N>
+inline auto VectorT<T, N>::begin() noexcept
+{
+	return std::span(v_).begin();
+}
+
+template <arithmetic T, size_t N>
+inline auto VectorT<T, N>::end() noexcept
+{
+	return std::span(v_).end();
+}
+
+template <arithmetic T, size_t N>
+inline auto VectorT<T, N>::begin() const noexcept
+{
+	return std::span(v_).begin();
+}
+
+template <arithmetic T, size_t N>
+inline auto VectorT<T, N>::end() const noexcept
+{
+	return std::span(v_).end();
+}
+
+template <arithmetic T, size_t N>
 inline constexpr T& VectorT<T, N>::operator[](size_t index)
 {
 	check(index < components(), "subscript out of range");

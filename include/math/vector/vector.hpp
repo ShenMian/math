@@ -126,6 +126,11 @@ public:
 	constexpr T*       data();
 	constexpr const T* data() const;
 
+	auto begin() noexcept;
+	auto end() noexcept;
+	auto begin() const noexcept;
+	auto end() const noexcept;
+
 	constexpr T&       operator[](size_t index);
 	constexpr const T& operator[](size_t index) const;
 
