@@ -21,8 +21,7 @@ inline constexpr VectorT<T, N>::VectorT(const T& scalar)
 template <arithmetic T, size_t N>
 constexpr VectorT<T, N>::VectorT(const T (&arr)[N])
 {
-	for(size_t i = 0; i < N; i++)
-		v_[i] = arr[i];
+	std::copy_n(arr, N, v_);
 }
 
 template <arithmetic T, size_t N>
@@ -41,8 +40,8 @@ template <arithmetic T, size_t N>
 [[nodiscard]] inline constexpr T VectorT<T, N>::normSq() const noexcept
 {
 	T result = T();
-	for(size_t i = 0; i < N; i++)
-		result += v_[i] * v_[i];
+	for(const auto v : *this)
+		result += v * v;
 	return result;
 }
 
@@ -64,46 +63,33 @@ template <arithmetic T, size_t N>
 template <arithmetic T, size_t N>
 [[nodiscard]] inline constexpr T VectorT<T, N>::dot(const VectorT& rhs) const noexcept
 {
-	T result = T();
-	for(size_t i = 0; i < N; i++)
-		result += v_[i] * rhs.v_[i];
-	return result;
+	return std::inner_product(begin(), end(), rhs.begin(), T(0));
 }
 
 template <arithmetic T, size_t N>
 [[nodiscard]] inline constexpr VectorT<T, N> VectorT<T, N>::cross(const VectorT& rhs) const
 {
 	// TODO
+	check(false);
 	return VectorT<T, N>();
 }
 
 template <arithmetic T, size_t N>
 [[nodiscard]] inline constexpr T VectorT<T, N>::sum() const noexcept
 {
-	T sum = T(0);
-	for(size_t i = 0; i < N; i++)
-		sum += v_[i];
-	return sum;
+	return std::accumulate(begin(), end(), T(0));
 }
 
 template <arithmetic T, size_t N>
 [[nodiscard]] constexpr T VectorT<T, N>::minCoeff() const noexcept
 {
-	T min = std::numeric_limits<T>::max();
-	for(size_t i = 0; i < N; i++)
-		if(v_[i] < min)
-			min = v_[i];
-	return min;
+	return rng::min(*this);
 }
 
 template <arithmetic T, size_t N>
 [[nodiscard]] constexpr T VectorT<T, N>::maxCoeff() const noexcept
 {
-	T max = std::numeric_limits<T>::min();
-	for(size_t i = 0; i < N; i++)
-		if(v_[i] > max)
-			max = v_[i];
-	return max;
+	return rng::max(*this);
 }
 
 template <arithmetic T, size_t N>
@@ -198,8 +184,7 @@ inline constexpr VectorT<T, N>& VectorT<T, N>::operator-=(const VectorT<T, N>& r
 template <arithmetic T, size_t N>
 inline constexpr VectorT<T, N>& VectorT<T, N>::operator*=(const T& rhs)
 {
-	for(size_t i = 0; i < N; i++)
-		v_[i] *= rhs;
+	rng::transform(*this, begin(), [&](T v) { return v * rhs; });
 	return *this;
 }
 
@@ -207,8 +192,7 @@ template <arithmetic T, size_t N>
 inline constexpr VectorT<T, N>& VectorT<T, N>::operator/=(const T& rhs)
 {
 	check(rhs, "divisor cannot be zero"); // TODO: 添加 T 为浮点数时的判断
-	for(size_t i = 0; i < N; i++)
-		v_[i] /= rhs;
+	rng::transform(*this, begin(), [&](T v) { return v / rhs; });
 	return *this;
 }
 
@@ -216,8 +200,7 @@ template <arithmetic T, size_t N>
 inline constexpr VectorT<T, N> VectorT<T, N>::operator-() const
 {
 	VectorT result;
-	for(size_t i = 0; i < N; i++)
-		result.v_[i] = -v_[i];
+	rng::transform(*this, result.begin(), [](T v) { return -v; });
 	return result;
 }
 
