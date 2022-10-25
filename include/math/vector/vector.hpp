@@ -4,9 +4,7 @@
 #pragma once
 
 #include "../hash_combine.hpp"
-#include <concepts>
 #include <cstddef>
-#include <initializer_list>
 #include <iomanip>
 #include <iostream>
 #include <span>

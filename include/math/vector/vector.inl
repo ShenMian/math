@@ -6,7 +6,6 @@
 #include "gcem.hpp"
 #include <algorithm>
 #include <cmath>
-#include <concepts>
 #include <ranges>
 
 using gcem::sqrt;

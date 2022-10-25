@@ -3,7 +3,6 @@
 
 #include "../check.hpp"
 #include <cmath>
-#include <concepts>
 
 template <arithmetic T>
 inline const VectorT<T, 3> VectorT<T, 3>::unit(1, 1, 1);

@@ -5,7 +5,6 @@
 
 #include <cstdio>
 #include <string_view>
-#include <type_traits>
 // #include <source_location>
 
 #if _MSC_VER
