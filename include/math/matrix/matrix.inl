@@ -90,14 +90,14 @@ template <arithmetic T, size_t R, size_t C>
 }
 
 template <arithmetic T, size_t R, size_t C>
-[[nodiscard]] inline constexpr T MatrixT<T, R, C>::trace() const
+[[nodiscard]] constexpr T MatrixT<T, R, C>::trace() const
 {
 	static_assert(R == C, "only square matrix supports this operation");
 	return diagonal().sum();
 }
 
 template <arithmetic T, size_t R, size_t C>
-[[nodiscard]] inline constexpr T MatrixT<T, R, C>::sum() const
+[[nodiscard]] constexpr T MatrixT<T, R, C>::sum() const
 {
 	const auto& mat    = *this;
 	T           result = T(0);
@@ -108,7 +108,7 @@ template <arithmetic T, size_t R, size_t C>
 }
 
 template <arithmetic T, size_t R, size_t C>
-[[nodiscard]] inline constexpr T MatrixT<T, R, C>::minCoeff() const
+[[nodiscard]] constexpr T MatrixT<T, R, C>::minCoeff() const
 {
 	const auto& mat = *this;
 	T           min = std::numeric_limits<T>::max();
@@ -120,7 +120,7 @@ template <arithmetic T, size_t R, size_t C>
 }
 
 template <arithmetic T, size_t R, size_t C>
-[[nodiscard]] inline constexpr T MatrixT<T, R, C>::maxCoeff() const
+[[nodiscard]] constexpr T MatrixT<T, R, C>::maxCoeff() const
 {
 	const auto& mat = *this;
 	T           max = std::numeric_limits<T>::min();
@@ -153,7 +153,7 @@ template <arithmetic T, size_t R, size_t C>
 }
 
 template <arithmetic T, size_t R, size_t C>
-[[nodiscard]] inline constexpr VectorT<T, R> MatrixT<T, R, C>::diagonal() const
+[[nodiscard]] constexpr VectorT<T, R> MatrixT<T, R, C>::diagonal() const
 {
 	static_assert(R == C, "only square matrix supports this operation");
 	VectorT<T, R> result;
@@ -363,7 +363,7 @@ inline MatrixT<T, R, C>& MatrixT<T, R, C>::recompose(const Vector3T<T>& translat
 }
 
 template <arithmetic T, size_t R, size_t C>
-[[nodiscard]] inline constexpr VectorT<T, C> MatrixT<T, R, C>::row(size_t index) const
+[[nodiscard]] constexpr VectorT<T, C> MatrixT<T, R, C>::row(size_t index) const
 {
 	check(index < R);
 
@@ -374,7 +374,7 @@ template <arithmetic T, size_t R, size_t C>
 }
 
 template <arithmetic T, size_t R, size_t C>
-[[nodiscard]] inline constexpr VectorT<T, R> MatrixT<T, R, C>::col(size_t index) const
+[[nodiscard]] constexpr VectorT<T, R> MatrixT<T, R, C>::col(size_t index) const
 {
 	check(index < C);
 
@@ -386,13 +386,13 @@ template <arithmetic T, size_t R, size_t C>
 }
 
 template <arithmetic T, size_t R, size_t C>
-[[nodiscard]] inline constexpr size_t MatrixT<T, R, C>::rows() const
+[[nodiscard]] constexpr size_t MatrixT<T, R, C>::rows() const
 {
 	return rows_;
 }
 
 template <arithmetic T, size_t R, size_t C>
-[[nodiscard]] inline constexpr size_t MatrixT<T, R, C>::cols() const
+[[nodiscard]] constexpr size_t MatrixT<T, R, C>::cols() const
 {
 	return cols_;
 }
@@ -443,19 +443,19 @@ template <arithmetic T, size_t R, size_t C>
 }
 
 template <arithmetic T, size_t R, size_t C>
-[[nodiscard]] inline constexpr T* MatrixT<T, R, C>::data()
+[[nodiscard]] constexpr T* MatrixT<T, R, C>::data()
 {
 	return &m_[0][0];
 }
 
 template <arithmetic T, size_t R, size_t C>
-[[nodiscard]] inline constexpr const T* MatrixT<T, R, C>::data() const
+[[nodiscard]] constexpr const T* MatrixT<T, R, C>::data() const
 {
 	return &m_[0][0];
 }
 
 template <arithmetic T, size_t R, size_t C>
-inline constexpr T& MatrixT<T, R, C>::operator()(size_t r, size_t c)
+constexpr T& MatrixT<T, R, C>::operator()(size_t r, size_t c)
 {
 	check(r < rows() && c < cols(), "subscript out of range");
 #if ROW_MANJOR
@@ -466,7 +466,7 @@ inline constexpr T& MatrixT<T, R, C>::operator()(size_t r, size_t c)
 }
 
 template <arithmetic T, size_t R, size_t C>
-inline constexpr const T& MatrixT<T, R, C>::operator()(size_t r, size_t c) const
+constexpr const T& MatrixT<T, R, C>::operator()(size_t r, size_t c) const
 {
 	check(r < rows() && c < cols(), "subscript out of range");
 #if ROW_MANJOR
@@ -477,7 +477,7 @@ inline constexpr const T& MatrixT<T, R, C>::operator()(size_t r, size_t c) const
 }
 
 template <arithmetic T, size_t R, size_t C>
-inline constexpr bool MatrixT<T, R, C>::operator==(const MatrixT& rhs) const
+constexpr bool MatrixT<T, R, C>::operator==(const MatrixT& rhs) const
 {
 	for(size_t r = 0; r < rows(); r++)
 		for(size_t c = 0; c < cols(); c++)
@@ -487,7 +487,7 @@ inline constexpr bool MatrixT<T, R, C>::operator==(const MatrixT& rhs) const
 }
 
 template <arithmetic T, size_t R, size_t C>
-inline constexpr MatrixT<T, R, C>& MatrixT<T, R, C>::operator+=(const MatrixT& rhs)
+constexpr MatrixT<T, R, C>& MatrixT<T, R, C>::operator+=(const MatrixT& rhs)
 {
 	if constexpr(R == C && R == 4)
 		simd::add(*this, rhs, *this);
@@ -501,7 +501,7 @@ inline constexpr MatrixT<T, R, C>& MatrixT<T, R, C>::operator+=(const MatrixT& r
 }
 
 template <arithmetic T, size_t R, size_t C>
-inline constexpr MatrixT<T, R, C>& MatrixT<T, R, C>::operator-=(const MatrixT& rhs)
+constexpr MatrixT<T, R, C>& MatrixT<T, R, C>::operator-=(const MatrixT& rhs)
 {
 	if constexpr(R == C && R == 4)
 		simd::sub(*this, rhs, *this);
@@ -533,7 +533,7 @@ inline MatrixT<T, R, C>& MatrixT<T, R, C>::operator/=(const MatrixT& rhs)
 }
 
 template <arithmetic T, size_t R, size_t C>
-inline constexpr MatrixT<T, R, C>& MatrixT<T, R, C>::operator*=(const T& v)
+constexpr MatrixT<T, R, C>& MatrixT<T, R, C>::operator*=(const T& v)
 {
 	for(size_t r = 0; r < rows(); r++)
 		for(size_t c = 0; c < cols(); c++)
@@ -542,7 +542,7 @@ inline constexpr MatrixT<T, R, C>& MatrixT<T, R, C>::operator*=(const T& v)
 }
 
 template <arithmetic T, size_t R, size_t C>
-inline constexpr MatrixT<T, R, C>& MatrixT<T, R, C>::operator/=(const T& v)
+constexpr MatrixT<T, R, C>& MatrixT<T, R, C>::operator/=(const T& v)
 {
 	for(size_t r = 0; r < rows(); r++)
 		for(size_t c = 0; c < cols(); c++)
@@ -551,7 +551,7 @@ inline constexpr MatrixT<T, R, C>& MatrixT<T, R, C>::operator/=(const T& v)
 }
 
 template <arithmetic T, size_t R, size_t C>
-inline constexpr MatrixT<T, R, C> MatrixT<T, R, C>::operator-()
+constexpr MatrixT<T, R, C> MatrixT<T, R, C>::operator-()
 {
 	MatrixT result;
 	if constexpr(R == C && R == 4)
@@ -566,7 +566,7 @@ inline constexpr MatrixT<T, R, C> MatrixT<T, R, C>::operator-()
 }
 
 template <arithmetic T, size_t R, size_t C>
-inline constexpr MatrixT<T, R, C>& MatrixT<T, R, C>::operator=(const MatrixT& rhs)
+constexpr MatrixT<T, R, C>& MatrixT<T, R, C>::operator=(const MatrixT& rhs)
 {
 	if(rhs == *this)
 		return *this;

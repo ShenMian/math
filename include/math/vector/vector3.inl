@@ -43,22 +43,22 @@ inline VectorT<T, 3>::VectorT() : x(0), y(0), z(0)
 }
 
 template <arithmetic T>
-inline constexpr VectorT<T, 3>::VectorT(const T& scalar) : x(scalar), y(scalar), z(scalar)
+constexpr VectorT<T, 3>::VectorT(const T& scalar) : x(scalar), y(scalar), z(scalar)
 {
 }
 
 template <arithmetic T>
-inline constexpr VectorT<T, 3>::VectorT(const T& x, const T& y, const T& z) : x(x), y(y), z(z)
+constexpr VectorT<T, 3>::VectorT(const T& x, const T& y, const T& z) : x(x), y(y), z(z)
 {
 }
 
 template <arithmetic T>
-inline constexpr VectorT<T, 3>::VectorT(const Vector2T<T>& v, const T& z) : x(v.x), y(v.y), z(z)
+constexpr VectorT<T, 3>::VectorT(const Vector2T<T>& v, const T& z) : x(v.x), y(v.y), z(z)
 {
 }
 
 template <arithmetic T>
-inline constexpr VectorT<T, 3>::VectorT(const std::initializer_list<T>& list)
+constexpr VectorT<T, 3>::VectorT(const std::initializer_list<T>& list)
 {
 	check(list.size() <= 3, "Too many initializers");
 	auto it = list.begin();
@@ -74,7 +74,7 @@ inline T VectorT<T, 3>::norm() const
 }
 
 template <arithmetic T>
-inline constexpr T VectorT<T, 3>::normSq() const
+constexpr T VectorT<T, 3>::normSq() const
 {
 	return x * x + y * y + z * z;
 }
@@ -111,7 +111,7 @@ inline VectorT<T, 3> VectorT<T, 3>::cross(const VectorT& rhs) const
 }
 
 template <arithmetic T>
-inline constexpr T VectorT<T, 3>::sum() const
+constexpr T VectorT<T, 3>::sum() const
 {
 	T sum = T(0);
 	sum += x;
@@ -168,13 +168,13 @@ inline const T& VectorT<T, 3>::operator[](size_t index) const
 }
 
 template <arithmetic T>
-inline constexpr bool VectorT<T, 3>::operator==(const VectorT<T, 3>& rhs) const
+constexpr bool VectorT<T, 3>::operator==(const VectorT<T, 3>& rhs) const
 {
 	return equal(x, rhs.x) && equal(y, rhs.y) && equal(z, rhs.z);
 }
 
 template <arithmetic T>
-inline constexpr VectorT<T, 3>& VectorT<T, 3>::operator+=(const VectorT<T, 3>& rhs)
+constexpr VectorT<T, 3>& VectorT<T, 3>::operator+=(const VectorT<T, 3>& rhs)
 {
 	x += rhs.x;
 	y += rhs.y;
@@ -183,7 +183,7 @@ inline constexpr VectorT<T, 3>& VectorT<T, 3>::operator+=(const VectorT<T, 3>& r
 }
 
 template <arithmetic T>
-inline constexpr VectorT<T, 3>& VectorT<T, 3>::operator-=(const VectorT<T, 3>& rhs)
+constexpr VectorT<T, 3>& VectorT<T, 3>::operator-=(const VectorT<T, 3>& rhs)
 {
 	x -= rhs.x;
 	y -= rhs.y;
@@ -192,7 +192,7 @@ inline constexpr VectorT<T, 3>& VectorT<T, 3>::operator-=(const VectorT<T, 3>& r
 }
 
 template <arithmetic T>
-inline constexpr VectorT<T, 3>& VectorT<T, 3>::operator*=(const T& rhs)
+constexpr VectorT<T, 3>& VectorT<T, 3>::operator*=(const T& rhs)
 {
 	x *= rhs;
 	y *= rhs;
@@ -201,7 +201,7 @@ inline constexpr VectorT<T, 3>& VectorT<T, 3>::operator*=(const T& rhs)
 }
 
 template <arithmetic T>
-inline constexpr VectorT<T, 3>& VectorT<T, 3>::operator/=(const T& rhs)
+constexpr VectorT<T, 3>& VectorT<T, 3>::operator/=(const T& rhs)
 {
 	check(rhs, "divisor cannot be zero");
 	x /= rhs;
@@ -211,7 +211,7 @@ inline constexpr VectorT<T, 3>& VectorT<T, 3>::operator/=(const T& rhs)
 }
 
 template <arithmetic T>
-inline constexpr VectorT<T, 3> VectorT<T, 3>::operator-() const
+constexpr VectorT<T, 3> VectorT<T, 3>::operator-() const
 {
 	return {-x, -y, -z};
 }

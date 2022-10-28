@@ -395,28 +395,28 @@ DEF_MATRIX_NxN(4);
 
 template <typename T, size_t R, size_t C>
 requires std::is_arithmetic_v<T>
-inline constexpr MatrixT<T, R, C> operator+(const MatrixT<T, R, C>& lhs, const MatrixT<T, R, C>& rhs)
+constexpr MatrixT<T, R, C> operator+(const MatrixT<T, R, C>& lhs, const MatrixT<T, R, C>& rhs)
 {
 	return MatrixT(lhs) += rhs;
 }
 
 template <typename T, size_t R, size_t C>
 requires std::is_arithmetic_v<T>
-inline constexpr MatrixT<T, R, C> operator-(const MatrixT<T, R, C>& lhs, const MatrixT<T, R, C>& rhs)
+constexpr MatrixT<T, R, C> operator-(const MatrixT<T, R, C>& lhs, const MatrixT<T, R, C>& rhs)
 {
 	return MatrixT(lhs) -= rhs;
 }
 
 template <typename T, size_t R, size_t C>
 requires std::is_arithmetic_v<T>
-inline constexpr MatrixT<T, R, C> operator*(const MatrixT<T, R, C>& lhs, const MatrixT<T, R, C>& rhs)
+constexpr MatrixT<T, R, C> operator*(const MatrixT<T, R, C>& lhs, const MatrixT<T, R, C>& rhs)
 {
 	return MatrixT(lhs) *= rhs;
 }
 
 template <typename T, size_t R, size_t C>
 requires std::is_arithmetic_v<T>
-inline constexpr MatrixT<T, R, C> operator/(const MatrixT<T, R, C>& lhs, const MatrixT<T, R, C>& rhs)
+constexpr MatrixT<T, R, C> operator/(const MatrixT<T, R, C>& lhs, const MatrixT<T, R, C>& rhs)
 {
 	return MatrixT(lhs) /= rhs;
 }

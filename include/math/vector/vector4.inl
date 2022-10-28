@@ -33,22 +33,22 @@ inline VectorT<T, 4>::VectorT(const T& scalar) : x(scalar), y(scalar), z(scalar)
 }
 
 template <arithmetic T>
-inline constexpr VectorT<T, 4>::VectorT(const T& x, const T& y, const T& z, const T& w) : x(x), y(y), z(z), w(w)
+constexpr VectorT<T, 4>::VectorT(const T& x, const T& y, const T& z, const T& w) : x(x), y(y), z(z), w(w)
 {
 }
 
 template <arithmetic T>
-inline constexpr VectorT<T, 4>::VectorT(const Vector3T<T>& v, const T& w) : x(v.x), y(v.y), z(v.z), w(w)
+constexpr VectorT<T, 4>::VectorT(const Vector3T<T>& v, const T& w) : x(v.x), y(v.y), z(v.z), w(w)
 {
 }
 
 template <arithmetic T>
-inline constexpr VectorT<T, 4>::VectorT(const Vector2T<T>& v, const T& z, const T& w) : x(v.x), y(v.y), z(z), w(w)
+constexpr VectorT<T, 4>::VectorT(const Vector2T<T>& v, const T& z, const T& w) : x(v.x), y(v.y), z(z), w(w)
 {
 }
 
 template <arithmetic T>
-inline constexpr VectorT<T, 4>::VectorT(const std::initializer_list<T>& list)
+constexpr VectorT<T, 4>::VectorT(const std::initializer_list<T>& list)
 {
 	check(list.size() <= 4, "Too many initializers");
 	auto it = list.begin();
@@ -65,7 +65,7 @@ inline T VectorT<T, 4>::norm() const
 }
 
 template <arithmetic T>
-inline constexpr T VectorT<T, 4>::normSq() const
+constexpr T VectorT<T, 4>::normSq() const
 {
 	return x * x + y * y + z * z + w * w;
 }
@@ -86,13 +86,13 @@ inline VectorT<T, 4> VectorT<T, 4>::normalized() const
 }
 
 template <arithmetic T>
-inline constexpr T VectorT<T, 4>::dot(const VectorT& rhs) const
+constexpr T VectorT<T, 4>::dot(const VectorT& rhs) const
 {
 	return x * rhs.x + y * rhs.y + z * rhs.z + w * rhs.w;
 }
 
 template <arithmetic T>
-inline constexpr VectorT<T, 4> VectorT<T, 4>::cross(const VectorT& rhs) const
+constexpr VectorT<T, 4> VectorT<T, 4>::cross(const VectorT& rhs) const
 {
 	// TODO
 	check(false);
@@ -100,7 +100,7 @@ inline constexpr VectorT<T, 4> VectorT<T, 4>::cross(const VectorT& rhs) const
 }
 
 template <arithmetic T>
-inline constexpr T VectorT<T, 4>::sum() const
+constexpr T VectorT<T, 4>::sum() const
 {
 	T sum = T(0);
 	sum += x;
@@ -117,13 +117,13 @@ constexpr size_t VectorT<T, 4>::components() const
 }
 
 template <arithmetic T>
-inline constexpr T* VectorT<T, 4>::data()
+constexpr T* VectorT<T, 4>::data()
 {
 	return &x;
 }
 
 template <arithmetic T>
-inline constexpr const T* VectorT<T, 4>::data() const
+constexpr const T* VectorT<T, 4>::data() const
 {
 	return &x;
 }
@@ -143,13 +143,13 @@ inline const T& VectorT<T, 4>::operator[](size_t index) const
 }
 
 template <arithmetic T>
-inline constexpr bool VectorT<T, 4>::operator==(const VectorT<T, 4>& rhs) const
+constexpr bool VectorT<T, 4>::operator==(const VectorT<T, 4>& rhs) const
 {
 	return equal(x, rhs.x) && equal(y, rhs.y) && equal(z, rhs.z) && equal(w, rhs.w);
 }
 
 template <arithmetic T>
-inline constexpr VectorT<T, 4>& VectorT<T, 4>::operator+=(const VectorT<T, 4>& rhs)
+constexpr VectorT<T, 4>& VectorT<T, 4>::operator+=(const VectorT<T, 4>& rhs)
 {
 	x += rhs.x;
 	y += rhs.y;
@@ -159,7 +159,7 @@ inline constexpr VectorT<T, 4>& VectorT<T, 4>::operator+=(const VectorT<T, 4>& r
 }
 
 template <arithmetic T>
-inline constexpr VectorT<T, 4>& VectorT<T, 4>::operator-=(const VectorT<T, 4>& rhs)
+constexpr VectorT<T, 4>& VectorT<T, 4>::operator-=(const VectorT<T, 4>& rhs)
 {
 	x -= rhs.x;
 	y -= rhs.y;
@@ -169,7 +169,7 @@ inline constexpr VectorT<T, 4>& VectorT<T, 4>::operator-=(const VectorT<T, 4>& r
 }
 
 template <arithmetic T>
-inline constexpr VectorT<T, 4>& VectorT<T, 4>::operator*=(const T& rhs)
+constexpr VectorT<T, 4>& VectorT<T, 4>::operator*=(const T& rhs)
 {
 	x *= rhs;
 	y *= rhs;
@@ -179,7 +179,7 @@ inline constexpr VectorT<T, 4>& VectorT<T, 4>::operator*=(const T& rhs)
 }
 
 template <arithmetic T>
-inline constexpr VectorT<T, 4>& VectorT<T, 4>::operator/=(const T& rhs)
+constexpr VectorT<T, 4>& VectorT<T, 4>::operator/=(const T& rhs)
 {
 	check(rhs, "divisor cannot be zero");
 	x /= rhs;
@@ -190,7 +190,7 @@ inline constexpr VectorT<T, 4>& VectorT<T, 4>::operator/=(const T& rhs)
 }
 
 template <arithmetic T>
-inline constexpr VectorT<T, 4> VectorT<T, 4>::operator-() const
+constexpr VectorT<T, 4> VectorT<T, 4>::operator-() const
 {
 	return {-x, -y, -z, -w};
 }

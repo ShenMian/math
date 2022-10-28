@@ -13,14 +13,14 @@
 #define breakpoint() __builtin_trap()
 #endif
 
-inline constexpr void check(bool condition)
+constexpr void check(bool condition)
 {
 	if(condition)
 		return;
 	breakpoint();
 }
 
-inline constexpr void check(bool condition, std::string_view message)
+constexpr void check(bool condition, std::string_view message)
 {
 	if(condition)
 		return;

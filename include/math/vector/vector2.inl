@@ -34,17 +34,17 @@ inline VectorT<T, 2>::VectorT() : x(0), y(0)
 }
 
 template <arithmetic T>
-inline constexpr VectorT<T, 2>::VectorT(const T& scalar) : x(scalar), y(scalar)
+constexpr VectorT<T, 2>::VectorT(const T& scalar) : x(scalar), y(scalar)
 {
 }
 
 template <arithmetic T>
-inline constexpr VectorT<T, 2>::VectorT(const T& x, const T& y) : x(x), y(y)
+constexpr VectorT<T, 2>::VectorT(const T& x, const T& y) : x(x), y(y)
 {
 }
 
 template <arithmetic T>
-inline constexpr VectorT<T, 2>::VectorT(const std::initializer_list<T>& list)
+constexpr VectorT<T, 2>::VectorT(const std::initializer_list<T>& list)
 {
 	check(list.size() <= 2, "Too many initializers");
 	auto it = list.begin();
@@ -94,7 +94,7 @@ inline VectorT<T, 2> VectorT<T, 2>::cross(const VectorT& rhs) const
 }
 
 template <arithmetic T>
-inline constexpr T VectorT<T, 2>::sum() const noexcept
+constexpr T VectorT<T, 2>::sum() const noexcept
 {
 	T sum = T(0);
 	sum += x;
@@ -177,13 +177,13 @@ inline const T& VectorT<T, 2>::operator[](size_t index) const
 }
 
 template <arithmetic T>
-inline constexpr bool VectorT<T, 2>::operator==(const VectorT<T, 2>& rhs) const
+constexpr bool VectorT<T, 2>::operator==(const VectorT<T, 2>& rhs) const
 {
 	return equal(x, rhs.x) && equal(y, rhs.y);
 }
 
 template <arithmetic T>
-inline constexpr VectorT<T, 2>& VectorT<T, 2>::operator+=(const VectorT<T, 2>& rhs)
+constexpr VectorT<T, 2>& VectorT<T, 2>::operator+=(const VectorT<T, 2>& rhs)
 {
 	x += rhs.x;
 	y += rhs.y;
@@ -191,7 +191,7 @@ inline constexpr VectorT<T, 2>& VectorT<T, 2>::operator+=(const VectorT<T, 2>& r
 }
 
 template <arithmetic T>
-inline constexpr VectorT<T, 2>& VectorT<T, 2>::operator-=(const VectorT<T, 2>& rhs)
+constexpr VectorT<T, 2>& VectorT<T, 2>::operator-=(const VectorT<T, 2>& rhs)
 {
 	x -= rhs.x;
 	y -= rhs.y;
@@ -199,7 +199,7 @@ inline constexpr VectorT<T, 2>& VectorT<T, 2>::operator-=(const VectorT<T, 2>& r
 }
 
 template <arithmetic T>
-inline constexpr VectorT<T, 2>& VectorT<T, 2>::operator*=(const T& rhs)
+constexpr VectorT<T, 2>& VectorT<T, 2>::operator*=(const T& rhs)
 {
 	x *= rhs;
 	y *= rhs;
@@ -207,7 +207,7 @@ inline constexpr VectorT<T, 2>& VectorT<T, 2>::operator*=(const T& rhs)
 }
 
 template <arithmetic T>
-inline constexpr VectorT<T, 2>& VectorT<T, 2>::operator/=(const T& rhs)
+constexpr VectorT<T, 2>& VectorT<T, 2>::operator/=(const T& rhs)
 {
 	check(rhs, "divisor cannot be zero");
 	x /= rhs;
@@ -216,7 +216,7 @@ inline constexpr VectorT<T, 2>& VectorT<T, 2>::operator/=(const T& rhs)
 }
 
 template <arithmetic T>
-inline constexpr VectorT<T, 2> VectorT<T, 2>::operator-() const
+constexpr VectorT<T, 2> VectorT<T, 2>::operator-() const
 {
 	return {-x, -y};
 }
