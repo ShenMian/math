@@ -3,6 +3,7 @@
 
 #pragma once
 
+#include "check.hpp"
 #include "hash_combine.hpp"
 #include "vector/vector3.hpp"
 
@@ -26,7 +27,13 @@ public:
 	 * @param a 第一个点.
 	 * @param b 第二个点.
 	 */
-	AABB3(const Vector3& a, const Vector3& b);
+	AABB3(const Vector3& a, const Vector3& b)
+	{
+		if(a.x < b.x && a.y < b.y && a.z < b.z)
+			min = a, max = b;
+		else
+			min = b, max = a;
+	}
 
 	/**
 	 * @brief 判断是否包含指定点.
@@ -35,7 +42,11 @@ public:
 	 * @return true  包含.
 	 * @return false 不包含.
 	 */
-	bool contains(const Vector3& point) const;
+	bool contains(const Vector3& point) const
+	{
+		check(valid());
+		return (min.x <= point.x && point.x <= max.x) && (min.y <= point.y && point.y <= max.y);
+	}
 
 	/**
 	 * @brief 判断是否包含指定 AABB.
@@ -45,7 +56,11 @@ public:
 	 * @return true  包含.
 	 * @return false 不包含.
 	 */
-	bool contains(const AABB3& aabb) const;
+	bool contains(const AABB3& aabb) const
+	{
+		check(valid() && aabb.valid());
+		return contains(aabb.min) && contains(aabb.max);
+	}
 
 	/**
 	 * @brief 判断是否与 AABB 相交.
@@ -55,31 +70,53 @@ public:
 	 * @return true  相交.
 	 * @return false 不相交.
 	 */
-	bool intersects(const AABB3& aabb) const;
+	bool intersects(const AABB3& aabb) const
+	{
+		check(valid() && aabb.valid());
+		return contains(aabb.min) || contains(aabb.max);
+	}
 
 	/**
 	 * @brief 拓展到包含指定点.
 	 *
 	 * @param point 指定点.
 	 */
-	void expand(const Vector3& point) noexcept;
+	void expand(const Vector3& point) noexcept
+	{
+		min.x = std::min(min.x, point.x);
+		min.y = std::min(min.y, point.y);
+		min.z = std::min(min.z, point.z);
+
+		max.x = std::max(max.x, point.x);
+		max.y = std::max(max.y, point.y);
+		max.z = std::max(max.z, point.z);
+	}
 
 	/**
 	 * @brief 拓展到包含指定 AABB.
 	 *
 	 * @param point AABB.
 	 */
-	void expand(const AABB3& aabb);
+	void expand(const AABB3& aabb)
+	{
+		check(aabb.valid());
+		expand(aabb.min);
+		expand(aabb.max);
+	}
 
 	/**
 	 * @brief 获取几何中心.
 	 */
-	Vector3 center() const noexcept;
+	Vector3 center() const noexcept { return (min + max) * .5f; }
 
 	/**
 	 * @brief 获取体积.
 	 */
-	float volume() const noexcept;
+	float volume() const noexcept
+	{
+		const auto extent = max - min;
+		return extent.x * extent.y * extent.z;
+	}
 
 	/**
 	 * @brief 判断大小是否为空.
@@ -87,7 +124,7 @@ public:
 	 * @return true  空.
 	 * @return false 非空.
 	 */
-	bool empty() const noexcept;
+	bool empty() const noexcept { return min == max; }
 
 	/**
 	 * @brief 判断是否有效.
@@ -95,17 +132,15 @@ public:
 	 * @return true  有效.
 	 * @return false 无效.
 	 */
-	bool valid() const noexcept;
+	bool valid() const noexcept { return min.x <= max.x && min.y <= max.y && min.z <= max.z; }
 
 	/**
 	 * @brief 设置包围盒为空.
 	 */
-	void clear() noexcept;
+	void clear() noexcept { min = max = Vector3::zero; }
 
 	bool operator==(const AABB3& rhs) const = default;
 };
-
-#include "aabb3.inl"
 
 MAKE_HASHABLE(AABB3, t.min, t.max)
 
