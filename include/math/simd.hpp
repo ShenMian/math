@@ -3,9 +3,6 @@
 
 #pragma once
 
-#include "matrix/matrix.hpp"
-#include "vector/vector.hpp"
-
 #if defined(_MSC_VER) && (defined(_M_X64) || defined(_M_IX86))
 #define USE_SSE
 #elif defined(__clang__) && (defined(__i386__) || defined(__x86_64__))
@@ -77,7 +74,7 @@ inline void store(float* vec, const __m128& v) noexcept
 	_mm_store_ps(vec, v);
 }
 
-inline void matrixAdd(const __m128 m1[4], const __m128 m2[4], __m128 dst[4]) noexcept
+inline void add(const __m128 m1[4], const __m128 m2[4], __m128 dst[4]) noexcept
 {
 	dst[0] = _mm_add_ps(m1[0], m2[0]);
 	dst[1] = _mm_add_ps(m1[1], m2[1]);
@@ -85,7 +82,7 @@ inline void matrixAdd(const __m128 m1[4], const __m128 m2[4], __m128 dst[4]) noe
 	dst[3] = _mm_add_ps(m1[3], m2[3]);
 }
 
-inline void matrixSub(const __m128 m1[4], const __m128 m2[4], __m128 dst[4]) noexcept
+inline void sub(const __m128 m1[4], const __m128 m2[4], __m128 dst[4]) noexcept
 {
 	dst[0] = _mm_sub_ps(m1[0], m2[0]);
 	dst[1] = _mm_sub_ps(m1[1], m2[1]);
@@ -93,7 +90,7 @@ inline void matrixSub(const __m128 m1[4], const __m128 m2[4], __m128 dst[4]) noe
 	dst[3] = _mm_sub_ps(m1[3], m2[3]);
 }
 
-inline void matrixMul(const __m128 m1[4], const __m128 m2[4], __m128 dst[4]) noexcept
+inline void mul(const __m128 m1[4], const __m128 m2[4], __m128 dst[4]) noexcept
 {
 	__m128 tmp[4];
 	{
@@ -174,7 +171,7 @@ inline void matrixMul(const __m128 m1[4], const __m128 m2[4], __m128 dst[4]) noe
 	dst[3] = tmp[3];
 }
 
-inline void matrixNegate(const __m128 m[4], __m128 dst[4]) noexcept
+inline void negate(const __m128 m[4], __m128 dst[4]) noexcept
 {
 	__m128 z = _mm_setzero_ps();
 	dst[0]   = _mm_sub_ps(z, m[0]);
@@ -183,7 +180,7 @@ inline void matrixNegate(const __m128 m[4], __m128 dst[4]) noexcept
 	dst[3]   = _mm_sub_ps(z, m[3]);
 }
 
-inline void matrixTranspose(const __m128 m[4], __m128 dst[4]) noexcept
+inline void transpose(const __m128 m[4], __m128 dst[4]) noexcept
 {
 	__m128 tmp0 = _mm_shuffle_ps(m[0], m[1], 0x44);
 	__m128 tmp2 = _mm_shuffle_ps(m[0], m[1], 0xEE);
@@ -209,62 +206,6 @@ inline void matrixMulVec(const __m128 m[4], const __m128& v, __m128& dst) noexce
 
 inline void vecMulMatrix(const __m128 v, const __m128 m[4], __m128 dst[4]) noexcept
 {
-}
-
-inline void add(const Matrix4f& a, const Matrix4f& b, Matrix4f& dst) noexcept
-{
-	__m128 m1[4];
-	__m128 m2[4];
-	loadu(m1, a.data());
-	loadu(m2, b.data());
-	matrixAdd(m1, m2, m1);
-	storeu(dst.data(), m1);
-}
-
-inline void sub(const Matrix4f& a, const Matrix4f& b, Matrix4f& dst) noexcept
-{
-	__m128 m1[4];
-	__m128 m2[4];
-	loadu(m1, a.data());
-	loadu(m2, b.data());
-	matrixSub(m1, m2, m1);
-	storeu(dst.data(), m1);
-}
-
-inline void mul(const Matrix4f& a, const Matrix4f& b, Matrix4f& dst) noexcept
-{
-	__m128 m1[4];
-	__m128 m2[4];
-	loadu(m1, a.data());
-	loadu(m2, b.data());
-	matrixMul(m1, m2, m1);
-	storeu(dst.data(), m1);
-}
-
-inline void mul(const Matrix4f& a, const VectorT<float, 4>& b, VectorT<float, 4>& dst) noexcept
-{
-	__m128 m[4];
-	__m128 v = {};
-	loadu(m, a.data());
-	loadu(v, b.data());
-	matrixMulVec(m, v, v);
-	storeu(dst.data(), v);
-}
-
-inline void transpose(const Matrix4f& a, Matrix4f& dst) noexcept
-{
-	__m128 m[4];
-	loadu(m, a.data());
-	matrixTranspose(m, m);
-	storeu(dst.data(), m);
-}
-
-inline void negate(const Matrix4f& a, Matrix4f& dst) noexcept
-{
-	__m128 m[4];
-	loadu(m, a.data());
-	matrixNegate(m, m);
-	storeu(dst.data(), m);
 }
 
 #endif

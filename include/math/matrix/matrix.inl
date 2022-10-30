@@ -3,21 +3,10 @@
 
 #include "../check.hpp"
 #include "../helper.hpp"
+#include "../simd.hpp"
 #include "matrix.hpp"
 #include <algorithm>
 #include <cstring>
-
-namespace simd
-{
-
-void add(const MatrixT<float, 4, 4>&, const MatrixT<float, 4, 4>&, MatrixT<float, 4, 4>&) noexcept;
-void sub(const MatrixT<float, 4, 4>&, const MatrixT<float, 4, 4>&, MatrixT<float, 4, 4>&) noexcept;
-void mul(const MatrixT<float, 4, 4>&, const MatrixT<float, 4, 4>&, MatrixT<float, 4, 4>&) noexcept;
-void mul(const MatrixT<float, 4, 4>&, const VectorT<float, 4>&, VectorT<float, 4>&) noexcept;
-void transpose(const MatrixT<float, 4, 4>&, MatrixT<float, 4, 4>&) noexcept;
-void negate(const MatrixT<float, 4, 4>&, MatrixT<float, 4, 4>&) noexcept;
-
-} // namespace simd
 
 template <arithmetic T, size_t R, size_t C>
 inline MatrixT<T, R, C>::MatrixT()
@@ -73,7 +62,12 @@ inline MatrixT<T, R, C>& MatrixT<T, R, C>::transpose()
 	static_assert(R == C, "only square matrix supports this operation");
 
 	if constexpr(R == C && R == 4)
-		simd::transpose(*this, *this);
+	{
+		__m128 m[4];
+		simd::loadu(m, data());
+		simd::transpose(m, m);
+		simd::storeu(data(), m);
+	}
 	else
 	{
 		for(size_t r = 0; r < rows(); r++)
@@ -490,7 +484,14 @@ template <arithmetic T, size_t R, size_t C>
 constexpr MatrixT<T, R, C>& MatrixT<T, R, C>::operator+=(const MatrixT& rhs)
 {
 	if constexpr(R == C && R == 4)
-		simd::add(*this, rhs, *this);
+	{
+		__m128 m1[4];
+		__m128 m2[4];
+		simd::loadu(m1, data());
+		simd::loadu(m2, rhs.data());
+		simd::add(m1, m2, m1);
+		simd::storeu(data(), m1);
+	}
 	else
 	{
 		for(size_t r = 0; r < rows(); r++)
@@ -504,7 +505,14 @@ template <arithmetic T, size_t R, size_t C>
 constexpr MatrixT<T, R, C>& MatrixT<T, R, C>::operator-=(const MatrixT& rhs)
 {
 	if constexpr(R == C && R == 4)
-		simd::sub(*this, rhs, *this);
+	{
+		__m128 m1[4];
+		__m128 m2[4];
+		simd::loadu(m1, data());
+		simd::loadu(m2, rhs.data());
+		simd::sub(m1, m2, m1);
+		simd::storeu(data(), m1);
+	}
 	else
 	{
 		for(size_t r = 0; r < rows(); r++)
@@ -518,7 +526,14 @@ template <arithmetic T, size_t R, size_t C>
 inline MatrixT<T, R, C>& MatrixT<T, R, C>::operator*=(const MatrixT& rhs)
 {
 	if constexpr(R == C && R == 4)
-		simd::mul(*this, rhs, *this);
+	{
+		__m128 m1[4];
+		__m128 m2[4];
+		simd::loadu(m1, data());
+		simd::loadu(m2, rhs.data());
+		simd::mul(m1, m2, m1);
+		simd::storeu(data(), m1);
+	}
 	else
 		check(false);
 	return *this;
@@ -555,7 +570,12 @@ constexpr MatrixT<T, R, C> MatrixT<T, R, C>::operator-()
 {
 	MatrixT result;
 	if constexpr(R == C && R == 4)
-		simd::negate(*this, result);
+	{
+		__m128 m[4];
+		simd::loadu(m, data());
+		simd::negate(m, m);
+		simd::storeu(result.data(), m);
+	}
 	else
 	{
 		for(size_t r = 0; r < rows(); r++)
@@ -822,7 +842,14 @@ inline MatrixT<T, R, C> MatrixT<T, R, C>::zero()
 inline Vector4f operator*(const MatrixT<float, 4, 4>& mat, const Vector4f& vec)
 {
 	Vector4f result;
-	simd::mul(mat, vec, result);
+
+	__m128 m[4];
+	__m128 v = {};
+	simd::loadu(m, mat.data());
+	simd::loadu(v, vec.data());
+	simd::matrixMulVec(m, v, v);
+	simd::storeu(result.data(), v);
+
 	return result;
 }
 
