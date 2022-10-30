@@ -10,6 +10,9 @@ CMakeSettings.json
 # Visual Studio Code
 .vscode
 
+# CLion
+.idea
+
 # Created by https://www.toptal.com/developers/gitignore/api/c++,visualstudio,visualstudiocode,cmake,clion
 # Edit at https://www.toptal.com/developers/gitignore?templates=c++,visualstudio,visualstudiocode,cmake,clion
 
