@@ -6,7 +6,7 @@ var searchData=
   ['col_3',['col',['../class_matrix_t.html#a5b0619a5380497cebb7eb8fc1e424d22',1,'MatrixT']]],
   ['cols_4',['cols',['../class_matrix_t.html#a31aec19b7a0d0a989abbcb7a5185f450',1,'MatrixT']]],
   ['components_5',['components',['../class_vector_t.html#a563f20e9cdbbe3c20b5dacdcc921f235',1,'VectorT::components()'],['../class_vector_t_3_01_t_00_012_01_4.html#a46c6343194435115f722fee9d687f86a',1,'VectorT&lt; T, 2 &gt;::components()'],['../class_vector_t_3_01_t_00_013_01_4.html#a2074abb10ea95e9281358641bc3e120f',1,'VectorT&lt; T, 3 &gt;::components()'],['../class_vector_t_3_01_t_00_014_01_4.html#a36ec334452632f3a6031d114953c61c7',1,'VectorT&lt; T, 4 &gt;::components()']]],
-  ['conjugate_6',['conjugate',['../class_quaternion_t.html#a46e9c05d998bb7267b0ceef73b32cc75',1,'QuaternionT']]],
+  ['conjugate_6',['conjugate',['../class_quaternion_t.html#a9a6d19d6a182145003f75d624ff48c50',1,'QuaternionT']]],
   ['contains_7',['contains',['../class_a_a_b_b3.html#a791887cad43dbfefc4f2317f03bf9df8',1,'AABB3::contains(const AABB3 &amp;aabb) const'],['../class_a_a_b_b3.html#afcd03cc85be2b64307c1ac6455871c8e',1,'AABB3::contains(const Vector3 &amp;point) const']]],
   ['createrotation_8',['createRotation',['../class_matrix_t.html#a4c85fe5e9d133ea32a0661cfda3888a6',1,'MatrixT::createRotation(const QuaternionT&lt; T &gt; &amp;rotation)'],['../class_matrix_t.html#a2a611485cfd7159fdebb610d7e099d7c',1,'MatrixT::createRotation(float angle, Vector3T&lt; T &gt; axis)']]],
   ['createrotationx_9',['createRotationX',['../class_matrix_t.html#ab395e20f67c003ac6fc08f9cb7cb6bb6',1,'MatrixT']]],
