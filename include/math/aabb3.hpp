@@ -29,7 +29,7 @@ public:
 	 */
 	AABB3(const Vector3& a, const Vector3& b)
 	{
-		check((a.x <= b.x && a.y <= b.y && a.z <= b.z) || (a.x >= b.x && a.y >= b.y && a.z >= b.z));
+		check((a.x <= b.x && a.y <= b.y && a.z <= b.z) || (a.x > b.x && a.y > b.y && a.z > b.z));
 		if(a.x < b.x)
 			min = a, max = b;
 		else
@@ -134,11 +134,6 @@ public:
 	 * @return false 无效.
 	 */
 	bool valid() const noexcept { return min.x <= max.x && min.y <= max.y && min.z <= max.z; }
-
-	/**
-	 * @brief 设置包围盒为空.
-	 */
-	void clear() noexcept { min = max = Vector3::zero; }
 
 	bool operator==(const AABB3& rhs) const = default;
 };
