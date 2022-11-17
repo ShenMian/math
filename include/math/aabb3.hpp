@@ -29,7 +29,8 @@ public:
 	 */
 	AABB3(const Vector3& a, const Vector3& b)
 	{
-		if(a.x < b.x && a.y < b.y && a.z < b.z)
+		check((a.x <= b.x && a.y <= b.y && a.z <= b.z) || (a.x >= b.x && a.y >= b.y && a.z >= b.z));
+		if(a.x < b.x)
 			min = a, max = b;
 		else
 			min = b, max = a;
