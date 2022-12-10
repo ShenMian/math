@@ -27,7 +27,7 @@ include(scripts/display_info.cmake)
 add_library(${PROJECT_NAME} INTERFACE)
 add_library(${PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 target_include_directories(${PROJECT_NAME} INTERFACE
-    "${PROJECT_SOURCE_DIR}/include"
+    "${PROJECT_SOURCE_DIR}/src"
     "${PROJECT_SOURCE_DIR}/deps/gcem/include")
 
 if(MATH_BUILD_TESTS)

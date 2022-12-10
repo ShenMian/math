@@ -28,7 +28,7 @@ add_executable(unit_test ${SOURCES})
 # 指定库文件目录
 # target_link_libraries(unit_test INTERFACE math)
 target_include_directories(unit_test PRIVATE
-    "${PROJECT_SOURCE_DIR}/include"
+    "${PROJECT_SOURCE_DIR}/src"
     "${PROJECT_SOURCE_DIR}/deps/gcem/include")
 target_include_directories(unit_test PRIVATE "${PROJECT_SOURCE_DIR}/deps/doctest")
 
