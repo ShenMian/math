@@ -24,31 +24,12 @@
 */
 var NAVTREE =
 [
-  [ "Math", "index.html", [
-    [ "Math 文档", "index.html", [
-      [ "Math", "index.html#autotoc_md0", [
-        [ "概述", "index.html#autotoc_md1", null ],
-        [ "特点", "index.html#autotoc_md2", null ]
-      ] ]
-    ] ],
-    [ "类", "annotated.html", [
-      [ "类列表", "annotated.html", "annotated_dup" ],
-      [ "类索引", "classes.html", null ],
-      [ "类成员", "functions.html", [
-        [ "全部", "functions.html", null ],
-        [ "函数", "functions_func.html", null ],
-        [ "变量", "functions_vars.html", null ]
-      ] ]
-    ] ],
-    [ "文件", "files.html", [
-      [ "文件列表", "files.html", "files_dup" ]
-    ] ]
-  ] ]
+  [ "Math", "index.html", ]
 ];
 
 var NAVTREEINDEX =
 [
-"aabb3_8hpp_source.html"
+"index.html"
 ];
 
 var SYNCONMSG = '点击 关闭 面板同步';
