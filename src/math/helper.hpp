@@ -7,17 +7,45 @@
 #include <concepts>
 #include <numbers>
 #include <numeric>
+#include <type_traits>
+
+#include "gcem.hpp"
+
+#define WRAP_1(func)                                                                                                   \
+	template <typename T>                                                                                              \
+	    requires std::is_arithmetic_v<T>                                                                               \
+	constexpr T func(T x) noexcept                                                                                     \
+	{                                                                                                                  \
+		if(!std::is_constant_evaluated())                                                                              \
+			return std::func(x);                                                                                       \
+		return gcem::func(x);                                                                                          \
+	}
+
+#define WRAP_2(func)                                                                                                   \
+	template <typename T>                                                                                              \
+	    requires std::is_arithmetic_v<T>                                                                               \
+	constexpr T func(T x, T y) noexcept                                                                                \
+	{                                                                                                                  \
+		if(!std::is_constant_evaluated())                                                                              \
+			return std::func(x, y);                                                                                    \
+		return gcem::func(x, y);                                                                                       \
+	}
 
 namespace detail
 {
 
-// C++ 23 后 std::abs 支持 constexpr
-template <typename T>
-    requires std::is_arithmetic_v<T>
-constexpr T abs(T x) noexcept
-{
-	return (x >= T(0)) ? x : -x;
-}
+WRAP_1(abs) // C++ 23 后 std::abs 支持 constexpr
+WRAP_1(pow)
+WRAP_1(sqrt)
+
+WRAP_1(cos)
+WRAP_1(sin)
+WRAP_1(tan)
+WRAP_1(acos)
+WRAP_1(asin)
+WRAP_1(atan)
+
+WRAP_2(atan2)
 
 } // namespace detail
 
