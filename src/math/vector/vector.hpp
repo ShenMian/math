@@ -11,12 +11,11 @@
 #include <cstddef>
 #include <iomanip>
 #include <iostream>
+#include <numeric>
 #include <ranges>
 #include <span>
 #include <sstream>
 #include <type_traits>
-
-#include "gcem.hpp"
 
 template <typename T>
 concept arithmetic = std::is_arithmetic_v<T>;
@@ -60,7 +59,7 @@ public:
 	 *
 	 * @see normSquared
 	 */
-	constexpr T norm() const { return static_cast<T>(gcem::sqrt(normSq())); }
+	constexpr T norm() const { return static_cast<T>(detail::sqrt(normSq())); }
 
 	/**
 	 * @brief 获取模的平方.
@@ -343,8 +342,8 @@ struct std::hash<VectorT<T, N>>
 template <arithmetic T>
 T distanceSq(const VectorT<T, 2>& a, const VectorT<T, 2>& b)
 {
-	const auto dx = gcem::abs(a.x - b.x);
-	const auto dy = gcem::abs(a.y - b.y);
+	const auto dx = detail::abs(a.x - b.x);
+	const auto dy = detail::abs(a.y - b.y);
 	return dx * dx + dy * dy;
 }
 
