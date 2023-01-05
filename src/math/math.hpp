@@ -9,7 +9,7 @@
 #include "vector/vector4.hpp"
 
 #include "matrix/matrix.hpp"
-// #include "Matrix/MatrixNN.hpp"
+// #include "matrix/matrix_nn.hpp"
 
 #include "quaternion.hpp"
 
@@ -19,17 +19,3 @@
 #include "simd.hpp"
 
 #include "easing.hpp"
-
-/**
- * @mainpage Math 文档
- *
- * Math
- * ====
- *
- * ## 概述
- * 一个简单的线性代数仅头文件库.
- *
- * ## 特点
- * - 部分操作支持 SIMD: SSE.
- * - 部分操作支持编译时计算: C++14 constexpr.
- */
