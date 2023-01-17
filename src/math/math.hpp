@@ -13,7 +13,7 @@
 
 #include "quaternion.hpp"
 
-#include "aabb3.hpp"
+#include "aabb.hpp"
 #include "transform.hpp"
 
 #include "simd.hpp"

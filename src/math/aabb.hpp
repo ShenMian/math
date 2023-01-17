@@ -10,7 +10,7 @@
 /**
  * @brief 3 维轴对齐包围盒.
  */
-class AABB3
+class AABB
 {
 public:
 	Vector3 min; ///< 最小点.
@@ -19,7 +19,7 @@ public:
 	/**
 	 * @brief 默认构造函数.
 	 */
-	AABB3() = default;
+	AABB() = default;
 
 	/**
 	 * @brief 构造函数, 通过最小点和最大点创建包围盒.
@@ -27,7 +27,7 @@ public:
 	 * @param a 第一个点.
 	 * @param b 第二个点.
 	 */
-	AABB3(const Vector3& a, const Vector3& b)
+	AABB(const Vector3& a, const Vector3& b)
 	{
 		check((a.x <= b.x && a.y <= b.y && a.z <= b.z) || (a.x > b.x && a.y > b.y && a.z > b.z));
 		if(a.x < b.x)
@@ -57,7 +57,7 @@ public:
 	 * @return true  包含.
 	 * @return false 不包含.
 	 */
-	bool contains(const AABB3& aabb) const
+	bool contains(const AABB& aabb) const
 	{
 		check(valid() && aabb.valid());
 		return contains(aabb.min) && contains(aabb.max);
@@ -71,7 +71,7 @@ public:
 	 * @return true  相交.
 	 * @return false 不相交.
 	 */
-	bool intersects(const AABB3& aabb) const
+	bool intersects(const AABB& aabb) const
 	{
 		check(valid() && aabb.valid());
 		return contains(aabb.min) || contains(aabb.max);
@@ -98,7 +98,7 @@ public:
 	 *
 	 * @param point AABB.
 	 */
-	void expand(const AABB3& aabb)
+	void expand(const AABB& aabb)
 	{
 		check(aabb.valid());
 		expand(aabb.min);
@@ -135,10 +135,10 @@ public:
 	 */
 	bool valid() const noexcept { return min.x <= max.x && min.y <= max.y && min.z <= max.z; }
 
-	bool operator==(const AABB3& rhs) const = default;
+	bool operator==(const AABB& rhs) const = default;
 };
 
-MAKE_HASHABLE(AABB3, t.min, t.max)
+MAKE_HASHABLE(AABB, t.min, t.max)
 
 /**
  * @class AABB3
