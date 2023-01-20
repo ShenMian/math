@@ -22,7 +22,9 @@ public:
 	AABB() = default;
 
 	/**
-	 * @brief 构造函数, 通过最小点和最大点创建包围盒.
+	 * @brief 构造函数, 通过两个点创建包围盒.
+	 *
+	 * 将根据给出的两个点推断出最小点和最大点的值.
 	 *
 	 * @param a 第一个点.
 	 * @param b 第二个点.
@@ -39,7 +41,8 @@ public:
 	/**
 	 * @brief 判断是否包含指定点.
 	 *
-	 * @param point  判断是否包含的点.
+	 * @param point 判断是否包含的点.
+	 *
 	 * @return true  包含.
 	 * @return false 不包含.
 	 */
@@ -52,7 +55,7 @@ public:
 	/**
 	 * @brief 判断是否包含指定 AABB.
 	 *
-	 * @param aabb   判断是否包含的 AABB.
+	 * @param aabb 判断是否包含的 AABB.
 	 *
 	 * @return true  包含.
 	 * @return false 不包含.
@@ -66,7 +69,7 @@ public:
 	/**
 	 * @brief 判断是否与 AABB 相交.
 	 *
-	 * @param  aabb  判断是否相交的 AABB.
+	 * @param aabb 判断是否相交的 AABB.
 	 *
 	 * @return true  相交.
 	 * @return false 不相交.
@@ -143,8 +146,8 @@ MAKE_HASHABLE(AABB, t.min, t.max)
 /**
  * @class AABB3
  *
- * @details 在碰撞检测中用于简化物体外形. 包围盒的边都与坐标轴平行,
- * 因此可以利用分离轴定理快速进行碰撞检测.
+ * 在碰撞检测中用于简化物体外形.
+ * 包围盒的边都与坐标轴平行, 因此可以利用分离轴定理快速进行碰撞检测.
  *
  * 例子:
  *
