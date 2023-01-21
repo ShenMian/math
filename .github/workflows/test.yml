@@ -7,7 +7,7 @@ jobs:
     strategy:
       matrix:
         os: [windows-latest, ubuntu-latest]
-        type: [Debug, Release]
+        type: [debug, release]
 
     name: ${{matrix.os}}-${{matrix.type}}
     runs-on: ${{matrix.os}}
@@ -29,7 +29,7 @@ jobs:
         run: cmake --build "${{github.workspace}}/target" --config ${{matrix.type}}
 
       - name: Test
-        working-directory: ${{github.workspace}}/target/
+        working-directory: ${{github.workspace}}/target/${{matrix.type}}
         run: ./unit_test --reporters=junit --out=report.xml
 
       - name: Test Reporter
