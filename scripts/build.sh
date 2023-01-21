@@ -16,7 +16,7 @@ fi
 cd "$( cd "$( dirname "$0"  )" && pwd  )" || exit
 cd .. || exit
 
-mkdir build 2>/dev/null
+mkdir target 2>/dev/null
 
 echo "=== Checkout third-party libraries..."
 git submodule update --init >/dev/null || {
@@ -25,16 +25,16 @@ git submodule update --init >/dev/null || {
 }
 
 echo "=== Generating CMake cache..."
-cmake -B build -Wno-dev >/dev/null || {
+cmake -B target -Wno-dev >/dev/null || {
     echo "=== Failed to generate CMake cache."
     exit 1
 }
 
 echo "=== Generating 'compile_commands.json'..."
-cp build/compile_commands.json . &>/dev/null || echo "No 'compile_commands.json' was generated."
+cp target/compile_commands.json . &>/dev/null || echo "No 'compile_commands.json' was generated."
 
 echo "=== Building..."
-cmake --build build --config "${build_type}" -- -j$(nproc) >/dev/null || {
+cmake --build target --config "${build_type}" -- -j$(nproc) >/dev/null || {
     echo "=== Failed to build."
     exit 1
 }
