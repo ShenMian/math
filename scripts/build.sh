@@ -25,7 +25,7 @@ git submodule update --init >/dev/null || {
 }
 
 echo "=== Generating CMake cache..."
-cmake -B target -Wno-dev >/dev/null || {
+cmake -B target -Wno-dev -G "Ninja" >/dev/null || {
     echo "=== Failed to generate CMake cache."
     exit 1
 }
