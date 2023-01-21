@@ -20,16 +20,16 @@ jobs:
 
       - name: Setup clang (Windows)
         if: matrix.os == 'windows-latest'
-        run: echo "PATH=$PATH:C:\msys64\mingw64\bin" >> $GITHUB_ENV
+        run: echo "PATH=$PATH:C:/msys64/mingw64/bin" >> $GITHUB_ENV
 
       - name: Configure CMake
-        run: cmake -DCMAKE_BUILD_TYPE=${{matrix.type}} -B "${{github.workspace}}/build"
+        run: cmake -DCMAKE_BUILD_TYPE=${{matrix.type}} -B "${{github.workspace}}/target"
 
       - name: Build
-        run: cmake --build "${{github.workspace}}/build" --config ${{matrix.type}}
+        run: cmake --build "${{github.workspace}}/target" --config ${{matrix.type}}
 
       - name: Test
-        working-directory: ${{github.workspace}}/build/bin
+        working-directory: ${{github.workspace}}/target/
         run: ./unit_test --reporters=junit --out=report.xml
 
       - name: Test Reporter
@@ -38,7 +38,7 @@ jobs:
         with:
           name: tests report (${{matrix.os}}-${{matrix.type}})
           path: report.xml
-          working-directory: ${{github.workspace}}/build/bin
+          working-directory: ${{github.workspace}}/target/
           reporter: java-junit
 
       - name: Setup coverage report generator (Linux)
@@ -49,15 +49,15 @@ jobs:
         if: matrix.os == 'windows-latest'
         run: |
           choco install OpenCppCoverage -y
-          echo "C:\Program Files\OpenCppCoverage" >> $env:GITHUB_PATH
+          echo "C:/Program Files/OpenCppCoverage" >> $env:GITHUB_PATH
 
       # - name: Generate coverage report (Linux)
       #   if: matrix.os == 'ubuntu-latest'
-      #   run: gcovr -r $GITHUB_WORKSPACE -x $GITHUB_WORKSPACE/build/coverage.out -s -f "${{github.workspace}}/include" -f "${{github.workspace}}\tests" ${{ matrix.platform.gcovr_options }} $GITHUB_WORKSPACE
+      #   run: gcovr -r $GITHUB_WORKSPACE -x $GITHUB_WORKSPACE/target/coverage.out -s -f "${{github.workspace}}/include" -f "${{github.workspace}}\tests" ${{ matrix.platform.gcovr_options }} $GITHUB_WORKSPACE
 
       - name: Generate coverage report (Windows)
         if: matrix.os == 'windows-latest'
-        run: OpenCppCoverage.exe --sources "${{github.workspace}}" --export_type cobertura:coverage_report.xml -- "${{github.workspace}}/build/bin/${{matrix.build_type}}/unit_test.exe"
+        run: OpenCppCoverage.exe --sources "${{github.workspace}}" --export_type cobertura:coverage_report.xml -- "${{github.workspace}}/target/${{matrix.build_type}}/unit_test.exe"
 
       - name: Upload coverage report to Codecov (Windows)
         if: matrix.os == 'windows-latest'
