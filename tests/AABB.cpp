@@ -4,12 +4,12 @@
 #include <doctest/doctest.h>
 #include <math/math.hpp>
 
-TEST_CASE("AABB3::AABB3")
+TEST_CASE("AABB::AABB")
 {
 	CHECK_EQ(AABB({1, 1, 1}, {0, 0, 0}), AABB({0, 0, 0}, {1, 1, 1}));
 }
 
-TEST_CASE("AABB3::contains")
+TEST_CASE("AABB::contains")
 {
 	AABB aabb({0, 0, 0}, {2, 2, 2});
 
@@ -25,12 +25,12 @@ TEST_CASE("AABB3::contains")
 	CHECK_FALSE(aabb.contains({-1, 0, 0}));
 	CHECK_FALSE(aabb.contains({0, 3, 0}));
 
-	// contains(const AABB3&)
+	// contains(const AABB&)
 	CHECK(aabb.contains(aabb));
 	CHECK(aabb.contains(AABB({1, 1, 1}, {2, 2, 2})));
 }
 
-TEST_CASE("AABB3::expand")
+TEST_CASE("AABB::expand")
 {
 	// expand(const Vector3&)
 	{
@@ -44,7 +44,7 @@ TEST_CASE("AABB3::expand")
 		CHECK_EQ(aabb, AABB({-1, 0, 0}, {1, 1, 2}));
 	}
 
-	// expand(const AABB3&)
+	// expand(const AABB&)
 	{
 		AABB aabb({0, 0, 0}, {1, 1, 1});
 		aabb.expand(AABB({-1, -1, -1}, {0, 0, 0}));
@@ -52,14 +52,14 @@ TEST_CASE("AABB3::expand")
 	}
 }
 
-TEST_CASE("AABB3::getCenter")
+TEST_CASE("AABB::getCenter")
 {
 	CHECK_EQ(AABB({0, 0, 0}, {1, 1, 1}).center(), Vector3(0.5, 0.5, 0.5));
 	CHECK_EQ(AABB({-2, -2, -2}, {2, 2, 2}).center(), Vector3(0, 0, 0));
 	CHECK_EQ(AABB({-1, -1, -1}, {0, 0, 0}).center(), Vector3(-0.5, -0.5, -0.5));
 }
 
-TEST_CASE("AABB3::isEmpty")
+TEST_CASE("AABB::isEmpty")
 {
 	CHECK(AABB({3, 4, 5}, {3, 4, 5}).empty());
 	CHECK_FALSE(AABB({3, 4, 5}, {3, 4, 6}).empty());

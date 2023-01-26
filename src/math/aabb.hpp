@@ -144,7 +144,7 @@ public:
 MAKE_HASHABLE(AABB, t.min, t.max)
 
 /**
- * @class AABB3
+ * @class AABB
  *
  * 在碰撞检测中用于简化物体外形.
  * 包围盒的边都与坐标轴平行, 因此可以利用分离轴定理快速进行碰撞检测.
@@ -152,8 +152,8 @@ MAKE_HASHABLE(AABB, t.min, t.max)
  * 例子:
  *
  * ```cpp
- * AABB3 a({0, 0, 0}, {1, 1, 1}); // 通过最大点和最小点创建包围盒
- * AABB3 b({1, 1, 1}, {2, 2, 2});
+ * AABB a({0, 0, 0}, {1, 1, 1}); // 通过最大点和最小点创建包围盒
+ * AABB b({1, 1, 1}, {2, 2, 2});
  *
  * if(a.contains(b))        // 判断 a 是否包含 b
  *   std::cout << "a contains b";
@@ -166,7 +166,7 @@ MAKE_HASHABLE(AABB, t.min, t.max)
  *  std::vector<Vector3> vertices = {
  *      {0, 1, 2}, {2, 0, 1}, {-1, 2, 3}
  *  };
- *  AABB3 c;
+ *  AABB c;
  *  for(const auto& vertex : vertices)
  *      c.expand(vertex); // 将包围盒 c 拓展到可以包围 vertex
  * ```
