@@ -7,6 +7,9 @@
 #include <numbers>
 #include <type_traits>
 
+/**
+ * @brief 缓动函数集合.
+ */
 class Easing
 {
 public:

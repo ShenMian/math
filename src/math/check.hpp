@@ -13,6 +13,11 @@
 #define breakpoint() __builtin_trap()
 #endif
 
+/**
+ * @brief 断言.
+ *
+ * @param condition 条件.
+ */
 constexpr void check(bool condition)
 {
 	if(condition)
@@ -20,6 +25,12 @@ constexpr void check(bool condition)
 	breakpoint();
 }
 
+/**
+ * @brief 断言.
+ *
+ * @param condition 条件.
+ * @param message   描述.
+ */
 constexpr void check(bool condition, std::string_view message)
 {
 	if(condition)

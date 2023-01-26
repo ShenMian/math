@@ -24,7 +24,7 @@ public:
 	/**
 	 * @brief 构造函数, 通过两个点创建包围盒.
 	 *
-	 * 将根据给出的两个点推断出最小点和最大点的值.
+	 * 将根据给出的两个点推断出最小点和最大点.
 	 *
 	 * @param a 第一个点.
 	 * @param b 第二个点.
@@ -131,7 +131,10 @@ public:
 	bool empty() const noexcept { return min == max; }
 
 	/**
-	 * @brief 判断是否有效.
+	 * @brief 判断包围盒是否有效.
+	 *
+	 * 若包围盒无效, 则部分成员函数也会无效, 进行无效的操作或返回无效的结果.
+	 * TODO: 将 min, max 私有化, 防止被破坏.
 	 *
 	 * @return true  有效.
 	 * @return false 无效.
