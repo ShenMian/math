@@ -22,15 +22,29 @@ jobs:
         if: matrix.os == 'windows-latest'
         run: echo "PATH=$PATH:C:/msys64/mingw64/bin" >> $GITHUB_ENV
 
-      - name: Configure CMake
-        run: cmake -DCMAKE_BUILD_TYPE=${{matrix.type}} -B "${{github.workspace}}/target"
+      - name: Setup ninja (Ubuntu)
+        if: matrix.os == 'ubuntu-latest'
+        run: sudo apt install ninja-build
 
-      - name: Build
-        run: cmake --build "${{github.workspace}}/target" --config ${{matrix.type}}
+      - name: Setup cppkg
+        run: cargo install --git https://github.com/ShenMian/cppkg
+
+      - name: Build (Debug)
+        if: matrix.type == 'debug'
+        run: cppkg build
+
+      - name: Build (Release)
+        if: matrix.type == 'release'
+        run: cppkg build -r
+
+      # - name: Configure CMake
+      #   run: cmake -DCMAKE_BUILD_TYPE=${{matrix.type}} -B "${{github.workspace}}/target"
+      #
+      # - name: Build
+      #   run: cmake --build "${{github.workspace}}/target" --config ${{matrix.type}}
 
       - name: Test
-        working-directory: ${{github.workspace}}/target/${{matrix.type}}
-        run: ./unit_test --reporters=junit --out=report.xml
+        run: ${{github.workspace}}/target/${{matrix.type}}/unit_test --reporters=junit --out=report.xml
 
       - name: Test Reporter
         uses: dorny/test-reporter@v1.6.0
@@ -38,10 +52,10 @@ jobs:
         with:
           name: tests report (${{matrix.os}}-${{matrix.type}})
           path: report.xml
-          working-directory: ${{github.workspace}}/target/
+          working-directory: ${{github.workspace}}/target/${{matrix.type}}
           reporter: java-junit
 
-      - name: Setup coverage report generator (Linux)
+      - name: Setup coverage report generator (Ubuntu)
         if: matrix.os == 'ubuntu-latest'
         run: sudo apt-get install gcovr
 
@@ -51,7 +65,7 @@ jobs:
           choco install OpenCppCoverage -y
           echo "C:/Program Files/OpenCppCoverage" >> $env:GITHUB_PATH
 
-      # - name: Generate coverage report (Linux)
+      # - name: Generate coverage report (Ubuntu)
       #   if: matrix.os == 'ubuntu-latest'
       #   run: gcovr -r $GITHUB_WORKSPACE -x $GITHUB_WORKSPACE/target/coverage.out -s -f "${{github.workspace}}/include" -f "${{github.workspace}}\tests" ${{ matrix.platform.gcovr_options }} $GITHUB_WORKSPACE
 
