@@ -275,7 +275,7 @@ public:
 	static float easeInCirc(float t, float b, float c, float d)
 	{
 		t /= d;
-		return -c * (sqrt(1 - t * t) - 1) + b;
+		return -c * (std::sqrt(1 - t * t) - 1) + b;
 	}
 
 	/**
@@ -289,7 +289,7 @@ public:
 	static float easeOutCirc(float t, float b, float c, float d)
 	{
 		t = t / d - 1;
-		return c * sqrt(1 - t * t) + b;
+		return c * std::sqrt(1 - t * t) + b;
 	}
 
 	/**
@@ -304,9 +304,9 @@ public:
 	{
 		t /= d / 2;
 		if(t < 1)
-			return -c / 2 * (sqrt(1 - t * t) - 1) + b;
+			return -c / 2 * (std::sqrt(1 - t * t) - 1) + b;
 		t -= 2;
-		return c / 2 * (sqrt(1 - t * t) + 1) + b;
+		return c / 2 * (std::sqrt(1 - t * t) + 1) + b;
 	}
 
 	/**
@@ -324,18 +324,20 @@ public:
 		float a = c;
 		if(t == 0)
 			return b;
-		if((t /= d) == 1)
+		t /= d;
+		if(t == 1)
 			return b + c;
 		if(!p)
 			p = d * .3f;
-		if(a < abs(c))
+		if(a < std::abs(c))
 		{
 			a = c;
 			s = p / 4;
 		}
 		else
 			s = p / (2 * std::numbers::pi) * asin(c / a);
-		return -(a * pow(2, 10 * (--t)) * sin((t * d - s) * (2 * std::numbers::pi) / p)) + b;
+		t--;
+		return -(a * pow(2, 10 * t) * sin((t * d - s) * (2 * std::numbers::pi) / p)) + b;
 	}
 
 	/**
@@ -353,7 +355,8 @@ public:
 		float a = c;
 		if(t == 0)
 			return b;
-		if((t /= d) == 1)
+		t /= d;
+		if(t == 1)
 			return b + c;
 		if(!p)
 			p = d * .3f;
@@ -382,7 +385,8 @@ public:
 		float a = c;
 		if(t == 0)
 			return b;
-		if((t /= d / 2) == 2)
+		t /= d / 2;
+		if(t == 2)
 			return b + c;
 		if(!p)
 			p = d * (.3f * 1.5f);
@@ -393,32 +397,37 @@ public:
 		}
 		else
 			s = p / (2 * std::numbers::pi) * asin(c / a);
-		if(t < 1)
-			return -.5f * (a * pow(2, 10 * (--t)) * sin((t * d - s) * (2 * std::numbers::pi) / p)) + b;
-		return a * pow(2, -10 * (--t)) * sin((t * d - s) * (2 * std::numbers::pi) / p) * .5f + c + b;
+		if(t-- < 1)
+			return -.5f * (a * pow(2, 10 * t) * sin((t * d - s) * (2 * std::numbers::pi) / p)) + b;
+		return a * pow(2, -10 * t) * sin((t * d - s) * (2 * std::numbers::pi) / p) * .5f + c + b;
 	}
 
 	static float easeInBack(float t, float b, float c, float d, float s)
 	{
 		if(s == 0)
 			s = 1.70158f;
-		return c * (t /= d) * t * ((s + 1) * t - s) + b;
+		t /= d;
+		return c * t * t * ((s + 1) * t - s) + b;
 	}
 
 	static float easeOutBack(float t, float b, float c, float d, float s)
 	{
 		if(s == 0)
 			s = 1.70158f;
-		return c * ((t = t / d - 1) * t * ((s + 1) * t + s) + 1) + b;
+		t = t / d - 1;
+		return c * (t * t * ((s + 1) * t + s) + 1) + b;
 	}
 
 	static float easeInOutBack(float t, float b, float c, float d, float s)
 	{
 		if(s == 0)
 			s = 1.70158f;
-		if((t /= d / 2) < 1)
-			return c / 2 * (t * t * (((s *= (1.525f)) + 1) * t - s)) + b;
-		return c / 2 * ((t -= 2) * t * (((s *= (1.525f)) + 1) * t + s) + 2) + b;
+		t /= d / 2;
+		s *= 1.525f;
+		if(t < 1)
+			return c / 2 * (t * t * ((s + 1) * t - s)) + b;
+		t -= 2;
+		return c / 2 * (t * t * ((s + 1) * t + s) + 2) + b;
 	}
 
 	/**
@@ -441,14 +450,24 @@ public:
 	 */
 	static float easeOutBounce(float t, float b, float c, float d)
 	{
-		if((t /= d) < (1 / 2.75f))
+		t /= d;
+		if(t < 1.f / 2.75f)
 			return c * (7.5625f * t * t) + b;
-		else if(t < (2 / 2.75f))
-			return c * (7.5625f * (t -= (1.5f / 2.75f)) * t + .75f) + b;
-		else if(t < (2.5f / 2.75f))
-			return c * (7.5625f * (t -= (2.25f / 2.75f)) * t + .9375f) + b;
+		else if(t < 2 / 2.75f)
+		{
+			t -= 1.5f / 2.75f;
+			return c * (7.5625f * t * t + .75f) + b;
+		}
+		else if(t < 2.5f / 2.75f)
+		{
+			t -= 2.25f / 2.75f;
+			return c * (7.5625f * t * t + .9375f) + b;
+		}
 		else
-			return c * (7.5625f * (t -= (2.625f / 2.75f)) * t + .984375f) + b;
+		{
+			t -= (2.625f / 2.75f);
+			return c * (7.5625f * t * t + .984375f) + b;
+		}
 	}
 
 	/**
