@@ -44,7 +44,7 @@ jobs:
       #   run: cmake --build "${{github.workspace}}/target" --config ${{matrix.type}}
 
       - name: Test
-        run: ${{github.workspace}}/target/${{matrix.type}}/unit_test --reporters=junit --out=report.xml
+        run: ${{github.workspace}}/target/${{matrix.type}}/unit_test --reporters=junit --out=${{github.workspace}}/target/${{matrix.type}}/report.xml
 
       - name: Test Reporter
         uses: dorny/test-reporter@v1.6.0
