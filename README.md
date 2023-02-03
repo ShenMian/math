@@ -1,4 +1,4 @@
-﻿# Math
+# Math
 
 [![CodeFactor](https://img.shields.io/codefactor/grade/github/ShenMian/Math/main?label=Code%20factor)](https://www.codefactor.io/repository/github/shenmian/math)
 [![Codacy](https://img.shields.io/codacy/grade/c527e3f77b3e498a97ac955e9447537c/main?label=Codacy)](https://www.codacy.com/gh/ShenMian/Math/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ShenMian/Math&amp;utm_campaign=Badge_Grade)
