@@ -18,11 +18,11 @@
 /**
  * @brief 断言.
  *
- * @param condition 条件.
+ * @param cond 条件.
  */
-constexpr void check(bool condition)
+constexpr void check(bool cond)
 {
-	if(condition)
+	if(cond)
 		return;
 
 	breakpoint(); // debug
@@ -32,12 +32,12 @@ constexpr void check(bool condition)
 /**
  * @brief 断言.
  *
- * @param condition 条件.
- * @param message   描述.
+ * @param cond    条件.
+ * @param message 描述.
  */
-constexpr void check(bool condition, std::string_view message)
+constexpr void check(bool cond, std::string_view message)
 {
-	if(condition)
+	if(cond)
 		return;
 
 	std::puts(message.data());
@@ -48,12 +48,12 @@ constexpr void check(bool condition, std::string_view message)
 /**
  * @brief 断言.
  *
- * @param condition 条件.
+ * @param cond 条件.
  */
 /*
-inline void check(bool condition, const std::source_location& loc = std::source_location::current())
+inline void check(bool cond, const std::source_location& loc = std::source_location::current())
 {
-	if(condition)
+	if(cond)
 		return;
 
 	std::printf("Assertion failed %s:%s(%u:%u)\n", loc.file_name(), loc.function_name(), loc.line(), loc.column());
@@ -65,14 +65,14 @@ inline void check(bool condition, const std::source_location& loc = std::source_
 /**
  * @brief 断言.
  *
- * @param condition 条件.
- * @param message   描述.
+ * @param cond    条件.
+ * @param message 描述.
  */
 /*
-inline void check(bool condition, std::string_view message,
+inline void check(bool cond, std::string_view message,
                   const std::source_location& loc = std::source_location::current())
 {
-	if(condition)
+	if(cond)
 		return;
 
 	std::printf("Assertion failed %s:%s(%u:%u): %s\n", loc.file_name(), loc.function_name(), loc.line(), loc.column(),
