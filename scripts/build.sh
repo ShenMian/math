@@ -34,7 +34,7 @@ echo "=== Generating 'compile_commands.json'..."
 cp target/compile_commands.json . &>/dev/null || echo "No 'compile_commands.json' was generated."
 
 echo "=== Building..."
-cmake --build target --config "${build_type}" -- -j$(nproc) >/dev/null || {
+cmake --build target --config "${build_type}" -- -j$(nproc) || {
     echo "=== Failed to build."
     exit 1
 }
