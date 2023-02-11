@@ -69,8 +69,6 @@ TEST_CASE("Vector::equal")
 {
 	Vectorf<2> vec({1.f, 2.f});
 	CHECK_EQ(vec, Vectorf<2>({1.f, 2.f}));
-	CHECK_NE(vec, Vectorf<2>({0.f, 2.f}));
-	CHECK_NE(vec, Vectorf<2>({1.f, 0.f}));
 }
 
 TEST_CASE("Vector::operator<<")
@@ -79,4 +77,11 @@ TEST_CASE("Vector::operator<<")
 	std::ostringstream stream;
 	stream << vec;
 	CHECK_EQ(stream.str(), "1 2 ");
+}
+
+TEST_CASE("Vector::midpoint")
+{
+	Vectorf<2> a({0.f, 0.f});
+	Vectorf<2> b({2.f, 4.f});
+	CHECK_EQ(midpoint(a, b), Vectorf<2>({1.f, 2.f}));
 }

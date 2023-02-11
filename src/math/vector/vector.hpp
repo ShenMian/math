@@ -247,14 +247,6 @@ public:
 		return stream;
 	}
 
-	static constexpr VectorT lerp(const VectorT& from, const VectorT& to, T t)
-	{
-		VectorT result;
-		for(size_t i = 0; i < N; i++)
-			result[i] = std::lerp(from[i], to[i], t);
-		return result;
-	}
-
 	T&       x() { return (*this)[0]; };
 	T&       y() { return (*this)[1]; };
 	T&       z() { return (*this)[2]; };
@@ -328,6 +320,24 @@ VectorT<T, N> constexpr operator/(const T& lhs, const VectorT<T, N>& rhs)
 }
 
 template <arithmetic T, size_t N>
+constexpr VectorT<T, N> lerp(const VectorT<T, N>& from, const VectorT<T, N>& to, T t)
+{
+	VectorT<T, N> result;
+	for(size_t i = 0; i < N; i++)
+		result[i] = std::lerp(from[i], to[i], t);
+	return result;
+}
+
+template <arithmetic T, size_t N>
+constexpr VectorT<T, N> midpoint(const VectorT<T, N>& a, const VectorT<T, N>& b)
+{
+	VectorT<T, N> result;
+	for(size_t i = 0; i < N; i++)
+		result[i] = std::midpoint(a[i], b[i]);
+	return result;
+}
+
+template <arithmetic T, size_t N>
 struct std::hash<VectorT<T, N>>
 {
 	std::size_t operator()(const VectorT<T, N>& v) const
@@ -338,14 +348,6 @@ struct std::hash<VectorT<T, N>>
 		return ret;
 	}
 };
-
-template <arithmetic T>
-T distanceSq(const VectorT<T, 2>& a, const VectorT<T, 2>& b)
-{
-	const auto dx = detail::abs(a.x - b.x);
-	const auto dy = detail::abs(a.y - b.y);
-	return dx * dx + dy * dy;
-}
 
 /*
 template <arithmetic T>
