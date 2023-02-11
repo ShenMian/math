@@ -320,7 +320,7 @@ VectorT<T, N> constexpr operator/(const T& lhs, const VectorT<T, N>& rhs)
 }
 
 template <arithmetic T, size_t N>
-constexpr VectorT<T, N> lerp(const VectorT<T, N>& from, const VectorT<T, N>& to, T t)
+constexpr VectorT<T, N> lerp(const VectorT<T, N>& from, const VectorT<T, N>& to, T t) noexcept
 {
 	VectorT<T, N> result;
 	for(size_t i = 0; i < N; i++)
@@ -329,7 +329,7 @@ constexpr VectorT<T, N> lerp(const VectorT<T, N>& from, const VectorT<T, N>& to,
 }
 
 template <arithmetic T, size_t N>
-constexpr VectorT<T, N> midpoint(const VectorT<T, N>& a, const VectorT<T, N>& b)
+constexpr VectorT<T, N> midpoint(const VectorT<T, N>& a, const VectorT<T, N>& b) noexcept
 {
 	VectorT<T, N> result;
 	for(size_t i = 0; i < N; i++)
@@ -340,7 +340,7 @@ constexpr VectorT<T, N> midpoint(const VectorT<T, N>& a, const VectorT<T, N>& b)
 template <arithmetic T, size_t N>
 struct std::hash<VectorT<T, N>>
 {
-	std::size_t operator()(const VectorT<T, N>& v) const
+	std::size_t operator()(const VectorT<T, N>& v) const noexcept
 	{
 		std::size_t ret = 0;
 		for(size_t i = 0; i < N; i++)
