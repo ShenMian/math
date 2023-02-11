@@ -1,5 +1,5 @@
 #!/bin/bash
-# Copyright 2021 ShenMian
+# Copyright 2023 ShenMian
 # License(Apache-2.0)
 
 if ! hash "cmake" &>/dev/null; then
