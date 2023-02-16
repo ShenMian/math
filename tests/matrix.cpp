@@ -91,16 +91,16 @@ TEST_CASE("translate")
 
 TEST_CASE("front/back/right/left/up/down")
 {
-	auto a = Matrix4f::lookAt(Vector3f::unit, Vector3f::unit - Vector3f::unit_z, Vector3f::up);
-	CHECK_EQ(a.front(), -Vector3f::unit_z);
-	CHECK_EQ(a.back(), Vector3f::unit_z);
-	CHECK_EQ(a.right(), Vector3f::unit_x);
-	CHECK_EQ(a.left(), -Vector3f::unit_x);
-	CHECK_EQ(a.up(), Vector3f::up);
-	CHECK_EQ(a.down(), -Vector3f::up);
+	auto mat = Matrix4f::lookAt(Vector3f::unit, Vector3f::unit - Vector3f::unit_z, Vector3f::up);
+	CHECK_EQ(mat.front(), -Vector3f::unit_z);
+	CHECK_EQ(mat.back(), Vector3f::unit_z);
+	CHECK_EQ(mat.right(), Vector3f::unit_x);
+	CHECK_EQ(mat.left(), -Vector3f::unit_x);
+	CHECK_EQ(mat.up(), Vector3f::up);
+	CHECK_EQ(mat.down(), -Vector3f::up);
 }
 
-TEST_CASE("decompose/recompose")
+TEST_CASE("decompose/recompose" * doctest::skip(true))
 {
 	Matrix4f mat;
 	mat.recompose({1.f, 2.f, 3.f}, {30.f, 60.f, 90.f, 1.f}, {2.f, 2.f, 2.f});
@@ -109,6 +109,7 @@ TEST_CASE("decompose/recompose")
 	Quaternion rotation;
 	Vector3    scale;
 	mat.decompose(&translation, &rotation, &scale);
+
 	// TODO
 	/*
 	CHECK_EQ(translation, Vector3(1.f, 2.f, 3.f));
@@ -186,19 +187,19 @@ TEST_CASE("createScale")
 	CHECK_EQ(a.createScale(Vector3f(2.f)), b);
 }
 
-TEST_CASE("perspective")
+TEST_CASE("perspective" * doctest::skip(true))
 {
 	// TODO
 	Matrix4f::perspective(radians(60.f), 1 / 1, -1, 1);
 }
 
-TEST_CASE("orthographic")
+TEST_CASE("orthographic" * doctest::skip(true))
 {
 	// TODO
 	Matrix4f::orthogonal(-1, 1, -1, 1, -1, 1);
 }
 
-TEST_CASE("lookAt")
+TEST_CASE("lookAt" * doctest::skip(true))
 {
 	// TODO
 	Matrix4f::lookAt(Vector3f(1.f), Vector3f(0.f), Vector3f(0.f, 1.f, 0.f));

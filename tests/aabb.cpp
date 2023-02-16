@@ -34,21 +34,23 @@ TEST_CASE("contains")
 
 TEST_CASE("expand")
 {
+	AABB aabb({0, 0, 0}, {1, 1, 1});
+
 	// expand(const Vector3&)
+	SUBCASE("")
 	{
-		AABB aabb({0, 0, 0}, {1, 1, 1});
 		aabb.expand({1, 2, 3});
 		CHECK_EQ(aabb, AABB({0, 0, 0}, {1, 2, 3}));
 	}
+	SUBCASE("")
 	{
-		AABB aabb({0, 0, 0}, {1, 1, 1});
 		aabb.expand({-1, 0, 2});
 		CHECK_EQ(aabb, AABB({-1, 0, 0}, {1, 1, 2}));
 	}
 
 	// expand(const AABB&)
+	SUBCASE("")
 	{
-		AABB aabb({0, 0, 0}, {1, 1, 1});
 		aabb.expand(AABB({-1, -1, -1}, {0, 0, 0}));
 		CHECK_EQ(aabb, AABB({-1, -1, -1}, {1, 1, 1}));
 	}
