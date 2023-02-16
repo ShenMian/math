@@ -54,14 +54,14 @@ TEST_CASE("expand")
 	}
 }
 
-TEST_CASE("getCenter")
+TEST_CASE("center")
 {
 	CHECK_EQ(AABB({0, 0, 0}, {1, 1, 1}).center(), Vector3(0.5, 0.5, 0.5));
 	CHECK_EQ(AABB({-2, -2, -2}, {2, 2, 2}).center(), Vector3(0, 0, 0));
 	CHECK_EQ(AABB({-1, -1, -1}, {0, 0, 0}).center(), Vector3(-0.5, -0.5, -0.5));
 }
 
-TEST_CASE("isEmpty")
+TEST_CASE("empty")
 {
 	CHECK(AABB({3, 4, 5}, {3, 4, 5}).empty());
 	CHECK_FALSE(AABB({3, 4, 5}, {3, 4, 6}).empty());
