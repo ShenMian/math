@@ -44,11 +44,11 @@ jobs:
       #   run: cmake --build "${{github.workspace}}/target" --config ${{matrix.type}}
 
       - name: Test
-        run: ${{github.workspace}}/target/${{matrix.type}}/unit_test --reporters=junit --out=${{github.workspace}}/target/${{matrix.type}}/report.xml
+        run: ${{github.workspace}}/target/${{matrix.type}}/math_unit_test --reporters=junit --out=${{github.workspace}}/target/${{matrix.type}}/report.xml
 
       - name: Benchmark (Release)
         if: matrix.type == 'release'
-        run: ${{github.workspace}}/target/${{matrix.type}}/unit_test -ns -ts=benchmark
+        run: ${{github.workspace}}/target/${{matrix.type}}/math_unit_test -ns -ts=benchmark
 
       - name: Test Reporter
         uses: dorny/test-reporter@v1.6.0
@@ -75,7 +75,7 @@ jobs:
 
       - name: Generate coverage report (Windows)
         if: matrix.os == 'windows-latest'
-        run: OpenCppCoverage.exe --sources "${{github.workspace}}" --export_type cobertura:coverage_report.xml -- "${{github.workspace}}/target/${{matrix.build_type}}/unit_test.exe"
+        run: OpenCppCoverage.exe --sources "${{github.workspace}}" --export_type cobertura:coverage_report.xml -- "${{github.workspace}}/target/${{matrix.build_type}}/math_unit_test.exe"
 
       - name: Upload coverage report to Codecov (Windows)
         if: matrix.os == 'windows-latest'
