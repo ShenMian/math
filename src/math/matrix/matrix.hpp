@@ -606,6 +606,24 @@ public:
 			simd::mul(m1, m2, m1);
 			simd::storeu(data(), m1);
 		}
+		else if constexpr(R == C)
+		{
+			MatrixT result;
+			auto&   a = m_;
+			auto&   b = rhs.m_;
+			auto&   c = result.m_;
+			// #pragma omp parallel for shared(a, b, c)
+			for(size_t i = 0; i < R; i++)
+			{
+				for(size_t j = 0; j < R; j++)
+				{
+					result(i, j) = 0;
+					for(int k = 0; k < R; k++)
+						result(i, j) += (*this)(i, k) * rhs(k, j);
+				}
+			}
+			*this = result;
+		}
 		else
 			check(false);
 		return *this;

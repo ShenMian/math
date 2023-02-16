@@ -40,12 +40,17 @@ if(BUILD_TESTS)
 
     add_executable(unit_test)
 
+    find_package(OpenMP)
+    if(OpenMP_CXX_FOUND)
+        target_link_libraries(unit_test PUBLIC OpenMP::OpenMP_CXX)
+    endif()
+
     # target_link_libraries(unit_test INTERFACE math)
     target_sources(unit_test PRIVATE ${SOURCES})
     target_include_directories(unit_test PRIVATE
-        "${PROJECT_SOURCE_DIR}/src"
         "${PROJECT_SOURCE_DIR}/deps/doctest"
         "${PROJECT_SOURCE_DIR}/deps/nanobench/src/include"
+        "${PROJECT_SOURCE_DIR}/src"
         "${PROJECT_SOURCE_DIR}/deps/gcem/include")
     target_compile_definitions(unit_test PUBLIC ${MATH_DEFINES})
     target_compile_features(unit_test PRIVATE cxx_std_20)

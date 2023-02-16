@@ -46,6 +46,10 @@ jobs:
       - name: Test
         run: ${{github.workspace}}/target/${{matrix.type}}/unit_test --reporters=junit --out=${{github.workspace}}/target/${{matrix.type}}/report.xml
 
+      - name: Benchmark (Release)
+        if: matrix.type == 'release'
+        run: ${{github.workspace}}/target/${{matrix.type}}/unit_test -ns -ts=benchmark
+
       - name: Test Reporter
         uses: dorny/test-reporter@v1.6.0
         if: success() || failure()
