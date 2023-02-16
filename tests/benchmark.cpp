@@ -3,8 +3,6 @@
 
 #include <doctest/doctest.h>
 #include <math/math.hpp>
-
-#define ANKERL_NANOBENCH_IMPLEMENT
 #include <nanobench.h>
 
 using namespace ankerl;
