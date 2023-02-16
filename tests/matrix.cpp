@@ -5,7 +5,9 @@
 #include <math/math.hpp>
 #include <sstream>
 
-TEST_CASE("Matrix::transpose")
+TEST_SUITE_BEGIN("matrix");
+
+TEST_CASE("transpose")
 {
 	// clang-format off
 	Matrix3f a = {
@@ -22,14 +24,14 @@ TEST_CASE("Matrix::transpose")
 	CHECK_EQ(a.transpose(), b);
 }
 
-TEST_CASE("Matrix::trace")
+TEST_CASE("trace")
 {
 	CHECK_EQ((Matrixf<3, 3>().trace()), doctest::Approx(3.f));
 	CHECK_EQ((Matrixf<4, 4>().trace()), doctest::Approx(4.f));
 	CHECK_EQ((Matrixf<5, 5>().trace()), doctest::Approx(5.f));
 }
 
-TEST_CASE("Matrix::sum")
+TEST_CASE("sum")
 {
 	// clang-format off
 	Matrix2f a = {
@@ -40,7 +42,7 @@ TEST_CASE("Matrix::sum")
 	CHECK_EQ(a.sum(), doctest::Approx(10.f));
 }
 
-TEST_CASE("Matrix::minCoeff")
+TEST_CASE("minCoeff")
 {
 	// clang-format off
 	Matrix2f a = {
@@ -51,7 +53,7 @@ TEST_CASE("Matrix::minCoeff")
 	CHECK_EQ(a.minCoeff(), doctest::Approx(1.f));
 }
 
-TEST_CASE("Matrix::maxCoeff")
+TEST_CASE("maxCoeff")
 {
 	// clang-format off
 	Matrix2f a = {
@@ -62,7 +64,7 @@ TEST_CASE("Matrix::maxCoeff")
 	CHECK_EQ(a.maxCoeff(), doctest::Approx(4.f));
 }
 
-TEST_CASE("Matrix::diagonal")
+TEST_CASE("diagonal")
 {
 	// clang-format off
 	Matrix2f a = {
@@ -73,7 +75,7 @@ TEST_CASE("Matrix::diagonal")
 	CHECK_EQ(a.diagonal(), Vector2f(1, 4));
 }
 
-TEST_CASE("Matrix::translate")
+TEST_CASE("translate")
 {
 	auto a = Matrix4f::identity();
 	// clang-format off
@@ -87,7 +89,7 @@ TEST_CASE("Matrix::translate")
 	CHECK_EQ(a.translate(Vector3f(2.f)), b);
 }
 
-TEST_CASE("Matrix::front/back/right/left/up/down")
+TEST_CASE("front/back/right/left/up/down")
 {
 	auto a = Matrix4f::lookAt(Vector3f::unit, Vector3f::unit - Vector3f::unit_z, Vector3f::up);
 	CHECK_EQ(a.front(), -Vector3f::unit_z);
@@ -98,7 +100,7 @@ TEST_CASE("Matrix::front/back/right/left/up/down")
 	CHECK_EQ(a.down(), -Vector3f::up);
 }
 
-TEST_CASE("Matrix::decompose/recompose")
+TEST_CASE("decompose/recompose")
 {
 	Matrix4f mat;
 	mat.recompose({1.f, 2.f, 3.f}, {30.f, 60.f, 90.f, 1.f}, {2.f, 2.f, 2.f});
@@ -115,7 +117,7 @@ TEST_CASE("Matrix::decompose/recompose")
 	*/
 }
 
-TEST_CASE("Matrix::operator==")
+TEST_CASE("operator==")
 {
 	// clang-format off
 	Matrix2f a = {
@@ -136,7 +138,7 @@ TEST_CASE("Matrix::operator==")
 	CHECK_NE(a, c);
 }
 
-TEST_CASE("Matrix::operator()")
+TEST_CASE("operator()")
 {
 	Matrix2f a;
 	a(0, 0) = 3;
@@ -150,7 +152,7 @@ TEST_CASE("Matrix::operator()")
 	CHECK_EQ(a(1, 1), doctest::Approx(1.5f));
 }
 
-TEST_CASE("Matrix::createTranslate")
+TEST_CASE("createTranslate")
 {
 	auto a = Matrix4f::identity();
 	// clang-format off
@@ -164,13 +166,13 @@ TEST_CASE("Matrix::createTranslate")
 	CHECK_EQ(a.createTranslate(Vector3f(2.f)), b);
 }
 
-TEST_CASE("Matrix::createRotation")
+TEST_CASE("createRotation")
 {
 	auto a = Matrix4f::createRotation(radians(90.f), Vector3f::unit_z);
 	CHECK_EQ(a * Vector4f({1.f, 0.f, 0.f, 1.f}), Vector4f({0.f, 1.f, 0.f, 1.f}));
 }
 
-TEST_CASE("Matrix::createScale")
+TEST_CASE("createScale")
 {
 	auto a = Matrix4f::identity();
 	// clang-format off
@@ -184,25 +186,25 @@ TEST_CASE("Matrix::createScale")
 	CHECK_EQ(a.createScale(Vector3f(2.f)), b);
 }
 
-TEST_CASE("Matrix::perspective")
+TEST_CASE("perspective")
 {
 	// TODO
 	Matrix4f::perspective(radians(60.f), 1 / 1, -1, 1);
 }
 
-TEST_CASE("Matrix::orthographic")
+TEST_CASE("orthographic")
 {
 	// TODO
 	Matrix4f::orthogonal(-1, 1, -1, 1, -1, 1);
 }
 
-TEST_CASE("Matrix::lookAt")
+TEST_CASE("lookAt")
 {
 	// TODO
 	Matrix4f::lookAt(Vector3f(1.f), Vector3f(0.f), Vector3f(0.f, 1.f, 0.f));
 }
 
-TEST_CASE("Matrix::identity")
+TEST_CASE("identity")
 {
 	// clang-format off
 	Matrix2f a = {
@@ -213,7 +215,7 @@ TEST_CASE("Matrix::identity")
 	CHECK_EQ(Matrix2f::identity(), a);
 }
 
-TEST_CASE("Matrix::zero")
+TEST_CASE("zero")
 {
 	// clang-format off
 	Matrix2f a = {
@@ -230,7 +232,7 @@ TEST_CASE("Matrix::zero")
 	CHECK_EQ((Matrixf<3, 4>::zero()), b);
 }
 
-TEST_CASE("Matrix::addition")
+TEST_CASE("addition")
 {
 	// clang-format off
 	Matrix2d a = {
@@ -250,7 +252,7 @@ TEST_CASE("Matrix::addition")
 	CHECK_EQ(a + b, c);
 }
 
-TEST_CASE("Matrix::subtraction")
+TEST_CASE("subtraction")
 {
 	// clang-format off
 	Matrix2d a = {
@@ -270,7 +272,7 @@ TEST_CASE("Matrix::subtraction")
 	CHECK_EQ(a - b, c);
 }
 
-TEST_CASE("Matrix::multiplication")
+TEST_CASE("multiplication")
 {
 	// clang-format off
 	Matrix2f a = {
@@ -299,7 +301,7 @@ TEST_CASE("Matrix::multiplication")
 	*/
 }
 
-TEST_CASE("Matrix::division")
+TEST_CASE("division")
 {
 	// clang-format off
 	Matrix2f a = {
@@ -314,7 +316,7 @@ TEST_CASE("Matrix::division")
 	CHECK_EQ(a / 2.f, b);
 }
 
-TEST_CASE("Matrix::operator<<")
+TEST_CASE("operator<<")
 {
 	{
 		// clang-format off
@@ -341,3 +343,5 @@ TEST_CASE("Matrix::operator<<")
 		CHECK_EQ(stream.str(), "1.11    2 3.33 \n   4    5    6 \n   7 8.89    9 \n");
 	}
 }
+
+TEST_SUITE_END;

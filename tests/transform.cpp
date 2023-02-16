@@ -4,7 +4,9 @@
 #include <doctest/doctest.h>
 #include <math/math.hpp>
 
-TEST_CASE("Transform::translation")
+TEST_SUITE_BEGIN("vector");
+
+TEST_CASE("translation")
 {
 	Vector3f a = {1, 2, 3};
 
@@ -16,7 +18,7 @@ TEST_CASE("Transform::translation")
 	CHECK_EQ(a, b);
 }
 
-TEST_CASE("Transform::scale")
+TEST_CASE("scale")
 {
 	Vector3f a = {1, 2, 3};
 
@@ -27,3 +29,5 @@ TEST_CASE("Transform::scale")
 	trans.matrix().decompose(nullptr, nullptr, &b);
 	CHECK_EQ(a, b);
 }
+
+TEST_SUITE_END;

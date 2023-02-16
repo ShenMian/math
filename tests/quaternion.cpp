@@ -4,7 +4,9 @@
 #include <doctest/doctest.h>
 #include <math/math.hpp>
 
-TEST_CASE("Quaternion::eular")
+TEST_SUITE_BEGIN("quaternion");
+
+TEST_CASE("eular")
 {
 	Quaternion quat;
 	Vector3    angles(radians(30.f), radians(60.f), radians(90.f));
@@ -15,8 +17,10 @@ TEST_CASE("Quaternion::eular")
 	CHECK_EQ(quat.eular(), angles);
 }
 
-TEST_CASE("Quaternion::normalize")
+TEST_CASE("normalize")
 {
 	Quaternion quat(0.f, 0.f, 0.f, 0.f);
 	CHECK_EQ(quat.normalize(), quat);
 }
+
+TEST_SUITE_END;

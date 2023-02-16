@@ -13,9 +13,6 @@
 class AABB
 {
 public:
-	Vector3 min; ///< 最小点.
-	Vector3 max; ///< 最大点.
-
 	/**
 	 * @brief 默认构造函数.
 	 */
@@ -33,10 +30,13 @@ public:
 	{
 		check((a.x <= b.x && a.y <= b.y && a.z <= b.z) || (a.x > b.x && a.y > b.y && a.z > b.z));
 		if(a.x < b.x)
-			min = a, max = b;
+			min_ = a, max_ = b;
 		else
-			min = b, max = a;
+			min_ = b, max_ = a;
 	}
+
+	const Vector3& min() const noexcept { return min_; };
+	const Vector3& max() const noexcept { return max_; };
 
 	/**
 	 * @brief 判断是否包含指定点.
@@ -49,7 +49,7 @@ public:
 	bool contains(const Vector3& point) const
 	{
 		check(valid());
-		return (min.x <= point.x && point.x <= max.x) && (min.y <= point.y && point.y <= max.y);
+		return (min_.x <= point.x && point.x <= max_.x) && (min_.y <= point.y && point.y <= max_.y);
 	}
 
 	/**
@@ -63,7 +63,7 @@ public:
 	bool contains(const AABB& aabb) const
 	{
 		check(valid() && aabb.valid());
-		return contains(aabb.min) && contains(aabb.max);
+		return contains(aabb.min_) && contains(aabb.max_);
 	}
 
 	/**
@@ -77,7 +77,7 @@ public:
 	bool intersects(const AABB& aabb) const
 	{
 		check(valid() && aabb.valid());
-		return contains(aabb.min) || contains(aabb.max);
+		return contains(aabb.min_) || contains(aabb.max_);
 	}
 
 	/**
@@ -87,13 +87,13 @@ public:
 	 */
 	void expand(const Vector3& point) noexcept
 	{
-		min.x = std::min(min.x, point.x);
-		min.y = std::min(min.y, point.y);
-		min.z = std::min(min.z, point.z);
+		min_.x = std::min(min_.x, point.x);
+		min_.y = std::min(min_.y, point.y);
+		min_.z = std::min(min_.z, point.z);
 
-		max.x = std::max(max.x, point.x);
-		max.y = std::max(max.y, point.y);
-		max.z = std::max(max.z, point.z);
+		max_.x = std::max(max_.x, point.x);
+		max_.y = std::max(max_.y, point.y);
+		max_.z = std::max(max_.z, point.z);
 	}
 
 	/**
@@ -104,21 +104,21 @@ public:
 	void expand(const AABB& aabb)
 	{
 		check(aabb.valid());
-		expand(aabb.min);
-		expand(aabb.max);
+		expand(aabb.min_);
+		expand(aabb.max_);
 	}
 
 	/**
 	 * @brief 获取几何中心.
 	 */
-	Vector3 center() const noexcept { return (min + max) * .5f; }
+	Vector3 center() const noexcept { return (min_ + max_) * .5f; }
 
 	/**
 	 * @brief 获取体积.
 	 */
 	float volume() const noexcept
 	{
-		const auto extent = max - min;
+		const auto extent = max_ - min_;
 		return extent.x * extent.y * extent.z;
 	}
 
@@ -128,23 +128,27 @@ public:
 	 * @return true  空.
 	 * @return false 非空.
 	 */
-	bool empty() const noexcept { return min == max; }
+	bool empty() const noexcept { return min_ == max_; }
 
 	/**
 	 * @brief 判断包围盒是否有效.
 	 *
 	 * 若包围盒无效, 则部分成员函数也会无效, 进行无效的操作或返回无效的结果.
-	 * TODO: 将 min, max 私有化, 防止被破坏.
+	 * TODO: 将 min_, max_ 私有化, 防止被破坏.
 	 *
 	 * @return true  有效.
 	 * @return false 无效.
 	 */
-	bool valid() const noexcept { return min.x <= max.x && min.y <= max.y && min.z <= max.z; }
+	bool valid() const noexcept { return min_.x <= max_.x && min_.y <= max_.y && min_.z <= max_.z; }
 
 	bool operator==(const AABB& rhs) const = default;
+
+private:
+	Vector3 min_; ///< 最小点.
+	Vector3 max_; ///< 最大点.
 };
 
-MAKE_HASHABLE(AABB, t.min, t.max)
+MAKE_HASHABLE(AABB, t.min(), t.max())
 
 /**
  * @class AABB

@@ -1,11 +1,12 @@
 ﻿// Copyright 2023 ShenMian
 // License(Apache-2.0)
 
-
 #include <doctest/doctest.h>
 #include <math/math.hpp>
 
-TEST_CASE("SIMD::matrixMul")
+TEST_SUITE_BEGIN("simd");
+
+TEST_CASE("matrixMul")
 {
 	// clang-format off
 	Matrix4f a = {
@@ -24,3 +25,5 @@ TEST_CASE("SIMD::matrixMul")
 
 	CHECK_EQ(a * a, b);
 }
+
+TEST_SUITE_END;
