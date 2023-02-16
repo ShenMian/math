@@ -32,15 +32,15 @@ constexpr void check(bool cond)
 /**
  * @brief 断言.
  *
- * @param cond    条件.
- * @param message 描述.
+ * @param cond 条件.
+ * @param msg  描述.
  */
-constexpr void check(bool cond, std::string_view message)
+constexpr void check(bool cond, std::string_view msg)
 {
 	if(cond)
 		return;
 
-	std::puts(message.data());
+	std::puts(msg.data());
 	breakpoint(); // debug
 	// terminate(); // release
 }
@@ -65,18 +65,18 @@ inline void check(bool cond, const std::source_location& loc = std::source_locat
 /**
  * @brief 断言.
  *
- * @param cond    条件.
- * @param message 描述.
+ * @param cond 条件.
+ * @param msg  描述.
  */
 /*
-inline void check(bool cond, std::string_view message,
+inline void check(bool cond, std::string_view msg,
                   const std::source_location& loc = std::source_location::current())
 {
 	if(cond)
 		return;
 
 	std::printf("Assertion failed %s:%s(%u:%u): %s\n", loc.file_name(), loc.function_name(), loc.line(), loc.column(),
-	            message.data());
+	            msg.data());
 	breakpoint(); // debug
 	// terminate(); // release
 }
