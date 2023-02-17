@@ -608,10 +608,11 @@ public:
 		}
 		else if constexpr(R == C)
 		{
+			// FIXME: 大矩阵相乘时堆栈溢出, 比如 500x500
 			MatrixT result;
-			auto&   a = m_;
-			auto&   b = rhs.m_;
-			auto&   c = result.m_;
+			// auto&   a = m_;
+			// auto&   b = rhs.m_;
+			// auto&   c = result.m_;
 			// #pragma omp parallel for shared(a, b, c)
 			for(size_t i = 0; i < R; i++)
 			{

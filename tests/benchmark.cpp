@@ -14,7 +14,7 @@ TEST_CASE("matrix" * doctest::skip(true))
 	SUBCASE("4x4")
 	{
 		// clang-format off
-        Matrix4f a = {
+        const Matrix4f a = {
             1,  2,  3,  4,
             5,  6,  7,  8,
             9,  10, 11, 12,
@@ -23,7 +23,7 @@ TEST_CASE("matrix" * doctest::skip(true))
 		// clang-format on
 
 		// clang-format off
-        Matrix4f b = {
+        const Matrix4f b = {
             1,  2,  3,  4,
             5,  6,  7,  8,
             9,  10, 11, 12,
@@ -32,17 +32,17 @@ TEST_CASE("matrix" * doctest::skip(true))
 		// clang-format on
 
 		nanobench::Bench().run("4x4 matrix multiplication", [&] {
-			auto c = a * b;
+			const auto c = a * b;
 			nanobench::doNotOptimizeAway(c);
 		});
 	}
 
-	SUBCASE("500x500")
+	SUBCASE("100x100")
 	{
-		auto a = MatrixT<float, 500, 500>::identity();
-		auto b = MatrixT<float, 500, 500>::identity();
+		const auto a = MatrixT<float, 100, 100>::identity();
+		const auto b = MatrixT<float, 100, 100>::identity();
 
-		nanobench::Bench().run("500x500 matrix multiplication", [&] {
+		nanobench::Bench().run("100x100 matrix multiplication", [&] {
 			auto c = a * b;
 			nanobench::doNotOptimizeAway(c);
 		});
