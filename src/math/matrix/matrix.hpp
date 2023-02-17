@@ -81,7 +81,7 @@ public:
 	MatrixT& inverse()
 	{
 		// TODO
-		check(false);
+		debug_check(false);
 		return *this;
 	}
 
@@ -209,7 +209,7 @@ public:
 	 */
 	constexpr VectorT<T, C> row(size_t index) const
 	{
-		check(index < R);
+		debug_check(index < R);
 
 		VectorT<T, C> vec;
 		for(size_t i = 0; i < C; i++)
@@ -222,7 +222,7 @@ public:
 	 */
 	constexpr VectorT<T, R> col(size_t index) const
 	{
-		check(index < C);
+		debug_check(index < C);
 
 		auto&         mat = *this;
 		VectorT<T, R> vec;
@@ -625,14 +625,14 @@ public:
 			*this = result;
 		}
 		else
-			check(false);
+			debug_check(false);
 		return *this;
 	}
 
 	MatrixT& operator/=(const MatrixT& rhs)
 	{
 		// TODO
-		check(false);
+		debug_check(false);
 		return *this;
 	}
 
@@ -908,8 +908,8 @@ public:
 	{
 		static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 		static_assert(std::is_floating_point_v<T>);
-		check(!equal(aspect, 0.f));
-		check(near != far);
+		debug_check(!equal(aspect, 0.f));
+		debug_check(near != far);
 
 		const auto tanHalfFOV = std::tan(vFOV / 2.f);
 

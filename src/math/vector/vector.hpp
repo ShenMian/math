@@ -109,7 +109,7 @@ public:
 	constexpr VectorT cross(const VectorT& rhs) const
 	{
 		// TODO
-		check(false);
+		debug_check(false);
 		return VectorT<T, N>();
 	}
 
