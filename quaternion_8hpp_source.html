@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Math: /github/workspace/src/math/quaternion.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Math<span id="projectnumber">&#160;v0.0.0</span>
+   </div>
+   <div id="projectbrief">A simple linear algebra header-only library.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.5 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('quaternion_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">quaternion.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Copyright 2023 ShenMian</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// License(Apache-2.0)</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;hash_combine.hpp&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;helper.hpp&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;matrix/matrix.hpp&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;vector/vector3.hpp&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;type_traits&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">template</span> &lt;std::<span class="keywordtype">float</span>ing_po<span class="keywordtype">int</span> T&gt;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="class_quaternion_t.html">   16</a></span><span class="keyword">class </span><a class="code hl_class" href="class_quaternion_t.html">QuaternionT</a></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    T x = T();</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    T y = T();</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    T z = T();</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    T w = T(1);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="class_quaternion_t.html#aa7463b42972c45dd99f96ebf121766eb">   27</a></span>    <a class="code hl_function" href="class_quaternion_t.html#aa7463b42972c45dd99f96ebf121766eb">QuaternionT</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="class_quaternion_t.html#a69b5157e3d9b3bbf9c4abdefc3eb46d2">   37</a></span>    <a class="code hl_function" href="class_quaternion_t.html#a69b5157e3d9b3bbf9c4abdefc3eb46d2">QuaternionT</a>(T x, T y, T z, T w) : x(x), y(y), z(z), w(w) {}</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="class_quaternion_t.html#ab2ca5ae6a23066f4582b713af8b50595">   44</a></span>    <span class="keyword">constexpr</span> <span class="keyword">explicit</span> <a class="code hl_function" href="class_quaternion_t.html#ab2ca5ae6a23066f4582b713af8b50595">QuaternionT</a>(<span class="keyword">const</span> Matrix4T&lt;T&gt;&amp; mat)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keyword">const</span> <span class="keyword">auto</span> trace = mat(0, 0) + mat(1, 1) + mat(2, 2) + T(1);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordflow">if</span>(trace &gt; T(0))</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        {</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <span class="keyword">const</span> <span class="keyword">auto</span> s = T(2) * detail::sqrt(trace);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            x            = (mat(2, 1) - mat(1, 2)) / s;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            y            = (mat(0, 2) - mat(2, 0)) / s;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            z            = (mat(1, 0) - mat(0, 1)) / s;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            w            = T(0.25) * s;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        }</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(mat(0, 0) &gt; mat(1, 1) &amp;&amp; mat(0, 0) &gt; mat(2, 2))</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            <span class="keyword">const</span> <span class="keyword">auto</span> s = T(2) * detail::sqrt(T(1) + mat(0, 0) - mat(1, 1) - mat(2, 2));</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            x            = T(0.25) * s;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            y            = (mat(0, 1) + mat(1, 0)) / s;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            z            = (mat(2, 0) + mat(0, 2)) / s;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            w            = (mat(2, 1) - mat(1, 2)) / s;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        }</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(mat(1, 1) &gt; mat(2, 2))</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            <span class="keyword">const</span> <span class="keyword">auto</span> s = T(2) * detail::sqrt(T(1) + mat(1, 1) - mat(0, 0) - mat(2, 2));</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            x            = (mat(0, 1) + mat(1, 0)) / s;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            y            = T(0.25) * s;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            z            = (mat(1, 2) + mat(2, 1)) / s;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            w            = (mat(0, 2) - mat(2, 0)) / s;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        }</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        {</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            <span class="keyword">const</span> <span class="keyword">auto</span> s = T(2) * detail::sqrt(T(1) + mat(2, 2) - mat(0, 0) - mat(1, 1));</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            x            = (mat(0, 2) + mat(2, 0)) / s;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            y            = (mat(1, 2) + mat(2, 1)) / s;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            z            = T(0.25) * s;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            w            = (mat(1, 0) - mat(0, 1)) / s;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        }</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="class_quaternion_t.html#ac1b73bee0a13ff211c14e2503ca49661">   86</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_quaternion_t.html#ac1b73bee0a13ff211c14e2503ca49661">eular</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T&lt;T&gt;</a>&amp; angles) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keyword">const</span> <span class="keyword">auto</span> cr = detail::cos(angles.x / T(2));</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="keyword">const</span> <span class="keyword">auto</span> cp = detail::cos(angles.y / T(2));</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="keyword">const</span> <span class="keyword">auto</span> cy = detail::cos(angles.z / T(2));</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <span class="keyword">const</span> <span class="keyword">auto</span> sr = detail::sin(angles.x / T(2));</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <span class="keyword">const</span> <span class="keyword">auto</span> sp = detail::sin(angles.y / T(2));</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keyword">const</span> <span class="keyword">auto</span> sy = detail::sin(angles.z / T(2));</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="keyword">const</span> <span class="keyword">auto</span> cpcy = cp * cy;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <span class="keyword">const</span> <span class="keyword">auto</span> spsy = sp * sy;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <span class="keyword">const</span> <span class="keyword">auto</span> cpsy = cp * sy;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <span class="keyword">const</span> <span class="keyword">auto</span> spcy = sp * cy;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        x = sr * cpcy - cr * spsy;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        y = cr * spcy + sr * cpsy;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        z = cr * cpsy - sr * spcy;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        w = cr * cpcy + sr * spsy;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        <a class="code hl_function" href="class_quaternion_t.html#ac046e7955e5029cc50d9d6a239aa62ef">normalize</a>();</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    }</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="class_quaternion_t.html#a368e83cb8c2aaf156169f5314cb6f739">  114</a></span>    <span class="keyword">constexpr</span> <a class="code hl_class" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T&lt;T&gt;</a> <a class="code hl_function" href="class_quaternion_t.html#a368e83cb8c2aaf156169f5314cb6f739">eular</a>() const noexcept</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    {</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <a class="code hl_class" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3T&lt;T&gt;</a> angles;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <span class="keyword">const</span> <span class="keyword">auto</span> xx = x * x;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        <span class="keyword">const</span> <span class="keyword">auto</span> yy = y * y;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <span class="keyword">const</span> <span class="keyword">auto</span> zz = z * z;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        <span class="keyword">const</span> <span class="keyword">auto</span> ww = w * w;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        angles.x = detail::atan2(T(2) * (y * z + x * w), -xx - yy + zz + ww);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        angles.y = detail::asin(std::clamp(T(2) * (y * w - x * z), T(-1), T(1)));</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        angles.z = detail::atan2(T(2) * (x * y + z * w), xx - yy - zz + ww);</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        <span class="keywordflow">return</span> angles;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    }</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="class_quaternion_t.html#aac3d05a332017991c1f4f863bb530c46">  133</a></span>    <span class="keyword">constexpr</span> <a class="code hl_class" href="class_quaternion_t.html">QuaternionT</a>&amp; <a class="code hl_function" href="class_quaternion_t.html#aac3d05a332017991c1f4f863bb530c46">inverse</a>()</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    {</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        <span class="keyword">const</span> T n = <a class="code hl_function" href="class_quaternion_t.html#a185e86270cb903454ee268ea9e43185f">sizeSq</a>();</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        <span class="keywordflow">if</span>(n == T(1))</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        {</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>            x = -x;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>            y = -y;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>            z = -z;</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        }</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        <span class="keywordflow">if</span>(n &lt; std::numeric_limits&lt;T&gt;::epsilon())</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        n = 1.0f / n;</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        x = -x * n;</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        y = -y * n;</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        z = -z * n;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        w = w * n;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    }</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno"><a class="line" href="class_quaternion_t.html#a4b78473cbd4eb2695fb0b3711678d6af">  158</a></span>    <span class="keyword">constexpr</span> <a class="code hl_class" href="class_quaternion_t.html">QuaternionT</a> <a class="code hl_function" href="class_quaternion_t.html#a4b78473cbd4eb2695fb0b3711678d6af">inversed</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_function" href="class_quaternion_t.html#aa7463b42972c45dd99f96ebf121766eb">QuaternionT</a>(*this).inverse(); }</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="class_quaternion_t.html#ac046e7955e5029cc50d9d6a239aa62ef">  165</a></span>    <span class="keyword">constexpr</span> <a class="code hl_class" href="class_quaternion_t.html">QuaternionT</a>&amp; <a class="code hl_function" href="class_quaternion_t.html#ac046e7955e5029cc50d9d6a239aa62ef">normalize</a>()</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    {</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        <span class="keyword">const</span> <span class="keyword">auto</span> len = <a class="code hl_function" href="class_quaternion_t.html#a6093611ceaa295c8009556a42e07ad1d">size</a>();</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        <span class="keywordflow">if</span>(len &lt; std::numeric_limits&lt;T&gt;::epsilon())</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span> *= 1.f / len;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    }</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="class_quaternion_t.html#ac755d30fbb4c94191b71c0bfa3e07e47">  178</a></span>    <span class="keyword">constexpr</span> <a class="code hl_class" href="class_quaternion_t.html">QuaternionT</a> <a class="code hl_function" href="class_quaternion_t.html#ac755d30fbb4c94191b71c0bfa3e07e47">normalized</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_function" href="class_quaternion_t.html#aa7463b42972c45dd99f96ebf121766eb">QuaternionT</a>(*this).normalized(); }</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno"><a class="line" href="class_quaternion_t.html#a49cc1085986c121315299949aa2f8c68">  183</a></span>    <span class="keyword">constexpr</span> <a class="code hl_class" href="class_quaternion_t.html">QuaternionT</a> <a class="code hl_function" href="class_quaternion_t.html#a49cc1085986c121315299949aa2f8c68">conjugate</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> {-x, -y, -z, w}; }</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno"><a class="line" href="class_quaternion_t.html#a185e86270cb903454ee268ea9e43185f">  190</a></span>    <span class="keyword">constexpr</span> T <a class="code hl_function" href="class_quaternion_t.html#a185e86270cb903454ee268ea9e43185f">sizeSq</a>() const noexcept { <span class="keywordflow">return</span> x * x + y * y + z * z + w * w; }</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno"><a class="line" href="class_quaternion_t.html#a6093611ceaa295c8009556a42e07ad1d">  197</a></span>    <span class="keyword">constexpr</span> T <a class="code hl_function" href="class_quaternion_t.html#a6093611ceaa295c8009556a42e07ad1d">size</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(detail::sqrt(<a class="code hl_function" href="class_quaternion_t.html#a185e86270cb903454ee268ea9e43185f">sizeSq</a>())); }</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> C&gt;</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    <span class="keyword">operator</span> <a class="code hl_class" href="class_quaternion_t.html">QuaternionT&lt;C&gt;</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="class_quaternion_t.html">QuaternionT&lt;C&gt;</a>(<span class="keyword">static_cast&lt;</span>C<span class="keyword">&gt;</span>(x), <span class="keyword">static_cast&lt;</span>C<span class="keyword">&gt;</span>(y), <span class="keyword">static_cast&lt;</span>C<span class="keyword">&gt;</span>(z), <span class="keyword">static_cast&lt;</span>C<span class="keyword">&gt;</span>(w));</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    }</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code hl_class" href="class_quaternion_t.html">QuaternionT</a>&amp; rhs)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        <span class="keywordflow">return</span> equal(x, rhs.x) &amp;&amp; equal(y, rhs.y) &amp;&amp; equal(z, rhs.z) &amp;&amp; equal(w, rhs.w);</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    }</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    <span class="keyword">constexpr</span> <a class="code hl_class" href="class_quaternion_t.html">QuaternionT</a>&amp; operator+=(<span class="keyword">const</span> <a class="code hl_class" href="class_quaternion_t.html">QuaternionT</a>&amp; rhs)</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    {</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        x += rhs.x;</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        y += rhs.y;</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        z += rhs.z;</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        w += rhs.w;</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    }</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    <span class="keyword">constexpr</span> <a class="code hl_class" href="class_quaternion_t.html">QuaternionT</a>&amp; operator-=(<span class="keyword">const</span> <a class="code hl_class" href="class_quaternion_t.html">QuaternionT</a>&amp; rhs)</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    {</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>        x -= rhs.x;</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        y -= rhs.y;</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>        z -= rhs.z;</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        w -= rhs.w;</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    }</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span> </div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    <span class="keyword">constexpr</span> <a class="code hl_class" href="class_quaternion_t.html">QuaternionT</a>&amp; operator*=(<span class="keyword">const</span> <a class="code hl_class" href="class_quaternion_t.html">QuaternionT</a>&amp; rhs)</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    {</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        *<span class="keyword">this</span> = <a class="code hl_function" href="class_quaternion_t.html#aa7463b42972c45dd99f96ebf121766eb">QuaternionT</a>(((x * rhs.w) + (w * rhs.x) + (z * rhs.y) - (y * rhs.z)),</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>                            ((y * rhs.w) - (z * rhs.x) + (w * rhs.y) + (x * rhs.z)),</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>                            ((z * rhs.w) + (y * rhs.x) - (x * rhs.y) + (w * rhs.z)),</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>                            ((w * rhs.w) - (x * rhs.x) - (y * rhs.y) - (z * rhs.z)));</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    }</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    <span class="keyword">constexpr</span> <a class="code hl_class" href="class_quaternion_t.html">QuaternionT</a>&amp; operator*=(T rhs)</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    {</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>        x *= rhs;</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>        y *= rhs;</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>        z *= rhs;</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>        w *= rhs;</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    }</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span> </div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    <span class="keyword">constexpr</span> <a class="code hl_class" href="class_quaternion_t.html">QuaternionT</a> operator-()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> {-x, -y, -z, w}; }</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>};</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span> </div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span><span class="keyword">using </span><a class="code hl_class" href="class_quaternion_t.html">Quaternionf</a> = <a class="code hl_class" href="class_quaternion_t.html">QuaternionT&lt;float&gt;</a>;</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span><span class="keyword">using </span><a class="code hl_class" href="class_quaternion_t.html">Quaterniond</a> = <a class="code hl_class" href="class_quaternion_t.html">QuaternionT&lt;double&gt;</a>;</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span><span class="keyword">using </span><a class="code hl_class" href="class_quaternion_t.html">Quaternion</a>  = <a class="code hl_class" href="class_quaternion_t.html">Quaternionf</a>;</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span><span class="keyword">template</span> &lt;std::<span class="keywordtype">float</span>ing_po<span class="keywordtype">int</span> T&gt;</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno"><a class="line" href="structstd_1_1hash_3_01_quaternion_t_3_01_t_01_4_01_4.html">  254</a></span><span class="keyword">struct </span>std::hash&lt;<a class="code hl_class" href="class_quaternion_t.html">QuaternionT</a>&lt;T&gt;&gt;</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>{</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    std::size_t operator()(<span class="keyword">const</span> <a class="code hl_class" href="class_quaternion_t.html">QuaternionT&lt;T&gt;</a>&amp; v)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>        std::size_t ret = 0;</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>        hash_combine(ret, v.x, v.y, v.z, v.w);</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    }</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>};</div>
+<div class="ttc" id="aclass_quaternion_t_html"><div class="ttname"><a href="class_quaternion_t.html">QuaternionT</a></div><div class="ttdoc">四元数.</div><div class="ttdef"><b>Definition:</b> quaternion.hpp:17</div></div>
+<div class="ttc" id="aclass_quaternion_t_html_a185e86270cb903454ee268ea9e43185f"><div class="ttname"><a href="class_quaternion_t.html#a185e86270cb903454ee268ea9e43185f">QuaternionT::sizeSq</a></div><div class="ttdeci">constexpr T sizeSq() const noexcept</div><div class="ttdoc">获取长度平方.</div><div class="ttdef"><b>Definition:</b> quaternion.hpp:190</div></div>
+<div class="ttc" id="aclass_quaternion_t_html_a368e83cb8c2aaf156169f5314cb6f739"><div class="ttname"><a href="class_quaternion_t.html#a368e83cb8c2aaf156169f5314cb6f739">QuaternionT::eular</a></div><div class="ttdeci">constexpr Vector3T&lt; T &gt; eular() const noexcept</div><div class="ttdoc">获取欧拉角.</div><div class="ttdef"><b>Definition:</b> quaternion.hpp:114</div></div>
+<div class="ttc" id="aclass_quaternion_t_html_a49cc1085986c121315299949aa2f8c68"><div class="ttname"><a href="class_quaternion_t.html#a49cc1085986c121315299949aa2f8c68">QuaternionT::conjugate</a></div><div class="ttdeci">constexpr QuaternionT conjugate() const</div><div class="ttdoc">获取共轭四元数.</div><div class="ttdef"><b>Definition:</b> quaternion.hpp:183</div></div>
+<div class="ttc" id="aclass_quaternion_t_html_a4b78473cbd4eb2695fb0b3711678d6af"><div class="ttname"><a href="class_quaternion_t.html#a4b78473cbd4eb2695fb0b3711678d6af">QuaternionT::inversed</a></div><div class="ttdeci">constexpr QuaternionT inversed() const</div><div class="ttdoc">获取求逆结果.</div><div class="ttdef"><b>Definition:</b> quaternion.hpp:158</div></div>
+<div class="ttc" id="aclass_quaternion_t_html_a6093611ceaa295c8009556a42e07ad1d"><div class="ttname"><a href="class_quaternion_t.html#a6093611ceaa295c8009556a42e07ad1d">QuaternionT::size</a></div><div class="ttdeci">constexpr T size() const</div><div class="ttdoc">获取长度.</div><div class="ttdef"><b>Definition:</b> quaternion.hpp:197</div></div>
+<div class="ttc" id="aclass_quaternion_t_html_a69b5157e3d9b3bbf9c4abdefc3eb46d2"><div class="ttname"><a href="class_quaternion_t.html#a69b5157e3d9b3bbf9c4abdefc3eb46d2">QuaternionT::QuaternionT</a></div><div class="ttdeci">QuaternionT(T x, T y, T z, T w)</div><div class="ttdoc">构造函数.</div><div class="ttdef"><b>Definition:</b> quaternion.hpp:37</div></div>
+<div class="ttc" id="aclass_quaternion_t_html_aa7463b42972c45dd99f96ebf121766eb"><div class="ttname"><a href="class_quaternion_t.html#aa7463b42972c45dd99f96ebf121766eb">QuaternionT::QuaternionT</a></div><div class="ttdeci">QuaternionT()=default</div><div class="ttdoc">默认构造函数.</div></div>
+<div class="ttc" id="aclass_quaternion_t_html_aac3d05a332017991c1f4f863bb530c46"><div class="ttname"><a href="class_quaternion_t.html#aac3d05a332017991c1f4f863bb530c46">QuaternionT::inverse</a></div><div class="ttdeci">constexpr QuaternionT &amp; inverse()</div><div class="ttdoc">求逆.</div><div class="ttdef"><b>Definition:</b> quaternion.hpp:133</div></div>
+<div class="ttc" id="aclass_quaternion_t_html_ab2ca5ae6a23066f4582b713af8b50595"><div class="ttname"><a href="class_quaternion_t.html#ab2ca5ae6a23066f4582b713af8b50595">QuaternionT::QuaternionT</a></div><div class="ttdeci">constexpr QuaternionT(const Matrix4T&lt; T &gt; &amp;mat)</div><div class="ttdoc">构造函数.</div><div class="ttdef"><b>Definition:</b> quaternion.hpp:44</div></div>
+<div class="ttc" id="aclass_quaternion_t_html_ac046e7955e5029cc50d9d6a239aa62ef"><div class="ttname"><a href="class_quaternion_t.html#ac046e7955e5029cc50d9d6a239aa62ef">QuaternionT::normalize</a></div><div class="ttdeci">constexpr QuaternionT &amp; normalize()</div><div class="ttdoc">标准化成单位四元数.</div><div class="ttdef"><b>Definition:</b> quaternion.hpp:165</div></div>
+<div class="ttc" id="aclass_quaternion_t_html_ac1b73bee0a13ff211c14e2503ca49661"><div class="ttname"><a href="class_quaternion_t.html#ac1b73bee0a13ff211c14e2503ca49661">QuaternionT::eular</a></div><div class="ttdeci">constexpr void eular(const Vector3T&lt; T &gt; &amp;angles) noexcept</div><div class="ttdoc">设置欧拉角.</div><div class="ttdef"><b>Definition:</b> quaternion.hpp:86</div></div>
+<div class="ttc" id="aclass_quaternion_t_html_ac755d30fbb4c94191b71c0bfa3e07e47"><div class="ttname"><a href="class_quaternion_t.html#ac755d30fbb4c94191b71c0bfa3e07e47">QuaternionT::normalized</a></div><div class="ttdeci">constexpr QuaternionT normalized() const</div><div class="ttdoc">获取单位四元数.</div><div class="ttdef"><b>Definition:</b> quaternion.hpp:178</div></div>
+<div class="ttc" id="aclass_vector_t_3_01_t_00_013_01_4_html"><div class="ttname"><a href="class_vector_t_3_01_t_00_013_01_4.html">VectorT&lt; T, 3 &gt;</a></div><div class="ttdoc">三维向量.</div><div class="ttdef"><b>Definition:</b> vector3.hpp:14</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_ae9a93452e2a84339148a16bcf2eb561.html">math</a></li><li class="navelem"><b>quaternion.hpp</b></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
+  </ul>
+</div>
+</body>
+</html>

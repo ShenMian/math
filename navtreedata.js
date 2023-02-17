@@ -24,12 +24,24 @@
 */
 var NAVTREE =
 [
-  [ "Math", "index.html", ]
+  [ "Math", "index.html", [
+    [ "类", "annotated.html", [
+      [ "类列表", "annotated.html", "annotated_dup" ],
+      [ "类索引", "classes.html", null ],
+      [ "类成员", "functions.html", [
+        [ "全部", "functions.html", null ],
+        [ "函数", "functions_func.html", null ]
+      ] ]
+    ] ],
+    [ "文件", "files.html", [
+      [ "文件列表", "files.html", "files_dup" ]
+    ] ]
+  ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"index.html"
+"aabb_8hpp_source.html"
 ];
 
 var SYNCONMSG = '点击 关闭 面板同步';
