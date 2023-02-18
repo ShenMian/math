@@ -65,7 +65,7 @@ constexpr void check(T&& cond, std::string_view msg)
  * @param cond 条件.
  */
 /*
-inline void debug_check(bool cond, const std::source_location& loc = std::source_location::current())
+inline void DEBUG_CHECK(bool cond, const std::source_location& loc = std::source_location::current())
 {
     if(cond)
         return;
@@ -83,7 +83,7 @@ inline void debug_check(bool cond, const std::source_location& loc = std::source
  * @param msg  描述.
  */
 /*
-inline void debug_check(bool cond, std::string_view msg,
+inline void DEBUG_CHECK(bool cond, std::string_view msg,
                   const std::source_location& loc = std::source_location::current())
 {
     if(cond)
@@ -100,10 +100,10 @@ inline void debug_check(bool cond, std::string_view msg,
 
 #if ENABLE_CHECK
 
-#define debug_check(...) ::check(__VA_ARGS__)
+#define DEBUG_CHECK(...) ::check(__VA_ARGS__)
 
 #else
 
-#define debug_check(...) (static_cast<void>(0))
+#define DEBUG_CHECK(...) (static_cast<void>(0))
 
 #endif
