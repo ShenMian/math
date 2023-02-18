@@ -6,10 +6,14 @@
 #include "check.hpp"
 #include "hash_combine.hpp"
 #include "vector/vector3.hpp"
+#include <cstddef>
+
+// TODO: template <size_t N> N 维度包围盒
 
 /**
- * @brief 3 维轴对齐包围盒.
+ * @brief N 维轴对齐包围盒.
  */
+template <size_t N>
 class AABB
 {
 public:
@@ -26,16 +30,22 @@ public:
 	 * @param a 第一个点.
 	 * @param b 第二个点.
 	 */
-	AABB(const Vector3& a, const Vector3& b)
+	AABB(const Vectorf<N>& a, const Vectorf<N>& b)
 	{
-		check((a.x <= b.x && a.y <= b.y && a.z <= b.z) || (a.x > b.x && a.y > b.y && a.z > b.z));
-		if(a.x < b.x)
-			min_ = a, max_ = b;
-		else
-			min_ = b, max_ = a;
+		min_ = Vector3(std::numeric_limits<float>::max());
+		max_ = Vector3(std::numeric_limits<float>::min());
+		expand(a);
+		expand(b);
 	}
 
+	/**
+	 * @brief 获取最小点.
+	 */
 	const Vector3& min() const noexcept { return min_; };
+
+	/**
+	 * @brief 获取最大点.
+	 */
 	const Vector3& max() const noexcept { return max_; };
 
 	/**
@@ -46,10 +56,14 @@ public:
 	 * @return true  包含.
 	 * @return false 不包含.
 	 */
-	bool contains(const Vector3& point) const
+	bool contains(const Vectorf<N>& point) const
 	{
-		check(valid());
-		return (min_.x <= point.x && point.x <= max_.x) && (min_.y <= point.y && point.y <= max_.y);
+		for(size_t i = 0; i < N; i++)
+		{
+			if(!(min_[i] <= point[i] && point[i] <= max_[i]))
+				return false;
+		}
+		return true;
 	}
 
 	/**
@@ -60,11 +74,7 @@ public:
 	 * @return true  包含.
 	 * @return false 不包含.
 	 */
-	bool contains(const AABB& aabb) const
-	{
-		check(valid() && aabb.valid());
-		return contains(aabb.min_) && contains(aabb.max_);
-	}
+	bool contains(const AABB& aabb) const { return contains(aabb.min_) && contains(aabb.max_); }
 
 	/**
 	 * @brief 判断是否与 AABB 相交.
@@ -74,26 +84,19 @@ public:
 	 * @return true  相交.
 	 * @return false 不相交.
 	 */
-	bool intersects(const AABB& aabb) const
-	{
-		check(valid() && aabb.valid());
-		return contains(aabb.min_) || contains(aabb.max_);
-	}
+	bool intersects(const AABB& aabb) const { return contains(aabb.min_) || contains(aabb.max_); }
 
 	/**
 	 * @brief 拓展到包含指定点.
 	 *
 	 * @param point 指定点.
 	 */
-	void expand(const Vector3& point) noexcept
+	void expand(const Vectorf<N>& point) noexcept
 	{
-		min_.x = std::min(min_.x, point.x);
-		min_.y = std::min(min_.y, point.y);
-		min_.z = std::min(min_.z, point.z);
-
-		max_.x = std::max(max_.x, point.x);
-		max_.y = std::max(max_.y, point.y);
-		max_.z = std::max(max_.z, point.z);
+		for(size_t i = 0; i < N; i++)
+			min_[i] = std::min(min_[i], point[i]);
+		for(size_t i = 0; i < N; i++)
+			max_[i] = std::max(max_[i], point[i]);
 	}
 
 	/**
@@ -103,7 +106,6 @@ public:
 	 */
 	void expand(const AABB& aabb)
 	{
-		check(aabb.valid());
 		expand(aabb.min_);
 		expand(aabb.max_);
 	}
@@ -111,15 +113,24 @@ public:
 	/**
 	 * @brief 获取几何中心.
 	 */
-	Vector3 center() const noexcept { return (min_ + max_) * .5f; }
+	Vectorf<N> center() const noexcept { return (min_ + max_) * .5f; }
+
+	/**
+	 * @brief 获取尺寸.
+	 */
+	Vectorf<N> extent() const noexcept { return max_ - min_; }
 
 	/**
 	 * @brief 获取体积.
 	 */
 	float volume() const noexcept
 	{
-		const auto extent = max_ - min_;
-		return extent.x * extent.y * extent.z;
+		const auto e = extent();
+
+		float result = e[0];
+		for(size_t i = 1; i < N; i++)
+			result *= e[i];
+		return result;
 	}
 
 	/**
@@ -130,25 +141,15 @@ public:
 	 */
 	bool empty() const noexcept { return min_ == max_; }
 
-	/**
-	 * @brief 判断包围盒是否有效.
-	 *
-	 * 若包围盒无效, 则部分成员函数也会无效, 进行无效的操作或返回无效的结果.
-	 * TODO: 将 min_, max_ 私有化, 防止被破坏.
-	 *
-	 * @return true  有效.
-	 * @return false 无效.
-	 */
-	bool valid() const noexcept { return min_.x <= max_.x && min_.y <= max_.y && min_.z <= max_.z; }
-
 	bool operator==(const AABB& rhs) const = default;
 
 private:
-	Vector3 min_; ///< 最小点.
-	Vector3 max_; ///< 最大点.
+	Vectorf<N> min_; ///< 最小点.
+	Vectorf<N> max_; ///< 最大点.
 };
 
-MAKE_HASHABLE(AABB, t.min(), t.max())
+MAKE_HASHABLE(AABB<2>, t.min(), t.max())
+MAKE_HASHABLE(AABB<3>, t.min(), t.max())
 
 /**
  * @class AABB
@@ -159,8 +160,8 @@ MAKE_HASHABLE(AABB, t.min(), t.max())
  * 例子:
  *
  * ```cpp
- * AABB a({0, 0, 0}, {1, 1, 1}); // 通过最大点和最小点创建包围盒
- * AABB b({1, 1, 1}, {2, 2, 2});
+ * AABB<3> a({0, 0, 0}, {1, 1, 1}); // 通过最大点和最小点创建包围盒
+ * AABB<3> b({1, 1, 1}, {2, 2, 2});
  *
  * if(a.contains(b))        // 判断 a 是否包含 b
  *   std::cout << "a contains b";
@@ -173,7 +174,7 @@ MAKE_HASHABLE(AABB, t.min(), t.max())
  *  std::vector<Vector3> vertices = {
  *      {0, 1, 2}, {2, 0, 1}, {-1, 2, 3}
  *  };
- *  AABB c;
+ *  AABB<3> c;
  *  for(const auto& vertex : vertices)
  *      c.expand(vertex); // 将包围盒 c 拓展到可以包围 vertex
  * ```
