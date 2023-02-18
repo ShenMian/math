@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Math: AABB类 参考</title>
+<title>Math: AABB&lt; N &gt; 模板类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -93,69 +93,73 @@ $(document).ready(function(){initNavTree('class_a_a_b_b.html',''); initResizable
   <div class="summary">
 <a href="#pub-methods">Public 成员函数</a> &#124;
 <a href="class_a_a_b_b-members.html">所有成员列表</a>  </div>
-  <div class="headertitle"><div class="title">AABB类 参考</div></div>
+  <div class="headertitle"><div class="title">AABB&lt; N &gt; 模板类 参考</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>3 维轴对齐包围盒.  
+<p>N 维轴对齐包围盒.  
  <a href="class_a_a_b_b.html#details">更多...</a></p>
 
 <p><code>#include &lt;<a class="el" href="aabb_8hpp_source.html">aabb.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
-<tr class="memitem:a66add0564807b5af7c6a492ae270a0d9"><td class="memItemLeft" align="right" valign="top"><a id="a66add0564807b5af7c6a492ae270a0d9" name="a66add0564807b5af7c6a492ae270a0d9"></a>
+<tr class="memitem:acd3e74eadf586c3ec94d04fa3266ace8"><td class="memItemLeft" align="right" valign="top"><a id="acd3e74eadf586c3ec94d04fa3266ace8" name="acd3e74eadf586c3ec94d04fa3266ace8"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>AABB</b> ()=default</td></tr>
-<tr class="memdesc:a66add0564807b5af7c6a492ae270a0d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">默认构造函数. <br /></td></tr>
-<tr class="separator:a66add0564807b5af7c6a492ae270a0d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38258594ae600d82f30d31ec69fc884f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_a_b_b.html#a38258594ae600d82f30d31ec69fc884f">AABB</a> (const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3</a> &amp;a, const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3</a> &amp;b)</td></tr>
-<tr class="memdesc:a38258594ae600d82f30d31ec69fc884f"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数, 通过两个点创建包围盒.  <a href="class_a_a_b_b.html#a38258594ae600d82f30d31ec69fc884f">更多...</a><br /></td></tr>
-<tr class="separator:a38258594ae600d82f30d31ec69fc884f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaaf4ca7f61f66c40ab0d4b059b967cd0"><td class="memItemLeft" align="right" valign="top"><a id="aaaf4ca7f61f66c40ab0d4b059b967cd0" name="aaaf4ca7f61f66c40ab0d4b059b967cd0"></a>
+<tr class="memdesc:acd3e74eadf586c3ec94d04fa3266ace8"><td class="mdescLeft">&#160;</td><td class="mdescRight">默认构造函数. <br /></td></tr>
+<tr class="separator:acd3e74eadf586c3ec94d04fa3266ace8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6efd0a151cfcc25331761b1bc08244a1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_a_b_b.html#a6efd0a151cfcc25331761b1bc08244a1">AABB</a> (const <a class="el" href="class_vector_t.html">Vectorf</a>&lt; N &gt; &amp;a, const <a class="el" href="class_vector_t.html">Vectorf</a>&lt; N &gt; &amp;b)</td></tr>
+<tr class="memdesc:a6efd0a151cfcc25331761b1bc08244a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数, 通过两个点创建包围盒.  <a href="class_a_a_b_b.html#a6efd0a151cfcc25331761b1bc08244a1">更多...</a><br /></td></tr>
+<tr class="separator:a6efd0a151cfcc25331761b1bc08244a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0855c2b27fb2a17b632354b35e3517f8"><td class="memItemLeft" align="right" valign="top"><a id="a0855c2b27fb2a17b632354b35e3517f8" name="a0855c2b27fb2a17b632354b35e3517f8"></a>
 const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>min</b> () const noexcept</td></tr>
-<tr class="separator:aaaf4ca7f61f66c40ab0d4b059b967cd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5fad00c6c932af29cd9983552be2e5fa"><td class="memItemLeft" align="right" valign="top"><a id="a5fad00c6c932af29cd9983552be2e5fa" name="a5fad00c6c932af29cd9983552be2e5fa"></a>
+<tr class="memdesc:a0855c2b27fb2a17b632354b35e3517f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取最小点. <br /></td></tr>
+<tr class="separator:a0855c2b27fb2a17b632354b35e3517f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30d0fa07652ef8db2893db6030761333"><td class="memItemLeft" align="right" valign="top"><a id="a30d0fa07652ef8db2893db6030761333" name="a30d0fa07652ef8db2893db6030761333"></a>
 const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>max</b> () const noexcept</td></tr>
-<tr class="separator:a5fad00c6c932af29cd9983552be2e5fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39f562f7a37d3aedcfc489c71e5d816a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_a_b_b.html#a39f562f7a37d3aedcfc489c71e5d816a">contains</a> (const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3</a> &amp;point) const</td></tr>
-<tr class="memdesc:a39f562f7a37d3aedcfc489c71e5d816a"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断是否包含指定点.  <a href="class_a_a_b_b.html#a39f562f7a37d3aedcfc489c71e5d816a">更多...</a><br /></td></tr>
-<tr class="separator:a39f562f7a37d3aedcfc489c71e5d816a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92ac4d5d6daaed25c6c39777a5d7cc52"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_a_b_b.html#a92ac4d5d6daaed25c6c39777a5d7cc52">contains</a> (const <a class="el" href="class_a_a_b_b.html">AABB</a> &amp;aabb) const</td></tr>
-<tr class="memdesc:a92ac4d5d6daaed25c6c39777a5d7cc52"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断是否包含指定 <a class="el" href="class_a_a_b_b.html" title="3 维轴对齐包围盒.">AABB</a>.  <a href="class_a_a_b_b.html#a92ac4d5d6daaed25c6c39777a5d7cc52">更多...</a><br /></td></tr>
-<tr class="separator:a92ac4d5d6daaed25c6c39777a5d7cc52"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc1e3b1f4eccf3f2e3c7683a92b8bda3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_a_b_b.html#abc1e3b1f4eccf3f2e3c7683a92b8bda3">intersects</a> (const <a class="el" href="class_a_a_b_b.html">AABB</a> &amp;aabb) const</td></tr>
-<tr class="memdesc:abc1e3b1f4eccf3f2e3c7683a92b8bda3"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断是否与 <a class="el" href="class_a_a_b_b.html" title="3 维轴对齐包围盒.">AABB</a> 相交.  <a href="class_a_a_b_b.html#abc1e3b1f4eccf3f2e3c7683a92b8bda3">更多...</a><br /></td></tr>
-<tr class="separator:abc1e3b1f4eccf3f2e3c7683a92b8bda3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a00d413294b3d1989c67e287913d350"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_a_b_b.html#a4a00d413294b3d1989c67e287913d350">expand</a> (const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3</a> &amp;point) noexcept</td></tr>
-<tr class="memdesc:a4a00d413294b3d1989c67e287913d350"><td class="mdescLeft">&#160;</td><td class="mdescRight">拓展到包含指定点.  <a href="class_a_a_b_b.html#a4a00d413294b3d1989c67e287913d350">更多...</a><br /></td></tr>
-<tr class="separator:a4a00d413294b3d1989c67e287913d350"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc33fb75834cdb3b9489ffc3662ea769"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_a_b_b.html#acc33fb75834cdb3b9489ffc3662ea769">expand</a> (const <a class="el" href="class_a_a_b_b.html">AABB</a> &amp;aabb)</td></tr>
-<tr class="memdesc:acc33fb75834cdb3b9489ffc3662ea769"><td class="mdescLeft">&#160;</td><td class="mdescRight">拓展到包含指定 <a class="el" href="class_a_a_b_b.html" title="3 维轴对齐包围盒.">AABB</a>.  <a href="class_a_a_b_b.html#acc33fb75834cdb3b9489ffc3662ea769">更多...</a><br /></td></tr>
-<tr class="separator:acc33fb75834cdb3b9489ffc3662ea769"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86b1c83960c4f7b3ff6dee10d4fdacb3"><td class="memItemLeft" align="right" valign="top"><a id="a86b1c83960c4f7b3ff6dee10d4fdacb3" name="a86b1c83960c4f7b3ff6dee10d4fdacb3"></a>
-<a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><b>center</b> () const noexcept</td></tr>
-<tr class="memdesc:a86b1c83960c4f7b3ff6dee10d4fdacb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取几何中心. <br /></td></tr>
-<tr class="separator:a86b1c83960c4f7b3ff6dee10d4fdacb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab48567cef4bf472fb0a7d3180fe5e606"><td class="memItemLeft" align="right" valign="top"><a id="ab48567cef4bf472fb0a7d3180fe5e606" name="ab48567cef4bf472fb0a7d3180fe5e606"></a>
+<tr class="memdesc:a30d0fa07652ef8db2893db6030761333"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取最大点. <br /></td></tr>
+<tr class="separator:a30d0fa07652ef8db2893db6030761333"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fece61109e9b1a16166be49a7465220"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_a_b_b.html#a6fece61109e9b1a16166be49a7465220">contains</a> (const <a class="el" href="class_vector_t.html">Vectorf</a>&lt; N &gt; &amp;point) const</td></tr>
+<tr class="memdesc:a6fece61109e9b1a16166be49a7465220"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断是否包含指定点.  <a href="class_a_a_b_b.html#a6fece61109e9b1a16166be49a7465220">更多...</a><br /></td></tr>
+<tr class="separator:a6fece61109e9b1a16166be49a7465220"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01f4925a141ad8a2b2a838a2d73487d5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_a_b_b.html#a01f4925a141ad8a2b2a838a2d73487d5">contains</a> (const <a class="el" href="class_a_a_b_b.html">AABB</a> &amp;aabb) const</td></tr>
+<tr class="memdesc:a01f4925a141ad8a2b2a838a2d73487d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断是否包含指定 <a class="el" href="class_a_a_b_b.html" title="N 维轴对齐包围盒.">AABB</a>.  <a href="class_a_a_b_b.html#a01f4925a141ad8a2b2a838a2d73487d5">更多...</a><br /></td></tr>
+<tr class="separator:a01f4925a141ad8a2b2a838a2d73487d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a750bed2227bab678b08c488902a3113c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_a_b_b.html#a750bed2227bab678b08c488902a3113c">intersects</a> (const <a class="el" href="class_a_a_b_b.html">AABB</a> &amp;aabb) const</td></tr>
+<tr class="memdesc:a750bed2227bab678b08c488902a3113c"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断是否与 <a class="el" href="class_a_a_b_b.html" title="N 维轴对齐包围盒.">AABB</a> 相交.  <a href="class_a_a_b_b.html#a750bed2227bab678b08c488902a3113c">更多...</a><br /></td></tr>
+<tr class="separator:a750bed2227bab678b08c488902a3113c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaee88b095514332298ad3aa226d522af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_a_b_b.html#aaee88b095514332298ad3aa226d522af">expand</a> (const <a class="el" href="class_vector_t.html">Vectorf</a>&lt; N &gt; &amp;point) noexcept</td></tr>
+<tr class="memdesc:aaee88b095514332298ad3aa226d522af"><td class="mdescLeft">&#160;</td><td class="mdescRight">拓展到包含指定点.  <a href="class_a_a_b_b.html#aaee88b095514332298ad3aa226d522af">更多...</a><br /></td></tr>
+<tr class="separator:aaee88b095514332298ad3aa226d522af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f94d86ff0e203b0e04614aedbf9b813"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_a_b_b.html#a3f94d86ff0e203b0e04614aedbf9b813">expand</a> (const <a class="el" href="class_a_a_b_b.html">AABB</a> &amp;aabb)</td></tr>
+<tr class="memdesc:a3f94d86ff0e203b0e04614aedbf9b813"><td class="mdescLeft">&#160;</td><td class="mdescRight">拓展到包含指定 <a class="el" href="class_a_a_b_b.html" title="N 维轴对齐包围盒.">AABB</a>.  <a href="class_a_a_b_b.html#a3f94d86ff0e203b0e04614aedbf9b813">更多...</a><br /></td></tr>
+<tr class="separator:a3f94d86ff0e203b0e04614aedbf9b813"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8322ce1b061ff0a50903c79108bbdcf"><td class="memItemLeft" align="right" valign="top"><a id="ae8322ce1b061ff0a50903c79108bbdcf" name="ae8322ce1b061ff0a50903c79108bbdcf"></a>
+<a class="el" href="class_vector_t.html">Vectorf</a>&lt; N &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>center</b> () const noexcept</td></tr>
+<tr class="memdesc:ae8322ce1b061ff0a50903c79108bbdcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取几何中心. <br /></td></tr>
+<tr class="separator:ae8322ce1b061ff0a50903c79108bbdcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addfeb11fcf6e480b5a1abb9923bcb791"><td class="memItemLeft" align="right" valign="top"><a id="addfeb11fcf6e480b5a1abb9923bcb791" name="addfeb11fcf6e480b5a1abb9923bcb791"></a>
+<a class="el" href="class_vector_t.html">Vectorf</a>&lt; N &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>extent</b> () const noexcept</td></tr>
+<tr class="memdesc:addfeb11fcf6e480b5a1abb9923bcb791"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取尺寸. <br /></td></tr>
+<tr class="separator:addfeb11fcf6e480b5a1abb9923bcb791"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12cb952b996a7fe4fed675edb88e5b08"><td class="memItemLeft" align="right" valign="top"><a id="a12cb952b996a7fe4fed675edb88e5b08" name="a12cb952b996a7fe4fed675edb88e5b08"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>volume</b> () const noexcept</td></tr>
-<tr class="memdesc:ab48567cef4bf472fb0a7d3180fe5e606"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取体积. <br /></td></tr>
-<tr class="separator:ab48567cef4bf472fb0a7d3180fe5e606"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae57d51a607f028e1653eb2e44a7148d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_a_b_b.html#aae57d51a607f028e1653eb2e44a7148d">empty</a> () const noexcept</td></tr>
-<tr class="memdesc:aae57d51a607f028e1653eb2e44a7148d"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断大小是否为空.  <a href="class_a_a_b_b.html#aae57d51a607f028e1653eb2e44a7148d">更多...</a><br /></td></tr>
-<tr class="separator:aae57d51a607f028e1653eb2e44a7148d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a723a68d9ed67454e38d9b71b220ba118"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_a_b_b.html#a723a68d9ed67454e38d9b71b220ba118">valid</a> () const noexcept</td></tr>
-<tr class="memdesc:a723a68d9ed67454e38d9b71b220ba118"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断包围盒是否有效.  <a href="class_a_a_b_b.html#a723a68d9ed67454e38d9b71b220ba118">更多...</a><br /></td></tr>
-<tr class="separator:a723a68d9ed67454e38d9b71b220ba118"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae876cc8882811a450bc77cbf464d3fd9"><td class="memItemLeft" align="right" valign="top"><a id="ae876cc8882811a450bc77cbf464d3fd9" name="ae876cc8882811a450bc77cbf464d3fd9"></a>
+<tr class="memdesc:a12cb952b996a7fe4fed675edb88e5b08"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取体积. <br /></td></tr>
+<tr class="separator:a12cb952b996a7fe4fed675edb88e5b08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64afec2aaacdb80496b9591aa7f64d4f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_a_b_b.html#a64afec2aaacdb80496b9591aa7f64d4f">empty</a> () const noexcept</td></tr>
+<tr class="memdesc:a64afec2aaacdb80496b9591aa7f64d4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断大小是否为空.  <a href="class_a_a_b_b.html#a64afec2aaacdb80496b9591aa7f64d4f">更多...</a><br /></td></tr>
+<tr class="separator:a64afec2aaacdb80496b9591aa7f64d4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11b817bb25484b8b7cd245cc2ad5de63"><td class="memItemLeft" align="right" valign="top"><a id="a11b817bb25484b8b7cd245cc2ad5de63" name="a11b817bb25484b8b7cd245cc2ad5de63"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_a_a_b_b.html">AABB</a> &amp;rhs) const =default</td></tr>
-<tr class="separator:ae876cc8882811a450bc77cbf464d3fd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a11b817bb25484b8b7cd245cc2ad5de63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
-<div class="textblock"><p >3 维轴对齐包围盒. </p>
+<div class="textblock"><div class="compoundTemplParams">template&lt;size_t N&gt;<br />
+class AABB&lt; N &gt;</div><p >N 维轴对齐包围盒. </p>
 <p >在碰撞检测中用于简化物体外形. 包围盒的边都与坐标轴平行, 因此可以利用分离轴定理快速进行碰撞检测.</p>
 <p >例子:</p>
-<div class="fragment"><div class="line"><a class="code hl_class" href="class_a_a_b_b.html">AABB</a> a({0, 0, 0}, {1, 1, 1}); <span class="comment">// 通过最大点和最小点创建包围盒</span></div>
-<div class="line"><a class="code hl_class" href="class_a_a_b_b.html">AABB</a> b({1, 1, 1}, {2, 2, 2});</div>
+<div class="fragment"><div class="line"><a class="code hl_class" href="class_a_a_b_b.html">AABB&lt;3&gt;</a> a({0, 0, 0}, {1, 1, 1}); <span class="comment">// 通过最大点和最小点创建包围盒</span></div>
+<div class="line"><a class="code hl_class" href="class_a_a_b_b.html">AABB&lt;3&gt;</a> b({1, 1, 1}, {2, 2, 2});</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordflow">if</span>(a.contains(b))        <span class="comment">// 判断 a 是否包含 b</span></div>
 <div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;a contains b&quot;</span>;</div>
@@ -168,31 +172,33 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const
 <div class="line"> std::vector&lt;Vector3&gt; vertices = {</div>
 <div class="line">     {0, 1, 2}, {2, 0, 1}, {-1, 2, 3}</div>
 <div class="line"> };</div>
-<div class="line"> <a class="code hl_class" href="class_a_a_b_b.html">AABB</a> c;</div>
+<div class="line"> <a class="code hl_class" href="class_a_a_b_b.html">AABB&lt;3&gt;</a> c;</div>
 <div class="line"> <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; vertex : vertices)</div>
-<div class="line">     c.<a class="code hl_function" href="class_a_a_b_b.html#a4a00d413294b3d1989c67e287913d350">expand</a>(vertex); <span class="comment">// 将包围盒 c 拓展到可以包围 vertex</span></div>
-<div class="ttc" id="aclass_a_a_b_b_html"><div class="ttname"><a href="class_a_a_b_b.html">AABB</a></div><div class="ttdoc">3 维轴对齐包围盒.</div><div class="ttdef"><b>Definition:</b> aabb.hpp:14</div></div>
-<div class="ttc" id="aclass_a_a_b_b_html_a4a00d413294b3d1989c67e287913d350"><div class="ttname"><a href="class_a_a_b_b.html#a4a00d413294b3d1989c67e287913d350">AABB::expand</a></div><div class="ttdeci">void expand(const Vector3 &amp;point) noexcept</div><div class="ttdoc">拓展到包含指定点.</div><div class="ttdef"><b>Definition:</b> aabb.hpp:88</div></div>
+<div class="line">     c.<a class="code hl_function" href="class_a_a_b_b.html#aaee88b095514332298ad3aa226d522af">expand</a>(vertex); <span class="comment">// 将包围盒 c 拓展到可以包围 vertex</span></div>
+<div class="ttc" id="aclass_a_a_b_b_html"><div class="ttname"><a href="class_a_a_b_b.html">AABB</a></div><div class="ttdoc">N 维轴对齐包围盒.</div><div class="ttdef"><b>Definition:</b> aabb.hpp:18</div></div>
+<div class="ttc" id="aclass_a_a_b_b_html_aaee88b095514332298ad3aa226d522af"><div class="ttname"><a href="class_a_a_b_b.html#aaee88b095514332298ad3aa226d522af">AABB::expand</a></div><div class="ttdeci">void expand(const Vectorf&lt; N &gt; &amp;point) noexcept</div><div class="ttdoc">拓展到包含指定点.</div><div class="ttdef"><b>Definition:</b> aabb.hpp:94</div></div>
 </div><!-- fragment --> </div><h2 class="groupheader">构造及析构函数说明</h2>
-<a id="a38258594ae600d82f30d31ec69fc884f" name="a38258594ae600d82f30d31ec69fc884f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a38258594ae600d82f30d31ec69fc884f">&#9670;&#160;</a></span>AABB()</h2>
+<a id="a6efd0a151cfcc25331761b1bc08244a1" name="a6efd0a151cfcc25331761b1bc08244a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6efd0a151cfcc25331761b1bc08244a1">&#9670;&#160;</a></span>AABB()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;size_t N&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">AABB::AABB </td>
+          <td class="memname"><a class="el" href="class_a_a_b_b.html">AABB</a>&lt; N &gt;<a class="el" href="class_a_a_b_b.html">::AABB</a> </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_vector_t.html">Vectorf</a>&lt; N &gt; &amp;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_vector_t.html">Vectorf</a>&lt; N &gt; &amp;&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
@@ -221,19 +227,21 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const
 </div>
 </div>
 <h2 class="groupheader">成员函数说明</h2>
-<a id="a92ac4d5d6daaed25c6c39777a5d7cc52" name="a92ac4d5d6daaed25c6c39777a5d7cc52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92ac4d5d6daaed25c6c39777a5d7cc52">&#9670;&#160;</a></span>contains() <span class="overload">[1/2]</span></h2>
+<a id="a01f4925a141ad8a2b2a838a2d73487d5" name="a01f4925a141ad8a2b2a838a2d73487d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01f4925a141ad8a2b2a838a2d73487d5">&#9670;&#160;</a></span>contains() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;size_t N&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool AABB::contains </td>
+          <td class="memname">bool <a class="el" href="class_a_a_b_b.html">AABB</a>&lt; N &gt;::contains </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_a_a_b_b.html">AABB</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_a_a_b_b.html">AABB</a>&lt; N &gt; &amp;&#160;</td>
           <td class="paramname"><em>aabb</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -245,10 +253,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const
 </table>
 </div><div class="memdoc">
 
-<p>判断是否包含指定 <a class="el" href="class_a_a_b_b.html" title="3 维轴对齐包围盒.">AABB</a>. </p>
+<p>判断是否包含指定 <a class="el" href="class_a_a_b_b.html" title="N 维轴对齐包围盒.">AABB</a>. </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">aabb</td><td>判断是否包含的 <a class="el" href="class_a_a_b_b.html" title="3 维轴对齐包围盒.">AABB</a>.</td></tr>
+    <tr><td class="paramname">aabb</td><td>判断是否包含的 <a class="el" href="class_a_a_b_b.html" title="N 维轴对齐包围盒.">AABB</a>.</td></tr>
   </table>
   </dd>
 </dl>
@@ -258,19 +266,21 @@ false 不包含. </dd></dl>
 
 </div>
 </div>
-<a id="a39f562f7a37d3aedcfc489c71e5d816a" name="a39f562f7a37d3aedcfc489c71e5d816a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a39f562f7a37d3aedcfc489c71e5d816a">&#9670;&#160;</a></span>contains() <span class="overload">[2/2]</span></h2>
+<a id="a6fece61109e9b1a16166be49a7465220" name="a6fece61109e9b1a16166be49a7465220"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fece61109e9b1a16166be49a7465220">&#9670;&#160;</a></span>contains() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;size_t N&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool AABB::contains </td>
+          <td class="memname">bool <a class="el" href="class_a_a_b_b.html">AABB</a>&lt; N &gt;::contains </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_vector_t.html">Vectorf</a>&lt; N &gt; &amp;&#160;</td>
           <td class="paramname"><em>point</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -295,17 +305,19 @@ false 不包含. </dd></dl>
 
 </div>
 </div>
-<a id="aae57d51a607f028e1653eb2e44a7148d" name="aae57d51a607f028e1653eb2e44a7148d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aae57d51a607f028e1653eb2e44a7148d">&#9670;&#160;</a></span>empty()</h2>
+<a id="a64afec2aaacdb80496b9591aa7f64d4f" name="a64afec2aaacdb80496b9591aa7f64d4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64afec2aaacdb80496b9591aa7f64d4f">&#9670;&#160;</a></span>empty()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;size_t N&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool AABB::empty </td>
+          <td class="memname">bool <a class="el" href="class_a_a_b_b.html">AABB</a>&lt; N &gt;::empty </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -325,19 +337,21 @@ false 非空. </dd></dl>
 
 </div>
 </div>
-<a id="acc33fb75834cdb3b9489ffc3662ea769" name="acc33fb75834cdb3b9489ffc3662ea769"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc33fb75834cdb3b9489ffc3662ea769">&#9670;&#160;</a></span>expand() <span class="overload">[1/2]</span></h2>
+<a id="a3f94d86ff0e203b0e04614aedbf9b813" name="a3f94d86ff0e203b0e04614aedbf9b813"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f94d86ff0e203b0e04614aedbf9b813">&#9670;&#160;</a></span>expand() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;size_t N&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void AABB::expand </td>
+          <td class="memname">void <a class="el" href="class_a_a_b_b.html">AABB</a>&lt; N &gt;::expand </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_a_a_b_b.html">AABB</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_a_a_b_b.html">AABB</a>&lt; N &gt; &amp;&#160;</td>
           <td class="paramname"><em>aabb</em></td><td>)</td>
           <td></td>
         </tr>
@@ -349,29 +363,31 @@ false 非空. </dd></dl>
 </table>
 </div><div class="memdoc">
 
-<p>拓展到包含指定 <a class="el" href="class_a_a_b_b.html" title="3 维轴对齐包围盒.">AABB</a>. </p>
+<p>拓展到包含指定 <a class="el" href="class_a_a_b_b.html" title="N 维轴对齐包围盒.">AABB</a>. </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">point</td><td><a class="el" href="class_a_a_b_b.html" title="3 维轴对齐包围盒.">AABB</a>. </td></tr>
+    <tr><td class="paramname">point</td><td><a class="el" href="class_a_a_b_b.html" title="N 维轴对齐包围盒.">AABB</a>. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a4a00d413294b3d1989c67e287913d350" name="a4a00d413294b3d1989c67e287913d350"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a00d413294b3d1989c67e287913d350">&#9670;&#160;</a></span>expand() <span class="overload">[2/2]</span></h2>
+<a id="aaee88b095514332298ad3aa226d522af" name="aaee88b095514332298ad3aa226d522af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaee88b095514332298ad3aa226d522af">&#9670;&#160;</a></span>expand() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;size_t N&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void AABB::expand </td>
+          <td class="memname">void <a class="el" href="class_a_a_b_b.html">AABB</a>&lt; N &gt;::expand </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_vector_t_3_01_t_00_013_01_4.html">Vector3</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_vector_t.html">Vectorf</a>&lt; N &gt; &amp;&#160;</td>
           <td class="paramname"><em>point</em></td><td>)</td>
           <td></td>
         </tr>
@@ -393,19 +409,21 @@ false 非空. </dd></dl>
 
 </div>
 </div>
-<a id="abc1e3b1f4eccf3f2e3c7683a92b8bda3" name="abc1e3b1f4eccf3f2e3c7683a92b8bda3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc1e3b1f4eccf3f2e3c7683a92b8bda3">&#9670;&#160;</a></span>intersects()</h2>
+<a id="a750bed2227bab678b08c488902a3113c" name="a750bed2227bab678b08c488902a3113c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a750bed2227bab678b08c488902a3113c">&#9670;&#160;</a></span>intersects()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;size_t N&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool AABB::intersects </td>
+          <td class="memname">bool <a class="el" href="class_a_a_b_b.html">AABB</a>&lt; N &gt;::intersects </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_a_a_b_b.html">AABB</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_a_a_b_b.html">AABB</a>&lt; N &gt; &amp;&#160;</td>
           <td class="paramname"><em>aabb</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -417,47 +435,16 @@ false 非空. </dd></dl>
 </table>
 </div><div class="memdoc">
 
-<p>判断是否与 <a class="el" href="class_a_a_b_b.html" title="3 维轴对齐包围盒.">AABB</a> 相交. </p>
+<p>判断是否与 <a class="el" href="class_a_a_b_b.html" title="N 维轴对齐包围盒.">AABB</a> 相交. </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">aabb</td><td>判断是否相交的 <a class="el" href="class_a_a_b_b.html" title="3 维轴对齐包围盒.">AABB</a>.</td></tr>
+    <tr><td class="paramname">aabb</td><td>判断是否相交的 <a class="el" href="class_a_a_b_b.html" title="N 维轴对齐包围盒.">AABB</a>.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>true 相交. </dd>
 <dd>
 false 不相交. </dd></dl>
-
-</div>
-</div>
-<a id="a723a68d9ed67454e38d9b71b220ba118" name="a723a68d9ed67454e38d9b71b220ba118"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a723a68d9ed67454e38d9b71b220ba118">&#9670;&#160;</a></span>valid()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool AABB::valid </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>判断包围盒是否有效. </p>
-<p >若包围盒无效, 则部分成员函数也会无效, 进行无效的操作或返回无效的结果. TODO: 将 min_, max_ 私有化, 防止被破坏.</p>
-<dl class="section return"><dt>返回</dt><dd>true 有效. </dd>
-<dd>
-false 无效. </dd></dl>
 
 </div>
 </div>

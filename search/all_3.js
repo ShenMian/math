@@ -28,7 +28,8 @@ var searchData=
   ['easeoutquint_25',['easeOutQuint',['../class_easing.html#affb932718d08162b35bfb967e9820715',1,'Easing']]],
   ['easeoutsine_26',['easeOutSine',['../class_easing.html#ab1f9af476fc14bec85182b8e295bed4f',1,'Easing']]],
   ['easing_27',['Easing',['../class_easing.html',1,'']]],
-  ['empty_28',['empty',['../class_a_a_b_b.html#aae57d51a607f028e1653eb2e44a7148d',1,'AABB']]],
+  ['empty_28',['empty',['../class_a_a_b_b.html#a64afec2aaacdb80496b9591aa7f64d4f',1,'AABB']]],
   ['eular_29',['eular',['../class_quaternion_t.html#ac1b73bee0a13ff211c14e2503ca49661',1,'QuaternionT::eular(const Vector3T&lt; T &gt; &amp;angles) noexcept'],['../class_quaternion_t.html#a368e83cb8c2aaf156169f5314cb6f739',1,'QuaternionT::eular() const noexcept']]],
-  ['expand_30',['expand',['../class_a_a_b_b.html#a4a00d413294b3d1989c67e287913d350',1,'AABB::expand(const Vector3 &amp;point) noexcept'],['../class_a_a_b_b.html#acc33fb75834cdb3b9489ffc3662ea769',1,'AABB::expand(const AABB &amp;aabb)']]]
+  ['expand_30',['expand',['../class_a_a_b_b.html#aaee88b095514332298ad3aa226d522af',1,'AABB::expand(const Vectorf&lt; N &gt; &amp;point) noexcept'],['../class_a_a_b_b.html#a3f94d86ff0e203b0e04614aedbf9b813',1,'AABB::expand(const AABB &amp;aabb)']]],
+  ['extent_31',['extent',['../class_a_a_b_b.html#addfeb11fcf6e480b5a1abb9923bcb791',1,'AABB']]]
 ];
