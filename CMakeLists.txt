@@ -21,39 +21,35 @@ target_include_directories(${PROJECT_NAME} INTERFACE
 
 if(BUILD_TESTS)
     enable_testing()
-
-    # 指定 Win32 下要定义的宏
-    if(WIN32)
-        list(APPEND MATH_DEFINES _CRT_SECURE_NO_WARNINGS _SCL_SECURE_NO_WARNINGS UNICODE _UNICODE NOMINMAX)
-    endif()
-
-    # 静态链接 MSVC 运行库
+    
     if(MSVC)
-        set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+        set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>") # 静态链接 MSVC 运行库
     endif()
-
-    if(UNIX)
-        add_link_options("-ldl")
-    endif()
-
-    file(GLOB_RECURSE SOURCES "tests/*.cpp")
 
     add_executable(${PROJECT_NAME}_unit_test)
 
-    find_package(OpenMP)
-    if(OpenMP_CXX_FOUND)
-        target_link_libraries(${PROJECT_NAME}_unit_test PUBLIC OpenMP::OpenMP_CXX)
-    endif()
-
     # target_link_libraries(${PROJECT_NAME}_unit_test INTERFACE math)
+    file(GLOB_RECURSE SOURCES "tests/*.cpp" "tests/*.ixx")
     target_sources(${PROJECT_NAME}_unit_test PRIVATE ${SOURCES})
     target_include_directories(${PROJECT_NAME}_unit_test PRIVATE
         "${PROJECT_SOURCE_DIR}/deps/doctest"
         "${PROJECT_SOURCE_DIR}/deps/nanobench/src/include"
         "${PROJECT_SOURCE_DIR}/src"
         "${PROJECT_SOURCE_DIR}/deps/gcem/include")
-    target_compile_definitions(${PROJECT_NAME}_unit_test PUBLIC ${MATH_DEFINES})
     target_compile_features(${PROJECT_NAME}_unit_test PRIVATE cxx_std_20)
+
+    if(WIN32)
+        target_compile_definitions(${PROJECT_NAME}_unit_test PUBLIC _CRT_SECURE_NO_WARNINGS _SCL_SECURE_NO_WARNINGS UNICODE _UNICODE NOMINMAX)
+    endif()
+
+    if(UNIX)
+        target_link_options(${PROJECT_NAME}_unit_test PRIVATE "-ldl")
+    endif()
+
+    find_package(OpenMP)
+    if(OpenMP_CXX_FOUND)
+        target_link_libraries(${PROJECT_NAME}_unit_test PUBLIC OpenMP::OpenMP_CXX)
+    endif()
 
     add_test(NAME unit_test COMMAND ${PROJECT_NAME}_unit_test)
     add_test(NAME benchmark COMMAND ${PROJECT_NAME}_unit_test -ns -ts=benchmark)
