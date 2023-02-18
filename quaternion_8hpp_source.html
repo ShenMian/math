@@ -119,7 +119,7 @@ $(document).ready(function(){initNavTree('quaternion_8hpp_source.html',''); init
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="class_quaternion_t.html#ab2ca5ae6a23066f4582b713af8b50595">   44</a></span>    <span class="keyword">constexpr</span> <span class="keyword">explicit</span> <a class="code hl_function" href="class_quaternion_t.html#ab2ca5ae6a23066f4582b713af8b50595">QuaternionT</a>(<span class="keyword">const</span> Matrix4T&lt;T&gt;&amp; mat)</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    {</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keyword">const</span> <span class="keyword">auto</span> trace = mat(0, 0) + mat(1, 1) + mat(2, 2) + T(1);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keyword">const</span> <span class="keyword">auto</span> trace = mat.trace();</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordflow">if</span>(trace &gt; T(0))</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        {</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <span class="keyword">const</span> <span class="keyword">auto</span> s = T(2) * detail::sqrt(trace);</div>
@@ -195,7 +195,7 @@ $(document).ready(function(){initNavTree('quaternion_8hpp_source.html',''); init
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="class_quaternion_t.html#aac3d05a332017991c1f4f863bb530c46">  133</a></span>    <span class="keyword">constexpr</span> <a class="code hl_class" href="class_quaternion_t.html">QuaternionT</a>&amp; <a class="code hl_function" href="class_quaternion_t.html#aac3d05a332017991c1f4f863bb530c46">inverse</a>()</div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    {</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        <span class="keyword">const</span> T n = <a class="code hl_function" href="class_quaternion_t.html#a185e86270cb903454ee268ea9e43185f">sizeSq</a>();</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        T n = <a class="code hl_function" href="class_quaternion_t.html#a185e86270cb903454ee268ea9e43185f">sizeSq</a>();</div>
 <div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        <span class="keywordflow">if</span>(n == T(1))</div>
 <div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        {</div>
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>            x = -x;</div>
