@@ -43,7 +43,7 @@ public:
 	 */
 	constexpr explicit QuaternionT(const Matrix4T<T>& mat)
 	{
-		const auto trace = mat(0, 0) + mat(1, 1) + mat(2, 2) + T(1);
+		const auto trace = mat.trace();
 		if(trace > T(0))
 		{
 			const auto s = T(2) * detail::sqrt(trace);
@@ -132,7 +132,7 @@ public:
 	 */
 	constexpr QuaternionT& inverse()
 	{
-		const T n = sizeSq();
+		T n = sizeSq();
 		if(n == T(1))
 		{
 			x = -x;
