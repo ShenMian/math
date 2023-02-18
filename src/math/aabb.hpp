@@ -32,8 +32,8 @@ public:
 	 */
 	AABB(const Vectorf<N>& a, const Vectorf<N>& b)
 	{
-		min_ = Vector3(std::numeric_limits<float>::max());
-		max_ = Vector3(std::numeric_limits<float>::min());
+		min_ = Vectorf<N>(std::numeric_limits<float>::max());
+		max_ = Vectorf<N>(std::numeric_limits<float>::min());
 		expand(a);
 		expand(b);
 	}
