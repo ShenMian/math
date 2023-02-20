@@ -106,13 +106,13 @@ $(document).ready(function(){initNavTree('class_matrix_t.html',''); initResizabl
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
-<tr class="memitem:ac0e3299067035a98063d30b0aefbbc23"><td class="memItemLeft" align="right" valign="top"><a id="ac0e3299067035a98063d30b0aefbbc23" name="ac0e3299067035a98063d30b0aefbbc23"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>MatrixT</b> ()</td></tr>
-<tr class="memdesc:ac0e3299067035a98063d30b0aefbbc23"><td class="mdescLeft">&#160;</td><td class="mdescRight">默认构造函数. <br /></td></tr>
-<tr class="separator:ac0e3299067035a98063d30b0aefbbc23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1bc8ddcf5c685aee73bf0d23b3d5158"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#ab1bc8ddcf5c685aee73bf0d23b3d5158">MatrixT</a> (const std::initializer_list&lt; T &gt; &amp;list)</td></tr>
-<tr class="memdesc:ab1bc8ddcf5c685aee73bf0d23b3d5158"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数.  <a href="class_matrix_t.html#ab1bc8ddcf5c685aee73bf0d23b3d5158">更多...</a><br /></td></tr>
-<tr class="separator:ab1bc8ddcf5c685aee73bf0d23b3d5158"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abee1204d29299402ab914ddfc170a16a"><td class="memItemLeft" align="right" valign="top"><a id="abee1204d29299402ab914ddfc170a16a" name="abee1204d29299402ab914ddfc170a16a"></a>
+constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>MatrixT</b> ()</td></tr>
+<tr class="memdesc:abee1204d29299402ab914ddfc170a16a"><td class="mdescLeft">&#160;</td><td class="mdescRight">默认构造函数. <br /></td></tr>
+<tr class="separator:abee1204d29299402ab914ddfc170a16a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85083ff594b8f39b2118849da737fd32"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_t.html#a85083ff594b8f39b2118849da737fd32">MatrixT</a> (const std::initializer_list&lt; T &gt; &amp;list)</td></tr>
+<tr class="memdesc:a85083ff594b8f39b2118849da737fd32"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数.  <a href="class_matrix_t.html#a85083ff594b8f39b2118849da737fd32">更多...</a><br /></td></tr>
+<tr class="separator:a85083ff594b8f39b2118849da737fd32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54564a449612d5e96eedffc15090bc42"><td class="memItemLeft" align="right" valign="top"><a id="a54564a449612d5e96eedffc15090bc42" name="a54564a449612d5e96eedffc15090bc42"></a>
 constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>MatrixT</b> (const T(&amp;arr)[R *C])</td></tr>
 <tr class="memdesc:a54564a449612d5e96eedffc15090bc42"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造函数. <br /></td></tr>
@@ -340,8 +340,8 @@ class MatrixT&lt; T, R, C &gt;</div><p >矩阵. </p>
 <div class="line">                <span class="comment">// 1 4</span></div>
 <div class="line">                <span class="comment">// 3 1</span></div>
 </div><!-- fragment --> </div><h2 class="groupheader">构造及析构函数说明</h2>
-<a id="ab1bc8ddcf5c685aee73bf0d23b3d5158" name="ab1bc8ddcf5c685aee73bf0d23b3d5158"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1bc8ddcf5c685aee73bf0d23b3d5158">&#9670;&#160;</a></span>MatrixT()</h2>
+<a id="a85083ff594b8f39b2118849da737fd32" name="a85083ff594b8f39b2118849da737fd32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85083ff594b8f39b2118849da737fd32">&#9670;&#160;</a></span>MatrixT()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -352,7 +352,7 @@ template&lt;arithmetic T, size_t R, size_t C&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_matrix_t.html">MatrixT</a>&lt; T, R, C &gt;<a class="el" href="class_matrix_t.html">::MatrixT</a> </td>
+          <td class="memname">constexpr <a class="el" href="class_matrix_t.html">MatrixT</a>&lt; T, R, C &gt;<a class="el" href="class_matrix_t.html">::MatrixT</a> </td>
           <td>(</td>
           <td class="paramtype">const std::initializer_list&lt; T &gt; &amp;&#160;</td>
           <td class="paramname"><em>list</em></td><td>)</td>
@@ -361,7 +361,7 @@ template&lt;arithmetic T, size_t R, size_t C&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
