@@ -34,7 +34,7 @@ public:
 	/**
 	 * @brief 默认构造函数.
 	 */
-	MatrixT()
+	constexpr MatrixT()
 	{
 		if constexpr(R == C)
 			for(size_t n = 0; n < R; n++)
@@ -46,7 +46,7 @@ public:
 	 *
 	 * @param list 初始化列表.
 	 */
-	MatrixT(const std::initializer_list<T>& list)
+	constexpr MatrixT(const std::initializer_list<T>& list)
 	{
 		check(list.size() == rows() * cols(), "initializers number not correct");
 		auto it = list.begin();
@@ -559,14 +559,7 @@ public:
 	constexpr MatrixT& operator+=(const MatrixT& rhs)
 	{
 		if constexpr(R == C && R == 4)
-		{
-			__m128 m1[4];
-			__m128 m2[4];
-			simd::loadu(m1, data());
-			simd::loadu(m2, rhs.data());
-			simd::add(m1, m2, m1);
-			simd::storeu(data(), m1);
-		}
+			simd::matrix_addu(data(), rhs.data(), data());
 		else
 		{
 			for(size_t r = 0; r < rows(); r++)
@@ -575,17 +568,11 @@ public:
 		}
 		return *this;
 	}
+
 	constexpr MatrixT& operator-=(const MatrixT& rhs)
 	{
 		if constexpr(R == C && R == 4)
-		{
-			__m128 m1[4];
-			__m128 m2[4];
-			simd::loadu(m1, data());
-			simd::loadu(m2, rhs.data());
-			simd::sub(m1, m2, m1);
-			simd::storeu(data(), m1);
-		}
+			simd::matrix_subu(data(), rhs.data(), data());
 		else
 		{
 			for(size_t r = 0; r < rows(); r++)
@@ -598,14 +585,7 @@ public:
 	MatrixT& operator*=(const MatrixT& rhs)
 	{
 		if constexpr(R == C && R == 4)
-		{
-			__m128 m1[4];
-			__m128 m2[4];
-			simd::loadu(m1, data());
-			simd::loadu(m2, rhs.data());
-			simd::mul(m1, m2, m1);
-			simd::storeu(data(), m1);
-		}
+			simd::matrix_mulu(data(), rhs.data(), data());
 		else if constexpr(R == C)
 		{
 			// FIXME: 大矩阵相乘时堆栈溢出, 比如 500x500
@@ -763,7 +743,7 @@ public:
 		float wy2 = q.w * y2;
 		float wz2 = q.w * z2;
 
-		MatrixT mat;
+		auto mat  = MatrixT::identity();
 		mat(0, 0) = 1.0f - yy2 - zz2;
 		mat(0, 1) = xy2 + wz2;
 		mat(0, 2) = xz2 - wy2;
@@ -894,6 +874,7 @@ public:
 		mat(0, 0) = scale.x;
 		mat(1, 1) = scale.y;
 		mat(2, 2) = scale.z;
+		mat(3, 3) = 1.f;
 		return mat;
 	}
 
@@ -1123,9 +1104,9 @@ inline Vector4f operator*(const MatrixT<float, 4, 4>& mat, const Vector4f& vec)
 
 	__m128 m[4];
 	__m128 v = {};
-	simd::loadu(m, mat.data());
-	simd::loadu(v, vec.data());
-	simd::matrixMulVec(m, v, v);
+	simd::load(m, mat.data());
+	simd::load(v, vec.data());
+	simd::matrix_mul_vector(m, v, v);
 	simd::storeu(result.data(), v);
 
 	return result;

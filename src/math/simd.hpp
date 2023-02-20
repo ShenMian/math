@@ -3,6 +3,8 @@
 
 #pragma once
 
+#include "check.hpp"
+
 #if defined(_MSC_VER) && (defined(_M_X64) || defined(_M_IX86))
 #define USE_SSE
 #elif defined(__clang__) && (defined(__i386__) || defined(__x86_64__))
@@ -22,7 +24,77 @@ namespace simd
 
 #ifdef USE_SSE
 
-inline void loadu(__m128 m[4], const float* mat) noexcept
+/**
+ * @brief SSE 矩阵相加.
+ *
+ * @param a 矩阵 A.
+ * @param b 矩阵 B.
+ * @param c 结果矩阵 C.
+ */
+inline void matrix_addu(const float a[16], const float b[16], float c[16])
+{
+	for(size_t i = 0; i < 4; i++)
+	{
+		const __m128 a_row = _mm_loadu_ps(a + i * 4);
+		const __m128 b_row = _mm_loadu_ps(b + i * 4);
+		const __m128 c_row = _mm_add_ps(a_row, b_row);
+		_mm_storeu_ps(c + i * 4, c_row);
+	}
+}
+
+/**
+ * @brief SSE 矩阵相减.
+ *
+ * @param a 矩阵 A.
+ * @param b 矩阵 B.
+ * @param c 结果矩阵 C.
+ */
+inline void matrix_subu(const float a[16], const float b[16], float c[16])
+{
+	for(size_t i = 0; i < 4; i++)
+	{
+		const __m128 a_row = _mm_loadu_ps(a + i * 4);
+		const __m128 b_row = _mm_loadu_ps(b + i * 4);
+		const __m128 c_row = _mm_sub_ps(a_row, b_row);
+		_mm_storeu_ps(c + i * 4, c_row);
+	}
+}
+
+/**
+ * @brief SSE 矩阵相乘.
+ *
+ * @param a 矩阵 A.
+ * @param b 矩阵 B.
+ * @param c 结果矩阵 C.
+ */
+inline void matrix_mulu(const float a[16], const float b[16], float c[16])
+{
+	const __m128 row1 = _mm_loadu_ps(&a[0]);
+	const __m128 row2 = _mm_loadu_ps(&a[4]);
+	const __m128 row3 = _mm_loadu_ps(&a[8]);
+	const __m128 row4 = _mm_loadu_ps(&a[12]);
+
+	for(int i = 0; i < 4; i++)
+	{
+		const __m128 col1 = _mm_set1_ps(b[i * 4 + 0]);
+		const __m128 col2 = _mm_set1_ps(b[i * 4 + 1]);
+		const __m128 col3 = _mm_set1_ps(b[i * 4 + 2]);
+		const __m128 col4 = _mm_set1_ps(b[i * 4 + 3]);
+
+		const __m128 row = _mm_add_ps(_mm_add_ps(_mm_mul_ps(col1, row1), _mm_mul_ps(col2, row2)),
+		                        _mm_add_ps(_mm_mul_ps(col3, row3), _mm_mul_ps(col4, row4)));
+
+		_mm_store_ps(&c[i * 4], row);
+	}
+}
+
+
+/**
+ * @brief 将数据从内存加载到 SSE 寄存器.
+ *
+ * @param mat 矩阵数据.
+ */
+inline void loadu(__m128 m[4], const std::span<float, 16> mat) noexcept
 {
 	m[0] = _mm_loadu_ps(&mat[0 * 4]);
 	m[1] = _mm_loadu_ps(&mat[1 * 4]);
@@ -30,7 +102,12 @@ inline void loadu(__m128 m[4], const float* mat) noexcept
 	m[3] = _mm_loadu_ps(&mat[3 * 4]);
 }
 
-inline void load(__m128 m[4], const float* mat) noexcept
+/**
+ * @brief 将数据从内存加载到 SSE 寄存器.
+ *
+ * @param mat 矩阵数据. 内存地址必须是 16 字节对齐.
+ */
+inline void load(__m128 m[4], const float mat[16]) noexcept
 {
 	m[0] = _mm_load_ps(&mat[0 * 4]);
 	m[1] = _mm_load_ps(&mat[1 * 4]);
@@ -193,7 +270,7 @@ inline void transpose(const __m128 m[4], __m128 dst[4]) noexcept
 	dst[3] = _mm_shuffle_ps(tmp2, tmp3, 0xDD);
 }
 
-inline void matrixMulVec(const __m128 m[4], const __m128& v, __m128& dst) noexcept
+inline void matrix_mul_vector(const __m128 m[4], const __m128& v, __m128& dst) noexcept
 {
 	__m128 col1 = _mm_shuffle_ps(v, v, _MM_SHUFFLE(0, 0, 0, 0));
 	__m128 col2 = _mm_shuffle_ps(v, v, _MM_SHUFFLE(1, 1, 1, 1));
@@ -204,8 +281,9 @@ inline void matrixMulVec(const __m128 m[4], const __m128& v, __m128& dst) noexce
 	                 _mm_add_ps(_mm_mul_ps(m[2], col3), _mm_mul_ps(m[3], col4)));
 }
 
-inline void vecMulMatrix(const __m128 v, const __m128 m[4], __m128 dst[4]) noexcept
+inline void vector_mul_matrix(const __m128 v, const __m128 m[4], __m128 dst[4]) noexcept
 {
+	DEBUG_CHECK(false);
 }
 
 #endif
