@@ -156,9 +156,9 @@ $(document).ready(function(){initNavTree('simd_8hpp_source.html',''); initResiza
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="keyword">const</span> __m128 col4 = _mm_set1_ps(b[i * 4 + 3]);</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <span class="keyword">const</span> __m128 row = _mm_add_ps(_mm_add_ps(_mm_mul_ps(col1, row1), _mm_mul_ps(col2, row2)),</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>                                _mm_add_ps(_mm_mul_ps(col3, row3), _mm_mul_ps(col4, row4)));</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>                                      _mm_add_ps(_mm_mul_ps(col3, row3), _mm_mul_ps(col4, row4)));</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        _mm_store_ps(&amp;c[i * 4], row);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        _mm_storeu_ps(&amp;c[i * 4], row);</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    }</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>}</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
