@@ -21,7 +21,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float linearTween(float t, float b, float c, float d) { return c * t / d + b; }
+	static float linear_tween(float t, float b, float c, float d) { return c * t / d + b; }
 
 	/**
 	 * @brief 二次方淡入.
@@ -31,7 +31,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float easeInQuad(float t, float b, float c, float d) { return c * t * t / d + b; }
+	static float ease_in_quad(float t, float b, float c, float d) { return c * t * t / d + b; }
 
 	/**
 	 * @brief 二次方淡出.
@@ -41,7 +41,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float easeOutQuad(float t, float b, float c, float d) { return -c * t * (t - 2) / d + b; }
+	static float ease_out_quad(float t, float b, float c, float d) { return -c * t * (t - 2) / d + b; }
 
 	/**
 	 * @brief 二次方淡入并淡出.
@@ -51,7 +51,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float easeInOutQuad(float t, float b, float c, float d)
+	static float ease_in_out_quad(float t, float b, float c, float d)
 	{
 		t /= d / 2;
 		if(t < 1)
@@ -68,7 +68,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float easeInCubic(float t, float b, float c, float d) { return c * t * t * t / d + b; }
+	static float ease_in_cubic(float t, float b, float c, float d) { return c * t * t * t / d + b; }
 
 	/**
 	 * @brief 三次方淡出.
@@ -78,7 +78,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float easeOutCubic(float t, float b, float c, float d)
+	static float ease_out_cubic(float t, float b, float c, float d)
 	{
 		t = t / d - 1;
 		return c * (t * t * t + 1) + b;
@@ -92,7 +92,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float easeInOutCubic(float t, float b, float c, float d)
+	static float ease_in_out_cubic(float t, float b, float c, float d)
 	{
 		t /= d / 2;
 		if(t < 1)
@@ -109,7 +109,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float easeInQuart(float t, float b, float c, float d)
+	static float ease_in_quart(float t, float b, float c, float d)
 	{
 		t /= d;
 		return c * t * t * t * t + b;
@@ -123,7 +123,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float easeOutQuart(float t, float b, float c, float d)
+	static float ease_out_quart(float t, float b, float c, float d)
 	{
 		t = t / d - 1;
 		return -c * (t * t * t * t - 1) + b;
@@ -137,7 +137,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float easeInOutQuart(float t, float b, float c, float d)
+	static float ease_in_out_quart(float t, float b, float c, float d)
 	{
 		t /= d / 2;
 		if(t < 1)
@@ -154,7 +154,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float easeInQuint(float t, float b, float c, float d)
+	static float ease_in_quint(float t, float b, float c, float d)
 	{
 		t /= d;
 		return c * t * t * t * t * t + b;
@@ -168,7 +168,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float easeOutQuint(float t, float b, float c, float d)
+	static float ease_out_quint(float t, float b, float c, float d)
 	{
 		t = t / d - 1;
 		return c * (t * t * t * t * t + 1) + b;
@@ -182,7 +182,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float easeInOutQuint(float t, float b, float c, float d)
+	static float ease_in_out_quint(float t, float b, float c, float d)
 	{
 		t /= d / 2;
 		if(t < 1)
@@ -199,7 +199,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float easeInSine(float t, float b, float c, float d)
+	static float ease_in_sine(float t, float b, float c, float d)
 	{
 		return -c * cos(t / d * (std::numbers::pi / 2)) + c + b;
 	}
@@ -212,7 +212,10 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float easeOutSine(float t, float b, float c, float d) { return c * sin(t / d * (std::numbers::pi / 2)) + b; }
+	static float ease_out_sine(float t, float b, float c, float d)
+	{
+		return c * sin(t / d * (std::numbers::pi / 2)) + b;
+	}
 
 	/**
 	 * @brief 正弦淡入并淡出.
@@ -222,7 +225,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float easeInOutSine(float t, float b, float c, float d)
+	static float ease_in_out_sine(float t, float b, float c, float d)
 	{
 		return -c / 2 * (cos(std::numbers::pi * t / d) - 1) + b;
 	}
@@ -235,7 +238,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float easeInExpo(float t, float b, float c, float d) { return c * pow(2, 10 * (t / d - 1)) + b; }
+	static float ease_in_expo(float t, float b, float c, float d) { return c * pow(2, 10 * (t / d - 1)) + b; }
 
 	/**
 	 * @brief 指数淡出.
@@ -245,7 +248,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float easeOutExpo(float t, float b, float c, float d) { return c * (-pow(2, -10 * t / d) + 1) + b; }
+	static float ease_out_expo(float t, float b, float c, float d) { return c * (-pow(2, -10 * t / d) + 1) + b; }
 
 	/**
 	 * @brief 指数淡入并淡出.
@@ -255,7 +258,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float easeInOutExpo(float t, float b, float c, float d)
+	static float ease_in_out_expo(float t, float b, float c, float d)
 	{
 		t /= d / 2;
 		if(t < 1)
@@ -272,7 +275,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float easeInCirc(float t, float b, float c, float d)
+	static float ease_in_circ(float t, float b, float c, float d)
 	{
 		t /= d;
 		return -c * (std::sqrt(1 - t * t) - 1) + b;
@@ -286,7 +289,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float easeOutCirc(float t, float b, float c, float d)
+	static float ease_out_circ(float t, float b, float c, float d)
 	{
 		t = t / d - 1;
 		return c * std::sqrt(1 - t * t) + b;
@@ -300,7 +303,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float easeInOutCirc(float t, float b, float c, float d)
+	static float ease_in_out_circ(float t, float b, float c, float d)
 	{
 		t /= d / 2;
 		if(t < 1)
@@ -317,7 +320,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float easeInElastic(float t, float b, float c, float d)
+	static float ease_in_elastic(float t, float b, float c, float d)
 	{
 		float s = 1.70158f;
 		float p = 0;
@@ -348,7 +351,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float easeOutElastic(float t, float b, float c, float d)
+	static float ease_out_elastic(float t, float b, float c, float d)
 	{
 		float s = 1.70158f;
 		float p = 0;
@@ -378,7 +381,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float easeInOutElastic(float t, float b, float c, float d)
+	static float ease_in_out_elastic(float t, float b, float c, float d)
 	{
 		float s = 1.70158f;
 		float p = 0;
@@ -402,7 +405,7 @@ public:
 		return a * pow(2, -10 * t) * sin((t * d - s) * (2 * std::numbers::pi) / p) * .5f + c + b;
 	}
 
-	static float easeInBack(float t, float b, float c, float d, float s)
+	static float ease_in_back(float t, float b, float c, float d, float s)
 	{
 		if(s == 0)
 			s = 1.70158f;
@@ -410,7 +413,7 @@ public:
 		return c * t * t * ((s + 1) * t - s) + b;
 	}
 
-	static float easeOutBack(float t, float b, float c, float d, float s)
+	static float ease_out_back(float t, float b, float c, float d, float s)
 	{
 		if(s == 0)
 			s = 1.70158f;
@@ -418,7 +421,7 @@ public:
 		return c * (t * t * ((s + 1) * t + s) + 1) + b;
 	}
 
-	static float easeInOutBack(float t, float b, float c, float d, float s)
+	static float ease_in_out_back(float t, float b, float c, float d, float s)
 	{
 		if(s == 0)
 			s = 1.70158f;
@@ -438,7 +441,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float easeInBounce(float t, float b, float c, float d) { return c - easeOutBounce(d - t, 0, c, d) + b; }
+	static float ease_in_bounce(float t, float b, float c, float d) { return c - ease_out_bounce(d - t, 0, c, d) + b; }
 
 	/**
 	 * @brief 反弹淡出.
@@ -448,7 +451,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float easeOutBounce(float t, float b, float c, float d)
+	static float ease_out_bounce(float t, float b, float c, float d)
 	{
 		t /= d;
 		if(t < 1.f / 2.75f)
@@ -478,10 +481,10 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float easeInOutBounce(float t, float b, float c, float d)
+	static float ease_in_out_bounce(float t, float b, float c, float d)
 	{
 		if(t < d / 2)
-			return easeInBounce(t * 2, 0, c, d) * .5f + b;
-		return easeOutBounce(t * 2 - d, 0, c, d) * .5f + c * .5f + b;
+			return ease_in_bounce(t * 2, 0, c, d) * .5f + b;
+		return ease_out_bounce(t * 2 - d, 0, c, d) * .5f + c * .5f + b;
 	}
 };
