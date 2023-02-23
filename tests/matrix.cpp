@@ -1,4 +1,4 @@
-﻿// Copyright 2023 ShenMian
+// Copyright 2023 ShenMian
 // License(Apache-2.0)
 
 #include <doctest/doctest.h>
@@ -92,12 +92,36 @@ TEST_CASE("translate")
 TEST_CASE("front/back/right/left/up/down")
 {
 	auto mat = Matrix4f::lookAt(Vector3f::unit, Vector3f::unit - Vector3f::unit_z, Vector3f::up);
-	CHECK_EQ(mat.front(), -Vector3f::unit_z);
-	CHECK_EQ(mat.back(), Vector3f::unit_z);
-	CHECK_EQ(mat.right(), Vector3f::unit_x);
-	CHECK_EQ(mat.left(), -Vector3f::unit_x);
-	CHECK_EQ(mat.up(), Vector3f::up);
-	CHECK_EQ(mat.down(), -Vector3f::up);
+
+	SUBCASE("front")
+	{
+		CHECK_EQ(mat.front(), -Vector3f::unit_z);
+	}
+
+	SUBCASE("back")
+	{
+		CHECK_EQ(mat.back(), Vector3f::unit_z);
+	}
+
+	SUBCASE("right")
+	{
+		CHECK_EQ(mat.right(), Vector3f::unit_x);
+	}
+
+	SUBCASE("left")
+	{
+		CHECK_EQ(mat.left(), -Vector3f::unit_x);
+	}
+
+	SUBCASE("up")
+	{
+		CHECK_EQ(mat.up(), Vector3f::up);
+	}
+
+	SUBCASE("down")
+	{
+		CHECK_EQ(mat.down(), -Vector3f::up);
+	}
 }
 
 TEST_CASE("decompose/recompose" * doctest::skip(true))
@@ -111,11 +135,9 @@ TEST_CASE("decompose/recompose" * doctest::skip(true))
 	mat.decompose(&translation, &rotation, &scale);
 
 	// TODO
-	/*
 	CHECK_EQ(translation, Vector3(1.f, 2.f, 3.f));
 	CHECK_EQ(rotation, Quaternion(30.f, 60.f, 90.f, 1.f));
 	CHECK_EQ(scale, Vector3(2.f, 2.f, 2.f));
-	*/
 }
 
 TEST_CASE("operator==")
@@ -153,7 +175,7 @@ TEST_CASE("operator()")
 	CHECK_EQ(a(1, 1), doctest::Approx(1.5f));
 }
 
-TEST_CASE("createTranslate")
+TEST_CASE("translate")
 {
 	auto a = Matrix4f::identity();
 	// clang-format off
@@ -164,10 +186,10 @@ TEST_CASE("createTranslate")
 		2, 2, 2, 1
 	};
 	// clang-format on
-	CHECK_EQ(a.createTranslate(Vector3f(2.f)), b);
+	CHECK_EQ(a.translate(Vector3f(2.f)), b);
 }
 
-TEST_CASE("createRotation")
+TEST_CASE("rotation")
 {
 	auto a = Matrix4f::createRotation(radians(90.f), Vector3f::unit_z);
 	CHECK_EQ(a * Vector4f({1.f, 0.f, 0.f, 1.f}), Vector4f({0.f, 1.f, 0.f, 1.f}));

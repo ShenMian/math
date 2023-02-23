@@ -283,7 +283,7 @@ inline void matrix_mul_vector(const __m128 m[4], const __m128& v, __m128& dst) n
 
 inline void vector_mul_matrix(const __m128 v, const __m128 m[4], __m128 dst[4]) noexcept
 {
-	DEBUG_CHECK(false);
+	MATH_DEBUG_CHECK(false);
 }
 
 #endif

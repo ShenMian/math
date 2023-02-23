@@ -46,7 +46,7 @@ constexpr VectorT<T, 2>::VectorT(const T& x, const T& y) : x(x), y(y)
 template <arithmetic T>
 constexpr VectorT<T, 2>::VectorT(const std::initializer_list<T>& list)
 {
-	check(list.size() <= 2, "Too many initializers");
+	MATH_DEBUG_CHECK(list.size() <= 2, "Too many initializers");
 	auto it = list.begin();
 	x       = *it;
 	y       = *(++it);
@@ -89,7 +89,7 @@ template <arithmetic T>
 inline VectorT<T, 2> VectorT<T, 2>::cross(const VectorT& rhs) const
 {
 	// TODO
-	check(false);
+	MATH_DEBUG_CHECK(false);
 	return VectorT<T, 2>();
 }
 
@@ -165,14 +165,14 @@ inline const T* VectorT<T, 2>::data() const
 template <arithmetic T>
 inline T& VectorT<T, 2>::operator[](size_t index)
 {
-	check(index < components());
+	MATH_DEBUG_CHECK(index < components());
 	return *(&x + index);
 }
 
 template <arithmetic T>
 inline const T& VectorT<T, 2>::operator[](size_t index) const
 {
-	check(index < components());
+	MATH_DEBUG_CHECK(index < components());
 	return *(&x + index);
 }
 
@@ -209,7 +209,7 @@ constexpr VectorT<T, 2>& VectorT<T, 2>::operator*=(const T& rhs)
 template <arithmetic T>
 constexpr VectorT<T, 2>& VectorT<T, 2>::operator/=(const T& rhs)
 {
-	check(rhs, "divisor cannot be zero");
+	MATH_DEBUG_CHECK(rhs, "divisor cannot be zero");
 	x /= rhs;
 	y /= rhs;
 	return *this;

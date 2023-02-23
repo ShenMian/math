@@ -1,4 +1,4 @@
-﻿// Copyright 2023 ShenMian
+// Copyright 2023 ShenMian
 // License(Apache-2.0)
 
 #include <doctest/doctest.h>
@@ -6,25 +6,66 @@
 
 TEST_SUITE_BEGIN("vector");
 
-TEST_CASE("operator[]")
+TEST_CASE("vector")
 {
 	Vectorf<2> vec({1.f, 2.f});
-	CHECK_EQ(vec[0], doctest::Approx(1.f));
-	CHECK_EQ(vec[1], doctest::Approx(2.f));
-}
 
-TEST_CASE("norm")
-{
-	CHECK_EQ(Vectorf<2>({3.f, 4.f}).norm(), doctest::Approx(5.f));
-	CHECK_EQ(Vectorf<2>({6.f, 8.f}).norm(), doctest::Approx(10.f));
-	CHECK_EQ(Vectorf<2>({7.f, 24.f}).norm(), doctest::Approx(25.f));
-	CHECK_EQ(Vectorf<2>({8.f, 15.f}).norm(), doctest::Approx(17.f));
-	CHECK_EQ(Vectorf<2>({9.f, 40.f}).norm(), doctest::Approx(41.f));
-}
+	SUBCASE("operator[]")
+	{
+		CHECK_EQ(vec[0], doctest::Approx(1.f));
+		CHECK_EQ(vec[1], doctest::Approx(2.f));
+	}
 
-TEST_CASE("normSquared")
-{
-	CHECK_EQ(Vectorf<2>({3, 4}).normSq(), doctest::Approx((float)std::pow(5.f, 2)));
+	SUBCASE("at")
+	{
+		CHECK_EQ(vec.at(0), doctest::Approx(1.f));
+		CHECK_EQ(vec.at(1), doctest::Approx(2.f));
+		CHECK_THROWS_AS(vec.at(2), std::out_of_range);
+	}
+
+	SUBCASE("minCoeff")
+	{
+		CHECK_EQ(vec.minCoeff(), doctest::Approx(1.f));
+	}
+
+	SUBCASE("maxCoeff")
+	{
+		CHECK_EQ(vec.maxCoeff(), doctest::Approx(2.f));
+	}
+
+	SUBCASE("equal")
+	{
+		CHECK_EQ(vec, Vectorf<2>({1.f, 2.f}));
+	}
+
+	SUBCASE("operator<<")
+	{
+		Vectorf<2>         vec({1.f, 2.f});
+		std::ostringstream stream;
+		stream << vec;
+		CHECK_EQ(stream.str(), "1 2 ");
+	}
+
+	SUBCASE("normSq")
+	{
+		CHECK_EQ(vec.normSq(), doctest::Approx(1.f * 1.f + 2.f * 2.f));
+	}
+
+	SUBCASE("norm")
+	{
+		CHECK_EQ(vec.norm(), doctest::Approx(std::sqrt(1.f * 1.f + 2.f * 2.f)));
+	}
+
+	SUBCASE("dot")
+	{
+		CHECK_EQ(vec.normalized().dot(vec.normalized()), doctest::Approx(1.f));
+		CHECK_EQ(vec.normalized().dot(-vec.normalized()), doctest::Approx(-1.f));
+	}
+
+	SUBCASE("sum")
+	{
+		CHECK_EQ(vec.sum(), doctest::Approx(3.f));
+	}
 }
 
 TEST_CASE("normalize")
@@ -34,51 +75,12 @@ TEST_CASE("normalize")
 	CHECK_EQ(Vectorf<2>(0.f).normalize(), Vectorf<2>(0.f));
 }
 
-TEST_CASE("dot")
-{
-	Vectorf<2> vec({1.f, 2.f});
-	CHECK_EQ(vec.normalized().dot(vec.normalized()), doctest::Approx(1.f));
-	CHECK_EQ(vec.normalized().dot(-vec.normalized()), doctest::Approx(-1.f));
-}
-
-TEST_CASE("sum")
-{
-	Vectorf<2> vec({1.f, 2.f});
-	CHECK_EQ(vec.sum(), doctest::Approx(3.f));
-}
-
-TEST_CASE("minCoeff")
-{
-	Vectorf<2> vec({1.f, 2.f});
-	CHECK_EQ(vec.minCoeff(), doctest::Approx(1.f));
-}
-
-TEST_CASE("maxCoeff")
-{
-	Vectorf<2> vec({1.f, 2.f});
-	CHECK_EQ(vec.maxCoeff(), doctest::Approx(2.f));
-}
-
 TEST_CASE("clamp")
 {
 	Vectorf<2> vec({1.f, 5.f});
 	Vectorf<2> min({2.f, 2.f});
 	Vectorf<2> max({4.f, 4.f});
 	CHECK_EQ(vec.clamp(min, max), Vectorf<2>({2.f, 4.f}));
-}
-
-TEST_CASE("equal")
-{
-	Vectorf<2> vec({1.f, 2.f});
-	CHECK_EQ(vec, Vectorf<2>({1.f, 2.f}));
-}
-
-TEST_CASE("operator<<")
-{
-	Vectorf<2>         vec({1.f, 2.f});
-	std::ostringstream stream;
-	stream << vec;
-	CHECK_EQ(stream.str(), "1 2 ");
 }
 
 TEST_CASE("midpoint")

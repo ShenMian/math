@@ -9,6 +9,9 @@
 // #include <source_location>
 // TODO: 等待 apple-clang 支持 std::source_location.
 
+namespace details
+{
+
 inline void breakpoint()
 {
 #if _MSC_VER
@@ -65,7 +68,7 @@ constexpr void check(T&& cond, std::string_view msg)
  * @param cond 条件.
  */
 /*
-inline void DEBUG_CHECK(bool cond, const std::source_location& loc = std::source_location::current())
+inline void check(bool cond, const std::source_location& loc = std::source_location::current())
 {
     if(cond)
         return;
@@ -83,7 +86,7 @@ inline void DEBUG_CHECK(bool cond, const std::source_location& loc = std::source
  * @param msg  描述.
  */
 /*
-inline void DEBUG_CHECK(bool cond, std::string_view msg,
+inline void check(bool cond, std::string_view msg,
                   const std::source_location& loc = std::source_location::current())
 {
     if(cond)
@@ -96,14 +99,16 @@ inline void DEBUG_CHECK(bool cond, std::string_view msg,
 }
 */
 
+}
+
 #define ENABLE_CHECK !NDEBUG
 
 #if ENABLE_CHECK
 
-#define DEBUG_CHECK(...) ::check(__VA_ARGS__)
+#define MATH_DEBUG_CHECK(...) ::details::check(__VA_ARGS__)
 
 #else
 
-#define DEBUG_CHECK(...) (static_cast<void>(0))
+#define MATH_DEBUG_CHECK(...) (static_cast<void>(0))
 
 #endif

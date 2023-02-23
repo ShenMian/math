@@ -109,7 +109,7 @@ public:
 	constexpr VectorT cross(const VectorT& rhs) const
 	{
 		// TODO
-		DEBUG_CHECK(false);
+		MATH_DEBUG_CHECK(false);
 		return VectorT<T, N>();
 	}
 
@@ -157,15 +157,22 @@ public:
 	auto begin() const noexcept { return std::span(v_).begin(); }
 	auto end() const noexcept { return std::span(v_).end(); }
 
+	constexpr T& at(size_t index)
+	{
+		if(index >= components())
+			throw std::out_of_range("subscript out of range");
+		return *(v_ + index);
+	}
+
 	constexpr T& operator[](size_t index)
 	{
-		check(index < components(), "subscript out of range");
+		MATH_DEBUG_CHECK(index < components(), "subscript out of range");
 		return *(v_ + index);
 	}
 
 	constexpr const T& operator[](size_t index) const
 	{
-		check(index < components(), "subscript out of range");
+		MATH_DEBUG_CHECK(index < components(), "subscript out of range");
 		return *(v_ + index);
 	}
 

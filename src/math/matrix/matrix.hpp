@@ -48,7 +48,7 @@ public:
 	 */
 	constexpr MatrixT(const std::initializer_list<T>& list)
 	{
-		check(list.size() == rows() * cols(), "initializers number not correct");
+		MATH_DEBUG_CHECK(list.size() == rows() * cols(), "initializers number not correct");
 		auto it = list.begin();
 		for(size_t r = 0; r < rows(); r++)
 			for(size_t c = 0; c < cols(); c++)
@@ -81,7 +81,7 @@ public:
 	MatrixT& inverse()
 	{
 		// TODO
-		DEBUG_CHECK(false);
+		MATH_DEBUG_CHECK(false);
 		return *this;
 	}
 
@@ -209,7 +209,7 @@ public:
 	 */
 	constexpr VectorT<T, C> row(size_t index) const
 	{
-		DEBUG_CHECK(index < R);
+		MATH_DEBUG_CHECK(index < R);
 
 		VectorT<T, C> vec;
 		for(size_t i = 0; i < C; i++)
@@ -222,7 +222,7 @@ public:
 	 */
 	constexpr VectorT<T, R> col(size_t index) const
 	{
-		DEBUG_CHECK(index < C);
+		MATH_DEBUG_CHECK(index < C);
 
 		auto&         mat = *this;
 		VectorT<T, R> vec;
@@ -529,7 +529,7 @@ public:
 	 */
 	constexpr T& operator()(size_t r, size_t c)
 	{
-		check(r < rows() && c < cols(), "subscript out of range");
+		MATH_DEBUG_CHECK(r < rows() && c < cols(), "subscript out of range");
 #if ROW_MANJOR
 		return m_[r][c];
 #else
@@ -539,7 +539,7 @@ public:
 
 	constexpr const T& operator()(size_t r, size_t c) const
 	{
-		check(r < rows() && c < cols(), "subscript out of range");
+		MATH_DEBUG_CHECK(r < rows() && c < cols(), "subscript out of range");
 #if ROW_MANJOR
 		return m_[r][c];
 #else
@@ -606,14 +606,14 @@ public:
 			*this = result;
 		}
 		else
-			DEBUG_CHECK(false);
+			MATH_DEBUG_CHECK(false);
 		return *this;
 	}
 
 	MatrixT& operator/=(const MatrixT& rhs)
 	{
 		// TODO
-		DEBUG_CHECK(false);
+		MATH_DEBUG_CHECK(false);
 		return *this;
 	}
 
@@ -715,7 +715,7 @@ public:
 	{
 		static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 
-		MatrixT mat;
+		auto mat = MatrixT::identity();
 		mat(3, 0) = v.x;
 		mat(3, 1) = v.y;
 		mat(3, 2) = v.z;
@@ -729,21 +729,21 @@ public:
 	 */
 	static MatrixT createRotation(const QuaternionT<T>& q)
 	{
-		float x2 = q.x + q.x;
-		float y2 = q.y + q.y;
-		float z2 = q.z + q.z;
+		const float x2 = q.x + q.x;
+		const float y2 = q.y + q.y;
+		const float z2 = q.z + q.z;
 
-		float xx2 = q.x * x2;
-		float yy2 = q.y * y2;
-		float zz2 = q.z * z2;
-		float xy2 = q.x * y2;
-		float xz2 = q.x * z2;
-		float yz2 = q.y * z2;
-		float wx2 = q.w * x2;
-		float wy2 = q.w * y2;
-		float wz2 = q.w * z2;
+		const float xx2 = q.x * x2;
+		const float yy2 = q.y * y2;
+		const float zz2 = q.z * z2;
+		const float xy2 = q.x * y2;
+		const float xz2 = q.x * z2;
+		const float yz2 = q.y * z2;
+		const float wx2 = q.w * x2;
+		const float wy2 = q.w * y2;
+		const float wz2 = q.w * z2;
 
-		auto mat  = MatrixT::identity();
+		MatrixT mat;
 		mat(0, 0) = 1.0f - yy2 - zz2;
 		mat(0, 1) = xy2 + wz2;
 		mat(0, 2) = xz2 - wy2;
@@ -767,7 +767,7 @@ public:
 	static MatrixT createRotation(float angle, Vector3T<T> axis)
 	{
 		static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
-		check(axis == Vector3T<T>::unit_x || axis == Vector3T<T>::unit_y || axis == Vector3T<T>::unit_z);
+		MATH_DEBUG_CHECK(axis == Vector3T<T>::unit_x || axis == Vector3T<T>::unit_y || axis == Vector3T<T>::unit_z);
 
 		axis.normalize();
 		const float x = axis.x;
@@ -801,65 +801,6 @@ public:
 		mat(2, 2) = cos + tz * z;
 		return mat;
 	}
-	/**
-	 * @brief 生成绕 X 轴旋转变换矩阵.
-	 *
-	 * @param angle 旋转角度, 单位: 弧度.
-	 */
-	static MatrixT createRotationX(float angle)
-	{
-		static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
-
-		const float sin = std::sin(angle);
-		const float cos = std::cos(angle);
-
-		auto mat  = MatrixT::identity();
-		mat(1, 1) = cos;
-		mat(1, 2) = sin;
-		mat(2, 1) = -sin;
-		mat(2, 2) = cos;
-		return mat;
-	}
-
-	/**
-	 * @brief 生成绕 Y 轴旋转变换矩阵.
-	 *
-	 * @param angle 旋转角度, 单位: 弧度.
-	 */
-	static MatrixT createRotationY(float angle)
-	{
-		static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
-
-		const float sin = std::sin(angle);
-		const float cos = std::cos(angle);
-
-		auto mat  = MatrixT::identity();
-		mat(0, 0) = cos;
-		mat(0, 2) = sin;
-		mat(2, 0) = -sin;
-		mat(2, 2) = cos;
-		return mat;
-	}
-
-	/**
-	 * @brief 生成绕 Z 轴旋转变换矩阵.
-	 *
-	 * @param angle 旋转角度, 单位: 弧度.
-	 */
-	static MatrixT createRotationZ(float angle)
-	{
-		static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
-
-		const float sin = std::sin(angle);
-		const float cos = std::cos(angle);
-
-		auto mat  = MatrixT::identity();
-		mat(0, 0) = cos;
-		mat(0, 1) = -sin;
-		mat(1, 0) = sin;
-		mat(1, 1) = cos;
-		return mat;
-	}
 
 	/**
 	 * @brief 生成缩放变换矩阵.
@@ -874,7 +815,6 @@ public:
 		mat(0, 0) = scale.x;
 		mat(1, 1) = scale.y;
 		mat(2, 2) = scale.z;
-		mat(3, 3) = 1.f;
 		return mat;
 	}
 
@@ -890,8 +830,8 @@ public:
 	{
 		static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 		static_assert(std::is_floating_point_v<T>);
-		DEBUG_CHECK(!equal(aspect, 0.f));
-		DEBUG_CHECK(near != far);
+		MATH_DEBUG_CHECK(!equal(aspect, 0.f));
+		MATH_DEBUG_CHECK(near != far);
 
 		const auto tanHalfFOV = std::tan(vFOV / 2.f);
 
@@ -934,7 +874,7 @@ public:
 	{
 		static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 		static_assert(std::is_floating_point_v<T>);
-		check(!equal(left, right) && !equal(bottom, top) && !equal(near, far));
+		MATH_DEBUG_CHECK(!equal(left, right) && !equal(bottom, top) && !equal(near, far));
 
 		auto mat  = MatrixT::zero();
 		mat(0, 0) = T(2) / (right - left);
@@ -1011,6 +951,66 @@ public:
 		}
 		else
 			return MatrixT();
+	}
+
+	/**
+	 * @brief 生成绕 X 轴旋转变换矩阵.
+	 *
+	 * @param angle 旋转角度, 单位: 弧度.
+	 */
+	[[deprecated]] static MatrixT createRotationX(float angle)
+	{
+		static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
+
+		const float sin = std::sin(angle);
+		const float cos = std::cos(angle);
+
+		auto mat  = MatrixT::identity();
+		mat(1, 1) = cos;
+		mat(1, 2) = sin;
+		mat(2, 1) = -sin;
+		mat(2, 2) = cos;
+		return mat;
+	}
+
+	/**
+	 * @brief 生成绕 Y 轴旋转变换矩阵.
+	 *
+	 * @param angle 旋转角度, 单位: 弧度.
+	 */
+	[[deprecated]] static MatrixT createRotationY(float angle)
+	{
+		static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
+
+		const float sin = std::sin(angle);
+		const float cos = std::cos(angle);
+
+		auto mat  = MatrixT::identity();
+		mat(0, 0) = cos;
+		mat(0, 2) = sin;
+		mat(2, 0) = -sin;
+		mat(2, 2) = cos;
+		return mat;
+	}
+
+	/**
+	 * @brief 生成绕 Z 轴旋转变换矩阵.
+	 *
+	 * @param angle 旋转角度, 单位: 弧度.
+	 */
+	[[deprecated]] static MatrixT createRotationZ(float angle)
+	{
+		static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
+
+		const float sin = std::sin(angle);
+		const float cos = std::cos(angle);
+
+		auto mat  = MatrixT::identity();
+		mat(0, 0) = cos;
+		mat(0, 1) = -sin;
+		mat(1, 0) = sin;
+		mat(1, 1) = cos;
+		return mat;
 	}
 
 private:

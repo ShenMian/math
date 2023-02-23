@@ -41,12 +41,12 @@ public:
 	/**
 	 * @brief 获取最小点.
 	 */
-	const Vector3& min() const noexcept { return min_; };
+	const Vectorf<N>& min() const noexcept { return min_; };
 
 	/**
 	 * @brief 获取最大点.
 	 */
-	const Vector3& max() const noexcept { return max_; };
+	const Vectorf<N>& max() const noexcept { return max_; };
 
 	/**
 	 * @brief 判断是否包含指定点.
