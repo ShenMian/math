@@ -9,11 +9,11 @@ var class_vector_t =
     [ "cross", "class_vector_t.html#a6121eef21255c08c9f78579f5b791ccd", null ],
     [ "data", "class_vector_t.html#a567566fc0f96a87e0d3854d57e148b91", null ],
     [ "dot", "class_vector_t.html#a7711de2a83cdda3ed97c7d7bd666c25e", null ],
-    [ "maxCoeff", "class_vector_t.html#a66b15f4c6ccf864ec5c9bf67d3720230", null ],
-    [ "minCoeff", "class_vector_t.html#aa598ef45c9dbe8b4180ff41a367167b5", null ],
+    [ "max_coeff", "class_vector_t.html#a0b5f151452b8d54fad66dac44a4c407f", null ],
+    [ "min_coeff", "class_vector_t.html#a1e58fd526bf83cdea10594565802f84b", null ],
     [ "norm", "class_vector_t.html#a2c549a8685b703417286411d9fd586a0", null ],
+    [ "norm_sq", "class_vector_t.html#a65795e08557f67d1125f8bf25d8f0845", null ],
     [ "normalize", "class_vector_t.html#a4bcbb5cc10f263efca5cc0e0db5506d9", null ],
     [ "normalized", "class_vector_t.html#abe1a3b825992700da25356fa9d95e4b3", null ],
-    [ "normSq", "class_vector_t.html#a7dfeb6d8732fb75c616989886c295169", null ],
     [ "sum", "class_vector_t.html#ab8134325385791d5af23788d4c9f1153", null ]
 ];

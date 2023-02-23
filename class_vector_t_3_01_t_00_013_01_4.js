@@ -9,11 +9,11 @@ var class_vector_t_3_01_t_00_013_01_4 =
     [ "cross", "class_vector_t_3_01_t_00_013_01_4.html#a7407d5796d9a456c2d0b68268dbaceac", null ],
     [ "data", "class_vector_t_3_01_t_00_013_01_4.html#a00e17a822f75cacc667bc55aa5b22146", null ],
     [ "distance", "class_vector_t_3_01_t_00_013_01_4.html#a80c69bbebe9b813da82629e114471254", null ],
-    [ "distanceSquared", "class_vector_t_3_01_t_00_013_01_4.html#acb8ed83c6b59ffbfac4f12304483587a", null ],
+    [ "distance_sq", "class_vector_t_3_01_t_00_013_01_4.html#ac09ce1128acf16a1fa62d5110d1c4864", null ],
     [ "dot", "class_vector_t_3_01_t_00_013_01_4.html#a9d89c8785d9e279d764a943ed0d94fb3", null ],
     [ "norm", "class_vector_t_3_01_t_00_013_01_4.html#a3445e4ac56ff15cdea51a208916b518d", null ],
+    [ "norm_sq", "class_vector_t_3_01_t_00_013_01_4.html#a867f6285e8b4bc211bbcf7ba4bbaf7e0", null ],
     [ "normalize", "class_vector_t_3_01_t_00_013_01_4.html#a35b60f50ed9a74292e6bdb1b2933ec72", null ],
     [ "normalized", "class_vector_t_3_01_t_00_013_01_4.html#a074a0e0e309e16a6ca9e65c32409c423", null ],
-    [ "normSq", "class_vector_t_3_01_t_00_013_01_4.html#ad6a4991b3344924998e63501ce6d2edc", null ],
     [ "sum", "class_vector_t_3_01_t_00_013_01_4.html#a1ab32b62765e5f6cc20030de677cee92", null ]
 ];

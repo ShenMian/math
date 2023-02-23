@@ -11,5 +11,5 @@ var class_quaternion_t =
     [ "normalize", "class_quaternion_t.html#ac046e7955e5029cc50d9d6a239aa62ef", null ],
     [ "normalized", "class_quaternion_t.html#ac755d30fbb4c94191b71c0bfa3e07e47", null ],
     [ "size", "class_quaternion_t.html#a6093611ceaa295c8009556a42e07ad1d", null ],
-    [ "sizeSq", "class_quaternion_t.html#a185e86270cb903454ee268ea9e43185f", null ]
+    [ "size_sq", "class_quaternion_t.html#a439fe5f2a27c65218f9786079e68428e", null ]
 ];
