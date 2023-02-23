@@ -132,7 +132,7 @@ public:
 	 */
 	constexpr QuaternionT& inverse()
 	{
-		T n = sizeSq();
+		T n = size_sq();
 		if(n == T(1))
 		{
 			x = -x;
@@ -187,14 +187,14 @@ public:
 	 *
 	 * @see size
 	 */
-	constexpr T sizeSq() const noexcept { return x * x + y * y + z * z + w * w; }
+	constexpr T size_sq() const noexcept { return x * x + y * y + z * z + w * w; }
 
 	/**
 	 * @brief 获取长度.
 	 *
 	 * @see sizeSquared
 	 */
-	constexpr T size() const { return static_cast<T>(detail::sqrt(sizeSq())); }
+	constexpr T size() const { return static_cast<T>(detail::sqrt(size_sq())); }
 
 	template <typename C>
 	operator QuaternionT<C>() const

@@ -25,12 +25,12 @@ TEST_CASE("vector")
 
 	SUBCASE("minCoeff")
 	{
-		CHECK_EQ(vec.minCoeff(), doctest::Approx(1.f));
+		CHECK_EQ(vec.min_coeff(), doctest::Approx(1.f));
 	}
 
 	SUBCASE("maxCoeff")
 	{
-		CHECK_EQ(vec.maxCoeff(), doctest::Approx(2.f));
+		CHECK_EQ(vec.max_coeff(), doctest::Approx(2.f));
 	}
 
 	SUBCASE("equal")
@@ -48,7 +48,7 @@ TEST_CASE("vector")
 
 	SUBCASE("normSq")
 	{
-		CHECK_EQ(vec.normSq(), doctest::Approx(1.f * 1.f + 2.f * 2.f));
+		CHECK_EQ(vec.norm_sq(), doctest::Approx(1.f * 1.f + 2.f * 2.f));
 	}
 
 	SUBCASE("norm")
@@ -66,13 +66,13 @@ TEST_CASE("vector")
 	{
 		CHECK_EQ(vec.sum(), doctest::Approx(3.f));
 	}
-}
 
-TEST_CASE("normalize")
-{
-	CHECK_EQ(Vectorf<2>({1.f, 2.f}).normalize().norm(), doctest::Approx(1.f));
-	CHECK_EQ(Vectorf<2>({2.f, 3.f}).normalize(), Vectorf<2>({4.f, 6.f}).normalize());
-	CHECK_EQ(Vectorf<2>(0.f).normalize(), Vectorf<2>(0.f));
+	SUBCASE("normalize")
+	{
+		CHECK_EQ(vec.normalize().norm(), doctest::Approx(1.f));
+		CHECK_EQ(Vectorf<2>({2.f, 3.f}).normalize(), Vectorf<2>({4.f, 6.f}).normalize());
+		CHECK_EQ(Vectorf<2>(0.f).normalize(), Vectorf<2>(0.f));
+	}
 }
 
 TEST_CASE("clamp")

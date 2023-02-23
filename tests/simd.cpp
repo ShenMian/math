@@ -25,7 +25,7 @@ TEST_CASE("matrix_addu")
 
 TEST_CASE("matrix_subu")
 {
-	const float       a[16] = {1.0f, 2.0f,  3.0f,  4.0f,  5.0f,  6.0f,  7.0f,  8.0f,
+	const float a[16] = {1.0f, 2.0f,  3.0f,  4.0f,  5.0f,  6.0f,  7.0f,  8.0f,
 	                     9.0f, 10.0f, 11.0f, 12.0f, 13.0f, 14.0f, 15.0f, 16.0f};
 	const float b[16] = {16.0f, 15.0f, 14.0f, 13.0f, 12.0f, 11.0f, 10.0f, 9.0f,
 	                     8.0f,  7.0f,  6.0f,  5.0f,  4.0f,  3.0f,  2.0f,  1.0f};
@@ -57,7 +57,7 @@ TEST_CASE("matrix_mulu")
 	{
 		const float a[16] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
 		const float b[16] = {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1};
-		float c[16];
+		float       c[16];
 		simd::matrix_mulu(a, b, c);
 
 		const float expected[16] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
@@ -71,7 +71,7 @@ TEST_CASE("matrix_mulu")
 	{
 		const float a[16] = {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1};
 		const float b[16] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
-		float c[16];
+		float       c[16];
 		simd::matrix_mulu(a, b, c);
 
 		const float expected[16] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};

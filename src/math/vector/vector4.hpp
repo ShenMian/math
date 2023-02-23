@@ -86,7 +86,7 @@ public:
 	 *
 	 * @see norm
 	 */
-	constexpr T normSq() const;
+	constexpr T norm_sq() const;
 
 	/**
 	 * @brief 标准化成单位向量.

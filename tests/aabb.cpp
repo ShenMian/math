@@ -4,8 +4,6 @@
 #include <doctest/doctest.h>
 #include <math/math.hpp>
 
-TEST_SUITE_BEGIN("aabb");
-
 TEST_CASE("AABB<3>")
 {
 	AABB<3> aabb({1, 2, 3}, {4, 5, 6});
@@ -112,11 +110,10 @@ TEST_CASE("AABB<2>")
 		AABB<2> box1({1.f, 2.f}, {3.f, 4.f});
 		box.expand(box1);
 
-		// FIXME
-		// CHECK(box.min().x() == doctest::Approx(1.f));
-		// CHECK(box.min().y() == doctest::Approx(2.f));
-		// CHECK(box.max().x() == doctest::Approx(3.f));
-		// CHECK(box.max().y() == doctest::Approx(4.f));
+		CHECK(box.min().x == doctest::Approx(1.f));
+		CHECK(box.min().y == doctest::Approx(2.f));
+		CHECK(box.max().x == doctest::Approx(3.f));
+		CHECK(box.max().y == doctest::Approx(4.f));
 	}
 
 	SUBCASE("empty")
@@ -128,6 +125,3 @@ TEST_CASE("AABB<2>")
 		CHECK(nonEmptyBox.empty() == false);
 	}
 }
-
-
-TEST_SUITE_END;

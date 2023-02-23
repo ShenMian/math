@@ -74,7 +74,7 @@ public:
 	 *
 	 * @see norm
 	 */
-	constexpr T normSq() const;
+	constexpr T norm_sq() const;
 
 	/**
 	 * @brief 标准化成单位向量.
@@ -125,7 +125,7 @@ public:
 	 *
 	 * @see distance
 	 */
-	T distanceSquared(const VectorT& point) const;
+	T distance_sq(const VectorT& point) const;
 
 	/**
 	 * @brief 获取分量数.

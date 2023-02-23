@@ -23,9 +23,9 @@ TEST_CASE("norm")
 	CHECK_EQ(Vector2(9.f, 40.f).norm(), doctest::Approx(41.f));
 }
 
-TEST_CASE("normSquared")
+TEST_CASE("norm_sq")
 {
-	CHECK_EQ(Vector2(3, 4).normSq(), doctest::Approx((float)std::pow(5.f, 2)));
+	CHECK_EQ(Vector2(3, 4).norm_sq(), doctest::Approx((float)std::pow(5.f, 2)));
 }
 
 TEST_CASE("normalize")
@@ -42,8 +42,9 @@ TEST_CASE("dot")
 	CHECK_EQ(vec.normalized().dot(-Vector2(3, 4).normalized()), doctest::Approx(-1.f));
 }
 
-TEST_CASE("cross")
+TEST_CASE("cross" * doctest::skip())
 {
+	CHECK(false);
 }
 
 TEST_CASE("angle")
@@ -90,9 +91,9 @@ TEST_CASE("norm")
 	CHECK_EQ(Vector3(3, 4, 5).norm(), doctest::Approx(5.f * std::sqrt(2.f)));
 }
 
-TEST_CASE("normSquared")
+TEST_CASE("norm_sq")
 {
-	CHECK_EQ(Vector3(3, 4, 5).normSq(), doctest::Approx((float)std::pow(5.f * std::sqrt(2.f), 2)));
+	CHECK_EQ(Vector3(3, 4, 5).norm_sq(), doctest::Approx((float)std::pow(5.f * std::sqrt(2.f), 2)));
 }
 
 TEST_CASE("normalize")

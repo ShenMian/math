@@ -59,14 +59,14 @@ public:
 	 *
 	 * @see normSquared
 	 */
-	constexpr T norm() const { return static_cast<T>(detail::sqrt(normSq())); }
+	constexpr T norm() const { return static_cast<T>(detail::sqrt(norm_sq())); }
 
 	/**
 	 * @brief 获取模的平方.
 	 *
 	 * @see norm
 	 */
-	constexpr T normSq() const noexcept
+	constexpr T norm_sq() const noexcept
 	{
 		T result = T();
 		for(const auto v : *this)
@@ -121,12 +121,12 @@ public:
 	/**
 	 * @brief 获取最小元素的值.
 	 */
-	constexpr T minCoeff() const noexcept { return std::ranges::min(*this); }
+	constexpr T min_coeff() const noexcept { return std::ranges::min(*this); }
 
 	/**
 	 * @brief 获取最大元素的值.
 	 */
-	constexpr T maxCoeff() const noexcept { return std::ranges::max(*this); }
+	constexpr T max_coeff() const noexcept { return std::ranges::max(*this); }
 
 	/**
 	 * @brief 裁剪到指定范围内.

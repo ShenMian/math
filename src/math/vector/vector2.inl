@@ -59,7 +59,7 @@ inline T VectorT<T, 2>::norm() const
 }
 
 template <arithmetic T>
-inline T constexpr VectorT<T, 2>::normSq() const noexcept
+inline T constexpr VectorT<T, 2>::norm_sq() const noexcept
 {
 	return x * x + y * y;
 }
@@ -137,7 +137,7 @@ inline T VectorT<T, 2>::distance(const VectorT& point) const
 }
 
 template <arithmetic T>
-inline T VectorT<T, 2>::distanceSq(const VectorT& point) const
+inline T VectorT<T, 2>::distance_sq(const VectorT& point) const
 {
 	const auto dx = std::abs(x - point.x);
 	const auto dy = std::abs(y - point.y);
