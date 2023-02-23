@@ -10,7 +10,7 @@ var class_a_a_b_b =
     [ "expand", "class_a_a_b_b.html#aaee88b095514332298ad3aa226d522af", null ],
     [ "extent", "class_a_a_b_b.html#addfeb11fcf6e480b5a1abb9923bcb791", null ],
     [ "intersects", "class_a_a_b_b.html#a750bed2227bab678b08c488902a3113c", null ],
-    [ "max", "class_a_a_b_b.html#a30d0fa07652ef8db2893db6030761333", null ],
-    [ "min", "class_a_a_b_b.html#a0855c2b27fb2a17b632354b35e3517f8", null ],
+    [ "max", "class_a_a_b_b.html#a7e0eef4d8aa6714aee14e7c06b5e8ed8", null ],
+    [ "min", "class_a_a_b_b.html#ab3bb0cfa1d41ea17d69d00c9e2f66df5", null ],
     [ "volume", "class_a_a_b_b.html#a12cb952b996a7fe4fed675edb88e5b08", null ]
 ];
