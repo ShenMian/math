@@ -82,9 +82,9 @@ inline void matrix_mulu(const float a[16], const float b[16], float c[16])
 		const __m128 col4 = _mm_set1_ps(b[i * 4 + 3]);
 
 		const __m128 row = _mm_add_ps(_mm_add_ps(_mm_mul_ps(col1, row1), _mm_mul_ps(col2, row2)),
-		                        _mm_add_ps(_mm_mul_ps(col3, row3), _mm_mul_ps(col4, row4)));
+		                              _mm_add_ps(_mm_mul_ps(col3, row3), _mm_mul_ps(col4, row4)));
 
-		_mm_store_ps(&c[i * 4], row);
+		_mm_storeu_ps(&c[i * 4], row);
 	}
 }
 
