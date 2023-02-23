@@ -6,7 +6,7 @@
 #include "hash_combine.hpp"
 #include "helper.hpp"
 #include "matrix/matrix.hpp"
-#include "vector/vector3.hpp"
+#include "vector.hpp"
 #include <type_traits>
 
 /**
@@ -85,13 +85,13 @@ public:
 	 */
 	constexpr void eular(const Vector3T<T>& angles) noexcept
 	{
-		const auto cr = detail::cos(angles.x / T(2));
-		const auto cp = detail::cos(angles.y / T(2));
-		const auto cy = detail::cos(angles.z / T(2));
+		const auto cr = detail::cos(angles.x() / T(2));
+		const auto cp = detail::cos(angles.y() / T(2));
+		const auto cy = detail::cos(angles.z() / T(2));
 
-		const auto sr = detail::sin(angles.x / T(2));
-		const auto sp = detail::sin(angles.y / T(2));
-		const auto sy = detail::sin(angles.z / T(2));
+		const auto sr = detail::sin(angles.x() / T(2));
+		const auto sp = detail::sin(angles.y() / T(2));
+		const auto sy = detail::sin(angles.z() / T(2));
 
 		const auto cpcy = cp * cy;
 		const auto spsy = sp * sy;
@@ -120,9 +120,9 @@ public:
 		const auto zz = z * z;
 		const auto ww = w * w;
 
-		angles.x = detail::atan2(T(2) * (y * z + x * w), -xx - yy + zz + ww);
-		angles.y = detail::asin(std::clamp(T(2) * (y * w - x * z), T(-1), T(1)));
-		angles.z = detail::atan2(T(2) * (x * y + z * w), xx - yy - zz + ww);
+		angles.x() = detail::atan2(T(2) * (y * z + x * w), -xx - yy + zz + ww);
+		angles.y() = detail::asin(std::clamp(T(2) * (y * w - x * z), T(-1), T(1)));
+		angles.z() = detail::atan2(T(2) * (x * y + z * w), xx - yy - zz + ww);
 
 		return angles;
 	}

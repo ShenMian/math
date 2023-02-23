@@ -5,7 +5,7 @@
 
 #include "check.hpp"
 #include "hash_combine.hpp"
-#include "vector/vector3.hpp"
+#include "vector.hpp"
 #include <cstddef>
 
 // TODO: template <size_t N> N 维度包围盒

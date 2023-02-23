@@ -9,9 +9,4 @@
 #include "quaternion.hpp"
 #include "simd.hpp"
 #include "transform.hpp"
-#include "vector/vector.hpp"
-
-#include "vector/vector2.hpp"
-#include "vector/vector3.hpp"
-#include "vector/vector4.hpp"
-// #include "matrix/matrix_nn.hpp"
+#include "vector.hpp"

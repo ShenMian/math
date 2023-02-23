@@ -110,10 +110,10 @@ TEST_CASE("AABB<2>")
 		AABB<2> box1({1.f, 2.f}, {3.f, 4.f});
 		box.expand(box1);
 
-		CHECK(box.min().x == doctest::Approx(1.f));
-		CHECK(box.min().y == doctest::Approx(2.f));
-		CHECK(box.max().x == doctest::Approx(3.f));
-		CHECK(box.max().y == doctest::Approx(4.f));
+		CHECK(box.min().x() == doctest::Approx(1.f));
+		CHECK(box.min().y() == doctest::Approx(2.f));
+		CHECK(box.max().x() == doctest::Approx(3.f));
+		CHECK(box.max().y() == doctest::Approx(4.f));
 	}
 
 	SUBCASE("empty")

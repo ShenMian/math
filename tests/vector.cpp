@@ -2,7 +2,7 @@
 // License(Apache-2.0)
 
 #include <doctest/doctest.h>
-#include <math/vector/vector.hpp>
+#include <math/math.hpp>
 
 TEST_SUITE_BEGIN("vector");
 

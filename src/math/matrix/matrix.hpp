@@ -6,8 +6,6 @@
 #include "../check.hpp"
 #include "../helper.hpp"
 #include "../simd.hpp"
-#include "../vector/vector3.hpp"
-#include "../vector/vector4.hpp"
 #include <algorithm>
 #include <cstddef>
 #include <cstring>
@@ -253,9 +251,9 @@ public:
 		static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 
 		auto& mat = *this;
-		mat(3, 0) += v.x;
-		mat(3, 1) += v.y;
-		mat(3, 2) += v.z;
+		mat(3, 0) += v.x();
+		mat(3, 1) += v.y();
+		mat(3, 2) += v.z();
 		return *this;
 	}
 
@@ -376,9 +374,9 @@ public:
 	MatrixT& scale(const Vector3T<T>& scale)
 	{
 		auto& mat = *this;
-		mat(0, 0) *= scale.x;
-		mat(1, 1) *= scale.y;
-		mat(2, 2) *= scale.z;
+		mat(0, 0) *= scale.x();
+		mat(1, 1) *= scale.y();
+		mat(2, 2) *= scale.z();
 		return *this;
 	}
 
@@ -392,17 +390,17 @@ public:
 		auto& mat = *this;
 		if(translation)
 		{
-			translation->x = mat(3, 0);
-			translation->y = mat(3, 1);
-			translation->z = mat(3, 2);
+			translation->x() = mat(3, 0);
+			translation->y() = mat(3, 1);
+			translation->z() = mat(3, 2);
 		}
 
 		if(scale == nullptr && rotation == nullptr)
 			return;
 
-		auto axisX  = Vector3T<T>(mat(0, 0), mat(0, 1), mat(0, 2));
-		auto axisY  = Vector3T<T>(mat(1, 0), mat(1, 1), mat(1, 2));
-		auto axisZ  = Vector3T<T>(mat(2, 0), mat(2, 1), mat(2, 2));
+		auto axisX  = Vector3T<T>({mat(0, 0), mat(0, 1), mat(0, 2)});
+		auto axisY  = Vector3T<T>({mat(1, 0), mat(1, 1), mat(1, 2)});
+		auto axisZ  = Vector3T<T>({mat(2, 0), mat(2, 1), mat(2, 2)});
 		auto scaleX = axisX.norm();
 		auto scaleY = axisY.norm();
 		auto scaleZ = axisZ.norm();
@@ -411,9 +409,9 @@ public:
 
 		if(scale)
 		{
-			scale->x = scaleX;
-			scale->y = scaleY;
-			scale->z = scaleZ;
+			scale->x() = scaleX;
+			scale->y() = scaleY;
+			scale->z() = scaleZ;
 		}
 
 		if(rotation)
@@ -425,40 +423,40 @@ public:
 			axisX.normalize();
 			axisY.normalize();
 			axisZ.normalize();
-			const float trace = axisX.x + axisY.y + axisZ.z + 1.0f;
+			const float trace = axisX.x() + axisY.y() + axisZ.z() + 1.0f;
 
 			if(trace > std::numeric_limits<T>::epsilon())
 			{
 				const float s = 0.5f / std::sqrt(trace);
 				rotation->w   = 0.25f / s;
-				rotation->x   = (axisY.z - axisZ.y) * s;
-				rotation->y   = (axisZ.x - axisX.z) * s;
-				rotation->z   = (axisX.y - axisY.x) * s;
+				rotation->x   = (axisY.z() - axisZ.y()) * s;
+				rotation->y   = (axisZ.x() - axisX.z()) * s;
+				rotation->z   = (axisX.y() - axisY.x()) * s;
 			}
 			else
 			{
-				if(axisX.x > axisY.y && axisX.x > axisZ.z)
+				if(axisX.x() > axisY.y() && axisX.x() > axisZ.z())
 				{
-					const float s = 0.5f / std::sqrt(1.0f + axisX.x - axisY.y - axisZ.z);
-					rotation->w   = (axisY.z - axisZ.y) * s;
+					const float s = 0.5f / std::sqrt(1.0f + axisX.x() - axisY.y() - axisZ.z());
+					rotation->w   = (axisY.z() - axisZ.y()) * s;
 					rotation->x   = 0.25f / s;
-					rotation->y   = (axisY.x + axisX.y) * s;
-					rotation->z   = (axisZ.x + axisX.z) * s;
+					rotation->y   = (axisY.x() + axisX.y()) * s;
+					rotation->z   = (axisZ.x() + axisX.z()) * s;
 				}
-				else if(axisY.y > axisZ.z)
+				else if(axisY.y() > axisZ.z())
 				{
-					const float s = 0.5f / std::sqrt(1.0f + axisY.y - axisX.x - axisZ.z);
-					rotation->w   = (axisZ.x - axisX.z) * s;
-					rotation->x   = (axisY.x + axisX.y) * s;
+					const float s = 0.5f / std::sqrt(1.0f + axisY.y() - axisX.x() - axisZ.z());
+					rotation->w   = (axisZ.x() - axisX.z()) * s;
+					rotation->x   = (axisY.x() + axisX.y()) * s;
 					rotation->y   = 0.25f / s;
-					rotation->z   = (axisZ.y + axisY.z) * s;
+					rotation->z   = (axisZ.y() + axisY.z()) * s;
 				}
 				else
 				{
-					const float s = 0.5f / std::sqrt(1.0f + axisZ.z - axisX.x - axisY.y);
-					rotation->w   = (axisX.y - axisY.x) * s;
-					rotation->x   = (axisZ.x + axisX.z) * s;
-					rotation->y   = (axisZ.y + axisY.z) * s;
+					const float s = 0.5f / std::sqrt(1.0f + axisZ.z() - axisX.x() - axisY.y());
+					rotation->w   = (axisX.y() - axisY.x()) * s;
+					rotation->x   = (axisZ.x() + axisX.z()) * s;
+					rotation->y   = (axisZ.y() + axisY.z()) * s;
 					rotation->z   = 0.25f / s;
 				}
 			}
@@ -715,7 +713,7 @@ public:
 	{
 		static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 
-		auto mat = MatrixT::identity();
+		auto mat  = MatrixT::identity();
 		mat(3, 0) = v.x;
 		mat(3, 1) = v.y;
 		mat(3, 2) = v.z;
@@ -812,9 +810,9 @@ public:
 		static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 
 		MatrixT mat;
-		mat(0, 0) = scale.x;
-		mat(1, 1) = scale.y;
-		mat(2, 2) = scale.z;
+		mat(0, 0) = scale.x();
+		mat(1, 1) = scale.y();
+		mat(2, 2) = scale.z();
 		return mat;
 	}
 
@@ -907,17 +905,17 @@ public:
 
 		auto mat = MatrixT::identity();
 
-		mat(0, 0) = r.x;
-		mat(1, 0) = r.y;
-		mat(2, 0) = r.z;
+		mat(0, 0) = r.x();
+		mat(1, 0) = r.y();
+		mat(2, 0) = r.z();
 
-		mat(0, 1) = u.x;
-		mat(1, 1) = u.y;
-		mat(2, 1) = u.z;
+		mat(0, 1) = u.x();
+		mat(1, 1) = u.y();
+		mat(2, 1) = u.z();
 
-		mat(0, 2) = -f.x;
-		mat(1, 2) = -f.y;
-		mat(2, 2) = -f.z;
+		mat(0, 2) = -f.x();
+		mat(1, 2) = -f.y();
+		mat(2, 2) = -f.z();
 
 		mat(3, 0) = -r.dot(eye);
 		mat(3, 1) = -u.dot(eye);
@@ -1098,10 +1096,11 @@ MatrixT<T, R, C> constexpr operator/(const T& lhs, const MatrixT<T, R, C>& rhs)
 	return rhs / lhs;
 }
 
-inline Vector4f operator*(const MatrixT<float, 4, 4>& mat, const Vector4f& vec)
+inline Vectorf<4> operator*(const MatrixT<float, 4, 4>& mat, const Vectorf<4>& vec)
 {
-	Vector4f result;
+	Vectorf<4> result;
 
+	// TODO: Use new SIMD functions
 	__m128 m[4];
 	__m128 v = {};
 	simd::load(m, mat.data());
@@ -1112,13 +1111,13 @@ inline Vector4f operator*(const MatrixT<float, 4, 4>& mat, const Vector4f& vec)
 	return result;
 }
 
-inline Vector4f& operator*=(Vector4f& vec, const MatrixT<float, 4, 4>& mat)
+inline Vectorf<4>& operator*=(Vectorf<4>& vec, const MatrixT<float, 4, 4>& mat)
 {
 	vec = mat * vec;
 	return vec;
 }
 
-inline Vector4f operator*(const Vector4f& vec, const MatrixT<float, 4, 4>& mat)
+inline Vectorf<4> operator*(const Vectorf<4>& vec, const MatrixT<float, 4, 4>& mat)
 {
 	return mat * vec;
 }

@@ -3,12 +3,13 @@
 
 #pragma once
 
-#include "../check.hpp"
-#include "../hash_combine.hpp"
-#include "../helper.hpp"
+#include "check.hpp"
+#include "hash_combine.hpp"
+#include "helper.hpp"
 #include <algorithm>
 #include <cmath>
 #include <cstddef>
+#include <initializer_list>
 #include <iomanip>
 #include <iostream>
 #include <numeric>
@@ -53,6 +54,13 @@ public:
 	 * @param span 范围.
 	 */
 	constexpr explicit VectorT(const std::span<T, N>& span) { std::ranges::copy(span, v_); }
+
+	constexpr VectorT(std::initializer_list<T>&& list)
+	{
+		size_t i = 0;
+		for(auto it = list.begin(); it != list.end(); ++it)
+			(*this)[i++] = *it;
+	}
 
 	/**
 	 * @brief 获取模, 即长度.
@@ -356,7 +364,6 @@ struct std::hash<VectorT<T, N>>
 	}
 };
 
-/*
 template <arithmetic T>
 using Vector2T = VectorT<T, 2>;
 
@@ -383,7 +390,6 @@ using Vector4d = VectorT<double, 4>;
 using Vector4i = VectorT<int32_t, 4>;
 using Vector4  = Vector4f;
 using Size4    = VectorT<size_t, 4>;
-*/
 
 /**
  * @class VectorT
