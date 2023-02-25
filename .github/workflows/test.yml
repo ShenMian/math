@@ -29,36 +29,6 @@ jobs:
       - name: Setup cppkg
         run: cargo install --git https://github.com/ShenMian/cppkg
 
-      - name: Build (Debug)
-        if: matrix.type == 'debug'
-        run: cppkg build
-
-      - name: Build (Release)
-        if: matrix.type == 'release'
-        run: cppkg build -r
-
-      # - name: Configure CMake
-      #   run: cmake -DCMAKE_BUILD_TYPE=${{matrix.type}} -B "${{github.workspace}}/target"
-      #
-      # - name: Build
-      #   run: cmake --build "${{github.workspace}}/target" --config ${{matrix.type}}
-
-      - name: Test
-        run: ${{github.workspace}}/target/${{matrix.type}}/math_unit_test --reporters=junit --out=${{github.workspace}}/target/${{matrix.type}}/report.xml
-
-      - name: Benchmark (Release)
-        if: matrix.type == 'release'
-        run: ${{github.workspace}}/target/${{matrix.type}}/math_unit_test -ns -ts=benchmark
-
-      - name: Test Reporter
-        uses: dorny/test-reporter@v1.6.0
-        if: success() || failure()
-        with:
-          name: tests report (${{matrix.os}}-${{matrix.type}})
-          path: report.xml
-          working-directory: ${{github.workspace}}/target/${{matrix.type}}
-          reporter: java-junit
-
       - name: Setup coverage report generator (Ubuntu)
         if: matrix.os == 'ubuntu-latest'
         run: sudo apt-get install gcovr
@@ -69,16 +39,40 @@ jobs:
           choco install OpenCppCoverage -y
           echo "C:/Program Files/OpenCppCoverage" >> $env:GITHUB_PATH
 
-      # - name: Generate coverage report (Ubuntu)
-      #   if: matrix.os == 'ubuntu-latest'
-      #   run: gcovr -r $GITHUB_WORKSPACE -x $GITHUB_WORKSPACE/target/coverage.out -s -f "${{github.workspace}}/include" -f "${{github.workspace}}\tests" ${{ matrix.platform.gcovr_options }} $GITHUB_WORKSPACE
+      - name: Build (Debug)
+        if: matrix.type == 'debug'
+        run: cppkg build
+
+      - name: Build (Release)
+        if: matrix.type == 'release'
+        run: cppkg build -r
+
+      - name: Test
+        run: ${{github.workspace}}/target/${{matrix.type}}/math_unit_test --reporters=junit --out=${{github.workspace}}/target/${{matrix.type}}/test_report.xml
+
+      - name: Test reporter
+        uses: dorny/test-reporter@v1.6.0
+        if: success() || failure()
+        with:
+          name: tests report (${{matrix.os}}-${{matrix.type}})
+          path: ./test_report.xml
+          working-directory: ${{github.workspace}}/target/${{matrix.type}}
+          reporter: java-junit
+
+      - name: Benchmark (Release)
+        if: matrix.type == 'release'
+        run: ${{github.workspace}}/target/${{matrix.type}}/math_unit_test -ns -ts=benchmark
+
+      - name: Generate coverage report (Ubuntu)
+        if: matrix.os == 'ubuntu-latest'
+        # run: gcovr --root "${{github.workspace}}" --filter "${{github.workspace}}/src" --filter "${{github.workspace}}/tests" --cobertura coverage_report.xml # gcovr v5.1
+        run: gcovr --root "${{github.workspace}}" --filter "${{github.workspace}}/src" --filter "${{github.workspace}}/tests" --xml coverage_report.xml # gcovr v5.0
 
       - name: Generate coverage report (Windows)
         if: matrix.os == 'windows-latest'
         run: OpenCppCoverage.exe --sources "${{github.workspace}}" --export_type cobertura:coverage_report.xml -- "${{github.workspace}}/target/${{matrix.build_type}}/math_unit_test.exe"
 
-      - name: Upload coverage report to Codecov (Windows)
-        if: matrix.os == 'windows-latest'
+      - name: Upload coverage report to codecov
         uses: codecov/codecov-action@v3.1.1
         with:
           files: ./coverage_report.xml

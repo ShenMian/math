@@ -6,7 +6,7 @@ cmake_minimum_required(VERSION 3.16)
 project(math
     VERSION      0.0.0
     DESCRIPTION  "A simple linear algebra header-only library."
-    HOMEPAGE_URL "https://github.com/ShenMian/Math"
+    HOMEPAGE_URL "https://github.com/ShenMian/math"
     LANGUAGES    CXX)
 
 option(BUILD_TESTS "Build tests" ON)
@@ -37,6 +37,12 @@ if(BUILD_TESTS)
         "${PROJECT_SOURCE_DIR}/src"
         "${PROJECT_SOURCE_DIR}/deps/gcem/include")
     target_compile_features(${PROJECT_NAME}_unit_test PRIVATE cxx_std_20)
+
+    # 启用代码覆盖率测试
+    if ((CMAKE_BUILD_TYPE STREQUAL "Debug" OR CMAKE_BUILD_TYPE STREQUAL "debug") AND (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang"))
+        target_compile_options(${PROJECT_NAME}_unit_test PRIVATE --coverage)
+        target_link_options(${PROJECT_NAME}_unit_test PRIVATE --coverage)
+    endif()
 
     if(WIN32)
         target_compile_definitions(${PROJECT_NAME}_unit_test PUBLIC _CRT_SECURE_NO_WARNINGS _SCL_SECURE_NO_WARNINGS UNICODE _UNICODE NOMINMAX)
