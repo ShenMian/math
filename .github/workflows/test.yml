@@ -6,7 +6,7 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ubuntu-latest] # windows-latest
+        os: [ubuntu-latest, windows-latest]
         type: [debug, release]
 
     name: ${{matrix.os}}-${{matrix.type}}
@@ -47,8 +47,11 @@ jobs:
         if: matrix.type == 'release'
         run: cppkg build -r
 
+      - name: DEBUG
+        run: ${{github.workspace}}/target/${{matrix.type}}/math_unit_test
+
       - name: Test
-        run: ${{github.workspace}}/target/${{matrix.type}}/math_unit_test --reporters=junit --out=${{github.workspace}}/target/${{matrix.type}}/test_report.xml
+        run: ${{github.workspace}}/target/${{matrix.type}}/math_unit_test --reporters=junit --out=test_report.xml
 
       - name: Test reporter
         uses: dorny/test-reporter@v1.6.0
@@ -56,7 +59,6 @@ jobs:
         with:
           name: tests report (${{matrix.os}}-${{matrix.type}})
           path: ./test_report.xml
-          working-directory: ${{github.workspace}}/target/${{matrix.type}}
           reporter: java-junit
 
       - name: Benchmark (Release)
@@ -77,3 +79,9 @@ jobs:
         with:
           files: ./coverage_report.xml
           fail_ci_if_error: true
+
+      # - name: Upload coverage report to codacy
+      #   uses: codacy/codacy-coverage-reporter-action@v1
+      #   with:
+      #     project-token: f0624e5b55864197a1d909f1bfb12634
+      #     coverage-reports: coverage_report.xml
