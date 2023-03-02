@@ -714,9 +714,9 @@ public:
 		static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 
 		auto mat  = MatrixT::identity();
-		mat(3, 0) = v.x;
-		mat(3, 1) = v.y;
-		mat(3, 2) = v.z;
+		mat(3, 0) = v.x();
+		mat(3, 1) = v.y();
+		mat(3, 2) = v.z();
 		return mat;
 	}
 
