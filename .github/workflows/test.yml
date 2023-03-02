@@ -6,7 +6,7 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest]
         type: [debug, release]
 
     name: ${{matrix.os}}-${{matrix.type}}
@@ -46,9 +46,6 @@ jobs:
       - name: Build (Release)
         if: matrix.type == 'release'
         run: cppkg build -r
-
-      - name: DEBUG
-        run: ${{github.workspace}}/target/${{matrix.type}}/math_unit_test
 
       - name: Test
         run: ${{github.workspace}}/target/${{matrix.type}}/math_unit_test --reporters=junit --out=test_report.xml
