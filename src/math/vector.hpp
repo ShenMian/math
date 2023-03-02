@@ -214,7 +214,7 @@ public:
 
 	constexpr VectorT& operator/=(const T& rhs)
 	{
-		check(rhs, "divisor cannot be zero"); // TODO: 添加 T 为浮点数时的判断
+		MATH_DEBUG_CHECK(rhs, "divisor cannot be zero"); // TODO: 添加 T 为浮点数时的判断
 		std::ranges::transform(*this, begin(), [&](T v) { return v / rhs; });
 		return *this;
 	}
