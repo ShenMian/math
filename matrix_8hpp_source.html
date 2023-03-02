@@ -687,9 +687,9 @@ $(document).ready(function(){initNavTree('matrix_8hpp_source.html',''); initResi
 <div class="line"><a id="l00714" name="l00714"></a><span class="lineno">  714</span>        <span class="keyword">static_assert</span>(R == C &amp;&amp; R == 4, <span class="stringliteral">&quot;only 4x4 matrix supports this operation&quot;</span>);</div>
 <div class="line"><a id="l00715" name="l00715"></a><span class="lineno">  715</span> </div>
 <div class="line"><a id="l00716" name="l00716"></a><span class="lineno">  716</span>        <span class="keyword">auto</span> mat  = <a class="code hl_function" href="class_matrix_t.html#af70837cbab6142bfd040ec70b1ba6c64">MatrixT::identity</a>();</div>
-<div class="line"><a id="l00717" name="l00717"></a><span class="lineno">  717</span>        mat(3, 0) = v.x;</div>
-<div class="line"><a id="l00718" name="l00718"></a><span class="lineno">  718</span>        mat(3, 1) = v.y;</div>
-<div class="line"><a id="l00719" name="l00719"></a><span class="lineno">  719</span>        mat(3, 2) = v.z;</div>
+<div class="line"><a id="l00717" name="l00717"></a><span class="lineno">  717</span>        mat(3, 0) = v.x();</div>
+<div class="line"><a id="l00718" name="l00718"></a><span class="lineno">  718</span>        mat(3, 1) = v.y();</div>
+<div class="line"><a id="l00719" name="l00719"></a><span class="lineno">  719</span>        mat(3, 2) = v.z();</div>
 <div class="line"><a id="l00720" name="l00720"></a><span class="lineno">  720</span>        <span class="keywordflow">return</span> mat;</div>
 <div class="line"><a id="l00721" name="l00721"></a><span class="lineno">  721</span>    }</div>
 <div class="line"><a id="l00722" name="l00722"></a><span class="lineno">  722</span> </div>
