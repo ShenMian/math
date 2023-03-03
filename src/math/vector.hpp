@@ -117,9 +117,20 @@ public:
 	 */
 	constexpr VectorT cross(const VectorT& rhs) const
 	{
-		// TODO
-		MATH_DEBUG_CHECK(false);
-		return VectorT<T, N>();
+		if constexpr(N == 3)
+		{
+			VectorT result;
+			result.x() = y() * rhs.z() - z() * rhs.y();
+			result.y() = z() * rhs.x() - x() * rhs.z();
+			result.z() = x() * rhs.y() - y() * rhs.x();
+			return result;
+		}
+		else
+		{
+			// TODO
+			MATH_DEBUG_CHECK(false);
+			return VectorT<T, N>();
+		}
 	}
 
 	/**
