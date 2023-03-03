@@ -55,8 +55,9 @@ public:
 	 */
 	constexpr explicit VectorT(const std::span<T, N>& span) { std::ranges::copy(span, v_); }
 
-	constexpr VectorT(std::initializer_list<T>&& list)
+	constexpr VectorT(const std::initializer_list<T>&& list)
 	{
+		MATH_DEBUG_CHECK(list.size() == components());
 		size_t i = 0;
 		for(auto it = list.begin(); it != list.end(); ++it)
 			(*this)[i++] = *it;
