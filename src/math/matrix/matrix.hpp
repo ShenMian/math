@@ -15,6 +15,10 @@
 
 #define ROW_MANJOR true
 
+// 防止 windows.h 定义的宏造成意外的替换
+#undef near
+#undef far
+
 template <std::floating_point T>
 class QuaternionT;
 
