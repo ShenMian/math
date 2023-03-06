@@ -146,7 +146,7 @@ public:
 	/**
 	 * @brief 获取最小元素的值.
 	 */
-	constexpr T minCoeff() const
+	constexpr T min_coeff() const
 	{
 		const auto& mat = *this;
 		T           min = std::numeric_limits<T>::max();
@@ -160,7 +160,7 @@ public:
 	/**
 	 * @brief 获取最大元素的值.
 	 */
-	constexpr T maxCoeff() const
+	constexpr T max_coeff() const
 	{
 		const auto& mat = *this;
 		T           max = std::numeric_limits<T>::min();
@@ -282,7 +282,7 @@ public:
 	 *
 	 * @return *this.
 	 */
-	MatrixT& rotateX(float angle)
+	MatrixT& rotate_x(float angle)
 	{
 		static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 
@@ -313,7 +313,7 @@ public:
 	 *
 	 * @return *this.
 	 */
-	MatrixT& rotateY(float angle)
+	MatrixT& rotate_y(float angle)
 	{
 		static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 
@@ -344,7 +344,7 @@ public:
 	 *
 	 * @return *this.
 	 */
-	MatrixT& rotateZ(float angle)
+	MatrixT& rotate_z(float angle)
 	{
 		static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 
@@ -391,7 +391,7 @@ public:
 	{
 		static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 
-		auto& mat = *this;
+		const auto& mat = *this;
 		if(translation)
 		{
 			translation->x() = mat(3, 0);
@@ -402,65 +402,68 @@ public:
 		if(scale == nullptr && rotation == nullptr)
 			return;
 
-		auto axisX  = Vector3T<T>({mat(0, 0), mat(0, 1), mat(0, 2)});
-		auto axisY  = Vector3T<T>({mat(1, 0), mat(1, 1), mat(1, 2)});
-		auto axisZ  = Vector3T<T>({mat(2, 0), mat(2, 1), mat(2, 2)});
-		auto scaleX = axisX.norm();
-		auto scaleY = axisY.norm();
-		auto scaleZ = axisZ.norm();
+		auto axis_x = mat.row(0);
+		auto axis_y = mat.row(1);
+		auto axis_z = mat.row(2);
+		// auto axis_x  = Vector3T<T>({mat(0, 0), mat(0, 1), mat(0, 2)});
+		// auto axis_y  = Vector3T<T>({mat(1, 0), mat(1, 1), mat(1, 2)});
+		// auto axis_z  = Vector3T<T>({mat(2, 0), mat(2, 1), mat(2, 2)});
+		const auto scale_x = axis_x.norm();
+		const auto scale_y = axis_y.norm();
+		auto scale_z = axis_z.norm();
 		if(determinant() < 0)
-			scaleZ = -scaleZ;
+			scale_z = -scale_z;
 
 		if(scale)
 		{
-			scale->x() = scaleX;
-			scale->y() = scaleY;
-			scale->z() = scaleZ;
+			scale->x() = scale_x;
+			scale->y() = scale_y;
+			scale->z() = scale_z;
 		}
 
 		if(rotation)
 		{
-			if(scaleX < std::numeric_limits<T>::epsilon() || scaleY < std::numeric_limits<T>::epsilon() ||
-			   scaleZ < std::numeric_limits<T>::epsilon())
+			if(scale_x < std::numeric_limits<T>::epsilon() || scale_y < std::numeric_limits<T>::epsilon() ||
+			   scale_z < std::numeric_limits<T>::epsilon())
 				return; // 除数过于接近 0, 无法完成计算
 
-			axisX.normalize();
-			axisY.normalize();
-			axisZ.normalize();
-			const float trace = axisX.x() + axisY.y() + axisZ.z() + 1.0f;
+			axis_x.normalize();
+			axis_y.normalize();
+			axis_z.normalize();
+			const float trace = axis_x.x() + axis_y.y() + axis_z.z() + 1.0f;
 
 			if(trace > std::numeric_limits<T>::epsilon())
 			{
 				const float s = 0.5f / std::sqrt(trace);
 				rotation->w   = 0.25f / s;
-				rotation->x   = (axisY.z() - axisZ.y()) * s;
-				rotation->y   = (axisZ.x() - axisX.z()) * s;
-				rotation->z   = (axisX.y() - axisY.x()) * s;
+				rotation->x   = (axis_y.z() - axis_z.y()) * s;
+				rotation->y   = (axis_z.x() - axis_x.z()) * s;
+				rotation->z   = (axis_x.y() - axis_y.x()) * s;
 			}
 			else
 			{
-				if(axisX.x() > axisY.y() && axisX.x() > axisZ.z())
+				if(axis_x.x() > axis_y.y() && axis_x.x() > axis_z.z())
 				{
-					const float s = 0.5f / std::sqrt(1.0f + axisX.x() - axisY.y() - axisZ.z());
-					rotation->w   = (axisY.z() - axisZ.y()) * s;
+					const float s = 0.5f / std::sqrt(1.0f + axis_x.x() - axis_y.y() - axis_z.z());
+					rotation->w   = (axis_y.z() - axis_z.y()) * s;
 					rotation->x   = 0.25f / s;
-					rotation->y   = (axisY.x() + axisX.y()) * s;
-					rotation->z   = (axisZ.x() + axisX.z()) * s;
+					rotation->y   = (axis_y.x() + axis_x.y()) * s;
+					rotation->z   = (axis_z.x() + axis_x.z()) * s;
 				}
-				else if(axisY.y() > axisZ.z())
+				else if(axis_y.y() > axis_z.z())
 				{
-					const float s = 0.5f / std::sqrt(1.0f + axisY.y() - axisX.x() - axisZ.z());
-					rotation->w   = (axisZ.x() - axisX.z()) * s;
-					rotation->x   = (axisY.x() + axisX.y()) * s;
+					const float s = 0.5f / std::sqrt(1.0f + axis_y.y() - axis_x.x() - axis_z.z());
+					rotation->w   = (axis_z.x() - axis_x.z()) * s;
+					rotation->x   = (axis_y.x() + axis_x.y()) * s;
 					rotation->y   = 0.25f / s;
-					rotation->z   = (axisZ.y() + axisY.z()) * s;
+					rotation->z   = (axis_z.y() + axis_y.z()) * s;
 				}
 				else
 				{
-					const float s = 0.5f / std::sqrt(1.0f + axisZ.z() - axisX.x() - axisY.y());
-					rotation->w   = (axisX.y() - axisY.x()) * s;
-					rotation->x   = (axisZ.x() + axisX.z()) * s;
-					rotation->y   = (axisZ.y() + axisY.z()) * s;
+					const float s = 0.5f / std::sqrt(1.0f + axis_z.z() - axis_x.x() - axis_y.y());
+					rotation->w   = (axis_x.y() - axis_y.x()) * s;
+					rotation->x   = (axis_z.x() + axis_x.z()) * s;
+					rotation->y   = (axis_z.y() + axis_y.z()) * s;
 					rotation->z   = 0.25f / s;
 				}
 			}

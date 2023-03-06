@@ -23,12 +23,12 @@ TEST_CASE("vector")
 		CHECK_THROWS_AS(vec.at(2), std::out_of_range);
 	}
 
-	SUBCASE("minCoeff")
+	SUBCASE("min_coeff")
 	{
 		CHECK_EQ(vec.min_coeff(), doctest::Approx(1.f));
 	}
 
-	SUBCASE("maxCoeff")
+	SUBCASE("max_coeff")
 	{
 		CHECK_EQ(vec.max_coeff(), doctest::Approx(2.f));
 	}

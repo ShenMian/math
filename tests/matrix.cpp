@@ -42,7 +42,7 @@ TEST_CASE("sum")
 	CHECK_EQ(a.sum(), doctest::Approx(10.f));
 }
 
-TEST_CASE("minCoeff")
+TEST_CASE("min_coeff")
 {
 	// clang-format off
 	Matrix2f a = {
@@ -50,10 +50,10 @@ TEST_CASE("minCoeff")
 		3, 4
 	};
 	// clang-format on
-	CHECK_EQ(a.minCoeff(), doctest::Approx(1.f));
+	CHECK_EQ(a.min_coeff(), doctest::Approx(1.f));
 }
 
-TEST_CASE("maxCoeff")
+TEST_CASE("max_coeff")
 {
 	// clang-format off
 	Matrix2f a = {
@@ -61,7 +61,7 @@ TEST_CASE("maxCoeff")
 		3, 4
 	};
 	// clang-format on
-	CHECK_EQ(a.maxCoeff(), doctest::Approx(4.f));
+	CHECK_EQ(a.max_coeff(), doctest::Approx(4.f));
 }
 
 TEST_CASE("diagonal")
