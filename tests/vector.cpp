@@ -90,4 +90,18 @@ TEST_CASE("midpoint")
 	CHECK_EQ(midpoint(a, b), Vectorf<2>({1.f, 2.f}));
 }
 
+TEST_CASE("angle")
+{
+	Vectorf<2> a({1.f, 1.f});
+	CHECK_EQ(angle(a), doctest::Approx(radians(45.f)));
+}
+
+TEST_CASE("distance")
+{
+	Vectorf<2> a({0.f, 0.f});
+	Vectorf<2> b({3.f, 4.f});
+	CHECK_EQ(distance(a, b), doctest::Approx(5.f));
+}
+
+
 TEST_SUITE_END;

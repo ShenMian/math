@@ -376,6 +376,26 @@ struct std::hash<VectorT<T, N>>
 	}
 };
 
+template <std::floating_point T>
+const float angle(const VectorT<T, 2>& v)
+{
+	return std::atan2(v[1], v[0]);
+}
+
+template <std::floating_point T, size_t N>
+    requires(N == 2 || N == 3)
+const float distance(const VectorT<T, N>& from, const VectorT<T, N>& to)
+{
+	return (to - from).norm();
+}
+
+template <std::floating_point T, size_t N>
+    requires(N == 2 || N == 3)
+const float distance_sq(const VectorT<T, N>& from, const VectorT<T, N>& to)
+{
+	return (to - from).norm_sq();
+}
+
 template <arithmetic T>
 using Vector2T = VectorT<T, 2>;
 
