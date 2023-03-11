@@ -53,7 +53,11 @@ public:
 	 *
 	 * @param span 范围.
 	 */
-	constexpr explicit VectorT(const std::span<T, N>& span) { std::ranges::copy(span, v_); }
+	constexpr explicit VectorT(const std::span<T, N>& span)
+	{
+		MATH_DEBUG_CHECK(span.size() == components());
+		std::ranges::copy(span, v_);
+	}
 
 	constexpr VectorT(const std::initializer_list<T>&& list)
 	{
@@ -172,10 +176,10 @@ public:
 	constexpr T*       data() { return v_; }
 	constexpr const T* data() const { return v_; }
 
-	auto begin() noexcept { return std::span(v_).begin(); }
-	auto end() noexcept { return std::span(v_).end(); }
-	auto begin() const noexcept { return std::span(v_).begin(); }
-	auto end() const noexcept { return std::span(v_).end(); }
+	constexpr auto begin() noexcept { return std::span(v_).begin(); }
+	constexpr auto end() noexcept { return std::span(v_).end(); }
+	constexpr auto begin() const noexcept { return std::span(v_).begin(); }
+	constexpr auto end() const noexcept { return std::span(v_).end(); }
 
 	constexpr T& at(size_t index)
 	{

@@ -4,6 +4,7 @@
 #pragma once
 
 #include "check.hpp"
+#include <span>
 
 #if defined(_MSC_VER) && (defined(_M_X64) || defined(_M_IX86))
 #define USE_SSE

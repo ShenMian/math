@@ -3,9 +3,10 @@
 
 #pragma once
 
-#include "../check.hpp"
-#include "../helper.hpp"
-#include "../simd.hpp"
+#include "check.hpp"
+#include "helper.hpp"
+#include "simd.hpp"
+#include "vector.hpp"
 #include <algorithm>
 #include <cstddef>
 #include <cstring>
@@ -410,7 +411,7 @@ public:
 		// auto axis_z  = Vector3T<T>({mat(2, 0), mat(2, 1), mat(2, 2)});
 		const auto scale_x = axis_x.norm();
 		const auto scale_y = axis_y.norm();
-		auto scale_z = axis_z.norm();
+		auto       scale_z = axis_z.norm();
 		if(determinant() < 0)
 			scale_z = -scale_z;
 

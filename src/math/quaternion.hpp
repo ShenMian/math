@@ -5,7 +5,7 @@
 
 #include "hash_combine.hpp"
 #include "helper.hpp"
-#include "matrix/matrix.hpp"
+#include "matrix.hpp"
 #include "vector.hpp"
 #include <type_traits>
 

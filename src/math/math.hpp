@@ -5,7 +5,7 @@
 
 #include "aabb.hpp"
 #include "easing.hpp"
-#include "matrix/matrix.hpp"
+#include "matrix.hpp"
 #include "quaternion.hpp"
 #include "simd.hpp"
 #include "transform.hpp"

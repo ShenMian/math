@@ -4,7 +4,7 @@
 #pragma once
 
 #include "hash_combine.hpp"
-#include "matrix/matrix.hpp"
+#include "matrix.hpp"
 #include "quaternion.hpp"
 
 class Transform
