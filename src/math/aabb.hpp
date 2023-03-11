@@ -20,7 +20,7 @@ public:
 	/**
 	 * @brief 默认构造函数.
 	 */
-	AABB() = default;
+	constexpr AABB() = default;
 
 	/**
 	 * @brief 构造函数, 通过两个点创建包围盒.
@@ -30,7 +30,7 @@ public:
 	 * @param a 第一个点.
 	 * @param b 第二个点.
 	 */
-	AABB(const Vectorf<N>& a, const Vectorf<N>& b)
+	constexpr AABB(const Vectorf<N>& a, const Vectorf<N>& b)
 	{
 		min_ = Vectorf<N>(std::numeric_limits<float>::max());
 		max_ = Vectorf<N>(std::numeric_limits<float>::min());
@@ -41,12 +41,12 @@ public:
 	/**
 	 * @brief 获取最小点.
 	 */
-	const Vectorf<N>& min() const noexcept { return min_; };
+	constexpr const Vectorf<N>& min() const noexcept { return min_; };
 
 	/**
 	 * @brief 获取最大点.
 	 */
-	const Vectorf<N>& max() const noexcept { return max_; };
+	constexpr const Vectorf<N>& max() const noexcept { return max_; };
 
 	/**
 	 * @brief 判断是否包含指定点.
@@ -56,7 +56,7 @@ public:
 	 * @return true  包含.
 	 * @return false 不包含.
 	 */
-	bool contains(const Vectorf<N>& point) const
+	constexpr bool contains(const Vectorf<N>& point) const
 	{
 		for(size_t i = 0; i < N; i++)
 		{
@@ -74,7 +74,7 @@ public:
 	 * @return true  包含.
 	 * @return false 不包含.
 	 */
-	bool contains(const AABB& aabb) const { return contains(aabb.min_) && contains(aabb.max_); }
+	constexpr bool contains(const AABB& aabb) const { return contains(aabb.min_) && contains(aabb.max_); }
 
 	/**
 	 * @brief 判断是否与 AABB 相交.
@@ -84,14 +84,14 @@ public:
 	 * @return true  相交.
 	 * @return false 不相交.
 	 */
-	bool intersects(const AABB& aabb) const { return contains(aabb.min_) || contains(aabb.max_); }
+	constexpr bool intersects(const AABB& aabb) const { return contains(aabb.min_) || contains(aabb.max_); }
 
 	/**
 	 * @brief 拓展到包含指定点.
 	 *
 	 * @param point 指定点.
 	 */
-	void expand(const Vectorf<N>& point) noexcept
+	constexpr void expand(const Vectorf<N>& point) noexcept
 	{
 		for(size_t i = 0; i < N; i++)
 			min_[i] = std::min(min_[i], point[i]);
@@ -104,7 +104,7 @@ public:
 	 *
 	 * @param point AABB.
 	 */
-	void expand(const AABB& aabb)
+	constexpr void expand(const AABB& aabb)
 	{
 		expand(aabb.min_);
 		expand(aabb.max_);
@@ -113,17 +113,17 @@ public:
 	/**
 	 * @brief 获取几何中心.
 	 */
-	Vectorf<N> center() const noexcept { return (min_ + max_) * .5f; }
+	constexpr Vectorf<N> center() const noexcept { return (min_ + max_) * .5f; }
 
 	/**
 	 * @brief 获取尺寸.
 	 */
-	Vectorf<N> extent() const noexcept { return max_ - min_; }
+	constexpr Vectorf<N> extent() const noexcept { return max_ - min_; }
 
 	/**
 	 * @brief 获取体积.
 	 */
-	float volume() const noexcept
+	constexpr float volume() const noexcept
 	{
 		const auto e = extent();
 
@@ -139,9 +139,9 @@ public:
 	 * @return true  空.
 	 * @return false 非空.
 	 */
-	bool empty() const noexcept { return min_ == max_; }
+	constexpr bool empty() const noexcept { return min_ == max_; }
 
-	bool operator==(const AABB& rhs) const = default;
+	constexpr bool operator==(const AABB& rhs) const = default;
 
 private:
 	Vectorf<N> min_; ///< 最小点.
