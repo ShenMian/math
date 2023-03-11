@@ -24,7 +24,7 @@ public:
 	/**
 	 * @brief 默认构造函数.
 	 */
-	QuaternionT() = default;
+	constexpr QuaternionT() = default;
 
 	/**
 	 * @brief 构造函数.
@@ -34,7 +34,7 @@ public:
 	 * @param z z 分量.
 	 * @param w w 分量.
 	 */
-	QuaternionT(T x, T y, T z, T w) : x(x), y(y), z(z), w(w) {}
+	constexpr QuaternionT(T x, T y, T z, T w) : x(x), y(y), z(z), w(w) {}
 
 	/**
 	 * @brief 构造函数.

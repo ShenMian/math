@@ -10,32 +10,32 @@
 class Transform
 {
 public:
-	Transform() = default;
+	constexpr Transform() = default;
 	Transform(const Matrix4& mat) { mat.decompose(&translation_, &rotation_, &scale_); }
 
-	const Vector3&    translation() const noexcept { return translation_; }
-	const Quaternion& rotation() const noexcept { return rotation_; }
-	const Vector3&    scale() const noexcept { return scale_; }
+	constexpr const Vector3&    translation() const noexcept { return translation_; }
+	constexpr const Quaternion& rotation() const noexcept { return rotation_; }
+	constexpr const Vector3&    scale() const noexcept { return scale_; }
 
-	Vector3& translation() noexcept
+	constexpr Vector3& translation() noexcept
 	{
 		dirty_ = true;
 		return translation_;
 	}
 
-	Quaternion& rotation() noexcept
+	constexpr Quaternion& rotation() noexcept
 	{
 		dirty_ = true;
 		return rotation_;
 	}
 
-	Vector3& scale() noexcept
+	constexpr Vector3& scale() noexcept
 	{
 		dirty_ = true;
 		return scale_;
 	}
 
-	const Matrix4f& matrix() const
+	constexpr const Matrix4f& matrix() const
 	{
 		if(dirty_)
 		{
@@ -45,7 +45,7 @@ public:
 		return matrix_;
 	}
 
-	Transform& operator+=(const Transform& rhs)
+	constexpr Transform& operator+=(const Transform& rhs)
 	{
 		dirty_ = true;
 		translation_ += rhs.translation_;
