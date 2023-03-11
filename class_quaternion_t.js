@@ -1,7 +1,7 @@
 var class_quaternion_t =
 [
-    [ "QuaternionT", "class_quaternion_t.html#aa7463b42972c45dd99f96ebf121766eb", null ],
-    [ "QuaternionT", "class_quaternion_t.html#a69b5157e3d9b3bbf9c4abdefc3eb46d2", null ],
+    [ "QuaternionT", "class_quaternion_t.html#a87ac40fc34e70e6e8390911659b90eeb", null ],
+    [ "QuaternionT", "class_quaternion_t.html#a07ca020b192ae8e9d8d09be9062997d1", null ],
     [ "QuaternionT", "class_quaternion_t.html#ab2ca5ae6a23066f4582b713af8b50595", null ],
     [ "conjugate", "class_quaternion_t.html#a49cc1085986c121315299949aa2f8c68", null ],
     [ "eular", "class_quaternion_t.html#a368e83cb8c2aaf156169f5314cb6f739", null ],
