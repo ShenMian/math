@@ -63,4 +63,4 @@ private:
 	mutable bool     dirty_ = true;
 };
 
-MAKE_HASHABLE(Transform, t.translation(), t.rotation(), t.scale())
+MATH_MAKE_HASHABLE(Transform, t.translation(), t.rotation(), t.scale())

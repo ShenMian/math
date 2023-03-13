@@ -148,8 +148,8 @@ private:
 	Vectorf<N> max_; ///< 最大点.
 };
 
-MAKE_HASHABLE(AABB<2>, t.min(), t.max())
-MAKE_HASHABLE(AABB<3>, t.min(), t.max())
+MATH_MAKE_HASHABLE(AABB<2>, t.min(), t.max())
+MATH_MAKE_HASHABLE(AABB<3>, t.min(), t.max())
 
 /**
  * @class AABB

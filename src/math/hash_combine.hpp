@@ -20,7 +20,7 @@ constexpr void hash_combine(std::size_t& seed, const T& v, Ts... rest) noexcept
 		hash_combine(seed, rest...);
 }
 
-#define MAKE_HASHABLE(type, ...)                                                                                       \
+#define MATH_MAKE_HASHABLE(type, ...)                                                                                  \
 	template <>                                                                                                        \
 	struct std::hash<type>                                                                                             \
 	{                                                                                                                  \
