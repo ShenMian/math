@@ -84,7 +84,15 @@ public:
 	 * @return true  相交.
 	 * @return false 不相交.
 	 */
-	constexpr bool intersects(const AABB& aabb) const { return contains(aabb.min_) || contains(aabb.max_); }
+	constexpr bool intersects(const AABB& aabb) const
+	{
+		for(size_t i = 0; i < N; i++)
+		{
+			if(max_[i] <= aabb.min_[i] || aabb.max_[i] <= min_[i])
+				return false;
+		}
+		return true;
+	}
 
 	/**
 	 * @brief 拓展到包含指定点.

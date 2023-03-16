@@ -6,20 +6,19 @@
 
 TEST_CASE("AABB<3>")
 {
-	AABB<3> aabb({1, 2, 3}, {4, 5, 6});
+	AABB<3> aabb({0, 0, 0}, {3, 3, 3});
 
 	SUBCASE("contains")
 	{
-		CHECK(aabb.contains({2, 3, 4}) == true);
+		CHECK(aabb.contains({2, 3, 3}) == true);
 		CHECK(aabb.contains({-1, 2, 3}) == false);
 	}
 
 	SUBCASE("intersects")
 	{
-		AABB<3> aabb2({0, 1, 2}, {3, 4, 5});
-		AABB<3> aabb3({5, 6, 7}, {8, 9, 10});
-		CHECK(aabb.intersects(aabb2) == true);
-		CHECK(aabb.intersects(aabb3) == false);
+		AABB<3> inner({1, 1, 1}, {2, 2, 2});
+		CHECK(aabb.intersects(inner) == true);
+		CHECK(inner.intersects(aabb) == true);
 	}
 
 	SUBCASE("expand")
@@ -27,15 +26,15 @@ TEST_CASE("AABB<3>")
 		AABB<3> aabb2({-1, -2, -3}, {0, 1, 2});
 		aabb.expand(aabb2);
 		CHECK(aabb.min()[0] == -1);
-		CHECK(aabb.max()[2] == 6);
+		CHECK(aabb.max()[2] == 3);
 	}
 
 	SUBCASE("center")
 	{
 		Vectorf<3> center = aabb.center();
-		CHECK(center[0] == 2.5f);
-		CHECK(center[1] == 3.5f);
-		CHECK(center[2] == 4.5f);
+		CHECK(center[0] == 1.5f);
+		CHECK(center[1] == 1.5f);
+		CHECK(center[2] == 1.5f);
 	}
 
 	SUBCASE("extent")
@@ -103,6 +102,12 @@ TEST_CASE("AABB<2>")
 		CHECK(box.intersects(box1) == true);
 		CHECK(box.intersects(box2) == true);
 		CHECK(box.intersects(box3) == false);
+
+		// 包围体十字形相交, 四个端点都不再对方内部
+		AABB<2> crossA({2, 1}, {3, 7});
+		AABB<2> crossB({2, 5}, {7, 6});
+		CHECK(crossA.intersects(crossB) == true);
+		CHECK(crossB.intersects(crossA) == true);
 	}
 
 	SUBCASE("expand")
