@@ -153,7 +153,7 @@ $(document).ready(function(){initNavTree('vector_8hpp_source.html',''); initResi
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="class_vector_t.html#a4bcbb5cc10f263efca5cc0e0db5506d9">   95</a></span>    <span class="keyword">constexpr</span> <a class="code hl_class" href="class_vector_t.html">VectorT</a>&amp; <a class="code hl_function" href="class_vector_t.html#a4bcbb5cc10f263efca5cc0e0db5506d9">normalize</a>()</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    {</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <span class="keyword">const</span> <span class="keyword">auto</span> len = <a class="code hl_function" href="class_vector_t.html#a2c549a8685b703417286411d9fd586a0">norm</a>();</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <span class="keywordflow">if</span>(len &lt; std::numeric_limits&lt;T&gt;::epsilon())</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <span class="keywordflow">if</span>(len &lt; std::numeric_limits&lt;T&gt;::epsilon()) [[unlikely]]</div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span> *= 1.f / len;</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    }</div>
@@ -205,7 +205,7 @@ $(document).ready(function(){initNavTree('vector_8hpp_source.html',''); initResi
 <div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
 <div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <span class="keyword">constexpr</span> T&amp; at(<span class="keywordtype">size_t</span> index)</div>
 <div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    {</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        <span class="keywordflow">if</span>(index &gt;= <a class="code hl_function" href="class_vector_t.html#a563f20e9cdbbe3c20b5dacdcc921f235">components</a>())</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        <span class="keywordflow">if</span>(index &gt;= <a class="code hl_function" href="class_vector_t.html#a563f20e9cdbbe3c20b5dacdcc921f235">components</a>()) [[unlikely]]</div>
 <div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>            <span class="keywordflow">throw</span> std::out_of_range(<span class="stringliteral">&quot;subscript out of range&quot;</span>);</div>
 <div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        <span class="keywordflow">return</span> *(v_ + index);</div>
 <div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    }</div>
