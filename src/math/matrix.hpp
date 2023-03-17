@@ -425,7 +425,7 @@ public:
 		if(rotation)
 		{
 			if(scale_x < std::numeric_limits<T>::epsilon() || scale_y < std::numeric_limits<T>::epsilon() ||
-			   scale_z < std::numeric_limits<T>::epsilon())
+			   scale_z < std::numeric_limits<T>::epsilon()) [[unlikely]]
 				return; // 除数过于接近 0, 无法完成计算
 
 			axis_x.normalize();
@@ -1108,7 +1108,7 @@ inline Vectorf<4> operator*(const MatrixT<float, 4, 4>& mat, const Vectorf<4>& v
 {
 	Vectorf<4> result;
 
-	// TODO: Use new SIMD functions
+	// TODO: use simd functions
 	__m128 m[4];
 	__m128 v = {};
 	simd::load(m, mat.data());

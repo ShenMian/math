@@ -95,7 +95,7 @@ public:
 	constexpr VectorT& normalize()
 	{
 		const auto len = norm();
-		if(len < std::numeric_limits<T>::epsilon())
+		if(len < std::numeric_limits<T>::epsilon()) [[unlikely]]
 			return *this;
 		return *this *= 1.f / len;
 	}
@@ -183,7 +183,7 @@ public:
 
 	constexpr T& at(size_t index)
 	{
-		if(index >= components())
+		if(index >= components()) [[unlikely]]
 			throw std::out_of_range("subscript out of range");
 		return *(v_ + index);
 	}
