@@ -8,8 +8,6 @@
 #include "vector.hpp"
 #include <cstddef>
 
-// TODO: template <size_t N> N 维度包围盒
-
 /**
  * @brief N 维轴对齐包围盒.
  */
@@ -31,9 +29,8 @@ public:
 	 * @param b 第二个点.
 	 */
 	constexpr AABB(const Vectorf<N>& a, const Vectorf<N>& b)
+	    : min_(std::numeric_limits<float>::max()), max_(std::numeric_limits<float>::min())
 	{
-		min_ = Vectorf<N>(std::numeric_limits<float>::max());
-		max_ = Vectorf<N>(std::numeric_limits<float>::min());
 		expand(a);
 		expand(b);
 	}
