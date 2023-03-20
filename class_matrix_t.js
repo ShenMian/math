@@ -4,6 +4,7 @@ var class_matrix_t =
     [ "MatrixT", "class_matrix_t.html#a85083ff594b8f39b2118849da737fd32", null ],
     [ "MatrixT", "class_matrix_t.html#a54564a449612d5e96eedffc15090bc42", null ],
     [ "MatrixT", "class_matrix_t.html#ad1c46a7236600f60440e6f7e8238807c", null ],
+    [ "abs", "class_matrix_t.html#a8417accaf4b6e1651317c33c2d69b846", null ],
     [ "col", "class_matrix_t.html#a5b0619a5380497cebb7eb8fc1e424d22", null ],
     [ "cols", "class_matrix_t.html#a31aec19b7a0d0a989abbcb7a5185f450", null ],
     [ "data", "class_matrix_t.html#a31299d5ea3393110d49299163a2ee97f", null ],

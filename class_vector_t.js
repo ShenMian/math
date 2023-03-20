@@ -4,6 +4,7 @@ var class_vector_t =
     [ "VectorT", "class_vector_t.html#aa71f732e9e7689b0172afc15ff4ab95b", null ],
     [ "VectorT", "class_vector_t.html#a2a01fd218f8531cf5912e148d82efcbc", null ],
     [ "VectorT", "class_vector_t.html#a6a1c91e16c228869f76e8aad050911d0", null ],
+    [ "abs", "class_vector_t.html#a61787ce81b0522d69de6160c3deddedc", null ],
     [ "clamp", "class_vector_t.html#ad3c0312d730a36aa46ba2d70bbc28428", null ],
     [ "components", "class_vector_t.html#a563f20e9cdbbe3c20b5dacdcc921f235", null ],
     [ "cross", "class_vector_t.html#a6121eef21255c08c9f78579f5b791ccd", null ],
