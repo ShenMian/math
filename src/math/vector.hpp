@@ -166,6 +166,16 @@ public:
 	}
 
 	/**
+	 * TODO
+	 */
+	constexpr const VectorT& abs() noexcept
+	{
+		for(size_t i = 0; i < N; i++)
+			v_[i] = std::abs(v_[i]);
+		return *this;
+	}
+
+	/**
 	 * @brief 获取分量数.
 	 */
 	constexpr size_t components() const { return components_; }

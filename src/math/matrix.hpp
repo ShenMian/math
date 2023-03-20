@@ -173,6 +173,18 @@ public:
 	}
 
 	/**
+	 * TODO
+	 */
+	constexpr const MatrixT& abs() noexcept
+	{
+		const auto& mat = *this;
+		for(size_t r = 0; r < rows(); r++)
+			for(size_t c = 0; c < cols(); c++)
+				mat(r, c) = std::abs(mat(r, c));
+		return *this;
+	}
+
+	/**
 	 * @brief 获取行列式的值.
 	 */
 	constexpr T determinant() const
