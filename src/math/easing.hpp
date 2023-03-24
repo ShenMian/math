@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include <cmath>
+#include "helper.hpp"
 #include <numbers>
 #include <type_traits>
 
@@ -201,7 +201,7 @@ public:
 	 */
 	static float ease_in_sine(float t, float b, float c, float d)
 	{
-		return -c * cos(t / d * (std::numbers::pi / 2)) + c + b;
+		return -c * detail::cos(t / d * (std::numbers::pi_v<float> / 2)) + c + b;
 	}
 
 	/**
@@ -214,7 +214,7 @@ public:
 	 */
 	static float ease_out_sine(float t, float b, float c, float d)
 	{
-		return c * sin(t / d * (std::numbers::pi / 2)) + b;
+		return c * detail::sin(t / d * (std::numbers::pi_v<float> / 2)) + b;
 	}
 
 	/**
@@ -227,7 +227,7 @@ public:
 	 */
 	static float ease_in_out_sine(float t, float b, float c, float d)
 	{
-		return -c / 2 * (cos(std::numbers::pi * t / d) - 1) + b;
+		return -c / 2 * (detail::cos(std::numbers::pi_v<float> * t / d) - 1) + b;
 	}
 
 	/**
@@ -238,7 +238,7 @@ public:
 	 * @param c 总变化量.
 	 * @param d 持续时间.
 	 */
-	static float ease_in_expo(float t, float b, float c, float d) { return c * pow(2, 10 * (t / d - 1)) + b; }
+	static float ease_in_expo(float t, float b, float c, float d) { return c * detail::pow(2.f, 10 * (t / d - 1)) + b; }
 
 	/**
 	 * @brief 指数淡出.
@@ -262,9 +262,9 @@ public:
 	{
 		t /= d / 2;
 		if(t < 1)
-			return c / 2 * pow(2, 10 * (t - 1)) + b;
+			return c / 2 * detail::pow(2.f, 10 * (t - 1)) + b;
 		t--;
-		return c / 2 * (-pow(2, -10 * t) + 2) + b;
+		return c / 2 * (-detail::pow(2.f, -10 * t) + 2) + b;
 	}
 
 	/**
@@ -278,7 +278,7 @@ public:
 	static float ease_in_circ(float t, float b, float c, float d)
 	{
 		t /= d;
-		return -c * (std::sqrt(1 - t * t) - 1) + b;
+		return -c * (detail::sqrt(1 - t * t) - 1) + b;
 	}
 
 	/**
@@ -292,7 +292,7 @@ public:
 	static float ease_out_circ(float t, float b, float c, float d)
 	{
 		t = t / d - 1;
-		return c * std::sqrt(1 - t * t) + b;
+		return c * detail::sqrt(1 - t * t) + b;
 	}
 
 	/**
@@ -307,9 +307,9 @@ public:
 	{
 		t /= d / 2;
 		if(t < 1)
-			return -c / 2 * (std::sqrt(1 - t * t) - 1) + b;
+			return -c / 2 * (detail::sqrt(1 - t * t) - 1) + b;
 		t -= 2;
-		return c / 2 * (std::sqrt(1 - t * t) + 1) + b;
+		return c / 2 * (detail::sqrt(1 - t * t) + 1) + b;
 	}
 
 	/**
@@ -332,15 +332,15 @@ public:
 			return b + c;
 		if(!p)
 			p = d * .3f;
-		if(a < std::abs(c))
+		if(a < detail::abs(c))
 		{
 			a = c;
 			s = p / 4;
 		}
 		else
-			s = p / (2 * std::numbers::pi) * asin(c / a);
+			s = p / (2 * std::numbers::pi_v<float>) * detail::asin(c / a);
 		t--;
-		return -(a * pow(2, 10 * t) * sin((t * d - s) * (2 * std::numbers::pi) / p)) + b;
+		return -(a * detail::pow(2.f, 10 * t) * detail::sin((t * d - s) * (2 * std::numbers::pi_v<float>) / p)) + b;
 	}
 
 	/**
@@ -363,14 +363,14 @@ public:
 			return b + c;
 		if(!p)
 			p = d * .3f;
-		if(a < std::abs(c))
+		if(a < detail::abs(c))
 		{
 			a = c;
 			s = p / 4;
 		}
 		else
-			s = p / (2 * std::numbers::pi) * asin(c / a);
-		return a * pow(2, -10 * t) * sin((t * d - s) * (2 * std::numbers::pi) / p) + c + b;
+			s = p / (2 * std::numbers::pi_v<float>) * detail::asin(c / a);
+		return a * detail::pow(2.f, -10 * t) * detail::sin((t * d - s) * (2 * std::numbers::pi_v<float>) / p) + c + b;
 	}
 
 	/**
@@ -393,16 +393,16 @@ public:
 			return b + c;
 		if(!p)
 			p = d * (.3f * 1.5f);
-		if(a < std::abs(c))
+		if(a < detail::abs(c))
 		{
 			a = c;
 			s = p / 4;
 		}
 		else
-			s = p / (2 * std::numbers::pi) * asin(c / a);
+			s = p / (2 * std::numbers::pi_v<float>) * detail::asin(c / a);
 		if(t-- < 1)
-			return -.5f * (a * pow(2, 10 * t) * sin((t * d - s) * (2 * std::numbers::pi) / p)) + b;
-		return a * pow(2, -10 * t) * sin((t * d - s) * (2 * std::numbers::pi) / p) * .5f + c + b;
+			return -.5f * (a * detail::pow(2.f, 10 * t) * detail::sin((t * d - s) * (2 * std::numbers::pi_v<float>) / p)) + b;
+		return a * detail::pow(2.f, -10 * t) * detail::sin((t * d - s) * (2 * std::numbers::pi_v<float>) / p) * .5f + c + b;
 	}
 
 	static float ease_in_back(float t, float b, float c, float d, float s)
