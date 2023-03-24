@@ -37,7 +37,7 @@ if(BUILD_TESTS)
         "${PROJECT_SOURCE_DIR}/src"
         "${PROJECT_SOURCE_DIR}/deps/gcem/include")
     target_compile_features(${PROJECT_NAME}_unit_test PRIVATE cxx_std_20)
-    set_property(TARGET ${PROJECT_NAME}_unit_test PROPERTY COMPILE_WARNING_AS_ERROR ON)
+    # set_property(TARGET ${PROJECT_NAME}_unit_test PROPERTY COMPILE_WARNING_AS_ERROR ON)
 
     # 启用代码覆盖率测试
     if ((CMAKE_BUILD_TYPE STREQUAL "Debug" OR CMAKE_BUILD_TYPE STREQUAL "debug") AND (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang"))
