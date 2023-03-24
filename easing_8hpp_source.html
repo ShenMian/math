@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('easing_8hpp_source.html',''); initResi
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;helper.hpp&quot;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;numbers&gt;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;type_traits&gt;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
@@ -181,20 +181,20 @@ $(document).ready(function(){initNavTree('easing_8hpp_source.html',''); initResi
 <div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
 <div class="line"><a id="l00202" name="l00202"></a><span class="lineno"><a class="line" href="class_easing.html#af9727f3396e52b772a93d983df5c8983">  202</a></span>    <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_function" href="class_easing.html#af9727f3396e52b772a93d983df5c8983">ease_in_sine</a>(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> c, <span class="keywordtype">float</span> d)</div>
 <div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    {</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        <span class="keywordflow">return</span> -c * cos(t / d * (std::numbers::pi / 2)) + c + b;</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        <span class="keywordflow">return</span> -c * detail::cos(t / d * (std::numbers::pi_v&lt;float&gt; / 2)) + c + b;</div>
 <div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    }</div>
 <div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
 <div class="line"><a id="l00215" name="l00215"></a><span class="lineno"><a class="line" href="class_easing.html#a966a9bf2f252bf126a3ef0e4a3d6050f">  215</a></span>    <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_function" href="class_easing.html#a966a9bf2f252bf126a3ef0e4a3d6050f">ease_out_sine</a>(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> c, <span class="keywordtype">float</span> d)</div>
 <div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    {</div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        <span class="keywordflow">return</span> c * sin(t / d * (std::numbers::pi / 2)) + b;</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        <span class="keywordflow">return</span> c * detail::sin(t / d * (std::numbers::pi_v&lt;float&gt; / 2)) + b;</div>
 <div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    }</div>
 <div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span> </div>
 <div class="line"><a id="l00228" name="l00228"></a><span class="lineno"><a class="line" href="class_easing.html#a6b1192f58642a2564c4688ce5287deb6">  228</a></span>    <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_function" href="class_easing.html#a6b1192f58642a2564c4688ce5287deb6">ease_in_out_sine</a>(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> c, <span class="keywordtype">float</span> d)</div>
 <div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    {</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        <span class="keywordflow">return</span> -c / 2 * (cos(std::numbers::pi * t / d) - 1) + b;</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        <span class="keywordflow">return</span> -c / 2 * (detail::cos(std::numbers::pi_v&lt;float&gt; * t / d) - 1) + b;</div>
 <div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    }</div>
 <div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno"><a class="line" href="class_easing.html#ad76eaa1345e00bd56ff76cd63bb3a628">  241</a></span>    <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_function" href="class_easing.html#ad76eaa1345e00bd56ff76cd63bb3a628">ease_in_expo</a>(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> c, <span class="keywordtype">float</span> d) { <span class="keywordflow">return</span> c * pow(2, 10 * (t / d - 1)) + b; }</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno"><a class="line" href="class_easing.html#ad76eaa1345e00bd56ff76cd63bb3a628">  241</a></span>    <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_function" href="class_easing.html#ad76eaa1345e00bd56ff76cd63bb3a628">ease_in_expo</a>(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> c, <span class="keywordtype">float</span> d) { <span class="keywordflow">return</span> c * detail::pow(2.f, 10 * (t / d - 1)) + b; }</div>
 <div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
 <div class="line"><a id="l00251" name="l00251"></a><span class="lineno"><a class="line" href="class_easing.html#a8463a90c2653932880344afce9b919f8">  251</a></span>    <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_function" href="class_easing.html#a8463a90c2653932880344afce9b919f8">ease_out_expo</a>(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> c, <span class="keywordtype">float</span> d) { <span class="keywordflow">return</span> c * (-pow(2, -10 * t / d) + 1) + b; }</div>
 <div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
@@ -202,30 +202,30 @@ $(document).ready(function(){initNavTree('easing_8hpp_source.html',''); initResi
 <div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    {</div>
 <div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>        t /= d / 2;</div>
 <div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        <span class="keywordflow">if</span>(t &lt; 1)</div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>            <span class="keywordflow">return</span> c / 2 * pow(2, 10 * (t - 1)) + b;</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>            <span class="keywordflow">return</span> c / 2 * detail::pow(2.f, 10 * (t - 1)) + b;</div>
 <div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>        t--;</div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>        <span class="keywordflow">return</span> c / 2 * (-pow(2, -10 * t) + 2) + b;</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>        <span class="keywordflow">return</span> c / 2 * (-detail::pow(2.f, -10 * t) + 2) + b;</div>
 <div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>    }</div>
 <div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span> </div>
 <div class="line"><a id="l00278" name="l00278"></a><span class="lineno"><a class="line" href="class_easing.html#a69ab8cac693d9f883dc14d0cbf1a347c">  278</a></span>    <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_function" href="class_easing.html#a69ab8cac693d9f883dc14d0cbf1a347c">ease_in_circ</a>(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> c, <span class="keywordtype">float</span> d)</div>
 <div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    {</div>
 <div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>        t /= d;</div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>        <span class="keywordflow">return</span> -c * (std::sqrt(1 - t * t) - 1) + b;</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>        <span class="keywordflow">return</span> -c * (detail::sqrt(1 - t * t) - 1) + b;</div>
 <div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>    }</div>
 <div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span> </div>
 <div class="line"><a id="l00292" name="l00292"></a><span class="lineno"><a class="line" href="class_easing.html#af585e923492ae50832ea22f366adb885">  292</a></span>    <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_function" href="class_easing.html#af585e923492ae50832ea22f366adb885">ease_out_circ</a>(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> c, <span class="keywordtype">float</span> d)</div>
 <div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>    {</div>
 <div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>        t = t / d - 1;</div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>        <span class="keywordflow">return</span> c * std::sqrt(1 - t * t) + b;</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>        <span class="keywordflow">return</span> c * detail::sqrt(1 - t * t) + b;</div>
 <div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>    }</div>
 <div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span> </div>
 <div class="line"><a id="l00306" name="l00306"></a><span class="lineno"><a class="line" href="class_easing.html#ac9cb08aad34f3668a3719d1ac65d7c23">  306</a></span>    <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_function" href="class_easing.html#ac9cb08aad34f3668a3719d1ac65d7c23">ease_in_out_circ</a>(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> c, <span class="keywordtype">float</span> d)</div>
 <div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    {</div>
 <div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>        t /= d / 2;</div>
 <div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>        <span class="keywordflow">if</span>(t &lt; 1)</div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>            <span class="keywordflow">return</span> -c / 2 * (std::sqrt(1 - t * t) - 1) + b;</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>            <span class="keywordflow">return</span> -c / 2 * (detail::sqrt(1 - t * t) - 1) + b;</div>
 <div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>        t -= 2;</div>
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>        <span class="keywordflow">return</span> c / 2 * (std::sqrt(1 - t * t) + 1) + b;</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>        <span class="keywordflow">return</span> c / 2 * (detail::sqrt(1 - t * t) + 1) + b;</div>
 <div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>    }</div>
 <div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span> </div>
 <div class="line"><a id="l00323" name="l00323"></a><span class="lineno"><a class="line" href="class_easing.html#af0e4bb2b5f263564c0ef18c316cd13d5">  323</a></span>    <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_function" href="class_easing.html#af0e4bb2b5f263564c0ef18c316cd13d5">ease_in_elastic</a>(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> c, <span class="keywordtype">float</span> d)</div>
@@ -240,15 +240,15 @@ $(document).ready(function(){initNavTree('easing_8hpp_source.html',''); initResi
 <div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>            <span class="keywordflow">return</span> b + c;</div>
 <div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>        <span class="keywordflow">if</span>(!p)</div>
 <div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>            p = d * .3f;</div>
-<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>        <span class="keywordflow">if</span>(a &lt; std::abs(c))</div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>        <span class="keywordflow">if</span>(a &lt; detail::abs(c))</div>
 <div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>        {</div>
 <div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>            a = c;</div>
 <div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>            s = p / 4;</div>
 <div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>        }</div>
 <div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>            s = p / (2 * std::numbers::pi) * asin(c / a);</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>            s = p / (2 * std::numbers::pi_v&lt;float&gt;) * detail::asin(c / a);</div>
 <div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>        t--;</div>
-<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>        <span class="keywordflow">return</span> -(a * pow(2, 10 * t) * sin((t * d - s) * (2 * std::numbers::pi) / p)) + b;</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>        <span class="keywordflow">return</span> -(a * detail::pow(2.f, 10 * t) * detail::sin((t * d - s) * (2 * std::numbers::pi_v&lt;float&gt;) / p)) + b;</div>
 <div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>    }</div>
 <div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span> </div>
 <div class="line"><a id="l00354" name="l00354"></a><span class="lineno"><a class="line" href="class_easing.html#ae0276dd71fccd59628e99ab90f70852b">  354</a></span>    <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_function" href="class_easing.html#ae0276dd71fccd59628e99ab90f70852b">ease_out_elastic</a>(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> c, <span class="keywordtype">float</span> d)</div>
@@ -263,14 +263,14 @@ $(document).ready(function(){initNavTree('easing_8hpp_source.html',''); initResi
 <div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>            <span class="keywordflow">return</span> b + c;</div>
 <div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>        <span class="keywordflow">if</span>(!p)</div>
 <div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>            p = d * .3f;</div>
-<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>        <span class="keywordflow">if</span>(a &lt; std::abs(c))</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>        <span class="keywordflow">if</span>(a &lt; detail::abs(c))</div>
 <div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>        {</div>
 <div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>            a = c;</div>
 <div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>            s = p / 4;</div>
 <div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>        }</div>
 <div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>            s = p / (2 * std::numbers::pi) * asin(c / a);</div>
-<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>        <span class="keywordflow">return</span> a * pow(2, -10 * t) * sin((t * d - s) * (2 * std::numbers::pi) / p) + c + b;</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>            s = p / (2 * std::numbers::pi_v&lt;float&gt;) * detail::asin(c / a);</div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>        <span class="keywordflow">return</span> a * detail::pow(2.f, -10 * t) * detail::sin((t * d - s) * (2 * std::numbers::pi_v&lt;float&gt;) / p) + c + b;</div>
 <div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>    }</div>
 <div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span> </div>
 <div class="line"><a id="l00384" name="l00384"></a><span class="lineno"><a class="line" href="class_easing.html#a6a98b43753e4509bd0821da66602f60e">  384</a></span>    <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_function" href="class_easing.html#a6a98b43753e4509bd0821da66602f60e">ease_in_out_elastic</a>(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> c, <span class="keywordtype">float</span> d)</div>
@@ -285,16 +285,16 @@ $(document).ready(function(){initNavTree('easing_8hpp_source.html',''); initResi
 <div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>            <span class="keywordflow">return</span> b + c;</div>
 <div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>        <span class="keywordflow">if</span>(!p)</div>
 <div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>            p = d * (.3f * 1.5f);</div>
-<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>        <span class="keywordflow">if</span>(a &lt; std::abs(c))</div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>        <span class="keywordflow">if</span>(a &lt; detail::abs(c))</div>
 <div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>        {</div>
 <div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>            a = c;</div>
 <div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>            s = p / 4;</div>
 <div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>        }</div>
 <div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>            s = p / (2 * std::numbers::pi) * asin(c / a);</div>
+<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>            s = p / (2 * std::numbers::pi_v&lt;float&gt;) * detail::asin(c / a);</div>
 <div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>        <span class="keywordflow">if</span>(t-- &lt; 1)</div>
-<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>            <span class="keywordflow">return</span> -.5f * (a * pow(2, 10 * t) * sin((t * d - s) * (2 * std::numbers::pi) / p)) + b;</div>
-<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>        <span class="keywordflow">return</span> a * pow(2, -10 * t) * sin((t * d - s) * (2 * std::numbers::pi) / p) * .5f + c + b;</div>
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>            <span class="keywordflow">return</span> -.5f * (a * detail::pow(2.f, 10 * t) * detail::sin((t * d - s) * (2 * std::numbers::pi_v&lt;float&gt;) / p)) + b;</div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>        <span class="keywordflow">return</span> a * detail::pow(2.f, -10 * t) * detail::sin((t * d - s) * (2 * std::numbers::pi_v&lt;float&gt;) / p) * .5f + c + b;</div>
 <div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>    }</div>
 <div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span> </div>
 <div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span>    <span class="keyword">static</span> <span class="keywordtype">float</span> ease_in_back(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> c, <span class="keywordtype">float</span> d, <span class="keywordtype">float</span> s)</div>
