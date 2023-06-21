@@ -32,10 +32,10 @@ if(BUILD_TESTS)
     file(GLOB_RECURSE SOURCES "tests/*.cpp" "tests/*.ixx")
     target_sources(${PROJECT_NAME}_unit_test PRIVATE ${SOURCES})
     target_include_directories(${PROJECT_NAME}_unit_test PRIVATE
-        "${PROJECT_SOURCE_DIR}/deps/doctest"
-        "${PROJECT_SOURCE_DIR}/deps/nanobench/src/include"
         "${PROJECT_SOURCE_DIR}/src"
-        "${PROJECT_SOURCE_DIR}/deps/gcem/include")
+        "${PROJECT_SOURCE_DIR}/deps/doctest"
+        "${PROJECT_SOURCE_DIR}/deps/gcem/include"
+        "${PROJECT_SOURCE_DIR}/deps/nanobench/src/include")
     target_compile_features(${PROJECT_NAME}_unit_test PRIVATE cxx_std_20)
     # set_property(TARGET ${PROJECT_NAME}_unit_test PROPERTY COMPILE_WARNING_AS_ERROR ON)
 

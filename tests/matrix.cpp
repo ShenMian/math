@@ -92,7 +92,7 @@ TEST_CASE("translate")
 TEST_CASE("front/back/right/left/up/down")
 {
 	// TODO
-	// auto mat = Matrix4f::lookAt(Vector3f::unit, Vector3f::unit - Vector3f::unit_z, Vector3f::up);
+	// auto mat = Matrix4f::look_at(Vector3f::unit, Vector3f::unit - Vector3f::unit_z, Vector3f::up);
 	//
 	// SUBCASE("front")
 	// {
@@ -193,11 +193,11 @@ TEST_CASE("translate")
 TEST_CASE("rotation")
 {
 	// TODO
-	// auto a = Matrix4f::createRotation(radians(90.f), Vector3f::unit_z);
+	// auto a = Matrix4f::create_rotation(radians(90.f), Vector3f::unit_z);
 	// CHECK_EQ(a * Vectorf<4>({1.f, 0.f, 0.f, 1.f}), Vectorf<4>({0.f, 1.f, 0.f, 1.f}));
 }
 
-TEST_CASE("createScale")
+TEST_CASE("create_scale")
 {
 	auto a = Matrix4f::identity();
 	// clang-format off
@@ -208,7 +208,7 @@ TEST_CASE("createScale")
 		0, 0, 0, 1
 	};
 	// clang-format on
-	CHECK_EQ(a.createScale(Vector3f(2.f)), b);
+	CHECK_EQ(a.create_scale(Vector3f(2.f)), b);
 }
 
 TEST_CASE("perspective" * doctest::skip(true))
@@ -223,10 +223,10 @@ TEST_CASE("orthographic" * doctest::skip(true))
 	Matrix4f::orthogonal(-1, 1, -1, 1, -1, 1);
 }
 
-TEST_CASE("lookAt" * doctest::skip(true))
+TEST_CASE("look_at" * doctest::skip(true))
 {
 	// TODO
-	Matrix4f::lookAt(Vector3f(1.f), Vector3f(0.f), Vector3f({0.f, 1.f, 0.f}));
+	Matrix4f::look_at(Vector3f(1.f), Vector3f(0.f), Vector3f({0.f, 1.f, 0.f}));
 }
 
 TEST_CASE("identity")

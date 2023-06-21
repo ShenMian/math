@@ -284,7 +284,7 @@ public:
 	MatrixT& rotate(const QuaternionT<T>& rotation)
 	{
 		auto& mat = *this;
-		mat *= MatrixT::createRotation(rotation);
+		mat *= MatrixT::create_rotation(rotation);
 		return *this;
 	}
 
@@ -729,7 +729,7 @@ public:
 	 *
 	 * @param translation 平移向量. 指定了三个轴的变化量.
 	 */
-	static MatrixT createTranslate(const Vector3T<T>& v)
+	static MatrixT create_translate(const Vector3T<T>& v)
 	{
 		static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 
@@ -745,7 +745,7 @@ public:
 	 *
 	 * @param rotation 四元数.
 	 */
-	static MatrixT createRotation(const QuaternionT<T>& q)
+	static MatrixT create_rotation(const QuaternionT<T>& q)
 	{
 		const float x2 = q.x + q.x;
 		const float y2 = q.y + q.y;
@@ -782,7 +782,7 @@ public:
 	 * @param axis  旋转轴.
 	 * @param angle 旋转角度, 单位: 弧度.
 	 */
-	static MatrixT createRotation(float angle, Vector3T<T> axis)
+	static MatrixT create_rotation(float angle, Vector3T<T> axis)
 	{
 		static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 		MATH_DEBUG_CHECK(axis == Vector3T<T>::unit_x || axis == Vector3T<T>::unit_y || axis == Vector3T<T>::unit_z);
@@ -825,7 +825,7 @@ public:
 	 *
 	 * @param scale 缩放向量. 指定了三个轴的缩放比.
 	 */
-	static MatrixT createScale(const Vector3T<T>& scale)
+	static MatrixT create_scale(const Vector3T<T>& scale)
 	{
 		static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 
@@ -912,7 +912,7 @@ public:
 	 * @param target 目标的位置.
 	 * @param up     观察者向上的方向.
 	 */
-	static MatrixT<T, 4, 4> lookAt(const Vector3T<T>& eye, const Vector3T<T>& target,
+	static MatrixT<T, 4, 4> look_at(const Vector3T<T>& eye, const Vector3T<T>& target,
 	                               const Vector3T<T>& up = Vector3T<T>::up)
 	{
 		static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
@@ -976,7 +976,7 @@ public:
 	 *
 	 * @param angle 旋转角度, 单位: 弧度.
 	 */
-	[[deprecated]] static MatrixT createRotationX(float angle)
+	[[deprecated]] static MatrixT create_rotation_x(float angle)
 	{
 		static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 
@@ -996,7 +996,7 @@ public:
 	 *
 	 * @param angle 旋转角度, 单位: 弧度.
 	 */
-	[[deprecated]] static MatrixT createRotationY(float angle)
+	[[deprecated]] static MatrixT create_rotation_y(float angle)
 	{
 		static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 
@@ -1016,7 +1016,7 @@ public:
 	 *
 	 * @param angle 旋转角度, 单位: 弧度.
 	 */
-	[[deprecated]] static MatrixT createRotationZ(float angle)
+	[[deprecated]] static MatrixT create_rotation_z(float angle)
 	{
 		static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
 
