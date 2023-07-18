@@ -847,7 +847,7 @@ public:
 	static MatrixT<T, 4, 4> perspective(T vFOV, T aspect, T near, T far)
 	{
 		static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
-		static_assert(std::is_floating_point_v<T>);
+		static_assert(std::is_floating_point_v<T>, "element type must be floating point");
 		MATH_DEBUG_CHECK(!equal(aspect, 0.f));
 		MATH_DEBUG_CHECK(near != far);
 
@@ -873,7 +873,7 @@ public:
 	static MatrixT<T, 4, 4> orthogonal(T width, T height, T near, T far)
 	{
 		static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
-		static_assert(std::is_floating_point_v<T>);
+		static_assert(std::is_floating_point_v<T>, "element type must be floating point");
 
 		return orthogonal(-width / T(2), width / T(2), -height / T(2), height / T(2), near, far);
 	}
@@ -891,7 +891,7 @@ public:
 	static MatrixT<T, 4, 4> orthogonal(T left, T right, T bottom, T top, T near, T far)
 	{
 		static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
-		static_assert(std::is_floating_point_v<T>);
+		static_assert(std::is_floating_point_v<T>, "element type must be floating point");
 		MATH_DEBUG_CHECK(!equal(left, right) && !equal(bottom, top) && !equal(near, far));
 
 		auto mat  = MatrixT::zero();
@@ -916,7 +916,7 @@ public:
 	                               const Vector3T<T>& up = Vector3T<T>::up)
 	{
 		static_assert(R == C && R == 4, "only 4x4 matrix supports this operation");
-		static_assert(std::is_floating_point_v<T>);
+		static_assert(std::is_floating_point_v<T>, "element type must be floating point");
 
 		Vector3T<T> f((target - eye).normalize()); // front
 		Vector3T<T> u(up.normalized());            // up
